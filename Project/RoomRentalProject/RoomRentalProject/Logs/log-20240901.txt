@@ -1,0 +1,394 @@
+2024-09-01 17:02:54.635 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:02:54.887 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:03:14.299 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:03:17.774 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Error occurred during the email confirmation process.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。)
+ ---> System.ComponentModel.Win32Exception (10060): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10060,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserRepository.UserRepository.GetByEmailAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserRepository\UserRepository.cs:line 99
+   at DBL.User_Service.UserService.UserService.ForgotPasswordRequestAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserService\UserService.cs:line 728
+2024-09-01 17:03:17.815 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Error occurred during the email confirmation process.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。)
+ ---> System.ComponentModel.Win32Exception (10060): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10060,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserRepository.UserRepository.GetByEmailAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserRepository\UserRepository.cs:line 99
+   at DBL.User_Service.UserService.UserService.ForgotPasswordRequestAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserService\UserService.cs:line 728
+2024-09-01 17:03:17.815 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Error occurred during the email confirmation process.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。)
+ ---> System.ComponentModel.Win32Exception (10060): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10060,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserRepository.UserRepository.GetByEmailAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserRepository\UserRepository.cs:line 99
+   at DBL.User_Service.UserService.UserService.ForgotPasswordRequestAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserService\UserService.cs:line 728
+2024-09-01 17:03:54.892 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:04:26.472 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Error occurred during the email confirmation process.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。)
+ ---> System.ComponentModel.Win32Exception (10060): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10060,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserRepository.UserRepository.GetByEmailAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserRepository\UserRepository.cs:line 99
+   at DBL.User_Service.UserService.UserService.ForgotPasswordRequestAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserService\UserService.cs:line 728
+2024-09-01 17:06:17.452 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:06:48.544 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Error occurred during the email confirmation process.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。)
+ ---> System.ComponentModel.Win32Exception (10060): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10060,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserRepository.UserRepository.GetByEmailAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserRepository\UserRepository.cs:line 99
+   at DBL.User_Service.UserService.UserService.ForgotPasswordRequestAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserService\UserService.cs:line 728
+2024-09-01 17:07:52.964 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:08:14.056 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Error occurred during the email confirmation process.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。)
+ ---> System.ComponentModel.Win32Exception (10060): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10060,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserRepository.UserRepository.GetByEmailAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserRepository\UserRepository.cs:line 99
+   at DBL.User_Service.UserService.UserService.ForgotPasswordRequestAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserService\UserService.cs:line 728
+2024-09-01 17:09:33.711 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:09:54.798 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Error occurred during the email confirmation process.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。)
+ ---> System.ComponentModel.Win32Exception (10060): 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10060,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserRepository.UserRepository.GetByEmailAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserRepository\UserRepository.cs:line 99
+   at DBL.User_Service.UserService.UserService.ForgotPasswordRequestAsync(String email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserService\UserService.cs:line 728
+2024-09-01 17:12:18.336 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:12:19.385 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:14:49.181 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:14:49.215 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:16:24.163 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:16:24.167 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:16:29.596 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:16:29.601 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:16:32.282 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:16:32.285 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:16:33.264 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:16:33.268 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:16:45.230 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:16:45.233 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:18:02.473 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:18:02.477 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:18:07.196 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@email.com
+2024-09-01 17:18:07.200 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:18:19.647 +08:00 [INF] Main (GetUserList) | Receive Request Get User List, User Listing Request: {"Username":null,"Name":null,"Email":null,"Phone":null,"Role":null,"Status":null,"SearchTerm":null,"PageNumber":1,"PageSize":10,"SortDescending":false,"SortBy":null}
+2024-09-01 17:18:19.886 +08:00 [INF] DBL (GetUserListingAsync) | Response User List: [{"Id":"20240901171404400566","Name":"Admin 1","Username":"admin1","Email":"woonyap616@gmail.com","Phone":"0123456789","Role":"Admin","Status":"Active"},{"Id":"20240901171406460005","Name":"Admin 2","Username":"admin2","Email":"kaixuan0131@gmail.com","Phone":"0123456789","Role":"Admin","Status":"Active"},{"Id":"20240901171406749682","Name":"Merchant 1","Username":"merchant1","Email":"merchant@merchant.com","Phone":"0123456789","Role":"Merchant","Status":"Active"}]
+2024-09-01 17:19:09.211 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@email.com
+2024-09-01 17:19:39.479 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:22:40.655 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:22:49.548 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:22:49.550 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:22:49.920 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:22:49.920 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:22:50.102 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:22:50.102 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:24:51.885 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:24:51.890 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:24:51.890 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:24:51.980 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:24:51.980 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:24:51.986 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:24:51.986 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:24:56.715 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@gmail.com
+2024-09-01 17:24:56.718 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:26:49.547 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@gmail.com
+2024-09-01 17:26:49.550 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:26:59.749 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:26:59.755 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:28:06.206 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@email.com
+2024-09-01 17:28:06.211 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:29:13.766 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@emai.com
+2024-09-01 17:29:13.768 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:30:07.565 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@eac.oc
+2024-09-01 17:30:07.574 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:30:59.572 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@eaec.cddc
+2024-09-01 17:30:59.575 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:32:02.650 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@eac.ccd
+2024-09-01 17:32:02.655 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:32:26.456 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@eac.ccd
+2024-09-01 17:32:26.460 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:32:42.414 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@eac.co
+2024-09-01 17:32:42.418 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:33:24.219 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@eac.ccc
+2024-09-01 17:33:24.223 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:35:35.474 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@ea.coc
+2024-09-01 17:35:35.478 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:36:25.339 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@eac.coc
+2024-09-01 17:36:25.347 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:36:49.595 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: test@eac.cc
+2024-09-01 17:36:49.600 +08:00 [ERR] DBL (ForgotPasswordRequestAsync) | Forgot Password request failed: User not found.
+2024-09-01 17:36:58.117 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:36:58.122 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:36:58.122 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:36:58.217 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:36:58.217 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:36:58.222 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:36:58.223 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:38:06.439 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:38:06.443 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:38:06.443 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:38:06.516 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:38:06.516 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:38:06.523 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:38:06.523 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:38:30.832 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:38:30.837 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:38:30.837 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:38:30.937 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:38:30.937 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:38:30.942 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:38:30.943 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:39:14.064 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:39:14.068 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:39:14.068 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:39:14.296 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:39:14.296 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:39:14.302 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:39:14.302 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:40:28.542 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:40:28.544 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:40:28.544 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:40:28.845 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:40:28.845 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:40:28.854 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:40:28.854 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:40:37.285 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:40:37.288 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:40:37.288 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:40:37.341 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:40:37.341 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:40:37.346 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:40:37.346 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:41:12.743 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:41:12.749 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:41:12.749 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:41:12.835 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:41:12.835 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:41:12.840 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:41:12.840 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:42:25.410 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:42:25.414 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:42:25.414 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:42:25.534 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:42:25.534 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:42:25.539 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:42:25.539 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:42:42.773 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:42:42.777 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901171406460005, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:42:42.777 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901171406460005, Token Type: ResetPassword
+2024-09-01 17:42:42.860 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:42:42.860 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901171406460005
+2024-09-01 17:42:42.866 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:42:42.866 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901171406460005
+2024-09-01 17:45:31.137 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:45:31.265 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901174514844087, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:45:31.267 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901174514844087, Token Type: ResetPassword
+2024-09-01 17:45:31.675 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:45:31.676 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901174514844087
+2024-09-01 17:45:31.729 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:45:31.729 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901174514844087
+2024-09-01 17:48:02.042 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:48:02.171 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901174742882172, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:48:02.172 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901174742882172, Token Type: ResetPassword
+2024-09-01 17:48:02.509 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:48:02.509 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901174742882172
+2024-09-01 17:48:02.542 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:48:02.543 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901174742882172
+2024-09-01 17:50:41.825 +08:00 [INF] Main (GetUserList) | Receive Request Get User List, User Listing Request: {"Username":null,"Name":null,"Email":null,"Phone":null,"Role":null,"Status":null,"SearchTerm":null,"PageNumber":1,"PageSize":10,"SortDescending":false,"SortBy":null}
+2024-09-01 17:50:42.072 +08:00 [INF] DBL (GetUserListingAsync) | Response User List: [{"Id":"20240901174740226992","Name":"Admin 1","Username":"admin1","Email":"woonyap616@gmail.com","Phone":"0123456789","Role":"Admin","Status":"Active"},{"Id":"20240901174742882172","Name":"Admin 2","Username":"admin2","Email":"kaixuan0131@gmail.com","Phone":"0123456789","Role":"Admin","Status":"Active"},{"Id":"20240901174742118745","Name":"Merchant 1","Username":"merchant1","Email":"merchant@merchant.com","Phone":"0123456789","Role":"Merchant","Status":"Active"}]
+2024-09-01 17:54:03.406 +08:00 [INF] Main (ResetPassword) | Receive Reset Password Request, Token: /z8/slBnumXM5LBGe98KDoHcUOv5MatJBa7aPCagHh8=
+2024-09-01 17:54:06.651 +08:00 [INF] DBL (UpdateResetPasswordAsync) | Receive Request to Reset Password. Token: /z8/slBnumXM5LBGe98KDoHcUOv5MatJBa7aPCagHh8=
+2024-09-01 17:54:07.371 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:54:07.371 +08:00 [INF] DBL (UpdateResetPasswordAsync) | Record Update Successful. User Id: 20240901174742882172
+2024-09-01 17:54:41.961 +08:00 [INF] Main (ResetPassword) | Receive Reset Password Request, Token: /z8/slBnumXM5LBGe98KDoHcUOv5MatJBa7aPCagHh8=
+2024-09-01 17:54:41.961 +08:00 [INF] DBL (UpdateResetPasswordAsync) | Receive Request to Reset Password. Token: /z8/slBnumXM5LBGe98KDoHcUOv5MatJBa7aPCagHh8=
+2024-09-01 17:54:55.484 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 17:54:55.488 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901174742882172, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:54:55.488 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901174742882172, Token Type: ResetPassword
+2024-09-01 17:54:55.534 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 17:54:55.534 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901174742882172
+2024-09-01 17:54:55.540 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 17:54:55.540 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901174742882172
+2024-09-01 20:47:58.468 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 20:47:58.607 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901204345435193, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 20:47:58.608 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901204345435193, Token Type: ResetPassword
+2024-09-01 20:47:59.034 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 20:47:59.034 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901204345435193
+2024-09-01 20:47:59.090 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 20:47:59.090 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901204345435193
+2024-09-01 21:11:08.877 +08:00 [INF] Main (ForgotPassword) | Receive Forgot Password Request, Email: kaixuan0131@gmail.com
+2024-09-01 21:11:09.013 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send reset password email request. User Id: 20240901211054687050, recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 21:11:09.015 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240901211054687050, Token Type: ResetPassword
+2024-09-01 21:11:09.315 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 21:11:09.315 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240901211054687050
+2024-09-01 21:11:09.353 +08:00 [INF] DBL (SendResetPasswordEmailAsync) | Send Reset Password Email Successful. Recipient name: Admin 2, recipient email: kaixuan0131@gmail.com
+2024-09-01 21:11:09.354 +08:00 [INF] DBL (ForgotPasswordRequestAsync) | Reset Password Email resent successfully. User Id: 20240901211054687050
+2024-09-01 21:12:32.372 +08:00 [INF] Main (ResetPassword) | Receive Reset Password Request, Token: FydtKkQRe5Fkf/vcLC7tkdXFUUMAZa1Qp/i/m76dbYE=
+2024-09-01 21:12:32.411 +08:00 [INF] DBL (UpdateResetPasswordAsync) | Receive Request to Reset Password. Token: FydtKkQRe5Fkf/vcLC7tkdXFUUMAZa1Qp/i/m76dbYE=
+2024-09-01 21:12:33.021 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
+2024-09-01 21:12:33.021 +08:00 [INF] DBL (UpdateResetPasswordAsync) | Record Update Successful. User Id: 20240901211054687050
+2024-09-01 21:13:20.130 +08:00 [INF] Main (ResetPassword) | Receive Reset Password Request, Token: FydtKkQRe5Fkf/vcLC7tkdXFUUMAZa1Qp/i/m76dbYE=
+2024-09-01 21:13:20.130 +08:00 [INF] DBL (UpdateResetPasswordAsync) | Receive Request to Reset Password. Token: FydtKkQRe5Fkf/vcLC7tkdXFUUMAZa1Qp/i/m76dbYE=
+2024-09-01 21:13:22.179 +08:00 [INF] Main (ResetPassword) | Receive Reset Password Request, Token: FydtKkQRe5Fkf/vcLC7tkdXFUUMAZa1Qp/i/m76dbYE=
+2024-09-01 21:13:22.179 +08:00 [INF] DBL (UpdateResetPasswordAsync) | Receive Request to Reset Password. Token: FydtKkQRe5Fkf/vcLC7tkdXFUUMAZa1Qp/i/m76dbYE=

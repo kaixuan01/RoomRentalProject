@@ -1,0 +1,761 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\background_workerservice\\logs\\sendemailworker\\20240909.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|solutionrelative:background_workerservice\\logs\\sendemailworker\\20240909.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\background_workerservice\\logs\\sendemailworker\\20240914.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|solutionrelative:background_workerservice\\logs\\sendemailworker\\20240914.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\background_workerservice\\logs\\sendemailworker\\20240822.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|solutionrelative:background_workerservice\\logs\\sendemailworker\\20240822.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\background_workerservice\\worker\\sendemailworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|solutionrelative:background_workerservice\\worker\\sendemailworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\controllers\\user_controller\\userrolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\controllers\\user_controller\\userrolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\user_service\\userservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\user_service\\userservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\user_service\\userroleservice\\userroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\user_service\\userroleservice\\userroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\userrp\\userrole\\userrolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\userrp\\userrole\\userrolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\userrp\\userrole\\iuserrolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\userrp\\userrole\\iuserrolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\userrp\\userrepository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\userrp\\userrepository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\controllers\\user_controller\\userloginhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\controllers\\user_controller\\userloginhistorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\tools\\cloneobjecthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\tools\\cloneobjecthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\audittrail_service\\audittrailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\audittrail_service\\audittrailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\email_service\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\email_service\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\email_service\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\email_service\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\user_service\\usertokensservice\\usertokensservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\user_service\\usertokensservice\\usertokensservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\logs\\log-20240909.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\logs\\log-20240909.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\user_service\\usertokensservice\\iusertokensservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\user_service\\usertokensservice\\iusertokensservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\extension\\startupextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\extension\\startupextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\data\\dbinitializerseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\data\\dbinitializerseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\background_workerservice\\extension\\startupextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|solutionrelative:background_workerservice\\extension\\startupextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\background_workerservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|solutionrelative:background_workerservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\background_workerservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|solutionrelative:background_workerservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\audittrailrp\\audittrailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\audittrailrp\\audittrailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\userrp\\userloginhistoryrepository\\userloginhistoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\userrp\\userloginhistoryrepository\\userloginhistoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\systemconfigrp\\systemconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\systemconfigrp\\systemconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\systemconfigrp\\isystemconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\systemconfigrp\\isystemconfigrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\userrp\\usertokens\\usertokensrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\userrp\\usertokens\\usertokensrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\tools\\listinghelper\\listinghelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\tools\\listinghelper\\listinghelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\userrp\\usertokens\\iusertokensrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\userrp\\usertokens\\iusertokensrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\emailrp\\iemailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\emailrp\\iemailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dal\\repository\\emailrp\\emailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94430D16-6AE9-4C88-A488-2EE0F2C555B3}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\emailrp\\emailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72DA26B2-0AD8-42CA-B6FD-C96A16C7E162}|Utils\\Utils.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\utils\\constantcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72DA26B2-0AD8-42CA-B6FD-C96A16C7E162}|Utils\\Utils.csproj|solutionrelative:utils\\constantcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\controllers\\oauthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\controllers\\oauthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\user_service\\userservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\user_service\\userservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\controllers\\user_controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\controllers\\user_controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\e-commerce.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\e-commerce.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\middleware\\jwtmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\middleware\\jwtmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\e-commerce\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21D6F2-D5E4-49CA-B6B9-4AA728EC965D}|E-commerce\\E-commerce.csproj|solutionrelative:e-commerce\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\background_workerservice\\background_workerservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D55671AC-A185-4A40-9552-5350B43A0C2F}|Background_WorkerService\\Background_WorkerService.csproj|solutionrelative:background_workerservice\\background_workerservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72DA26B2-0AD8-42CA-B6FD-C96A16C7E162}|Utils\\Utils.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\utils\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72DA26B2-0AD8-42CA-B6FD-C96A16C7E162}|Utils\\Utils.csproj|solutionrelative:utils\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\user_service\\userservice\\useractionclass\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\user_service\\userservice\\useractionclass\\resetpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|d:\\kai xuan\\projectbase\\project\\e-commerce\\dbl\\resource\\emailtemplatedesign\\resetpasswordemailtemplate.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8B80B4D-AD1E-46E8-90A0-9E654CB5B84E}|DBL\\DBL.csproj|solutionrelative:dbl\\resource\\emailtemplatedesign\\resetpasswordemailtemplate.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20240909.txt",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Logs\\SendEmailWorker\\20240909.txt",
+              "RelativeDocumentMoniker": "Background_WorkerService\\Logs\\SendEmailWorker\\20240909.txt",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Logs\\SendEmailWorker\\20240909.txt",
+              "RelativeToolTip": "Background_WorkerService\\Logs\\SendEmailWorker\\20240909.txt",
+              "ViewState": "AQIAAAoCAAAAAAAAAAAAABUCAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-09-14T04:18:10.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20240914.txt",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Logs\\SendEmailWorker\\20240914.txt",
+              "RelativeDocumentMoniker": "Background_WorkerService\\Logs\\SendEmailWorker\\20240914.txt",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Logs\\SendEmailWorker\\20240914.txt",
+              "RelativeToolTip": "Background_WorkerService\\Logs\\SendEmailWorker\\20240914.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-09-14T04:18:00.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20240822.txt",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Logs\\SendEmailWorker\\20240822.txt",
+              "RelativeDocumentMoniker": "Background_WorkerService\\Logs\\SendEmailWorker\\20240822.txt",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Logs\\SendEmailWorker\\20240822.txt",
+              "RelativeToolTip": "Background_WorkerService\\Logs\\SendEmailWorker\\20240822.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-09-14T04:17:54.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Program.cs",
+              "RelativeDocumentMoniker": "E-commerce\\Program.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Program.cs",
+              "RelativeToolTip": "E-commerce\\Program.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAmwB8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T11:21:07.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\Email_Service\\IEmailService.cs",
+              "RelativeDocumentMoniker": "DBL\\Email_Service\\IEmailService.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\Email_Service\\IEmailService.cs",
+              "RelativeToolTip": "DBL\\Email_Service\\IEmailService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T09:56:15.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\Email_Service\\EmailService.cs",
+              "RelativeDocumentMoniker": "DBL\\Email_Service\\EmailService.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\Email_Service\\EmailService.cs",
+              "RelativeToolTip": "DBL\\Email_Service\\EmailService.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAIwGcAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T16:11:23.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IUserTokensService.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserTokensService\\IUserTokensService.cs",
+              "RelativeDocumentMoniker": "DBL\\User_Service\\UserTokensService\\IUserTokensService.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserTokensService\\IUserTokensService.cs",
+              "RelativeToolTip": "DBL\\User_Service\\UserTokensService\\IUserTokensService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:24:59.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserRoleRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserRole\\UserRoleRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\UserRP\\UserRole\\UserRoleRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserRole\\UserRoleRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\UserRP\\UserRole\\UserRoleRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:32:34.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserRoleService.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserRoleService\\UserRoleService.cs",
+              "RelativeDocumentMoniker": "DBL\\User_Service\\UserRoleService\\UserRoleService.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserRoleService\\UserRoleService.cs",
+              "RelativeToolTip": "DBL\\User_Service\\UserRoleService\\UserRoleService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:34:19.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRoleController.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Controllers\\User_Controller\\UserRoleController.cs",
+              "RelativeDocumentMoniker": "E-commerce\\Controllers\\User_Controller\\UserRoleController.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Controllers\\User_Controller\\UserRoleController.cs",
+              "RelativeToolTip": "E-commerce\\Controllers\\User_Controller\\UserRoleController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAADwvyAAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:34:52.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SendEmailWorker.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Worker\\SendEmailWorker.cs",
+              "RelativeDocumentMoniker": "Background_WorkerService\\Worker\\SendEmailWorker.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Worker\\SendEmailWorker.cs",
+              "RelativeToolTip": "Background_WorkerService\\Worker\\SendEmailWorker.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T09:55:51.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserRepository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\UserRP\\UserRepository\\UserRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserRepository\\UserRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\UserRP\\UserRepository\\UserRepository.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAIwEUAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T09:19:28.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserService\\UserService.cs",
+              "RelativeDocumentMoniker": "DBL\\User_Service\\UserService\\UserService.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserService\\UserService.cs",
+              "RelativeToolTip": "DBL\\User_Service\\UserService\\UserService.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAQwEwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T14:54:17.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IUserRoleRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserRole\\IUserRoleRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\UserRP\\UserRole\\IUserRoleRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserRole\\IUserRoleRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\UserRP\\UserRole\\IUserRoleRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T14:19:02.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "StartUpExtension.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Extension\\StartUpExtension.cs",
+              "RelativeDocumentMoniker": "E-commerce\\Extension\\StartUpExtension.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Extension\\StartUpExtension.cs",
+              "RelativeToolTip": "E-commerce\\Extension\\StartUpExtension.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAIwBQAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T13:21:39.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserLoginHistoryController.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Controllers\\User_Controller\\UserLoginHistoryController.cs",
+              "RelativeDocumentMoniker": "E-commerce\\Controllers\\User_Controller\\UserLoginHistoryController.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Controllers\\User_Controller\\UserLoginHistoryController.cs",
+              "RelativeToolTip": "E-commerce\\Controllers\\User_Controller\\UserLoginHistoryController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T14:14:13.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "DAL\\Models\\AppDbContext.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "DAL\\Models\\AppDbContext.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAIwHAAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:55:11.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserTokensService.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserTokensService\\UserTokensService.cs",
+              "RelativeDocumentMoniker": "DBL\\User_Service\\UserTokensService\\UserTokensService.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserTokensService\\UserTokensService.cs",
+              "RelativeToolTip": "DBL\\User_Service\\UserTokensService\\UserTokensService.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwDoAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T13:17:27.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CloneObjectHelper.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\Tools\\CloneObjectHelper.cs",
+              "RelativeDocumentMoniker": "DBL\\Tools\\CloneObjectHelper.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\Tools\\CloneObjectHelper.cs",
+              "RelativeToolTip": "DBL\\Tools\\CloneObjectHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T14:11:16.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AuditTrailService.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\AuditTrail_Service\\AuditTrailService.cs",
+              "RelativeDocumentMoniker": "DBL\\AuditTrail_Service\\AuditTrailService.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\AuditTrail_Service\\AuditTrailService.cs",
+              "RelativeToolTip": "DBL\\AuditTrail_Service\\AuditTrailService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwEoAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T11:26:53.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "log-20240909.txt",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Logs\\log-20240909.txt",
+              "RelativeDocumentMoniker": "E-commerce\\Logs\\log-20240909.txt",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Logs\\log-20240909.txt",
+              "RelativeToolTip": "E-commerce\\Logs\\log-20240909.txt",
+              "ViewState": "AQIAAOEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-09-09T13:58:06.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DBInitializerSeedData.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Data\\DBInitializerSeedData.cs",
+              "RelativeDocumentMoniker": "DAL\\Data\\DBInitializerSeedData.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Data\\DBInitializerSeedData.cs",
+              "RelativeToolTip": "DAL\\Data\\DBInitializerSeedData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFsAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:30:10.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Program.cs",
+              "RelativeDocumentMoniker": "Background_WorkerService\\Program.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Program.cs",
+              "RelativeToolTip": "Background_WorkerService\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T11:27:18.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\appsettings.json",
+              "RelativeDocumentMoniker": "Background_WorkerService\\appsettings.json",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\appsettings.json",
+              "RelativeToolTip": "Background_WorkerService\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAACQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-01T09:44:40.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "StartUpExtension.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Extension\\StartUpExtension.cs",
+              "RelativeDocumentMoniker": "Background_WorkerService\\Extension\\StartUpExtension.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Extension\\StartUpExtension.cs",
+              "RelativeToolTip": "Background_WorkerService\\Extension\\StartUpExtension.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAcwCAAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:34:39.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AuditTrailRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\AuditTrailRP\\AuditTrailRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\AuditTrailRP\\AuditTrailRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\AuditTrailRP\\AuditTrailRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\AuditTrailRP\\AuditTrailRepository.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAEwBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:34:07.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "UserLoginHistoryRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserLoginHistoryRepository\\UserLoginHistoryRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\UserRP\\UserLoginHistoryRepository\\UserLoginHistoryRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserLoginHistoryRepository\\UserLoginHistoryRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\UserRP\\UserLoginHistoryRepository\\UserLoginHistoryRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:32:15.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "SystemConfigRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\SystemConfigRP\\SystemConfigRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\SystemConfigRP\\SystemConfigRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\SystemConfigRP\\SystemConfigRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\SystemConfigRP\\SystemConfigRepository.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAIA4wB8AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:32:05.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ISystemConfigRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\SystemConfigRP\\ISystemConfigRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\SystemConfigRP\\ISystemConfigRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\SystemConfigRP\\ISystemConfigRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\SystemConfigRP\\ISystemConfigRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:31:57.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "UserTokensRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserTokens\\UserTokensRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\UserRP\\UserTokens\\UserTokensRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserTokens\\UserTokensRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\UserRP\\UserTokens\\UserTokensRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:31:40.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ListingHelper.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Tools\\ListingHelper\\ListingHelper.cs",
+              "RelativeDocumentMoniker": "DAL\\Tools\\ListingHelper\\ListingHelper.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Tools\\ListingHelper\\ListingHelper.cs",
+              "RelativeToolTip": "DAL\\Tools\\ListingHelper\\ListingHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:29:57.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IUserTokensRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserTokens\\IUserTokensRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\UserRP\\UserTokens\\IUserTokensRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\UserRP\\UserTokens\\IUserTokensRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\UserRP\\UserTokens\\IUserTokensRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T13:25:17.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "IEmailRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\EmailRP\\IEmailRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\EmailRP\\IEmailRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\EmailRP\\IEmailRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\EmailRP\\IEmailRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T13:03:54.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "EmailRepository.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\EmailRP\\EmailRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\EmailRP\\EmailRepository.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DAL\\Repository\\EmailRP\\EmailRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\EmailRP\\EmailRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T13:04:10.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\appsettings.json",
+              "RelativeDocumentMoniker": "E-commerce\\appsettings.json",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\appsettings.json",
+              "RelativeToolTip": "E-commerce\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-28T11:54:58.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ConstantCode.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Utils\\ConstantCode.cs",
+              "RelativeDocumentMoniker": "Utils\\ConstantCode.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Utils\\ConstantCode.cs",
+              "RelativeToolTip": "Utils\\ConstantCode.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAcwBoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T09:46:58.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "OAuthController.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Controllers\\OAuthController.cs",
+              "RelativeDocumentMoniker": "E-commerce\\Controllers\\OAuthController.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Controllers\\OAuthController.cs",
+              "RelativeToolTip": "E-commerce\\Controllers\\OAuthController.cs",
+              "ViewState": "AQIAAKAAAAAAAAAAAAAAALYAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T16:00:02.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserService\\IUserService.cs",
+              "RelativeDocumentMoniker": "DBL\\User_Service\\UserService\\IUserService.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserService\\IUserService.cs",
+              "RelativeToolTip": "DBL\\User_Service\\UserService\\IUserService.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAEwBYAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T16:04:08.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Controllers\\User_Controller\\UserController.cs",
+              "RelativeDocumentMoniker": "E-commerce\\Controllers\\User_Controller\\UserController.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Controllers\\User_Controller\\UserController.cs",
+              "RelativeToolTip": "E-commerce\\Controllers\\User_Controller\\UserController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T13:27:31.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ExceptionMiddleware.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "E-commerce\\Middleware\\ExceptionMiddleware.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeToolTip": "E-commerce\\Middleware\\ExceptionMiddleware.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAewCUAAAB4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T13:26:46.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "E-commerce.csproj",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\E-commerce.csproj",
+              "RelativeDocumentMoniker": "E-commerce\\E-commerce.csproj",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\E-commerce.csproj",
+              "RelativeToolTip": "E-commerce\\E-commerce.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-28T13:39:10.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "JwtMiddleware.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Middleware\\JwtMiddleware.cs",
+              "RelativeDocumentMoniker": "E-commerce\\Middleware\\JwtMiddleware.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\E-commerce\\Middleware\\JwtMiddleware.cs",
+              "RelativeToolTip": "E-commerce\\Middleware\\JwtMiddleware.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T13:27:09.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Utils\\Class1.cs",
+              "RelativeDocumentMoniker": "Utils\\Class1.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Utils\\Class1.cs",
+              "RelativeToolTip": "Utils\\Class1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T11:19:11.02Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "ResetPasswordEmailTemplate.html",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\Resource\\EmailTemplateDesign\\ResetPasswordEmailTemplate.html",
+              "RelativeDocumentMoniker": "DBL\\Resource\\EmailTemplateDesign\\ResetPasswordEmailTemplate.html",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\Resource\\EmailTemplateDesign\\ResetPasswordEmailTemplate.html",
+              "RelativeToolTip": "DBL\\Resource\\EmailTemplateDesign\\ResetPasswordEmailTemplate.html",
+              "ViewState": "AQIAADQAAAAAAAAAAABhwFgAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-08-26T16:15:10.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Background_WorkerService.csproj",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Background_WorkerService.csproj",
+              "RelativeDocumentMoniker": "Background_WorkerService\\Background_WorkerService.csproj",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\Background_WorkerService\\Background_WorkerService.csproj",
+              "RelativeToolTip": "Background_WorkerService\\Background_WorkerService.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-28T11:30:25.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "ResetPassword.cs",
+              "DocumentMoniker": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserService\\UserActionClass\\ResetPassword.cs",
+              "RelativeDocumentMoniker": "DBL\\User_Service\\UserService\\UserActionClass\\ResetPassword.cs",
+              "ToolTip": "D:\\Kai Xuan\\projectBase\\Project\\E-commerce\\DBL\\User_Service\\UserService\\UserActionClass\\ResetPassword.cs",
+              "RelativeToolTip": "DBL\\User_Service\\UserService\\UserActionClass\\ResetPassword.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T16:02:23.568Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

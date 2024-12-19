@@ -1,0 +1,612 @@
+2024-09-09 21:47:56.902 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"test create email","username":"testing123","password":"CBDmelprqbOW0msoaS05ApTW9m+sYfwCx7Alwf8McSM9gK+1ui10zGwJZ8S7VbMU","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:47:59.495 +08:00 [ERR] DBL (CreateAsync) | Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:48:56.281 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"test create email","username":"testing123","password":"z6AYAGfIlN5fAh+A1hzE9mODZcGnc2sfAH7d3lPlAJmYZ4AVtQPIRToxD+jcOw/s","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:49:33.071 +08:00 [ERR] DBL (CreateAsync) | Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:51:36.526 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"Test Create","username":"test","password":"xlhZLet9kR0TCAXOr9TXT5FdesCq+z8hJvgJ69+pmkTM25ZPBSeSh80LX/nSuRrn","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:52:07.951 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"Test Create","username":"test","password":"mpBY7JgGbCpIok2fXepIOHSYlo2J5xh8tShcOM8Ey5cOccP70EWc6IEVK35jyVW3","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:52:08.275 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:52:08.277 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email request. User Id: 20240909215208478599, recipient name: Test Create, recipient email: kaixuan0131@gmail.com
+2024-09-09 21:52:08.278 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240909215208478599, Token Type: EmailConfirmation
+2024-09-09 21:52:08.428 +08:00 [ERR] DBL (CreateAsync) | Exception when insert user's token. User Id: 20240909215208478599, Token Type: EmailConfirmation
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7b92bef5-2443-4d6e-8ce5-3d9d5f9b5ba7
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+2024-09-09 21:52:08.526 +08:00 [ERR] DBL (SendConfirmEmailAsync) | Send Confirm Email Failed. Recipient name: Test Create, recipient email: kaixuan0131@gmail.com
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7b92bef5-2443-4d6e-8ce5-3d9d5f9b5ba7
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+   at DBL.Email_Service.EmailService.SendConfirmEmailAsync(TUser oUser) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 102
+2024-09-09 21:52:08.605 +08:00 [ERR] DBL (CreateAsync) | Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:52:26.533 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"Test Create","username":"test","password":"z1M1t0iocqQVUhu8SPuBVIVlbaELoKhfUKuPjiyQqox5y/aI7dsNCMwmUi5Hzz8r","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:52:43.322 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"Test Create","username":"test","password":"43TOk9XyR4yFZkfX2udPIXQMqvcqOdqdnj/hrUXZdM2cn2d0q6uKq1CYVVPDiB5l","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:52:47.081 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:52:47.874 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email request. User Id: 20240909215243703343, recipient name: Test Create, recipient email: kaixuan0131@gmail.com
+2024-09-09 21:52:47.874 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240909215243703343, Token Type: EmailConfirmation
+2024-09-09 21:52:47.982 +08:00 [ERR] DBL (CreateAsync) | Exception when insert user's token. User Id: 20240909215243703343, Token Type: EmailConfirmation
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7b92bef5-2443-4d6e-8ce5-3d9d5f9b5ba7
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+2024-09-09 21:52:48.051 +08:00 [ERR] DBL (SendConfirmEmailAsync) | Send Confirm Email Failed. Recipient name: Test Create, recipient email: kaixuan0131@gmail.com
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7b92bef5-2443-4d6e-8ce5-3d9d5f9b5ba7
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+   at DBL.Email_Service.EmailService.SendConfirmEmailAsync(TUser oUser) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 102
+2024-09-09 21:53:18.222 +08:00 [ERR] DBL (CreateAsync) | Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:53:46.618 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"Test Create","username":"test","password":"6dJTNp1+IC620okRdfcj9TdaOqGmPyg8+oM2qjSskUrM1LRq1Xk5AHG9j4waRvBl","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:53:54.124 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:53:54.777 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email request. User Id: 20240909215346550173, recipient name: Test Create, recipient email: kaixuan0131@gmail.com
+2024-09-09 21:53:54.777 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240909215346550173, Token Type: EmailConfirmation
+2024-09-09 21:53:54.919 +08:00 [ERR] DBL (CreateAsync) | Exception when insert user's token. User Id: 20240909215346550173, Token Type: EmailConfirmation
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7b92bef5-2443-4d6e-8ce5-3d9d5f9b5ba7
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+2024-09-09 21:53:54.993 +08:00 [ERR] DBL (SendConfirmEmailAsync) | Send Confirm Email Failed. Recipient name: Test Create, recipient email: kaixuan0131@gmail.com
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7b92bef5-2443-4d6e-8ce5-3d9d5f9b5ba7
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+   at DBL.Email_Service.EmailService.SendConfirmEmailAsync(TUser oUser) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 102
+2024-09-09 21:54:40.032 +08:00 [ERR] DBL (CreateAsync) | Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:55:54.898 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"test","username":"test123","password":"1J5NWX10ggm2G53OQ+OrW11dWj9Rnrt+RaGxh6C9gZfG0O5O8L+euVSpyglAsV2y","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:56:05.847 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"test","username":"test123","password":"4FUUc42lB1ncpuaNdTi2KNnT/eNgCZwzZICpDMEi6ayUxhkA/l0RnPZIUzMFFucl","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:56:09.034 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:56:09.035 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email request. User Id: 20240909215605531938, recipient name: test, recipient email: kaixuan0131@gmail.com
+2024-09-09 21:56:09.036 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240909215605531938, Token Type: EmailConfirmation
+2024-09-09 21:56:09.158 +08:00 [ERR] DBL (CreateAsync) | Exception when insert user's token. User Id: 20240909215605531938, Token Type: EmailConfirmation
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:c6599198-5051-4026-a58c-3f8b64a37694
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+2024-09-09 21:56:09.245 +08:00 [ERR] DBL (SendConfirmEmailAsync) | Send Confirm Email Failed. Recipient name: test, recipient email: kaixuan0131@gmail.com
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:c6599198-5051-4026-a58c-3f8b64a37694
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+   at DBL.Email_Service.EmailService.SendConfirmEmailAsync(TUser oUser) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 102
+2024-09-09 21:56:09.321 +08:00 [ERR] DBL (CreateAsync) | Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:56:27.099 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"test","username":"test123","password":"CD0AupN4MMtA4VcWGVQcdmzTAulA20K3JXgO9akwxrIsdYeDTVKutNalY9wCT1Pj","email":"kaixuan0131@gmail.com","userRoleId":2,"phone":"string"}
+2024-09-09 21:56:27.213 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 21:56:27.213 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email request. User Id: 20240909215627677445, recipient name: test, recipient email: kaixuan0131@gmail.com
+2024-09-09 21:56:27.213 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240909215627677445, Token Type: EmailConfirmation
+2024-09-09 21:56:27.329 +08:00 [ERR] DBL (CreateAsync) | Exception when insert user's token. User Id: 20240909215627677445, Token Type: EmailConfirmation
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:c6599198-5051-4026-a58c-3f8b64a37694
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+2024-09-09 21:56:27.402 +08:00 [ERR] DBL (SendConfirmEmailAsync) | Send Confirm Email Failed. Recipient name: test, recipient email: kaixuan0131@gmail.com
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:c6599198-5051-4026-a58c-3f8b64a37694
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+   at DBL.Email_Service.EmailService.SendConfirmEmailAsync(TUser oUser) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 102
+2024-09-09 21:57:29.296 +08:00 [ERR] DBL (CreateAsync) | Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 22:02:49.063 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"test","username":"test123","password":"ty+ag9jXlDBmYDn6TImfcSci+JwgqiW5e3eoZ7FKvLN+S3qUxAFsDCkXrAxgmXFU","email":"kaixuan0131@gmail.com","userRoleId":0,"phone":"string"}
+2024-09-09 22:03:03.530 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: An error occurred while saving the entity changes. See the inner exception for details.
+2024-09-09 22:03:03.542 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email request. User Id: 20240909220249679260, recipient name: test, recipient email: kaixuan0131@gmail.com
+2024-09-09 22:03:03.543 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240909220249679260, Token Type: EmailConfirmation
+2024-09-09 22:05:04.144 +08:00 [ERR] DBL (CreateAsync) | Exception when insert user's token. User Id: 20240909220249679260, Token Type: EmailConfirmation
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 不能将值 NULL 插入列 'Username'，表 'Project_Base.dbo.T_AuditTrail'；列不允许有 Null 值。INSERT 失败。
+INSERT 语句与 FOREIGN KEY 约束"FK_T_AuditTrailDetails_T_AuditTrail_Audit_Trail_Id"冲突。该冲突发生于数据库"Project_Base"，表"dbo.T_AuditTrail", column 'Id'。
+语句已终止。
+语句已终止。
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:3ebacd8c-d636-4ea8-b515-75a6dcb62e3b
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.UserRP.UserTokens.UserTokensRepository.CreateAsync(TUserToken userTokens) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\UserRP\UserTokens\UserTokensRepository.cs:line 18
+   at DBL.User_Service.UserTokensService.UserTokensService.CreateAsync(String UserId, String TokenType) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserTokensService\UserTokensService.cs:line 62
+2024-09-09 22:05:08.933 +08:00 [ERR] DBL (SendConfirmEmailAsync) | Send Confirm Email Failed. Recipient name: test, recipient email: kaixuan0131@gmail.com
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at DBL.Email_Service.EmailService.SendConfirmEmailAsync(TUser oUser) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 104
+2024-09-09 22:05:08.934 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. user id: 20240909220249679260
+2024-09-09 22:06:53.969 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"test","username":"test123","password":"SheFtj+4cMXf3298ZZUKkzaBiz5CLlRuZf5rZOGzacwr3KCYkuGK7AQK/D2vkDpg","email":"test@gmail.com","userRoleId":0,"phone":"string"}
+2024-09-09 22:06:57.801 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"test","username":"test","password":"48Iy+mwa5p6OV1L4xad6KjFEhGfW3UVBCmSylmoKguaU82cSws+OedBYYFp5/Po6","email":"test@gmail.com","userRoleId":0,"phone":"string"}
+2024-09-09 22:08:24.758 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"string","username":"string","password":"Rtl3omThpTqxi6q3y2OGzbDi7DFmegRoS4tgpJCWntzeENPfoI0CtzlEaKOpXhaS","email":"kaixuan0131@gmail.com","userRoleId":0,"phone":"string"}
+2024-09-09 22:08:33.162 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Models.TAuditTrail'. Path 'TAuditTrailDetails[0]'.
+2024-09-09 22:08:33.164 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email request. User Id: 20240909220824622892, recipient name: string, recipient email: kaixuan0131@gmail.com
+2024-09-09 22:08:33.164 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240909220824622892, Token Type: EmailConfirmation
+2024-09-09 22:08:33.205 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240909220824622892
+2024-09-09 22:08:33.247 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email Successful. Recipient name: string, recipient email: kaixuan0131@gmail.com
+2024-09-09 22:08:33.247 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. user id: 20240909220824622892
+2024-09-09 22:09:28.239 +08:00 [INF] DBL (UpdateUserConfirmEmailAsync) | Receive Request to Confirm Email. Token: mr/G1O9wX4AyIJZVI4s/piJGAvJHHjGr0M7UqxRzqJ0=
+2024-09-09 22:09:28.319 +08:00 [ERR] DBL (UpdateUserConfirmEmailAsync) | Error occurred during the email confirmation process.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'User' with type 'DAL.Models.TUser'. Path 'TUserTokens[0]'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.JsonConvert.SerializeObject(Object value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   at DBL.Tools.CloneObjectHelper.Clone[T](T source) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Tools\CloneObjectHelper.cs:line 14
+   at DBL.User_Service.UserService.UserService.UpdateUserConfirmEmailAsync(String token) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserService\UserService.cs:line 597
+2024-09-09 22:09:57.981 +08:00 [INF] DBL (UpdateUserConfirmEmailAsync) | Receive Request to Confirm Email. Token: mr/G1O9wX4AyIJZVI4s/piJGAvJHHjGr0M7UqxRzqJ0=
+2024-09-09 22:12:34.548 +08:00 [INF] DBL (UpdateUserConfirmEmailAsync) | Receive Request to Confirm Email. Token: mr/G1O9wX4AyIJZVI4s/piJGAvJHHjGr0M7UqxRzqJ0=
+2024-09-09 22:12:45.835 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Models.TAuditTrail'. Path 'TAuditTrailDetails[0]'.
+2024-09-09 22:12:45.835 +08:00 [INF] DBL (UpdateUserConfirmEmailAsync) | Record Update Successful. User Id: 20240909220824622892
+2024-09-09 22:13:14.750 +08:00 [INF] DBL (ResendConfirmEmailAsync) | Received request to resend confirmation email. Username: string
+2024-09-09 22:13:14.814 +08:00 [INF] DBL (ResendConfirmEmailAsync) | User attempted to resend confirmation email. User Id: 20240909220824622892
+2024-09-09 22:13:39.368 +08:00 [INF] Main (GetUserList) | Receive Request Get User List, User Listing Request: {"Username":null,"Name":null,"Email":null,"Phone":null,"Role":null,"Status":null,"SearchTerm":null,"PageNumber":1,"PageSize":10,"SortDescending":false,"SortBy":null}
+2024-09-09 22:13:39.485 +08:00 [ERR] DBL (GetUserListingAsync) | Exception Message: The expression 'u.UserRoleId' is invalid inside an 'Include' operation, since it does not represent a property access: 't => t.MyProperty'. To target navigations declared on derived types, use casting ('t => ((Derived)t).MyProperty') or the 'as' operator ('t => (t as Derived).MyProperty'). Collection navigation access can be filtered by composing Where, OrderBy(Descending), ThenBy(Descending), Skip or Take operations. For more information on including related data, see https://go.microsoft.com/fwlink/?LinkID=746393.
+2024-09-09 22:17:49.810 +08:00 [INF] Main (GetUserList) | Receive Request Get User List, User Listing Request: {"Username":null,"Name":null,"Email":null,"Phone":null,"Role":null,"Status":null,"SearchTerm":null,"PageNumber":1,"PageSize":10,"SortDescending":false,"SortBy":null}
+2024-09-09 22:17:49.991 +08:00 [INF] DBL (GetUserListingAsync) | Response User List: [{"Id":"20240909215114772448","Name":"Admin 1","Username":"admin1","Email":"woonyap616@gmail.com","Phone":"0123456789","Role":"Admin","Status":"Active"},{"Id":"20240909215115471377","Name":"Admin 2","Username":"admin2","Email":"kaixuan01@gmail.com","Phone":"0123456789","Role":"Admin","Status":"Active"},{"Id":"20240909215115356015","Name":"Merchant 1","Username":"merchant1","Email":"merchant@merchant.com","Phone":"0123456789","Role":"Merchant","Status":"Active"},{"Id":"20240909220824622892","Name":"string","Username":"string","Email":"kaixuan0131@gmail.com","Phone":"string","Role":"Normal User","Status":"Active"}]
+2024-09-09 22:18:02.793 +08:00 [INF] Main (ViewUser) | Receive Request Get User List, User Id: 20240909215115356015
+2024-09-09 22:18:02.806 +08:00 [INF] DBL (GetByIdAsync) | Response User: {"Id":"20240909215115356015","Username":"merchant1","Password":"TlR9FocFV07c0iB+HkwikmsHTaoF81CV3R5VkiSIRwXezYkczeWNC5a1oSqhZB6L","Name":"Merchant 1","Email":"merchant@merchant.com","Phone":"0123456789","UserRoleId":1,"ICountFailedLogin":0,"IsBlocked":false,"IsEmailVerified":true,"CreatedDate":null,"TUserLoginHistories":[],"TUserTokens":[],"UserRole":null}
+2024-09-09 22:18:33.399 +08:00 [INF] Main (EditUser) | Receive Request to edit user, Request: {"id":"20240909215115356015","name":"merchanttest","password":"string","email":"merchanttest@email.com","userRoleId":1,"phone":"string","address":"string"}
+2024-09-09 22:18:34.140 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Models.TAuditTrail'. Path 'TAuditTrailDetails[0]'.
+2024-09-09 22:18:34.140 +08:00 [INF] DBL (UpdateAsync) | Record Update Successful. User Id: 20240909215115356015
+2024-09-09 22:18:46.581 +08:00 [INF] Main (GetRoleList) | Receive Request Get User Role List.
+2024-09-09 22:18:46.707 +08:00 [ERR] Main (GetRoleList) | Exception when Get User Role List, Message: Self referencing loop detected for property 'UserRole' with type 'DAL.Models.EUserRole'. Path '[0].TUsers[0]'.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'UserRole' with type 'DAL.Models.EUserRole'. Path '[0].TUsers[0]'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.JsonConvert.SerializeObject(Object value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   at DBL.User_Service.UserRoleService.UserRoleService.GetUserRoleListingAsync() in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserRoleService\UserRoleService.cs:line 22
+   at E_commerce.Controllers.User_Controller.UserRoleController.GetRoleList() in D:\Kai Xuan\projectBase\Project\E-commerce\E-commerce\Controllers\User_Controller\UserRoleController.cs:line 32
+2024-09-09 22:19:24.053 +08:00 [INF] Main (GetRoleList) | Receive Request Get User Role List.
+2024-09-09 22:19:29.026 +08:00 [ERR] Main (GetRoleList) | Exception when Get User Role List, Message: Self referencing loop detected for property 'UserRole' with type 'DAL.Models.EUserRole'. Path '[0].TUsers[0]'.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'UserRole' with type 'DAL.Models.EUserRole'. Path '[0].TUsers[0]'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.JsonConvert.SerializeObject(Object value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   at DBL.User_Service.UserRoleService.UserRoleService.GetUserRoleListingAsync() in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserRoleService\UserRoleService.cs:line 22
+   at E_commerce.Controllers.User_Controller.UserRoleController.GetRoleList() in D:\Kai Xuan\projectBase\Project\E-commerce\E-commerce\Controllers\User_Controller\UserRoleController.cs:line 32
+2024-09-09 22:19:35.410 +08:00 [INF] Main (GetRoleList) | Receive Request Get User Role List.
+2024-09-09 22:20:02.771 +08:00 [ERR] Main (GetRoleList) | Exception when Get User Role List, Message: Self referencing loop detected for property 'UserRole' with type 'DAL.Models.EUserRole'. Path '[0].TUsers[0]'.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'UserRole' with type 'DAL.Models.EUserRole'. Path '[0].TUsers[0]'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   at Newtonsoft.Json.JsonConvert.SerializeObject(Object value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   at DBL.User_Service.UserRoleService.UserRoleService.GetUserRoleListingAsync() in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\User_Service\UserRoleService\UserRoleService.cs:line 22
+   at E_commerce.Controllers.User_Controller.UserRoleController.GetRoleList() in D:\Kai Xuan\projectBase\Project\E-commerce\E-commerce\Controllers\User_Controller\UserRoleController.cs:line 32
+2024-09-09 22:20:59.456 +08:00 [INF] Main (GetRoleList) | Receive Request Get User Role List.
+2024-09-09 22:20:59.630 +08:00 [ERR] Main (InvokeAsync) | Exception Message: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Data.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.Id.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Data.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.Id.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(Stream utf8Json, T rootValue, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at E_commerce.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\Kai Xuan\projectBase\Project\E-commerce\E-commerce\Middleware\ExceptionMiddleware.cs:line 24
+2024-09-09 22:20:59.652 +08:00 [ERR] Main (HandleExceptionAsync) | Internal Server Error: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Data.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.UserRole.TUsers.Id.
+2024-09-09 22:21:41.518 +08:00 [INF] Main (GetRoleList) | Receive Request Get User Role List.
+2024-09-09 22:26:01.220 +08:00 [INF] Main (GetRoleList) | Receive Request Get User Role List.

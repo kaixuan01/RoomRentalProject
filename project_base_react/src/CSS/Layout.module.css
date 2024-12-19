@@ -1,0 +1,27 @@
+/* Layout.module.css */
+
+.layout {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .content {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+    margin-left: 0; /* Default no sidebar */
+  }
+  
+  .withSidebar {
+    margin-left: 250px; /* Adjust this value to match the sidebar width */
+  }
+  
+  .pageContent {
+    padding: 20px;
+  }
+  
+  /* Topbar style can be adjusted to be relative to the content */
+  .navbar {
+    position: relative;
+    z-index: 1000;
+  }
+  

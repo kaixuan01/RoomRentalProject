@@ -1,0 +1,591 @@
+2024-09-01 17:55:18.217 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:55:18.217 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 17:55:18.217 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:55:18.224 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 2
+2024-09-01 17:55:18.224 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901174802736338, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:55:20.571 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:55:20.654 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901174802736338, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:55:20.656 +08:00 [INF] Main (StartedAsync) | Processing Email No. 2, Email Id: 20240901175455835268, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:55:22.970 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:55:23.040 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901175455835268, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:55:23.041 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 2, Total Failure: 0.
+2024-09-01 17:55:33.041 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:55:33.041 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 17:55:33.041 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:55:33.048 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 2
+2024-09-01 17:55:33.048 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901174802736338, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:55:35.352 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:55:35.417 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901174802736338, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:55:35.417 +08:00 [INF] Main (StartedAsync) | Processing Email No. 2, Email Id: 20240901175455835268, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:55:37.718 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:55:37.793 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901175455835268, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:55:37.793 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 2, Total Failure: 0.
+2024-09-01 17:55:47.795 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:55:47.795 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 17:55:47.795 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:55:47.802 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 2
+2024-09-01 17:55:47.802 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901174802736338, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:55:50.081 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:55:50.151 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901174802736338, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:55:50.151 +08:00 [INF] Main (StartedAsync) | Processing Email No. 2, Email Id: 20240901175455835268, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:55:52.396 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:55:52.502 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901175455835268, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:55:52.503 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 2, Total Failure: 0.
+2024-09-01 17:56:02.504 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:56:02.504 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 17:56:02.504 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:56:02.512 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 2
+2024-09-01 17:56:02.512 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901174802736338, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:56:04.815 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:56:04.895 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901174802736338, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:56:04.895 +08:00 [INF] Main (StartedAsync) | Processing Email No. 2, Email Id: 20240901175455835268, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:56:07.222 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:56:07.306 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901175455835268, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:56:07.306 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 2, Total Failure: 0.
+2024-09-01 17:56:17.308 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:56:17.308 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 17:56:17.308 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:56:17.311 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 17:56:17.311 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:56:17.311 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 17:56:17.311 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:56:17.318 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 2
+2024-09-01 17:56:17.318 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901174802736338, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:56:19.651 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:56:19.719 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901174802736338, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:56:19.719 +08:00 [INF] Main (StartedAsync) | Processing Email No. 2, Email Id: 20240901175455835268, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:56:22.014 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 17:56:22.096 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901175455835268, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 17:56:22.096 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 2, Total Failure: 0.
+2024-09-01 17:56:32.097 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:56:32.097 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 17:56:32.097 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 17:56:32.104 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 2
+2024-09-01 17:56:32.104 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901174802736338, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 17:56:34.381 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-09-01 20:43:37.590 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/9/1 20:43:37 +08:00
+2024-09-01 20:43:37.632 +08:00 [INF] Main (StartAsync) | Start at: 2024/9/1 20:43:37 +08:00
+2024-09-01 20:43:37.635 +08:00 [INF] Main (StartedAsync) | Started at: 2024/9/1 20:43:37 +08:00
+2024-09-01 20:43:37.635 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:43:37.635 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 20:43:37.635 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:43:40.848 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 20:43:40.848 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:43:40.848 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:43:40.848 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:43:41.084 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 2
+2024-09-01 20:43:41.084 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901174802736338, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 20:43:44.172 +08:00 [INF] Main (SendEmailAsync) | Email Sent Successful.
+2024-09-01 20:43:44.437 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901174802736338, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 20:43:44.501 +08:00 [INF] Main (StartedAsync) | Processing Email No. 2, Email Id: 20240901175455835268, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 20:43:47.040 +08:00 [INF] Main (SendEmailAsync) | Email Sent Successful.
+2024-09-01 20:43:47.179 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901175455835268, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 20:43:47.180 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 2, Total Failure: 0.
+2024-09-01 20:43:57.181 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:43:57.181 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:43:57.181 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:43:57.204 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:44:07.204 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:07.204 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:44:07.204 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:07.211 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:44:17.211 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:17.211 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:44:17.211 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:17.218 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:44:27.218 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:27.218 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:44:27.218 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:27.224 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:44:37.224 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:37.224 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:44:37.224 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:37.235 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:44:47.235 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:47.236 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 20:44:47.236 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:47.246 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 20:44:47.246 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:47.246 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:44:47.246 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:47.258 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:44:57.258 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:57.258 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:44:57.258 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:44:57.264 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:45:07.264 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:07.264 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:45:07.264 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:07.271 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:45:17.271 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:17.272 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:45:17.272 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:17.279 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:45:27.280 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:27.280 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:45:27.280 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:27.289 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:45:37.289 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:37.289 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:45:37.289 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:37.295 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:45:47.294 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:47.294 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 20:45:47.295 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:47.299 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 20:45:47.300 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:47.300 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:45:47.300 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:47.309 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:45:57.309 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:57.309 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:45:57.309 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:45:57.319 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:46:07.319 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:07.319 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:46:07.319 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:07.326 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:46:17.326 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:17.326 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:46:17.327 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:17.334 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:46:27.333 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:27.333 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:46:27.333 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:27.340 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:46:37.340 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:37.340 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:46:37.340 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:37.349 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:46:47.350 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:47.350 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 20:46:47.350 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:47.353 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 20:46:47.353 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:47.353 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:46:47.353 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:47.358 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:46:57.359 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:57.359 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:46:57.359 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:46:57.366 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:47:07.365 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:07.365 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:47:07.365 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:07.371 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:47:17.372 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:17.372 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:47:17.372 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:17.378 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:47:27.380 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:27.380 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:47:27.380 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:27.386 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:47:37.386 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:37.386 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:47:37.386 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:37.392 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:47:47.393 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:47.393 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 20:47:47.393 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:47.397 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 20:47:47.398 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:47.398 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:47:47.398 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:47.403 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:47:57.403 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:57.403 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:47:57.403 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:47:57.410 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 20:48:07.410 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:07.410 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:48:07.410 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:07.440 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-09-01 20:48:07.442 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901204759697821, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 20:48:09.906 +08:00 [INF] Main (SendEmailAsync) | Email Sent Successful.
+2024-09-01 20:48:10.022 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901204759697821, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 20:48:10.023 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-09-01 20:48:20.023 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:20.023 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:48:20.023 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:20.035 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-09-01 20:48:20.035 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901204759697821, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 20:48:22.758 +08:00 [INF] Main (SendEmailAsync) | Email Sent Successful.
+2024-09-01 20:48:22.832 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901204759697821, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 20:48:22.832 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-09-01 20:48:32.834 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:32.834 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:48:32.834 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:32.842 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-09-01 20:48:32.842 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901204759697821, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 20:48:35.162 +08:00 [INF] Main (SendEmailAsync) | Email Sent Successful.
+2024-09-01 20:48:35.236 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901204759697821, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 20:48:35.237 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-09-01 20:48:45.238 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:45.238 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:48:45.238 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:45.246 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-09-01 20:48:45.246 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901204759697821, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 20:48:47.487 +08:00 [INF] Main (SendEmailAsync) | Email Sent Successful.
+2024-09-01 20:48:47.552 +08:00 [ERR] DBL (UpdateEmailAsync) | Update Email Failed. Email Id: 20240901204759697821, Exception: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyExceptionAsync(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at DAL.Repository.EmailRP.EmailRepository.UpdateAsync(TEmail oEmail) in D:\Kai Xuan\projectBase\Project\E-commerce\DAL\Repository\EmailRP\EmailRepository.cs:line 31
+   at DBL.Email_Service.EmailService.UpdateEmailAsync(TEmail email) in D:\Kai Xuan\projectBase\Project\E-commerce\DBL\Email_Service\EmailService.cs:line 64
+2024-09-01 20:48:47.553 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-09-01 20:48:57.554 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:57.554 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 20:48:57.554 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:57.559 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 20:48:57.559 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:57.559 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 20:48:57.559 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 20:48:57.567 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-09-01 20:48:57.567 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901204759697821, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 21:10:49.797 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/9/1 21:10:49 +08:00
+2024-09-01 21:10:49.840 +08:00 [INF] Main (StartAsync) | Start at: 2024/9/1 21:10:49 +08:00
+2024-09-01 21:10:49.844 +08:00 [INF] Main (StartedAsync) | Started at: 2024/9/1 21:10:49 +08:00
+2024-09-01 21:10:49.845 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:10:49.845 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 21:10:49.845 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:10:51.992 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 21:10:51.992 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:10:51.992 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:10:51.992 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:10:52.157 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-09-01 21:10:52.157 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901204759697821, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 21:10:54.869 +08:00 [INF] Main (SendEmailAsync) | Email Sent Successful.
+2024-09-01 21:10:54.889 +08:00 [ERR] DBL (UpdateEmailAsync) | Email not found
+2024-09-01 21:10:54.890 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-09-01 21:11:04.891 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:04.891 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:11:04.891 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:04.905 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:11:14.905 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:14.905 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:11:14.905 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:14.926 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-09-01 21:11:14.926 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240901211109666644, Recipient Name: Admin 2, Recipient Email: kaixuan0131@gmail.com
+2024-09-01 21:11:17.242 +08:00 [INF] Main (SendEmailAsync) | Email Sent Successful.
+2024-09-01 21:11:17.385 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240901211109666644, Status: Completed
+2024-09-01 21:11:17.385 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-09-01 21:11:27.385 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:27.385 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:11:27.385 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:27.393 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:11:37.394 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:37.395 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:11:37.395 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:37.401 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:11:47.401 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:47.401 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:11:47.401 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:47.408 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:11:57.409 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:57.409 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 21:11:57.409 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:57.418 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 21:11:57.419 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:57.419 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:11:57.419 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:11:57.424 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:12:07.424 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:07.424 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:12:07.424 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:07.431 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:12:17.432 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:17.432 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:12:17.432 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:17.439 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:12:27.439 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:27.439 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:12:27.439 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:27.445 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:12:37.444 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:37.445 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:12:37.445 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:37.452 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:12:47.452 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:47.452 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:12:47.452 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:47.460 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:12:57.460 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:57.460 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-09-01 21:12:57.461 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:57.464 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-09-01 21:12:57.464 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:57.464 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:12:57.464 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:12:57.471 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:13:07.472 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:07.472 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:13:07.472 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:07.479 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:13:17.480 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:17.480 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:13:17.480 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:17.488 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:13:27.488 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:27.488 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:13:27.488 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:27.500 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:13:37.501 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:37.501 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:13:37.501 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:37.510 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-09-01 21:13:47.511 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:47.511 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-09-01 21:13:47.511 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-09-01 21:13:47.518 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.

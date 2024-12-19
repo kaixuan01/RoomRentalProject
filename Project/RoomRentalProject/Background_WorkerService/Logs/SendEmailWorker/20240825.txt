@@ -1,0 +1,1828 @@
+2024-08-25 14:50:08.933 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/8/25 14:50:08 +08:00
+2024-08-25 14:50:08.986 +08:00 [INF] Main (StartAsync) | Start at: 2024/8/25 14:50:08 +08:00
+2024-08-25 14:50:08.988 +08:00 [INF] Main (StartedAsync) | Started at: 2024/8/25 14:50:08 +08:00
+2024-08-25 14:50:08.988 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:50:08.988 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 14:50:08.988 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:50:12.820 +08:00 [INF] Main (StartedAsync) | Send Email Function: Disabled, Interval Every 15 Secs
+2024-08-25 14:50:12.820 +08:00 [INF] Main (StartedAsync) | Email sending is disabled.
+2024-08-25 14:51:12.828 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:12.829 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 14:51:12.830 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:13.126 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 14:51:13.127 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:13.127 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:51:13.127 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:13.352 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:51:23.366 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:23.366 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:51:23.366 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:23.382 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:51:33.390 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:33.391 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:51:33.391 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:33.440 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:51:43.455 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:43.455 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:51:43.455 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:43.462 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:51:53.470 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:53.471 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:51:53.471 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:51:53.603 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 14:51:53.604 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825145150195726, Recipient Name: Kai Xuan, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 14:51:56.435 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 14:51:56.717 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825145150195726, Status: Completed
+2024-08-25 14:51:56.717 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 14:52:06.723 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:06.723 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:52:06.723 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:06.729 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:52:16.731 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:16.731 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 14:52:16.731 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:16.735 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 14:52:16.735 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:16.735 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:52:16.735 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:16.769 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:52:26.782 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:26.782 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:52:26.782 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:26.792 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:52:36.798 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:36.798 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:52:36.798 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:36.806 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:52:46.811 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:46.811 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:52:46.811 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:46.819 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:52:56.822 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:56.822 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:52:56.822 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:52:56.830 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:53:06.833 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:06.833 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:53:06.833 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:06.842 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:53:16.847 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:16.847 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 14:53:16.847 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:16.852 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 14:53:16.852 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:16.852 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:53:16.852 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:16.861 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:53:26.868 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:26.868 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:53:26.868 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:26.878 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:53:36.887 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:36.887 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:53:36.887 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:36.896 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:53:46.902 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:46.902 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:53:46.902 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:46.908 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:53:56.921 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:56.921 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:53:56.921 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:53:56.928 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:54:06.937 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:06.937 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:54:06.937 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:06.943 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:54:16.956 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:16.956 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 14:54:16.956 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:16.961 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 14:54:16.961 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:16.961 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:54:16.961 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:16.965 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:54:26.973 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:26.973 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:54:26.973 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:26.982 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:54:36.994 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:36.994 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:54:36.994 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:37.006 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:54:47.018 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:47.018 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:54:47.018 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:47.024 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:54:57.034 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:57.034 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:54:57.034 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:54:57.041 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:55:07.056 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:07.056 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:55:07.056 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:07.063 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:55:17.069 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:17.069 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 14:55:17.069 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:17.073 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 14:55:17.073 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:17.073 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:55:17.073 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:17.077 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:55:27.089 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:27.089 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:55:27.089 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:27.099 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:55:37.109 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:37.109 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:55:37.109 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:37.119 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:55:47.121 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:47.121 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:55:47.121 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:55:47.130 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:58:43.142 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/8/25 14:58:43 +08:00
+2024-08-25 14:58:43.177 +08:00 [INF] Main (StartAsync) | Start at: 2024/8/25 14:58:43 +08:00
+2024-08-25 14:58:43.179 +08:00 [INF] Main (StartedAsync) | Started at: 2024/8/25 14:58:43 +08:00
+2024-08-25 14:58:43.179 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:58:43.179 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 14:58:43.179 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:58:45.298 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 14:58:45.298 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:58:45.298 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:58:45.298 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:58:45.407 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:58:55.423 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:58:55.423 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:58:55.423 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:58:55.435 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:59:05.443 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:05.443 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:59:05.443 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:05.456 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:59:15.468 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:15.468 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:59:15.468 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:15.475 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:59:25.483 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:25.484 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:59:25.484 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:25.490 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:59:35.492 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:35.492 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:59:35.492 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:35.506 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:59:45.511 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:45.511 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 14:59:45.511 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:45.515 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 14:59:45.515 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:45.515 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:59:45.515 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:45.521 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 14:59:55.521 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:55.521 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 14:59:55.522 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 14:59:55.531 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:00:05.535 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:05.536 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:00:05.536 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:05.592 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 15:00:05.593 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825145956337407, Recipient Name: Kai Xuan, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 15:00:08.151 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 15:00:08.271 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825145956337407, Status: Completed
+2024-08-25 15:00:08.272 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 15:00:18.275 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:18.275 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:00:18.275 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:18.283 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:00:28.292 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:28.292 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:00:28.292 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:28.301 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:00:38.308 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:38.308 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:00:38.308 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:38.314 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:00:48.325 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:48.326 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:00:48.326 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:48.328 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:00:48.329 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:48.329 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:00:48.329 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:48.334 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:00:58.348 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:58.348 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:00:58.348 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:00:58.357 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:01:08.367 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:08.367 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:01:08.367 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:08.378 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:01:33.983 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:33.983 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:01:33.983 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:34.102 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:01:44.108 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:44.108 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:01:44.108 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:44.114 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:01:54.114 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:54.114 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:01:54.114 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:54.119 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:01:54.119 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:54.119 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:01:54.119 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:01:54.125 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:02:04.130 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:04.130 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:02:04.130 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:04.138 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:02:14.137 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:14.137 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:02:14.137 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:14.143 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:02:24.148 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:24.148 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:02:24.148 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:24.248 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:02:34.252 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:34.252 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:02:34.252 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:34.263 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:02:44.279 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:44.279 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:02:44.279 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:44.285 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:02:54.293 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:54.293 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:02:54.293 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:54.297 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:02:54.297 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:54.297 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:02:54.297 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:02:54.305 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:03:04.313 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:04.313 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:03:04.313 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:04.319 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:03:14.332 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:14.332 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:03:14.332 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:14.337 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:03:24.350 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:24.350 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:03:24.350 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:24.417 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:03:34.431 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:34.432 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:03:34.432 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:34.450 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:03:44.455 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:44.455 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:03:44.455 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:44.462 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:03:54.474 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:54.474 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:03:54.474 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:54.480 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:03:54.480 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:54.480 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:03:54.480 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:03:54.485 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:04:04.499 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:04.499 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:04:04.499 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:04.504 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:04:14.511 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:14.511 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:04:14.511 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:14.516 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:04:24.523 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:24.523 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:04:24.523 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:24.530 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:04:34.531 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:34.531 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:04:34.531 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:34.640 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:04:44.652 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:44.652 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:04:44.652 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:44.769 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:04:54.783 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:54.783 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:04:54.783 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:54.786 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:04:54.786 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:54.786 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:04:54.786 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:04:54.791 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:05:04.791 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:04.792 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:05:04.792 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:04.799 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:05:14.805 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:14.805 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:05:14.805 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:14.810 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:05:24.825 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:24.825 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:05:24.825 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:24.831 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:05:34.846 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:34.846 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:05:34.846 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:34.852 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:05:44.853 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:44.853 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:05:44.853 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:44.967 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:05:54.975 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:54.975 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:05:54.975 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:54.979 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:05:54.979 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:54.979 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:05:54.979 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:05:54.983 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:06:04.995 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:04.995 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:06:04.995 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:05.000 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:06:15.010 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:15.010 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:06:15.010 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:15.015 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:06:25.030 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:25.030 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:06:25.030 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:25.037 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:06:35.050 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:35.050 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:06:35.050 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:35.056 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:06:45.066 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:45.066 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:06:45.066 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:45.173 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:06:55.175 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:55.175 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:06:55.175 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:55.221 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:06:55.221 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:55.221 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:06:55.221 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:06:55.229 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:07:05.234 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:05.234 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:07:05.234 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:05.240 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:07:15.242 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:15.242 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:07:15.242 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:15.248 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:07:25.248 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:25.248 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:07:25.248 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:25.255 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:07:35.262 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:35.263 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:07:35.263 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:35.276 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:07:45.289 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:45.289 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:07:45.289 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:45.295 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:07:55.303 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:55.303 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:07:55.303 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:55.378 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:07:55.378 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:55.378 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:07:55.378 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:07:55.386 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:08:05.395 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:08:05.395 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:08:05.395 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:08:05.404 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:08:15.408 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:08:15.408 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:08:15.408 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:08:15.413 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:08:25.416 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:08:25.416 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:08:25.416 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:08:25.423 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:37:17.101 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/8/25 15:37:17 +08:00
+2024-08-25 15:37:17.156 +08:00 [INF] Main (StartAsync) | Start at: 2024/8/25 15:37:17 +08:00
+2024-08-25 15:37:17.161 +08:00 [INF] Main (StartedAsync) | Started at: 2024/8/25 15:37:17 +08:00
+2024-08-25 15:37:17.161 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:17.161 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:37:17.161 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:20.551 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:37:20.552 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:20.552 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:37:20.552 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:20.727 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:37:30.740 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:30.740 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:37:30.740 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:31.035 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:37:41.044 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:41.045 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:37:41.045 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:41.055 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:37:51.067 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:51.068 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:37:51.068 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:37:51.108 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 15:37:51.108 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825153749946231, Recipient Name: Kai Xuan, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 15:37:53.687 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 15:37:53.827 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825153749946231, Status: Completed
+2024-08-25 15:37:53.828 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 15:38:03.828 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:03.828 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:38:03.828 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:03.837 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:38:13.852 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:13.853 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:38:13.853 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:13.861 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:38:23.875 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:23.875 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:38:23.875 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:23.879 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:38:23.879 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:23.879 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:38:23.879 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:23.888 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:38:33.902 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:33.903 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:38:33.903 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:33.911 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:38:43.920 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:43.920 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:38:43.920 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:43.932 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:38:53.939 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:53.939 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:38:53.939 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:38:53.952 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:39:03.967 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:03.967 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:39:03.967 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:03.976 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:39:13.990 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:13.990 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:39:13.990 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:13.997 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:39:24.008 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:24.008 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:39:24.008 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:24.013 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:39:24.013 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:24.013 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:39:24.013 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:24.017 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:39:34.025 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:34.026 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:39:34.026 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:34.034 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:39:44.036 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:44.036 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:39:44.036 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:44.049 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:39:54.050 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:54.050 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:39:54.050 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:39:54.059 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:40:04.070 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:04.070 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:40:04.070 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:04.075 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:40:14.088 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:14.088 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:40:14.088 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:14.094 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:40:24.103 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:24.103 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:40:24.103 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:24.106 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:40:24.106 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:24.106 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:40:24.106 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:24.111 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:40:34.121 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:34.121 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:40:34.121 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:34.129 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:40:44.140 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:44.140 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:40:44.140 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:44.150 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:40:54.159 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:54.159 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:40:54.159 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:40:54.170 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:41:04.182 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:04.182 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:41:04.182 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:04.189 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:41:14.189 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:14.189 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:41:14.189 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:14.196 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:41:24.208 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:24.208 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:41:24.208 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:24.211 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:41:24.212 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:24.212 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:41:24.212 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:24.217 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:41:34.221 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:34.221 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:41:34.221 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:34.228 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:41:44.243 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:44.243 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:41:44.244 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:44.249 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:41:54.258 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:54.258 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:41:54.258 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:41:54.266 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:42:04.276 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:04.276 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:42:04.276 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:04.285 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:42:19.642 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:19.642 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:42:19.642 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:19.656 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:42:29.659 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:29.659 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:42:29.659 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:29.664 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:42:29.664 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:29.664 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:42:29.664 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:29.668 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:42:39.675 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:39.675 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:42:39.675 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:39.681 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:42:49.694 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:49.694 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:42:49.694 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:49.699 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:42:59.700 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:59.700 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:42:59.700 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:42:59.710 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:43:09.713 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:09.713 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:43:09.713 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:09.759 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:43:19.770 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:19.770 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:43:19.770 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:19.775 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:43:29.784 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:29.784 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:43:29.784 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:29.789 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:43:29.789 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:29.789 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:43:29.789 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:29.797 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:43:39.808 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:39.809 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:43:39.809 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:39.817 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:43:49.830 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:49.830 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:43:49.830 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:49.836 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:43:59.844 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:59.844 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:43:59.844 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:43:59.849 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:44:23.638 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/8/25 15:44:23 +08:00
+2024-08-25 15:44:23.673 +08:00 [INF] Main (StartAsync) | Start at: 2024/8/25 15:44:23 +08:00
+2024-08-25 15:44:23.675 +08:00 [INF] Main (StartedAsync) | Started at: 2024/8/25 15:44:23 +08:00
+2024-08-25 15:44:23.675 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:23.675 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:44:23.675 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:26.192 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:44:26.192 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:26.192 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:44:26.192 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:26.328 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:44:36.338 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:36.338 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:44:36.338 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:36.348 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:44:46.360 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:46.360 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:44:46.360 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:46.368 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:44:56.371 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:56.371 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:44:56.371 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:44:56.379 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:45:06.389 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:06.389 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:45:06.389 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:06.397 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:45:16.404 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:16.405 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:45:16.405 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:16.506 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:45:26.518 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:26.518 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:45:26.518 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:26.522 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:45:26.522 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:26.522 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:45:26.522 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:26.584 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 15:45:26.585 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825154519345119, Recipient Name: Kai Xuan, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 15:45:29.073 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 15:45:29.234 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825154519345119, Status: Completed
+2024-08-25 15:45:29.234 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 15:45:39.247 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:39.247 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:45:39.248 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:39.257 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:45:49.272 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:49.273 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:45:49.273 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:49.280 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:45:59.283 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:59.283 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:45:59.283 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:45:59.289 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:46:09.330 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:09.330 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:46:09.330 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:09.338 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:46:19.348 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:19.348 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:46:19.348 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:19.357 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:46:29.358 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:29.358 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:46:29.358 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:29.363 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:46:29.363 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:29.363 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:46:29.363 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:29.370 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:46:39.381 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:39.381 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:46:39.381 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:39.389 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:46:49.402 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:49.402 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:46:49.402 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:49.410 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:46:59.412 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:59.412 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:46:59.412 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:46:59.420 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:47:09.422 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:09.422 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:47:09.422 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:09.430 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:47:19.432 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:19.432 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:47:19.432 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:19.437 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:47:29.450 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:29.450 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:47:29.450 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:29.554 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:47:29.554 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:29.554 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:47:29.554 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:29.561 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:47:39.576 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:39.576 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:47:39.576 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:39.708 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:47:49.724 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:49.724 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:47:49.725 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:47:49.731 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:53:02.539 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/8/25 15:53:02 +08:00
+2024-08-25 15:53:02.568 +08:00 [INF] Main (StartAsync) | Start at: 2024/8/25 15:53:02 +08:00
+2024-08-25 15:53:02.571 +08:00 [INF] Main (StartedAsync) | Started at: 2024/8/25 15:53:02 +08:00
+2024-08-25 15:53:02.571 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:02.571 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:53:02.571 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:04.496 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:53:04.496 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:04.496 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:53:04.496 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:04.631 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:53:14.641 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:14.641 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:53:14.641 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:14.655 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:53:24.669 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:24.669 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:53:24.669 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:24.678 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:53:34.681 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:34.681 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:53:34.681 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:34.687 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:53:44.698 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:44.699 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:53:44.699 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:44.707 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:53:54.711 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:54.712 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:53:54.712 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:53:54.725 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:54:04.730 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:04.730 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:54:04.730 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:04.850 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:54:04.850 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:04.850 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:54:04.850 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:04.867 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:54:14.877 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:14.878 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:54:14.878 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:14.884 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:54:24.893 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:24.893 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:54:24.893 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:24.901 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:54:34.912 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:34.912 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:54:34.912 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:34.919 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:54:44.935 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:44.935 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:54:44.935 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:44.943 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:54:54.947 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:54.947 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:54:54.947 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:54:54.956 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:55:04.967 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:04.968 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:55:04.968 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:04.973 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:55:04.973 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:04.973 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:55:04.973 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:04.977 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:55:14.987 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:14.988 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:55:14.988 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:15.062 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:55:25.074 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:25.074 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:55:25.074 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:25.080 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:55:35.092 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:35.092 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:55:35.092 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:35.102 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:55:45.112 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:45.113 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:55:45.113 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:45.125 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:55:55.129 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:55.129 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:55:55.130 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:55:55.137 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:56:05.144 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:05.144 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:56:05.144 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:05.147 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:56:05.147 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:05.147 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:56:05.147 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:05.152 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:56:15.153 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:15.153 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:56:15.153 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:15.161 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:56:25.165 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:25.166 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:56:25.166 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:25.175 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:56:35.185 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:35.185 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:56:35.185 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:35.191 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:56:45.207 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:45.207 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:56:45.207 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:45.215 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:56:55.229 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:55.229 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:56:55.229 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:56:55.238 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:57:05.241 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:05.242 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:57:05.242 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:05.247 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:57:05.247 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:05.247 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:57:05.247 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:05.253 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:57:15.265 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:15.265 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:57:15.265 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:15.273 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:57:25.286 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:25.286 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:57:25.286 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:25.297 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:57:35.306 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:35.306 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:57:35.306 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:35.314 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:57:45.319 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:45.319 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:57:45.319 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:45.328 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:57:55.333 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:55.333 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:57:55.333 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:57:55.340 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:58:05.341 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:05.341 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:58:05.341 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:05.345 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:58:05.345 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:05.345 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:58:05.345 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:05.350 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:58:15.358 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:15.358 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:58:15.358 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:15.366 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:58:25.367 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:25.367 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:58:25.367 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:25.378 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:58:35.391 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:35.391 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:58:35.391 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:35.399 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:58:45.404 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:45.404 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:58:45.404 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:45.409 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:58:55.423 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:55.423 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:58:55.423 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:58:55.431 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:59:05.432 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:05.432 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 15:59:05.432 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:05.436 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 15:59:05.436 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:05.437 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:59:05.437 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:05.441 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:59:15.445 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:15.445 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:59:15.445 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:15.452 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:59:25.454 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:25.454 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:59:25.454 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:25.463 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 15:59:35.479 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:35.479 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 15:59:35.479 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 15:59:35.488 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:04:38.830 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/8/25 16:04:38 +08:00
+2024-08-25 16:04:38.885 +08:00 [INF] Main (StartAsync) | Start at: 2024/8/25 16:04:38 +08:00
+2024-08-25 16:04:38.890 +08:00 [INF] Main (StartedAsync) | Started at: 2024/8/25 16:04:38 +08:00
+2024-08-25 16:04:38.890 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:04:38.890 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 16:04:38.890 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:04:42.440 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 16:04:42.441 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:04:42.441 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:04:42.441 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:04:42.657 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:04:52.663 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:04:52.663 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:04:52.663 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:04:52.677 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:05:02.685 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:02.686 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:05:02.686 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:02.700 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:05:12.704 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:12.704 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:05:12.704 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:12.778 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 16:05:12.778 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825160506253863, Recipient Name: test, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 16:05:15.960 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 16:05:16.142 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825160506253863, Status: Completed
+2024-08-25 16:05:16.143 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 16:05:26.143 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:26.144 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:05:26.144 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:26.151 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:05:36.155 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:36.156 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:05:36.156 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:36.161 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:05:46.172 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:46.173 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 16:05:46.173 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:46.177 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 16:05:46.177 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:46.177 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:05:46.177 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:46.181 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:05:56.183 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:56.183 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:05:56.183 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:05:56.189 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:06:06.197 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:06:06.197 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:06:06.197 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:06:06.205 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:07:06.752 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:06.753 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 16:07:06.754 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:06.770 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 16:07:06.770 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:06.770 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:07:06.770 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:06.784 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:07:16.799 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:16.799 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:07:16.799 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:16.810 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:07:26.817 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:26.817 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:07:26.817 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:26.824 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:07:36.834 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:36.834 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:07:36.834 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:36.847 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 16:07:36.847 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825160732435395, Recipient Name: test, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 16:07:39.192 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 16:07:39.199 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825160732435395, Status: Completed
+2024-08-25 16:07:39.199 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 16:07:49.211 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:49.211 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:07:49.211 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:49.222 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:07:59.234 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:59.234 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:07:59.234 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:07:59.242 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:08:09.245 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:09.245 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 16:08:09.245 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:09.249 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 16:08:09.249 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:09.249 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:08:09.249 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:09.254 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 16:08:09.254 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825160802995319, Recipient Name: test, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 16:08:12.539 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 16:08:12.544 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825160802995319, Status: Completed
+2024-08-25 16:08:12.544 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 16:08:22.549 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:22.549 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:08:22.549 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:22.559 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:08:32.566 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:32.566 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:08:32.566 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:32.573 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:08:42.577 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:42.577 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:08:42.577 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:42.584 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:08:52.586 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:52.586 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:08:52.586 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:08:52.594 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:09:02.598 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:02.598 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:09:02.598 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:02.603 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:09:12.604 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:12.604 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 16:09:12.604 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:12.607 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 16:09:12.607 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:12.607 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:09:12.607 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:12.612 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:09:22.613 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:22.613 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:09:22.613 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:22.619 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:09:32.629 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:32.629 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:09:32.629 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:32.637 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 16:09:32.637 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825160930747747, Recipient Name: test, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 16:09:35.110 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 16:09:35.120 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825160930747747, Status: Completed
+2024-08-25 16:09:35.120 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 16:09:45.129 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:45.129 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:09:45.129 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:45.137 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:09:55.144 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:55.144 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:09:55.144 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:09:55.151 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:10:05.152 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:05.152 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:10:05.152 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:05.159 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:10:15.172 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:15.172 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 16:10:15.172 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:15.176 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 16:10:15.176 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:15.176 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:10:15.176 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:15.181 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:10:25.186 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:25.186 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:10:25.186 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:25.195 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:10:35.203 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:35.203 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:10:35.203 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:35.211 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:10:45.223 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:45.223 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:10:45.223 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:45.230 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:10:55.245 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:55.245 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:10:55.245 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:10:55.279 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:11:05.293 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:05.293 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:11:05.293 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:05.298 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:11:15.306 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:15.306 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 16:11:15.306 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:15.310 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 16:11:15.310 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:15.310 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:11:15.310 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:15.315 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:11:25.324 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:25.324 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:11:25.324 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:25.330 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:11:35.338 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:35.338 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:11:35.338 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:35.347 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:11:45.349 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:45.349 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:11:45.349 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:45.357 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:11:55.365 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:55.365 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:11:55.365 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:11:55.374 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:12:05.383 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:12:05.383 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:12:05.383 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:12:05.389 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 16:12:05.389 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825161200165686, Recipient Name: Kai Xuan, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 16:12:07.758 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 16:12:07.768 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825161200165686, Status: Completed
+2024-08-25 16:12:07.768 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 16:12:17.769 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:12:17.770 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 16:12:17.770 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:12:17.774 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 16:12:17.774 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:12:17.774 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:12:17.774 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:12:17.778 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 16:12:27.780 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:12:27.780 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 16:12:27.780 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 16:12:27.784 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:54:17.274 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/8/25 20:54:17 +08:00
+2024-08-25 20:54:17.315 +08:00 [INF] Main (StartAsync) | Start at: 2024/8/25 20:54:17 +08:00
+2024-08-25 20:54:17.319 +08:00 [INF] Main (StartedAsync) | Started at: 2024/8/25 20:54:17 +08:00
+2024-08-25 20:54:17.320 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:17.320 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 20:54:17.320 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:19.848 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 20:54:19.848 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:19.848 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:54:19.848 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:19.980 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:54:29.988 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:29.988 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:54:29.988 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:29.999 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:54:40.002 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:40.003 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:54:40.003 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:40.011 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:54:50.014 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:50.014 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:54:50.014 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:54:50.020 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:55:00.025 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:00.026 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:55:00.026 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:00.032 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:55:10.045 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:10.045 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:55:10.045 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:10.116 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 20:55:10.116 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825205502719671, Recipient Name: Kai Xuan, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 20:55:13.178 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 20:55:13.330 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825205502719671, Status: Completed
+2024-08-25 20:55:13.330 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 20:55:23.336 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:23.336 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 20:55:23.336 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:23.339 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 20:55:23.339 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:23.339 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:55:23.339 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:23.344 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:55:33.353 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:33.354 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:55:33.354 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:33.360 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:55:43.366 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:43.366 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:55:43.366 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:43.374 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 20:55:43.374 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825205539628013, Recipient Name: Kai Xuan, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 20:55:45.932 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 20:55:45.998 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825205539628013, Status: Completed
+2024-08-25 20:55:45.998 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 20:55:56.001 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:56.001 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:55:56.001 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:55:56.010 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:56:06.018 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:56:06.018 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:56:06.018 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:56:06.027 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 20:56:16.037 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:56:16.038 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 20:56:16.038 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 20:56:16.047 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:02:04.409 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/8/25 21:02:04 +08:00
+2024-08-25 21:02:04.442 +08:00 [INF] Main (StartAsync) | Start at: 2024/8/25 21:02:04 +08:00
+2024-08-25 21:02:04.446 +08:00 [INF] Main (StartedAsync) | Started at: 2024/8/25 21:02:04 +08:00
+2024-08-25 21:02:04.446 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:04.446 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:02:04.446 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:06.606 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:02:06.606 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:06.606 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:02:06.606 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:06.741 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:02:16.755 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:16.755 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:02:16.755 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:16.765 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:02:26.771 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:26.771 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:02:26.771 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:26.778 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:02:36.784 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:36.785 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:02:36.785 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:36.841 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 21:02:36.841 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825210227920292, Recipient Name: Kai Xuan, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 21:02:39.554 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 21:02:39.682 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825210227920292, Status: Completed
+2024-08-25 21:02:39.682 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 21:02:49.693 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:49.694 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:02:49.694 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:02:49.814 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 21:02:49.814 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825210238175937, Recipient Name: Kai Xuan, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 21:02:52.156 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 21:02:52.203 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825210238175937, Status: Completed
+2024-08-25 21:02:52.203 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 21:03:02.215 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:02.216 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:03:02.216 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:02.224 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:03:12.230 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:12.231 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:03:12.231 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:12.236 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:03:12.236 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:12.236 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:03:12.236 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:12.242 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:03:22.248 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:22.249 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:03:22.249 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:22.256 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:03:32.264 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:32.264 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:03:32.264 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:32.271 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:03:42.275 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:42.275 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:03:42.276 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:42.284 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:03:52.295 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:52.295 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:03:52.295 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:03:52.358 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:04:02.374 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:02.374 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:04:02.374 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:02.385 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:04:12.389 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:12.389 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:04:12.389 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:12.393 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:04:12.393 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:12.393 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:04:12.393 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:12.402 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:04:22.411 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:22.411 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:04:22.411 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:22.420 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:04:32.433 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:32.433 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:04:32.433 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:32.442 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:04:42.442 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:42.442 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:04:42.442 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:42.451 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:04:52.459 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:52.459 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:04:52.459 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:04:52.475 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:05:02.487 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:02.487 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:05:02.487 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:02.498 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:05:12.512 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:12.512 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:05:12.512 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:12.516 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:05:12.516 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:12.516 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:05:12.516 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:12.521 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:05:22.533 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:22.533 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:05:22.533 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:22.539 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:05:32.554 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:32.555 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:05:32.555 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:32.565 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:05:42.574 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:42.574 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:05:42.574 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:42.581 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:05:52.588 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:52.589 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:05:52.589 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:05:52.596 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:27:47.751 +08:00 [INF] Main (StartingAsync) | Starting at: 2024/8/25 21:27:47 +08:00
+2024-08-25 21:27:47.779 +08:00 [INF] Main (StartAsync) | Start at: 2024/8/25 21:27:47 +08:00
+2024-08-25 21:27:47.781 +08:00 [INF] Main (StartedAsync) | Started at: 2024/8/25 21:27:47 +08:00
+2024-08-25 21:27:47.781 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:27:47.782 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:27:47.782 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:27:49.516 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:27:49.516 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:27:49.516 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:27:49.516 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:27:49.629 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:27:59.641 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:27:59.641 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:27:59.641 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:27:59.784 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:28:09.787 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:09.787 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:28:09.787 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:09.843 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 21:28:09.844 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825212806259894, Recipient Name: string, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 21:28:12.549 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 21:28:12.734 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825212806259894, Status: Completed
+2024-08-25 21:28:12.735 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 21:28:22.745 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:22.745 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:28:22.745 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:22.752 +08:00 [INF] Main (StartedAsync) | Total emails to be sent: 1
+2024-08-25 21:28:22.752 +08:00 [INF] Main (StartedAsync) | Processing Email No. 1, Email Id: 20240825212812676170, Recipient Name: string, Recipient Email: kaixuan0131@gmail.com
+2024-08-25 21:28:25.060 +08:00 [INF] Main (SendEmailAsync) | Email Sent Succesful.
+2024-08-25 21:28:25.070 +08:00 [INF] DBL (UpdateEmailAsync) | Update Email Successful. Email Id: 20240825212812676170, Status: Completed
+2024-08-25 21:28:25.070 +08:00 [INF] Main (StartedAsync) | Send Email Progress Completed. Total Success: 1, Total Failure: 0.
+2024-08-25 21:28:35.075 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:35.076 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:28:35.076 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:35.083 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:28:45.089 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:45.089 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:28:45.089 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:45.099 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:28:55.110 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:55.110 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:28:55.110 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:55.116 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:28:55.116 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:55.116 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:28:55.116 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:28:55.121 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:29:05.129 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:05.130 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:29:05.130 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:05.135 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:29:15.139 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:15.139 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:29:15.139 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:15.216 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:29:25.219 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:25.219 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:29:25.219 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:25.227 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:29:35.236 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:35.236 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:29:35.236 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:35.242 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:29:45.251 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:45.251 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:29:45.252 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:45.257 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:29:55.268 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:55.268 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:29:55.268 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:55.272 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:29:55.272 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:55.272 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:29:55.272 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:29:55.277 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:30:05.278 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:05.278 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:30:05.278 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:05.285 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:30:15.296 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:15.296 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:30:15.296 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:15.398 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:30:25.412 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:25.412 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:30:25.412 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:25.506 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:30:35.506 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:35.506 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:30:35.506 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:35.514 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:30:45.526 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:45.526 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:30:45.526 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:45.534 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:30:55.548 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:55.548 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:30:55.548 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:55.553 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:30:55.555 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:55.555 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:30:55.555 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:30:55.561 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:31:05.568 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:05.568 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:31:05.568 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:05.573 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:31:15.583 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:15.583 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:31:15.583 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:15.591 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:31:25.605 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:25.605 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:31:25.605 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:25.682 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:31:35.694 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:35.694 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:31:35.694 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:35.710 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:31:45.719 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:45.719 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:31:45.719 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:45.725 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:31:55.740 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:55.740 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:31:55.740 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:55.744 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:31:55.744 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:55.744 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:31:55.744 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:31:55.749 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:32:05.754 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:05.754 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:32:05.754 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:05.760 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:32:15.770 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:15.770 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:32:15.770 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:15.777 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:32:25.793 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:25.793 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:32:25.793 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:25.881 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:32:35.889 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:35.889 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:32:35.889 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:35.967 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:32:45.972 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:45.972 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:32:45.972 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:45.983 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:32:55.986 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:55.987 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:32:55.987 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:55.990 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:32:55.990 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:55.990 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:32:55.990 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:32:55.995 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:33:06.002 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:06.002 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:33:06.002 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:06.011 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:33:16.016 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:16.016 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:33:16.016 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:16.023 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:33:26.038 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:26.038 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:33:26.038 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:26.044 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:33:36.049 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:36.049 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:33:36.049 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:36.282 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:33:46.293 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:46.293 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:33:46.294 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:46.304 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:33:56.309 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:56.309 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:33:56.309 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:56.312 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:33:56.312 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:56.312 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:33:56.312 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:33:56.316 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:34:06.320 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:06.320 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:34:06.320 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:06.326 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:34:16.327 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:16.327 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:34:16.327 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:16.334 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:34:26.346 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:26.346 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:34:26.346 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:26.352 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:34:36.363 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:36.363 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:34:36.363 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:36.390 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:34:46.402 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:46.402 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:34:46.402 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:46.412 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:34:56.412 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:56.412 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:34:56.412 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:56.416 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:34:56.416 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:56.416 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:34:56.416 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:34:56.424 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:35:06.433 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:06.433 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:35:06.433 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:06.439 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:35:16.443 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:16.443 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:35:16.443 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:16.451 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:35:26.466 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:26.466 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:35:26.466 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:26.472 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:35:36.483 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:36.483 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:35:36.483 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:36.491 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:35:46.496 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:46.496 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:35:46.496 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:46.503 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:35:56.503 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:56.503 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:35:56.503 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:56.509 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:35:56.509 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:56.509 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:35:56.509 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:35:56.517 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:36:06.529 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:06.530 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:36:06.530 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:06.537 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:36:16.550 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:16.550 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:36:16.550 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:16.556 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:36:26.559 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:26.559 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:36:26.559 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:26.571 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:36:36.572 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:36.572 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:36:36.572 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:36.579 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:36:46.580 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:46.580 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:36:46.580 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:46.586 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:36:56.597 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:56.597 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:36:56.597 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:56.603 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:36:56.603 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:56.603 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:36:56.603 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:36:56.610 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:37:06.623 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:06.623 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:37:06.623 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:06.630 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:37:16.638 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:16.638 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:37:16.638 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:16.644 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:37:26.649 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:26.649 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:37:26.649 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:26.656 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:37:36.659 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:36.659 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:37:36.659 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:36.665 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:37:46.678 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:46.678 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:37:46.678 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:46.685 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:37:56.694 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:56.694 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:37:56.694 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:56.771 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:37:56.771 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:56.771 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:37:56.771 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:37:56.781 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:38:06.788 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:06.788 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:38:06.788 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:06.833 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:38:16.843 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:16.843 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:38:16.843 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:16.858 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:38:26.861 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:26.861 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:38:26.861 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:26.868 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:38:36.882 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:36.882 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:38:36.882 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:36.888 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:38:46.902 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:46.902 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:38:46.902 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:46.909 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:38:56.913 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:56.913 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:38:56.913 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:56.917 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:38:56.917 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:56.917 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:38:56.917 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:38:56.921 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:39:06.930 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:06.930 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:39:06.930 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:07.046 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:39:17.048 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:17.048 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:39:17.048 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:17.063 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:39:27.071 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:27.071 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:39:27.071 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:27.079 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:39:37.092 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:37.092 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:39:37.092 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:37.098 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:39:47.103 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:47.103 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:39:47.103 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:47.109 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:39:57.111 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:57.112 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:39:57.112 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:57.115 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:39:57.115 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:57.115 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:39:57.115 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:39:57.119 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:40:07.131 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:07.131 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:40:07.131 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:07.233 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:40:17.244 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:17.244 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:40:17.244 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:17.256 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:40:27.262 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:27.262 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:40:27.262 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:27.321 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:40:37.329 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:37.329 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:40:37.329 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:37.340 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:40:47.355 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:47.355 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:40:47.355 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:47.361 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:40:57.367 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:57.367 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:40:57.367 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:57.372 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:40:57.372 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:57.372 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:40:57.372 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:40:57.376 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:41:07.381 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:07.381 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:41:07.381 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:07.387 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:41:17.391 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:17.391 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:41:17.391 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:17.520 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:41:27.530 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:27.530 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:41:27.530 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:27.676 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:41:37.678 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:37.678 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:41:37.678 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:37.685 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:41:47.696 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:47.696 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:41:47.697 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:47.704 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:41:57.715 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:57.715 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:41:57.715 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:57.720 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:41:57.720 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:57.720 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:41:57.720 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:41:57.725 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:42:07.736 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:07.736 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:42:07.736 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:07.742 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:42:17.743 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:17.743 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:42:17.743 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:17.819 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:42:27.830 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:27.830 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:42:27.830 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:27.895 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:42:37.906 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:37.906 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:42:37.907 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:37.994 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:42:48.002 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:48.002 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:42:48.002 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:48.009 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:42:58.025 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:58.025 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:42:58.025 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:58.029 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:42:58.029 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:58.029 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:42:58.029 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:42:58.033 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:43:08.033 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:08.034 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:43:08.034 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:08.040 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:43:18.055 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:18.056 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:43:18.056 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:18.061 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:43:28.061 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:28.061 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:43:28.061 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:28.153 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:43:38.162 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:38.162 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:43:38.162 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:38.184 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:43:48.187 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:48.187 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:43:48.187 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:48.194 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:43:58.204 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:58.204 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:43:58.204 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:58.207 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:43:58.207 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:58.207 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:43:58.207 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:43:58.213 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:44:08.227 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:08.228 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:44:08.228 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:08.234 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:44:18.248 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:18.248 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:44:18.248 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:18.256 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:44:28.266 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:28.266 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:44:28.266 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:28.272 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:44:38.275 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:38.275 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:44:38.275 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:38.386 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:44:48.387 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:48.388 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:44:48.388 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:48.489 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:44:58.504 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:58.504 +08:00 [INF] Main (StartedAsync) |         Retrieve System Config.
+2024-08-25 21:44:58.504 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:58.508 +08:00 [INF] Main (StartedAsync) | Send Email Function: Enabled, Interval Every 10 Secs
+2024-08-25 21:44:58.508 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:58.508 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:44:58.508 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:44:58.516 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:45:08.528 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:45:08.528 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:45:08.528 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:45:08.535 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:45:18.542 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:45:18.542 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:45:18.542 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:45:18.548 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:45:28.552 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:45:28.552 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:45:28.552 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:45:28.558 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
+2024-08-25 21:45:38.571 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:45:38.571 +08:00 [INF] Main (StartedAsync) |         Retrieve Send Email List.
+2024-08-25 21:45:38.571 +08:00 [INF] Main (StartedAsync) | -------------------------------------------
+2024-08-25 21:45:38.663 +08:00 [INF] Main (StartedAsync) | No emails need to be sent.
