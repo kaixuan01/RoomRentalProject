@@ -1,9 +1,0 @@
-2024-08-28 19:35:10.705 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"Kai Xuan","username":"string","password":"Rk3v3KRwA/FljSeC0SqBkQR3OkIBd+2kZq/aJ7jQJHNRdtD1KKlpuZ0a3nmxEdMC","email":"kaixuan0131@gmail.com","userRoleId":0,"phone":"string"}
-2024-08-28 19:36:23.712 +08:00 [INF] Main (RegisterAcc) | Receive Request to register account, Request: {"name":"Kai Xuan","username":"string","password":"yYZ/s6kSHCnS7dSG9UHOFrtcGI32+Dlf2uzPGTX4Jgb+e2YqNBNM0GRiaSFWVS+w","email":"kaixuan0131@gmail.com","userRoleId":0,"phone":"string"}
-2024-08-28 19:36:24.025 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
-2024-08-28 19:36:24.027 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email request. User Id: 20240828193623128315, recipient name: Kai Xuan, recipient email: kaixuan0131@gmail.com
-2024-08-28 19:36:24.028 +08:00 [INF] DBL (CreateAsync) | Receive Request to Generate Token. User Id: 20240828193623128315, Token Type: EmailConfirmation
-2024-08-28 19:36:24.111 +08:00 [ERR] DBL (CreateAuditTrailAsync) | Error when Insert Audit Trail (Object). Exception Message: Self referencing loop detected for property 'AuditTrail' with type 'DAL.Entity.TAuditTrail'. Path 'AuditTrailDetails[0]'.
-2024-08-28 19:36:24.111 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. User Id: 20240828193623128315
-2024-08-28 19:36:24.182 +08:00 [INF] DBL (SendConfirmEmailAsync) | Send Confirm Email Successful. Recipient name: Kai Xuan, recipient email: kaixuan0131@gmail.com
-2024-08-28 19:36:24.183 +08:00 [INF] DBL (CreateAsync) | Record Insert Successful. user id: 20240828193623128315
