@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Background_WorkerService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89db3b31e1d41b571cc159a40cea084f3c973010")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47b5c6869eafc53d9d58a9d5a15cb5b2eaac113c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Background_WorkerService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Background_WorkerService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
