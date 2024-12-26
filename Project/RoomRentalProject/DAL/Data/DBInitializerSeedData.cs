@@ -15,7 +15,7 @@ namespace DAL.Data
             var userRoles = new List<EUserRole>
             {
                 CreateUserRole(Enum_UserRole.Admin, "Admin", "Administrator"),
-                CreateUserRole(Enum_UserRole.Merchant, "Merchant", "Merchant Account"),
+                CreateUserRole(Enum_UserRole.Owner, "Owner", "Owner Account"),
                 CreateUserRole(Enum_UserRole.NormalUser, "Normal User", "Customer Account"),
             };
 
@@ -32,7 +32,7 @@ namespace DAL.Data
             {
                 CreateUser("admin1", "admin", "Admin 1", "woonyap616@gmail.com", "0123456789", Enum_UserRole.Admin),
                 CreateUser("admin2", "admin", "Admin 2", "kaixuan0131@gmail.com", "0123456789", Enum_UserRole.Admin),
-                CreateUser("merchant1", "merchant", "Merchant 1", "merchant@merchant.com", "0123456789", Enum_UserRole.Merchant)
+                CreateUser("Owner1", "Owner", "Owner 1", "owner@owner.com", "0123456789", Enum_UserRole.Owner)
             };
 
             #endregion

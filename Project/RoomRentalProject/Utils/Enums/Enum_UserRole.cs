@@ -7,8 +7,8 @@ namespace Utils.Enums
         [Description("Admin")]
         Admin = 0,
 
-        [Description("Merchant")]
-        Merchant = 1,
+        [Description("Owner")]
+        Owner = 1,
 
         [Description("Normal User")]
         NormalUser = 2
