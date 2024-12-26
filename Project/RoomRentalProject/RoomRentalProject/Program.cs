@@ -84,7 +84,7 @@ builder.Services.AddAuthorization(options =>
         {
             var userRole = context.User.FindFirst(ClaimTypes.Role)?.Value;
 
-            if (userRole == Enum_UserRole.Admin.ToString() || userRole == Enum_UserRole.Merchant.ToString())
+            if (userRole == Enum_UserRole.Admin.ToString() || userRole == Enum_UserRole.Owner.ToString())
             {
                 return true; // Admins & Merchant have access
             }
