@@ -13,7 +13,7 @@ public partial class TAuditTrail
 
     public string Action { get; set; } = null!;
 
-    public string Username { get; set; } = null!;
+    public string? Username { get; set; }
 
     public string? Remark { get; set; }
 
