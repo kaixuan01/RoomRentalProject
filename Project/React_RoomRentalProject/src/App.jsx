@@ -11,7 +11,7 @@ import { baselightTheme } from "./theme/DefaultColors";
 
 function App() {
   
-  const routing = useRoutes(Router);
+  const routing = useRoutes(Router());
   const theme = baselightTheme;
 
   return (

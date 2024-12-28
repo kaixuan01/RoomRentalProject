@@ -14,6 +14,7 @@ import {
 import { IconListCheck, IconMail, IconUser } from '@tabler/icons-react';
 
 import ProfileImg from 'src/assets/images/profile/user-1.jpg';
+import { useAuthHandlers } from '../../../hook/AuthHandlers';
 
 const Profile = () => {
   const [anchorEl2, setAnchorEl2] = useState(null);
@@ -23,6 +24,8 @@ const Profile = () => {
   const handleClose2 = () => {
     setAnchorEl2(null);
   };
+  
+  const { handleLogout } = useAuthHandlers();
 
   return (
     <Box>
@@ -84,7 +87,7 @@ const Profile = () => {
           <ListItemText>My Tasks</ListItemText>
         </MenuItem>
         <Box mt={1} py={1} px={2}>
-          <Button to="/auth/login" variant="outlined" color="primary" component={Link} fullWidth>
+          <Button onClick={handleLogout} variant="outlined" color="primary" component={Link} fullWidth>
             Logout
           </Button>
         </Box>
