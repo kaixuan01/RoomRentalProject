@@ -12,8 +12,10 @@ import { Link, useNavigate  } from 'react-router-dom';
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 import { showErrorAlert, showSuccessAlert } from '../../../Common';
 import { useFuncHTTPReq } from '../../../components/shared/FuncHttpReq';
+import { useAuthHandlers } from '../../../hook/AuthHandlers';
 const AuthLogin = ({ title, subtitle, subtext }) => {
     const { FuncHTTPReq } = useFuncHTTPReq();
+    const { handleLogin } = useAuthHandlers();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
@@ -35,6 +37,7 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
             data: formData, 
             method: 'POST',
             onSuccess: (data, msg) => {
+                handleLogin();
                 showSuccessAlert("Login Success").then(() => {
                     navigate('/');
                 });
