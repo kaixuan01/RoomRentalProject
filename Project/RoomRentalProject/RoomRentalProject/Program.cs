@@ -86,7 +86,7 @@ builder.Services.AddAuthorization(options =>
 
             if (userRole == Enum_UserRole.Admin.ToString() || userRole == Enum_UserRole.Owner.ToString())
             {
-                return true; // Admins & Merchant have access
+                return true; // Admins & Owner have access
             }
 
             return false;
