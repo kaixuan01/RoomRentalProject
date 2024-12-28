@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
-import { useAuthHandlers } from '../../hook/AuthHandlers';
+import { useAuthHandlers } from "./AuthHandlers";
 import Cookies from "js-cookie";
-import { showErrorAlert } from '../../Common';
+import { showErrorAlert } from "../Common/Common";
 
 // Define the handleResponseErrors function outside of the hook to avoid dependency issues
 const handleResponseErrors = (response, handleLogout) => {
@@ -14,7 +14,7 @@ const handleResponseErrors = (response, handleLogout) => {
       } else {
         showErrorAlert("Your session is expired. Please login again.");
       }
-      // handleLogout();
+      handleLogout();
     } else if (response.status === 403) {
       showErrorAlert("You have no permission on this function!");
     } else {
@@ -38,6 +38,7 @@ export const useFuncHTTPReq = () => {
     onSuccess,
     onError
   }) => {
+    // Encapsulate the async logic inside the function
     (async () => {
       try {
         const options = {
@@ -52,7 +53,7 @@ export const useFuncHTTPReq = () => {
 
         const response = await fetch(`${baseUrl}${url}`, options);
 
-        if (!handleResponseErrors(response)) {
+        if (!handleResponseErrors(response, handleLogout)) {
           return;
         }
 
@@ -80,7 +81,7 @@ export const useFuncHTTPReq = () => {
         onError?.(error);
       }
     })();
-  }, []);
+  }, [handleLogout]);
 
   return { FuncHTTPReq };
 };
