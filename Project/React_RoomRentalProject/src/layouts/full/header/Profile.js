@@ -87,7 +87,14 @@ const Profile = () => {
           <ListItemText>My Tasks</ListItemText>
         </MenuItem>
         <Box mt={1} py={1} px={2}>
-          <Button onClick={handleLogout} variant="outlined" color="primary" component={Link} fullWidth>
+          <Button onClick={handleLogout} variant="outlined" color="primary" component={Link} fullWidth
+          sx={{
+            '&:hover': {
+              backgroundColor: 'primary.light',
+              color: 'primary.main',
+            },
+          }}
+          >
             Logout
           </Button>
         </Box>

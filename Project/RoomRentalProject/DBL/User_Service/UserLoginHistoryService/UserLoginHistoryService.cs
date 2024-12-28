@@ -54,6 +54,7 @@ namespace DBL.User_Service.UserLoginHistoryService
                 LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Login History not found. User Id: {UserId}");
             }
 
+            record.Remark = "Logout Successfully";
             record.LogoutDateTime = DateTime.Now;
 
             await _userLoginHistoryRepository.UpdateAsync(record);
