@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { useAuthHandlers } from '../../hook/AuthHandlers';
 import Cookies from "js-cookie";
 import { showErrorAlert } from '../../Common';
 
@@ -26,7 +25,6 @@ const handleResponseErrors = (response, handleLogout) => {
 };
 
 export const useFuncHTTPReq = () => {
-  const { handleLogout } = useAuthHandlers();
   const FuncHTTPReq = useCallback(({
     method = 'GET',
     url,
