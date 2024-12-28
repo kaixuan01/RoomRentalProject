@@ -27,11 +27,6 @@ const Router = () => {
     dispatch(initData('isLogin', storedLoginStatus || null));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (isLogin) {
-      localStorage.setItem('isLogin', isLogin);
-    }
-  }, [isLogin]);
   const routes = isLogin
     ? [
         {
