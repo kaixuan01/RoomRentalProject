@@ -10,7 +10,7 @@ namespace DBL.User_Service.UserLoginHistoryService
 
         Task<PagedResult<TUserLoginHistory>> GetLoginHistoryList(FilterParameters filterParameters, bool includeForeignRelationship = false);
 
-        Task UpdateUserLogoutByUserIdAsync(string UserId);
+        Task UpdateUserLogoutByUserIdAsync(int UserId);
 
     }
 }

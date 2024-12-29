@@ -9,7 +9,7 @@ namespace DBL.User_Service.UserService
     {
         // ## Get User
         Task<UserListing_RESP> GetUserListingAsync(UserListing_REQ oReq);
-        Task<TUser> GetByIdAsync(string id);
+        Task<TUser> GetByIdAsync(int id);
 
         // ## Get User's Role
         Task<int> GetUserRoleByUsernameAsync(string username);
@@ -17,13 +17,13 @@ namespace DBL.User_Service.UserService
         // ## Create, Edit, Delete
         Task<CreateUser_RESP> CreateAsync(CreateUser_REQ user);
         Task<ShareResp> UpdateAsync(EditUser_REQ user);
-        Task<ShareResp> DeleteAsync(string id);
+        Task<ShareResp> DeleteAsync(int id);
 
         // ## Login Verify
         Task<VerifyUser_RESP> VerifyUserAsync(VerifyUser_REQ user);
 
         // ## Block / Unblock user
-        Task<ShareResp> SetUserStatusAsync(string id);
+        Task<ShareResp> SetUserStatusAsync(int id);
 
         // ## Update Logout
         Task UpdateUserLogoutAsync(string username);

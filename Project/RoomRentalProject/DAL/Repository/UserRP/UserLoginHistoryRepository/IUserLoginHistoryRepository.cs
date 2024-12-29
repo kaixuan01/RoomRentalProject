@@ -7,7 +7,7 @@ namespace DAL.Repository.UserRP.UserLoginHistoryRepository
     {
         Task CreateAsync(TUserLoginHistory user);
         Task UpdateAsync(TUserLoginHistory oRec);
-        Task<TUserLoginHistory> GetUserLoginHistoryByUserIdAsync(string UserId);
+        Task<TUserLoginHistory> GetUserLoginHistoryByUserIdAsync(int UserId);
 
     }
 }

@@ -69,7 +69,7 @@ namespace E_commerce.Controllers.User_Controller
 
         [HttpGet]
         [Route("ViewUser")]
-        public async Task<IActionResult> ViewUser([FromQuery] string id)
+        public async Task<IActionResult> ViewUser([FromQuery] int id)
         {
             ApiResponse<TUser>? apiResponse = null;
             LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Request Get User List, User Id: {id}");
@@ -115,7 +115,7 @@ namespace E_commerce.Controllers.User_Controller
                 {
                     case RespCode.RespCode_Success:
                         // Create a success response using ApiResponse<T>
-                        apiResponse = ApiResponse<string>.CreateSuccessResponse(oResp.UserId, oResp.Message);
+                        apiResponse = ApiResponse<string>.CreateSuccessResponse(oResp.UserId.ToString(), oResp.Message);
                         break;
 
                     case RespCode.RespCode_Failed:
@@ -194,7 +194,7 @@ namespace E_commerce.Controllers.User_Controller
         [HttpPost]
         [Route("DeleteUser")]
         [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
-        public async Task<IActionResult> DeleteUser([FromBody] string userId)
+        public async Task<IActionResult> DeleteUser([FromBody] int userId)
         {
             ApiResponse<string>? apiResponse = null;
 
@@ -241,7 +241,7 @@ namespace E_commerce.Controllers.User_Controller
         [HttpPost]
         [Route("SetUserStatus")]
         [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
-        public async Task<IActionResult> SetUserStatus([FromBody] string userId)
+        public async Task<IActionResult> SetUserStatus([FromBody] int userId)
         {
             ApiResponse<string>? apiResponse = null;
 

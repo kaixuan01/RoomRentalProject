@@ -19,7 +19,7 @@ namespace DAL.Repository.UserRP.UserLoginHistoryRepository
             await _appDbContext.SaveChangesAsync();
         }
 
-        public async Task<TUserLoginHistory> GetUserLoginHistoryByUserIdAsync(string UserId)
+        public async Task<TUserLoginHistory> GetUserLoginHistoryByUserIdAsync(int UserId)
         {
             var latestLoginHistory = await _appDbContext.TUserLoginHistories
                 .Where(x => x.UserId == UserId)

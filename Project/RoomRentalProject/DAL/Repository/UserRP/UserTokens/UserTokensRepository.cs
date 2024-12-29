@@ -28,7 +28,7 @@ namespace DAL.Repository.UserRP.UserTokens
             return oUserToken;
         }
 
-        public async Task<TUserToken> GetByUserIdAsync(string UserId)
+        public async Task<TUserToken> GetByUserIdAsync(int UserId)
         {
             var oUserToken = await _appDbContext.TUserTokens
                            .Where(x => x.UserId == UserId)

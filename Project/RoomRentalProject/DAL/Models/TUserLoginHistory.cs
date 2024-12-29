@@ -5,9 +5,9 @@ namespace DAL.Models;
 
 public partial class TUserLoginHistory
 {
-    public string Id { get; set; } = null!;
+    public long Id { get; set; }
 
-    public string UserId { get; set; } = null!;
+    public int UserId { get; set; }
 
     public DateTime? LoginDateTime { get; set; }
 

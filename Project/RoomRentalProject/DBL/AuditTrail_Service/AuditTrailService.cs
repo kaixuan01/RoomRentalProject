@@ -61,7 +61,6 @@ namespace DBL.AuditTrail_Service
 
                 var auditTrail = new TAuditTrail
                 {
-                    Id = IdGeneratorHelper.GenerateId(),
                     Module = module,
                     TableName = typeof(T).Name,
                     Action = action,
@@ -88,7 +87,6 @@ namespace DBL.AuditTrail_Service
                         {
                             var auditTrailDetail = new TAuditTrailDetail
                             {
-                                Id = IdGeneratorHelper.GenerateId(),
                                 Field = property.Name,
                                 OriginalData = originalValue,
                                 NewData = newValue
@@ -112,7 +110,6 @@ namespace DBL.AuditTrail_Service
 
                         var auditTrailDetail = new TAuditTrailDetail
                         {
-                            Id = IdGeneratorHelper.GenerateId(),
                             Field = property.Name,
                             OriginalData = null,  // No original data for Create
                             NewData = newValue
@@ -135,7 +132,6 @@ namespace DBL.AuditTrail_Service
 
                         var auditTrailDetail = new TAuditTrailDetail
                         {
-                            Id = IdGeneratorHelper.GenerateId(),
                             Field = property.Name,
                             OriginalData = originalValue,
                             NewData = null  // No new data for Delete
@@ -162,7 +158,6 @@ namespace DBL.AuditTrail_Service
             {
                 var auditTrail = new TAuditTrail
                 {
-                    Id = IdGeneratorHelper.GenerateId(),
                     Module = module,
                     TableName = tableName,
                     Action = action,
@@ -184,7 +179,6 @@ namespace DBL.AuditTrail_Service
                         {
                             var auditTrailDetail = new TAuditTrailDetail
                             {
-                                Id = IdGeneratorHelper.GenerateId(),
                                 Field = key,
                                 OriginalData = originalValue,
                                 NewData = newValue

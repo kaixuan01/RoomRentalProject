@@ -5,7 +5,7 @@ namespace DAL.Models;
 
 public partial class TUser
 {
-    public string Id { get; set; } = null!;
+    public int Id { get; set; }
 
     public string Username { get; set; } = null!;
 

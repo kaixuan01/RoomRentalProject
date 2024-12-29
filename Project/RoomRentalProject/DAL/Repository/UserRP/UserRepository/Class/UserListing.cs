@@ -20,7 +20,7 @@ namespace DAL.Repository.UserRP.UserRepository.Class
 
     public class UserL
     {
-        public string? Id { get; set; }
+        public int? Id { get; set; }
         public string? Name { get; set; }
         public string? Username { get; set; }
         public string? Email { get; set; }

@@ -45,7 +45,7 @@ namespace DBL.User_Service.UserLoginHistoryService
             return oUserLoginHistoryList;
         }
 
-        public async Task UpdateUserLogoutByUserIdAsync(string UserId)
+        public async Task UpdateUserLogoutByUserIdAsync(int UserId)
         {
             var record = await _userLoginHistoryRepository.GetUserLoginHistoryByUserIdAsync(UserId);
 

@@ -5,9 +5,9 @@ namespace DAL.Models;
 
 public partial class TAuditTrailDetail
 {
-    public string Id { get; set; } = null!;
+    public long Id { get; set; }
 
-    public string AuditTrailId { get; set; } = null!;
+    public long AuditTrailId { get; set; }
 
     public string Field { get; set; } = null!;
 

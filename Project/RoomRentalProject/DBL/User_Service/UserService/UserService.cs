@@ -83,7 +83,7 @@ namespace DBL.User_Service.UserService
             return rtnValue;
         }
 
-        public async Task<TUser> GetByIdAsync(string id)
+        public async Task<TUser> GetByIdAsync(int id)
         {
             var oUser = await _userRepository.GetByIdAsync(id);
 
@@ -153,7 +153,6 @@ namespace DBL.User_Service.UserService
 
                 var createUser = new TUser
                 {
-                    Id = IdGeneratorHelper.GenerateId(),
                     Username = oUser.username,
                     Password = oUser.password,
                     Name = oUser.name,
@@ -204,10 +203,17 @@ namespace DBL.User_Service.UserService
 
             try
             {
-                if (string.IsNullOrEmpty(oReq.id) || string.IsNullOrEmpty(oReq.name) || string.IsNullOrEmpty(oReq.email) || oReq.userRoleId == null)
+                if (string.IsNullOrEmpty(oReq.name) || string.IsNullOrEmpty(oReq.email) || oReq.userRoleId == null)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = ErrorMessage.MissingRequiredField;
+                    return rtnValue;
+                }
+
+                if (!RegexHelper.IsEmailValid(oReq.email))
+                {
+                    rtnValue.Code = RespCode.RespCode_Failed;
+                    rtnValue.Message = "Invalid email format. Please enter a valid email.";
                     return rtnValue;
                 }
 
@@ -295,11 +301,11 @@ namespace DBL.User_Service.UserService
 
         #region [ Delete User ]
 
-        public async Task<ShareResp> DeleteAsync(string id)
+        public async Task<ShareResp> DeleteAsync(int id)
         {
             var rtnValue = new ShareResp();
 
-            if (string.IsNullOrEmpty(id))
+            if (id < 0)
             {
                 rtnValue.Code = RespCode.RespCode_Failed;
                 rtnValue.Message = ErrorMessage.GeneralError;
@@ -349,11 +355,11 @@ namespace DBL.User_Service.UserService
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<ShareResp> SetUserStatusAsync(string id)
+        public async Task<ShareResp> SetUserStatusAsync(int id)
         {
             var rtnValue = new ShareResp();
 
-            if (string.IsNullOrEmpty(id))
+            if (id < 0)
             {
                 rtnValue.Code = RespCode.RespCode_Failed;
                 rtnValue.Message = ErrorMessage.GeneralError;
@@ -475,7 +481,6 @@ namespace DBL.User_Service.UserService
 
                     var oLoginHistory = new TUserLoginHistory()
                     {
-                        Id = IdGeneratorHelper.GenerateId(),
                         UserId = oUser.Id,
                         LoginDateTime = DateTime.Now
                     };

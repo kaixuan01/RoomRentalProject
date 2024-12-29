@@ -22,9 +22,9 @@ namespace DBL.User_Service.UserTokensService
             _systemConfigService = systemConfigService;
         }
 
-        public async Task<TUserToken> CreateAsync(string UserId, string TokenType)
+        public async Task<TUserToken> CreateAsync(int UserId, string TokenType)
         {
-            if (string.IsNullOrEmpty(UserId) || string.IsNullOrEmpty(TokenType))
+            if (string.IsNullOrEmpty(TokenType))
             {
                 LogHelper.RaiseLogEvent(Enum_LogLevel.Warning, $"Invalid parameters: UserId or TokenType is null or empty.");
                 throw new ArgumentException("UserId and TokenType cannot be null or empty.");
@@ -37,7 +37,6 @@ namespace DBL.User_Service.UserTokensService
 
                 var newToken = new TUserToken
                 {
-                    Id = IdGeneratorHelper.GenerateId(),
                     UserId = UserId,
                     Token = AuthToken.GenerateToken(),
                     TokenType = TokenType,
@@ -77,7 +76,7 @@ namespace DBL.User_Service.UserTokensService
             return await _userTokensRepository.GetByTokenAsync(token);
         }
 
-        public async Task<TUserToken> GetByUserIdAsync(string UserId)
+        public async Task<TUserToken> GetByUserIdAsync(int UserId)
         {
             return await _userTokensRepository.GetByUserIdAsync(UserId);
         }

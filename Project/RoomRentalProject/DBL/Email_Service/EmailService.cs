@@ -50,13 +50,13 @@ namespace DBL.Email_Service
 
         #region [ Update Email ]
 
-        public async Task UpdateEmailAsync(string oId, string oStatus, string oRemark)
+        public async Task UpdateEmailAsync(long oId, string oStatus, string oRemark)
         {
             try
             {
                 var email = await _emailRepository.GetSendEmailAsync(oId);
 
-                if (email == null || string.IsNullOrEmpty(oId))
+                if (email == null)
                 {
                     LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Email not found");
 
@@ -114,7 +114,6 @@ namespace DBL.Email_Service
 
                 var email = new TEmail
                 {
-                    Id = IdGeneratorHelper.GenerateId(),
                     EmailSubject = "Email Confirmation",
                     EmailContent = emailContent,
                     RecipientName = oUser.Name,
@@ -161,7 +160,6 @@ namespace DBL.Email_Service
 
                 var email = new TEmail
                 {
-                    Id = IdGeneratorHelper.GenerateId(),
                     EmailSubject = "Reset Password",
                     EmailContent = emailContent,
                     RecipientName = oUser.Name,

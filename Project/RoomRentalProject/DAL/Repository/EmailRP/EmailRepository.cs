@@ -45,7 +45,7 @@ namespace DAL.Repository.EmailRP
                         .ToListAsync();  // Execute the query and return the results as a list
         }
 
-        public async Task<TEmail> GetSendEmailAsync(string oId)
+        public async Task<TEmail> GetSendEmailAsync(long oId)
         {
             return await _appDbContext.TEmails.FirstOrDefaultAsync(x => x.Id == oId);
         }

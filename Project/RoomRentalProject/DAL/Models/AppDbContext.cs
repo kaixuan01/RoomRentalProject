@@ -46,7 +46,6 @@ public partial class AppDbContext : DbContext
         {
             entity.ToTable("T_AuditTrail");
 
-            entity.Property(e => e.Id).HasMaxLength(20);
             entity.Property(e => e.Action).HasMaxLength(30);
             entity.Property(e => e.CreatedDate).HasPrecision(0);
             entity.Property(e => e.Module).HasMaxLength(100);
@@ -61,10 +60,7 @@ public partial class AppDbContext : DbContext
 
             entity.HasIndex(e => e.AuditTrailId, "IX_T_AuditTrailDetails_Audit_Trail_Id");
 
-            entity.Property(e => e.Id).HasMaxLength(20);
-            entity.Property(e => e.AuditTrailId)
-                .HasMaxLength(20)
-                .HasColumnName("Audit_Trail_Id");
+            entity.Property(e => e.AuditTrailId).HasColumnName("Audit_Trail_Id");
             entity.Property(e => e.Field).HasMaxLength(100);
             entity.Property(e => e.NewData)
                 .HasMaxLength(300)
@@ -80,7 +76,6 @@ public partial class AppDbContext : DbContext
         {
             entity.ToTable("T_Email");
 
-            entity.Property(e => e.Id).HasMaxLength(20);
             entity.Property(e => e.CreatedDateTime).HasPrecision(0);
             entity.Property(e => e.EmailSubject).HasMaxLength(300);
             entity.Property(e => e.IcntFailedSend).HasColumnName("ICntFailedSend");
@@ -97,7 +92,6 @@ public partial class AppDbContext : DbContext
         {
             entity.ToTable("T_SystemConfig");
 
-            entity.Property(e => e.Id).HasMaxLength(20);
             entity.Property(e => e.CreatedDate).HasPrecision(0);
             entity.Property(e => e.Description).HasMaxLength(300);
             entity.Property(e => e.Key).HasMaxLength(300);
@@ -112,7 +106,6 @@ public partial class AppDbContext : DbContext
 
             entity.HasIndex(e => e.UserRoleId, "IX_T_User_UserRoleId");
 
-            entity.Property(e => e.Id).HasMaxLength(20);
             entity.Property(e => e.CreatedDate).HasPrecision(0);
             entity.Property(e => e.Email).HasMaxLength(200);
             entity.Property(e => e.ICountFailedLogin)
@@ -134,11 +127,9 @@ public partial class AppDbContext : DbContext
 
             entity.HasIndex(e => e.UserId, "IX_T_UserLoginHistory_UserId");
 
-            entity.Property(e => e.Id).HasMaxLength(20);
             entity.Property(e => e.LoginDateTime).HasPrecision(0);
             entity.Property(e => e.LogoutDateTime).HasPrecision(0);
             entity.Property(e => e.Remark).HasMaxLength(300);
-            entity.Property(e => e.UserId).HasMaxLength(20);
 
             entity.HasOne(d => d.User).WithMany(p => p.TUserLoginHistories).HasForeignKey(d => d.UserId);
         });
@@ -149,7 +140,6 @@ public partial class AppDbContext : DbContext
 
             entity.HasIndex(e => e.UserId, "IX_T_UserTokens_UserId");
 
-            entity.Property(e => e.Id).HasMaxLength(20);
             entity.Property(e => e.CreatedDateTime).HasPrecision(0);
             entity.Property(e => e.ExpiresDateTime).HasPrecision(0);
             entity.Property(e => e.Token)
@@ -158,7 +148,6 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.TokenType)
                 .HasMaxLength(100)
                 .HasComment("Type of the token\r\n1. EmailConfirmation = Used for confirming a newly created user's email address.\r\n2. ResetPassword = Used when a user requests a password reset after forgetting their password.");
-            entity.Property(e => e.UserId).HasMaxLength(20);
 
             entity.HasOne(d => d.User).WithMany(p => p.TUserTokens).HasForeignKey(d => d.UserId);
         });

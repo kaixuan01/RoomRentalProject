@@ -5,7 +5,7 @@ namespace DAL.Models;
 
 public partial class TEmail
 {
-    public string Id { get; set; } = null!;
+    public long Id { get; set; }
 
     public string? EmailSubject { get; set; }
 

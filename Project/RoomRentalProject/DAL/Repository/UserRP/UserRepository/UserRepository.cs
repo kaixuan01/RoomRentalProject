@@ -1,8 +1,6 @@
 ﻿using DAL.Models;
 using DAL.Repository.UserRP.UserRepository.Class;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
-using Utils;
 
 namespace DAL.Repository.UserRP.UserRepository
 {
@@ -84,7 +82,7 @@ namespace DAL.Repository.UserRP.UserRepository
 
         #region [ Get User ]
 
-        public async Task<TUser> GetByIdAsync(string id)
+        public async Task<TUser> GetByIdAsync(int id)
         {
             return await _appDbContext.TUsers.FirstOrDefaultAsync(x => x.Id == id);
         }
@@ -142,7 +140,7 @@ namespace DAL.Repository.UserRP.UserRepository
             return await _appDbContext.TUsers.AnyAsync(user => user.Username == username);
         }
 
-        public async Task<bool> IsEmailExistAsync(string email, string? userId = null)
+        public async Task<bool> IsEmailExistAsync(string email, int? userId = null)
         {
             return await _appDbContext.TUsers
                 .AnyAsync(user => user.Email == email && (userId == null ? true : user.Id != userId));

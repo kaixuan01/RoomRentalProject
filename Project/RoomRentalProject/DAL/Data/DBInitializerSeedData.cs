@@ -82,7 +82,7 @@ namespace DAL.Data
         {
             return new TUser
             {
-                Id = IdGeneratorHelper.GenerateId(),
+                
                 Username = userName,
                 Password = PasswordHelper.HashPassword(password),
                 Name = name,
@@ -107,7 +107,7 @@ namespace DAL.Data
         {
             return new TSystemConfig
             {
-                Id = IdGeneratorHelper.GenerateId(),
+                
                 Key = key,
                 Value = value,
                 Description = description,
