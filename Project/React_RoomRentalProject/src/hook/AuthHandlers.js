@@ -9,8 +9,9 @@ export const useAuthHandlers = () => {
 
   const handleLogin = useCallback(() => {
     dispatch(updateData('isLogin', 'Login'));
+    localStorage.setItem('isLogin', 'Login');
   }, [dispatch]);
-  
+
   const handleLogout = useCallback(() => {
     dispatch(updateData('isLogin', null));
     localStorage.removeItem('isLogin');
@@ -20,7 +21,6 @@ export const useAuthHandlers = () => {
     });
     window.location.href = "/";
   }, [dispatch, FuncHTTPReq]);
-  
 
   return { handleLogin, handleLogout };
 };
