@@ -10,6 +10,7 @@ using Serilog;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
+using Utils;
 using Utils.Enums;
 using Utils.Tools;
 
@@ -79,14 +80,27 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("CustomMerchantAccess", policy =>
+    options.AddPolicy(ConstantCode.AuthorizePolicy.AdminAccessPolicy, policy =>
+        policy.RequireAssertion(context =>
+        {
+            var userRole = context.User.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (userRole == Enum_UserRole.Admin.ToString())
+            {
+                return true; // Admins
+            }
+
+            return false;
+        }));
+
+    options.AddPolicy(ConstantCode.AuthorizePolicy.AdminOwnerAccessPolicy, policy =>
         policy.RequireAssertion(context =>
         {
             var userRole = context.User.FindFirst(ClaimTypes.Role)?.Value;
 
             if (userRole == Enum_UserRole.Admin.ToString() || userRole == Enum_UserRole.Owner.ToString())
             {
-                return true; // Admins & Owner have access
+                return true; // Admins
             }
 
             return false;

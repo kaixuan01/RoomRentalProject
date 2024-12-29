@@ -67,8 +67,6 @@
             public const string ConfirmEmailUrl = "ConfirmEmailUrl";
             public const string ExpiresDateTime = "ExpiresDateTime";
             public const string ResetPasswordUrl = "ResetPasswordUrl";
-
-            
         }
 
         public class UrlPath
@@ -94,6 +92,12 @@
 
             public const string Code_Failed = "F";
             public const string Failed = "Failed";
+        }
+
+        public class AuthorizePolicy
+        {
+            public const string AdminAccessPolicy = "AdminAccessPolicy";
+            public const string AdminOwnerAccessPolicy = "AdminOwnerAccessPolicy";
         }
     }
 }

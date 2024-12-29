@@ -95,7 +95,7 @@ namespace E_commerce.Controllers.User_Controller
 
         [HttpPost]
         [Route("AddUser")]
-        [Authorize(Policy = "CustomMerchantAccess")]
+        [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> AddUser([FromBody] CreateUser_REQ oUser)
         {
             ApiResponse<string>? apiResponse = null;
@@ -144,7 +144,7 @@ namespace E_commerce.Controllers.User_Controller
 
         [HttpPost]
         [Route("EditUser")]
-        [Authorize(Policy = "CustomMerchantAccess")]
+        [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> EditUser([FromBody] EditUser_REQ oUser)
         {
             ApiResponse<string>? apiResponse = null;
@@ -193,7 +193,7 @@ namespace E_commerce.Controllers.User_Controller
 
         [HttpPost]
         [Route("DeleteUser")]
-        [Authorize(Policy = "CustomMerchantAccess")]
+        [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> DeleteUser([FromBody] string userId)
         {
             ApiResponse<string>? apiResponse = null;
@@ -240,7 +240,7 @@ namespace E_commerce.Controllers.User_Controller
 
         [HttpPost]
         [Route("SetUserStatus")]
-        [Authorize(Policy = "CustomMerchantAccess")]
+        [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> SetUserStatus([FromBody] string userId)
         {
             ApiResponse<string>? apiResponse = null;
