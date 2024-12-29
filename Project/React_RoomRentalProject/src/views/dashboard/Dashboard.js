@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Box, Button } from '@mui/material';
+import { Grid, Box, Button, InputLabel } from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 
 // components
@@ -9,8 +9,8 @@ import RecentTransactions from './components/RecentTransactions';
 import ProductPerformance from './components/ProductPerformance';
 import Blog from './components/Blog';
 import MonthlyEarnings from './components/MonthlyEarnings';
-import FileUploader from '../../components/shared/FileUploader';
 import DashboardCard from '../../components/shared/DashboardCard';
+import UppyFileUpload from '../../components/shared/UppyFileUploader';
 
 
 const Dashboard = () => {
@@ -18,13 +18,13 @@ const Dashboard = () => {
     <PageContainer title="Dashboard" description="this is Dashboard">
       <Box>
         <Grid container spacing={3}>
-          <Grid item xs={6}>
-          <DashboardCard title={"File Uploader"}>
-            <FileUploader allowImagePreview={false} />
-          </DashboardCard>
+          <Grid  item xs={12} lg={6}>
+            <DashboardCard title={"File Uploader"}>
+              <UppyFileUpload/>
+              <InputLabel/>
+            </DashboardCard>
           </Grid>
           <Grid item xs={6}>
-            <FileUploader />
           </Grid>
           <Grid item xs={12} lg={8}>
             <SalesOverview />
