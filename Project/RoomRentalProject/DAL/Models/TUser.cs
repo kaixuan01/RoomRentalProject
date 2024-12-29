@@ -38,6 +38,14 @@ public partial class TUser
 
     public DateTime? CreatedDate { get; set; }
 
+    public virtual ICollection<TRoom> TRoomApprovedByNavigations { get; set; } = new List<TRoom>();
+
+    public virtual ICollection<TRoom> TRoomCreatedByNavigations { get; set; } = new List<TRoom>();
+
+    public virtual ICollection<TRoom> TRoomOwners { get; set; } = new List<TRoom>();
+
+    public virtual ICollection<TRoom> TRoomUpdatedByNavigations { get; set; } = new List<TRoom>();
+
     public virtual ICollection<TUserLoginHistory> TUserLoginHistories { get; set; } = new List<TUserLoginHistory>();
 
     public virtual ICollection<TUserToken> TUserTokens { get; set; } = new List<TUserToken>();

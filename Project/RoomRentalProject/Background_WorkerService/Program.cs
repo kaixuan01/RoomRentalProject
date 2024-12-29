@@ -11,8 +11,10 @@ builder.Services.AddSqlServer<AppDbContext>(sqlConnString);
 
 // Register AuthToken as a singleton
 builder.Services.AddSingleton<AuthToken>();
-builder.Services.AddSingleton<EncryptionHelper>();
 builder.Services.AddHostedService<SendEmailWorker>();
+
+// Initialize EncryptionHelper with configuration
+EncryptionHelper.Initialize(builder.Configuration);
 
 // Auto Add All Services
 builder.Services.AddAllService();

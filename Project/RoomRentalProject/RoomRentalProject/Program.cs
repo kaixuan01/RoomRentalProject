@@ -26,7 +26,6 @@ DBL.Tools.LogHelper.OnLogEvent += LogHelper.LogMessage;
 
 // Register AuthToken as a singleton
 builder.Services.AddSingleton<AuthToken>();
-builder.Services.AddSingleton<EncryptionHelper>();
 
 // Add services to the container.
 builder.Services.AddControllers(options =>
@@ -129,6 +128,9 @@ builder.Services.AddSqlServer<AppDbContext>(sqlConnString);
 builder.Services.AddAllService();
 
 builder.Services.AddHttpContextAccessor();
+
+// Initialize EncryptionHelper with configuration
+EncryptionHelper.Initialize(builder.Configuration);
 
 var app = builder.Build();
 

@@ -3,18 +3,21 @@ using System.Security.Cryptography;
 
 namespace Utils.Tools
 {
-    public class EncryptionHelper
+    public static class EncryptionHelper
     {
-        private readonly string _key;
+        private static string _key;
 
-        public EncryptionHelper(IConfiguration configuration)
+        // Static method to initialize the secret key from configuration
+        public static void Initialize(IConfiguration configuration)
         {
             // Get the secret key from appsettings.json
             _key = configuration["EncryptionSettings:SecretKey"];
         }
 
-        public string Encrypt(string plainText)
+        // Encrypt method that accepts a generic type and converts it to a string for encryption
+        public static string Encrypt<T>(T plainText)
         {
+            string plainTextStr = plainText.ToString(); // Convert the generic type to string
             byte[] key = Convert.FromBase64String(_key);
             using (Aes aes = Aes.Create())
             {
@@ -29,7 +32,7 @@ namespace Utils.Tools
                         {
                             using (var sw = new StreamWriter(cs))
                             {
-                                sw.Write(plainText);
+                                sw.Write(plainTextStr);
                             }
                         }
                         return Convert.ToBase64String(ms.ToArray());
@@ -38,7 +41,8 @@ namespace Utils.Tools
             }
         }
 
-        public string Decrypt(string cipherText)
+        // Decrypt method that handles generic types and returns the decrypted value in the appropriate type
+        public static T Decrypt<T>(string cipherText)
         {
             byte[] fullCipher = Convert.FromBase64String(cipherText);
             byte[] key = Convert.FromBase64String(_key);
@@ -62,7 +66,8 @@ namespace Utils.Tools
                         {
                             using (var sr = new StreamReader(cs))
                             {
-                                return sr.ReadToEnd();
+                                string decryptedStr = sr.ReadToEnd();
+                                return (T)Convert.ChangeType(decryptedStr, typeof(T)); // Convert the decrypted string back to the generic type
                             }
                         }
                     }
