@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useAuthHandlers } from "./AuthHandlers";
 import Cookies from "js-cookie";
-import { showErrorAlert } from "../Common/Common";
+import { showErrorAlert } from "../Common";
 
 // Define the handleResponseErrors function outside of the hook to avoid dependency issues
 const handleResponseErrors = (response, handleLogout) => {
