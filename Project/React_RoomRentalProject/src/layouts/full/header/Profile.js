@@ -14,7 +14,7 @@ import {
 import { IconListCheck, IconMail, IconUser } from '@tabler/icons-react';
 
 import ProfileImg from 'src/assets/images/profile/user-1.jpg';
-import { useAuthHandlers } from '../../../hook/AuthHandlers';
+import { useAuthHandlers } from '../../../hooks/AuthHandlers';
 
 const Profile = () => {
   const [anchorEl2, setAnchorEl2] = useState(null);
