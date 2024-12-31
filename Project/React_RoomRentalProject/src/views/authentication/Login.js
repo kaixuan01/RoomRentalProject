@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Box, Card, Stack, Typography } from '@mui/material';
+import { Grid2, Box, Card, Stack, Typography } from '@mui/material';
 
 // components
 import PageContainer from 'src/components/container/PageContainer';
@@ -26,9 +26,8 @@ const Login2 = () => {
           },
         }}
       >
-        <Grid container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
-          <Grid
-            item
+        <Grid2 container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
+          <Grid2
             xs={12}
             sm={12}
             lg={4}
@@ -67,8 +66,8 @@ const Login2 = () => {
                 }
               />
             </Card>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
       </Box>
     </PageContainer>
   );

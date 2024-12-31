@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateData } from '../Redux/actions';
-import { useFuncHTTPReq } from '../components/shared/FuncHttpReq';
+import { useFuncHTTPReq } from './FuncHttpReq';
 
 export const useAuthHandlers = () => {
   const dispatch = useDispatch();

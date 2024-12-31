@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useFuncHTTPReq } from '../../hooks/FuncHttpReq';
+import { useFuncHTTPReq } from '../../../hooks/FuncHttpReq';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Card, CardContent, CardHeader, CircularProgress, Typography, Box } from '@mui/material';
-import { showErrorAlert, showSuccessAlert } from '../../Common';
-import AlertInfo from '../../components/message/AlertInfo';
+import { showErrorAlert, showSuccessAlert } from '../../../Common';
+import AlertInfo from '../../../components/message/AlertInfo';
 
 export default function EmailConfirmation() {
     const { FuncHTTPReq } = useFuncHTTPReq();

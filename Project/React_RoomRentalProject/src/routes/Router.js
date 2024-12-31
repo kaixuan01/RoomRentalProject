@@ -17,7 +17,8 @@ const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')));
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
-const EmailConfirmation = Loadable(lazy(() => import('../views/authentication/EmailConfirmation')));
+const EmailConfirmation = Loadable(lazy(() => import('../views/authentication/ForgotPassword/EmailConfirmation')));
+const ForgotPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ForgotPassword')));
 
 const Router = () => {
   const isLogin = useSelector((state) => state.isLogin);
@@ -54,6 +55,7 @@ const Router = () => {
             { path: '/auth/register', element: <Register /> },
             { path: '/auth/login', element: <Login /> },
             { path: '/ConfirmEmail/:token', element: <EmailConfirmation /> },
+            { path: '/ForgotPassword', element: <ForgotPassword /> },
             { path: '*', element: <Login/> },
             
           ],

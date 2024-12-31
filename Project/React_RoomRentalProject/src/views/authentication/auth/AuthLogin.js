@@ -11,7 +11,7 @@ import {
 import { Link, useNavigate  } from 'react-router-dom';
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 import { showErrorAlert, showSuccessAlert } from '../../../Common';
-import { useFuncHTTPReq } from '../../../components/shared/FuncHttpReq';
+import { useFuncHTTPReq } from '../../../hooks/FuncHttpReq';
 import { useAuthHandlers } from '../../../hooks/AuthHandlers';
 const AuthLogin = ({ title, subtitle, subtext }) => {
     const { FuncHTTPReq } = useFuncHTTPReq();
@@ -105,7 +105,7 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
                     </FormGroup>
                     <Typography
                         component={Link}
-                        to="/"
+                        to="/ForgotPassword"
                         fontWeight="500"
                         sx={{
                             textDecoration: 'none',
