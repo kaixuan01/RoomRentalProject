@@ -12,7 +12,7 @@ import { Link, useNavigate  } from 'react-router-dom';
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 import { showErrorAlert, showSuccessAlert } from '../../../Common';
 import { useFuncHTTPReq } from '../../../components/shared/FuncHttpReq';
-import { useAuthHandlers } from '../../../hook/AuthHandlers';
+import { useAuthHandlers } from '../../../hooks/AuthHandlers';
 const AuthLogin = ({ title, subtitle, subtext }) => {
     const { FuncHTTPReq } = useFuncHTTPReq();
     const { handleLogin } = useAuthHandlers();
