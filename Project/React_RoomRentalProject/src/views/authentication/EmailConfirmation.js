@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useFuncHTTPReq } from '../../Hook/FuncHttpReq';
+import { useFuncHTTPReq } from '../../hooks/FuncHttpReq';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Card, CardContent, CardHeader, CircularProgress, Typography, Box } from '@mui/material';
 import { showErrorAlert, showSuccessAlert } from '../../Common';
