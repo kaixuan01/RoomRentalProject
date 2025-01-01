@@ -17,7 +17,7 @@ const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')));
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
-const EmailConfirmation = Loadable(lazy(() => import('../views/authentication/ForgotPassword/EmailConfirmation')));
+const EmailConfirmation = Loadable(lazy(() => import('../views/authentication/EmailConfirmation')));
 const ForgotPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ForgotPassword')));
 
 const Router = () => {

@@ -57,6 +57,7 @@ export const useFuncHTTPReq = () => {
         const response = await fetch(`${baseUrl}${url}`, options);
 
         if (!handleResponseErrors(response)) {
+          setLoading(false)
           return;
         }
 
