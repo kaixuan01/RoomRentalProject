@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import Cookies from "js-cookie";
 import { showErrorAlert } from '../Common';
+import { useLoading } from '../components/shared/Loading/LoadingContext';
 
 // Define the handleResponseErrors function outside of the hook to avoid dependency issues
 const handleResponseErrors = (response, handleLogout) => {
@@ -25,6 +26,9 @@ const handleResponseErrors = (response, handleLogout) => {
 };
 
 export const useFuncHTTPReq = () => {
+
+  const { setLoading } = useLoading(); // Use global loading state
+
   const FuncHTTPReq = useCallback(({
     method = 'GET',
     url,
@@ -37,6 +41,8 @@ export const useFuncHTTPReq = () => {
     onError
   }) => {
     (async () => {
+      setLoading(true); // Show loading globally
+
       try {
         const options = {
           method,
@@ -67,6 +73,9 @@ export const useFuncHTTPReq = () => {
             break;
         }
 
+
+        setLoading(false); // Hide loading globally
+
         if (responseType === 'json' && result.success) {
           onSuccess?.(result.data, result.message);
         } else {
@@ -74,11 +83,13 @@ export const useFuncHTTPReq = () => {
           onError?.(result.message);
         }
       } catch (error) {
+        setLoading(false); // Hide loading globally
+
         showErrorAlert(error.message || "An error occurred.");
         onError?.(error);
       }
     })();
-  }, []);
+  }, [setLoading]);
 
   return { FuncHTTPReq };
 };

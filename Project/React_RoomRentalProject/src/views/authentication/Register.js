@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Box, Card, Typography, Stack } from '@mui/material';
+import { Grid2, Box, Card, Typography, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import PageContainer from 'src/components/container/PageContainer';
 import Logo from 'src/layouts/full/shared/logo/Logo';
@@ -22,13 +22,16 @@ const Register2 = () => (
         },
       }}
     >
-      <Grid container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          lg={4}
-          xl={3}
+      <Grid2 container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
+        <Grid2
+          size={
+            {
+              xs:12,
+              sm:12,
+              lg:4,
+              xl:3,
+            }
+          }
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -63,8 +66,8 @@ const Register2 = () => (
               }
             />
           </Card>
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
     </Box>
   </PageContainer>
 );

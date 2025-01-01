@@ -7,6 +7,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { useRoutes } from 'react-router-dom';
 import Router from './routes/Router';
 
+import { LoadingProvider } from "./components/shared/Loading/LoadingContext";
+import Loading from "./components/shared/Loading/Loading";
 import { baselightTheme } from "./theme/DefaultColors";
 
 function App() {
@@ -16,8 +18,11 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {routing}
+      <LoadingProvider>
+        <Loading /> {/* Global loading indicator */}
+        <CssBaseline />
+        {routing}
+      </LoadingProvider>
     </ThemeProvider>
   );
 }

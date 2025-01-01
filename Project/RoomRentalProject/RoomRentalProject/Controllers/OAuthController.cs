@@ -44,8 +44,6 @@ namespace E_commerce.Controllers
 
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Request to register account, Request: {JsonConvert.SerializeObject(oUser)}");
 
-                // User role as normal user when register account
-                oUser.userRoleId = (int)Enum_UserRole.NormalUser;
                 var oResp = await _userService.CreateAsync(oUser);
 
                 switch (oResp.Code)
