@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  Grid,
+  Grid2,
   Box,
   Card,
   Typography,
@@ -16,7 +16,7 @@ import {
 import PageContainer from 'src/components/container/PageContainer';
 import Logo from 'src/layouts/full/shared/logo/Logo';
 import CustomTextField from 'src/components/forms/theme-elements/CustomTextField';
-import { showErrorAlert, showSuccessAlert } from 'src/Common';
+import { showErrorAlert, showSuccessAlert } from '../../utils/helpers/alertHelpers';
 import { useFuncHTTPReq } from 'src/hooks/FuncHttpReq';
 import { useAuthHandlers } from 'src/hooks/AuthHandlers';
 
@@ -51,6 +51,14 @@ const Login2 = () => {
       onError: (error) => {
         showErrorAlert(error);
       },
+      customHandlers: {
+        401: (response) => {
+          showErrorAlert("Custom message: You need to re-login.");
+        },
+        404: (response) => {
+          showErrorAlert("Custom message: Data not found!");
+        },
+      },
     });
   };
 
@@ -71,12 +79,9 @@ const Login2 = () => {
           },
         }}
       >
-        <Grid container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
-          <Grid
-            xs={12}
-            sm={12}
-            lg={4}
-            xl={3}
+        <Grid2 container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
+          <Grid2
+          size={{xs: 6, sm: 12, lg: 4, xl: 3}}
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -180,8 +185,8 @@ const Login2 = () => {
                 </Typography>
               </Stack>
             </Card>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
       </Box>
     </PageContainer>
   );

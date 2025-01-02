@@ -1,24 +1,41 @@
 import { useCallback } from 'react';
 import Cookies from "js-cookie";
-import { showErrorAlert } from '../Common';
+import { showErrorAlert } from '../utils/helpers/alertHelpers';
 import { useLoading } from '../components/shared/Loading/LoadingContext';
 
 // Define the handleResponseErrors function outside of the hook to avoid dependency issues
-const handleResponseErrors = (response, handleLogout) => {
-  const isBlocked = Cookies.get('isBlocked');
+const handleResponseErrors = (
+  response,
+  customHandlers = {}
+) => {
+  const isBlocked = Cookies.get("isBlocked");
 
   if (!response.ok) {
-    if (response.status === 401) {
-      if (isBlocked === 'true') {
-        showErrorAlert("Your account has been blocked, please contact admin to proceed.");
-      } else {
-        showErrorAlert("Your session is expired. Please login again.");
-      }
-      // handleLogout();
-    } else if (response.status === 403) {
-      showErrorAlert("You have no permission on this function!");
+    if (customHandlers[response.status]) {
+      customHandlers[response.status](response);
     } else {
-      showErrorAlert("Service temporary not available. Please try again later.");
+      switch (response.status) {
+        case 401:
+          if (isBlocked === "true") {
+            showErrorAlert(
+              "Your account has been blocked, please contact admin to proceed."
+            );
+          } else {
+            showErrorAlert("Your session is expired. Please login again.");
+            // handleLogout();
+          }
+          break;
+
+        case 403:
+          showErrorAlert("You have no permission on this function!");
+          break;
+
+        default:
+          showErrorAlert(
+            "Service temporarily not available. Please try again later."
+          );
+          break;
+      }
     }
     return false;
   }
@@ -27,7 +44,7 @@ const handleResponseErrors = (response, handleLogout) => {
 
 export const useFuncHTTPReq = () => {
 
-  const { setLoading } = useLoading(); // Use global loading state
+  const { setLoading } = useLoading();
 
   const FuncHTTPReq = useCallback(({
     method = 'GET',
@@ -38,10 +55,11 @@ export const useFuncHTTPReq = () => {
     headers = {},
     responseType = 'json',
     onSuccess,
-    onError
+    onError,
+    customHandlers = {}
   }) => {
     (async () => {
-      setLoading(true); // Show loading globally
+      setLoading(true);
 
       try {
         const options = {
@@ -56,7 +74,7 @@ export const useFuncHTTPReq = () => {
 
         const response = await fetch(`${baseUrl}${url}`, options);
 
-        if (!handleResponseErrors(response)) {
+        if (!handleResponseErrors(response, customHandlers)) {
           setLoading(false)
           return;
         }
@@ -75,7 +93,7 @@ export const useFuncHTTPReq = () => {
         }
 
 
-        setLoading(false); // Hide loading globally
+        setLoading(false);
 
         if (responseType === 'json' && result.success) {
           onSuccess?.(result.data, result.message);
@@ -84,13 +102,13 @@ export const useFuncHTTPReq = () => {
           onError?.(result.message);
         }
       } catch (error) {
-        setLoading(false); // Hide loading globally
+        setLoading(false);
 
         showErrorAlert(error.message || "An error occurred.");
         onError?.(error);
       }
     })();
-  }, [setLoading]);
+  }, [setLoading, handleResponseErrors]);
 
   return { FuncHTTPReq };
 };

@@ -9,7 +9,7 @@ import {
   TextField,
   Box,
 } from '@mui/material';
-import { showSuccessAlert } from '../../../Common';
+import { showSuccessAlert } from '../../../utils/helpers/alertHelpers';
 import { useFuncHTTPReq } from '../../../hooks/FuncHttpReq';
 import { useParams } from 'react-router-dom';
 

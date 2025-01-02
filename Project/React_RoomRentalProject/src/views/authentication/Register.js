@@ -19,7 +19,7 @@ import PageContainer from 'src/components/container/PageContainer';
 import Logo from 'src/layouts/full/shared/logo/Logo';
 import CustomTextField from '../../components/forms/theme-elements/CustomTextField';
 import { useFuncHTTPReq } from '../../hooks/FuncHttpReq';
-import { showErrorAlert, showSuccessAlert } from '../../Common';
+import { showErrorAlert, showSuccessAlert } from '../../utils/helpers/alertHelpers';
 import { User_Roles } from '../../utils/enum';
 import { isStrongPassword } from '../../utils/helpers/passwordHelpers';
 import { Person, AccountCircle, Email, Phone, Lock } from '@mui/icons-material';
