@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useFuncHTTPReq } from '../../hooks/FuncHttpReq';
+import { useHTTPReq } from '../../hooks/HttpReq';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Card, CardContent, CardHeader, CircularProgress, Typography, Box } from '@mui/material';
 import { showErrorAlert, showSuccessAlert } from '../../utils/helpers/alertHelpers';
 import AlertInfo from '../../components/message/AlertInfo';
 
 export default function EmailConfirmation() {
-    const { FuncHTTPReq } = useFuncHTTPReq();
+    const { HTTPReq } = useHTTPReq();
     const { token } = useParams();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
@@ -14,7 +14,7 @@ export default function EmailConfirmation() {
     const [successMessage, setSuccessMessage] = useState(null);
 
     useEffect(() => {
-        FuncHTTPReq({
+        HTTPReq({
             url: `/OAuth/ConfirmEmail`,
             data: { token: token },
             method: 'POST',
@@ -27,7 +27,7 @@ export default function EmailConfirmation() {
                 setLoading(false);
             },
         });
-    }, [FuncHTTPReq, token]);
+    }, [HTTPReq, token]);
 
     const handleRedirectToLogin = () => {
         navigate('/login');

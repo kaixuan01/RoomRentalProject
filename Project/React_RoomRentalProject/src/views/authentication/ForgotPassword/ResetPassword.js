@@ -10,7 +10,7 @@ import {
   Box,
 } from '@mui/material';
 import { showSuccessAlert } from '../../../utils/helpers/alertHelpers';
-import { useFuncHTTPReq } from '../../../hooks/FuncHttpReq';
+import { useHTTPReq } from '../../../hooks/HttpReq';
 import { useParams } from 'react-router-dom';
 
 export default function ResetPassword() {

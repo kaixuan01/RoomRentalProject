@@ -42,11 +42,11 @@ const handleResponseErrors = (
   return true;
 };
 
-export const useFuncHTTPReq = () => {
+export const useHTTPReq = () => {
 
   const { setLoading } = useLoading();
 
-  const FuncHTTPReq = useCallback(({
+  const HTTPReq = useCallback(({
     method = 'GET',
     url,
     baseUrl = 'https://localhost:7032',
@@ -110,5 +110,5 @@ export const useFuncHTTPReq = () => {
     })();
   }, [setLoading, handleResponseErrors]);
 
-  return { FuncHTTPReq };
+  return { HTTPReq };
 };

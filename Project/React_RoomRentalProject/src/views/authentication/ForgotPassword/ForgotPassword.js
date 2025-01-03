@@ -6,12 +6,12 @@ import { Grid2, Box, Card, Stack, Typography, TextField, Button } from '@mui/mat
 import PageContainer from 'src/components/container/PageContainer';
 import Logo from 'src/layouts/full/shared/logo/Logo';
 import { showErrorAlert, showSuccessAlert } from '../../../utils/helpers/alertHelpers';
-import { useFuncHTTPReq } from '../../../hooks/FuncHttpReq';
+import { useHTTPReq } from '../../../hooks/HttpReq';
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-    const { FuncHTTPReq } = useFuncHTTPReq(); 
+    const { HTTPReq } = useHTTPReq(); 
   const handleSend = () => {
-    FuncHTTPReq({
+    HTTPReq({
         url: `/OAuth/ForgotPassword`,
         data: {email: email}, 
         method: 'POST',

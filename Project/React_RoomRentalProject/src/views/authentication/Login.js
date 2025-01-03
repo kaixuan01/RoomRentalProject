@@ -17,11 +17,11 @@ import PageContainer from 'src/components/container/PageContainer';
 import Logo from 'src/layouts/full/shared/logo/Logo';
 import CustomTextField from 'src/components/forms/theme-elements/CustomTextField';
 import { showErrorAlert, showSuccessAlert } from '../../utils/helpers/alertHelpers';
-import { useFuncHTTPReq } from 'src/hooks/FuncHttpReq';
+import { useHTTPReq } from 'src/hooks/HttpReq';
 import { useAuthHandlers } from 'src/hooks/AuthHandlers';
 
 const Login2 = () => {
-  const { FuncHTTPReq } = useFuncHTTPReq();
+  const { HTTPReq } = useHTTPReq();
   const { handleLogin } = useAuthHandlers();
   const navigate = useNavigate();
 
@@ -40,7 +40,7 @@ const Login2 = () => {
   };
 
   const handleAuthLogin = () => {
-    FuncHTTPReq({
+    HTTPReq({
       url: `/OAuth`,
       data: formData,
       method: 'POST',
