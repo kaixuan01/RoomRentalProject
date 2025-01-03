@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Box, Button, InputLabel } from '@mui/material';
+import { Box, Button, InputLabel } from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 
 // components
@@ -11,44 +11,45 @@ import Blog from './components/Blog';
 import MonthlyEarnings from './components/MonthlyEarnings';
 import DashboardCard from '../../components/shared/DashboardCard';
 import UppyFileUpload from '../../components/shared/UppyFileUploader';
+import MyGrid from '../../components/container/MyGrid';
 
 
 const Dashboard = () => {
   return (
     <PageContainer title="Dashboard" description="this is Dashboard">
       <Box>
-        <Grid container spacing={3}>
-          <Grid  item xs={12} lg={6}>
+        <MyGrid container spacing={3}>
+          <MyGrid  item xs={12} lg={6}>
             <DashboardCard title={"File Uploader"}>
               <UppyFileUpload/>
               <InputLabel/>
             </DashboardCard>
-          </Grid>
-          <Grid item xs={6}>
-          </Grid>
-          <Grid item xs={12} lg={8}>
+          </MyGrid>
+          <MyGrid item xs={6}>
+          </MyGrid>
+          <MyGrid item xs={12} lg={8}>
             <SalesOverview />
-          </Grid>
-          <Grid item xs={12} lg={4}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
+          </MyGrid>
+          <MyGrid item xs={12} lg={4}>
+            <MyGrid container spacing={3}>
+              <MyGrid item xs={12}>
                 <YearlyBreakup />
-              </Grid>
-              <Grid item xs={12}>
+              </MyGrid>
+              <MyGrid item xs={12}>
                 <MonthlyEarnings />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} lg={4}>
+              </MyGrid>
+            </MyGrid>
+          </MyGrid>
+          <MyGrid item xs={12} lg={4}>
             <RecentTransactions />
-          </Grid>
-          <Grid item xs={12} lg={8}>
+          </MyGrid>
+          <MyGrid item xs={12} lg={8}>
             <ProductPerformance />
-          </Grid>
-          <Grid item xs={12}>
+          </MyGrid>
+          <MyGrid item xs={12}>
             <Blog />
-          </Grid>
-        </Grid>
+          </MyGrid>
+        </MyGrid>
       </Box>
     </PageContainer>
   );
