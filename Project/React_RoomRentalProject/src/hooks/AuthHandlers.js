@@ -22,8 +22,7 @@ export const useAuthHandlers = () => {
     });
     window.location.href = "/";
   }, [dispatch, HTTPReq]);
-    window.location.href = "/auth/login";
-  }, [dispatch, FuncHTTPReq]);
+
 
   return { handleLogin, handleLogout };
 };
