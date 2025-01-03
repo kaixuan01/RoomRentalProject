@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Grid2, Box, Card, Stack, Typography, TextField, Button } from '@mui/material';
+import { Box, Card, Stack, Typography, TextField, Button } from '@mui/material';
 
 // components
 import PageContainer from 'src/components/container/PageContainer';
 import Logo from 'src/layouts/full/shared/logo/Logo';
 import { showErrorAlert, showSuccessAlert } from '../../../utils/helpers/alertHelpers';
 import { useHTTPReq } from '../../../hooks/HttpReq';
+import MyGrid from '../../../components/container/MyGrid';
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
     const { HTTPReq } = useHTTPReq(); 
@@ -43,8 +44,8 @@ const ForgotPassword = () => {
           },
         }}
       >
-        <Grid2 container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
-          <Grid2
+        <MyGrid container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
+          <MyGrid
             xs={12}
             sm={12}
             lg={4}
@@ -95,8 +96,8 @@ const ForgotPassword = () => {
                 </Typography>
               </Stack>
             </Card>
-          </Grid2>
-        </Grid2>
+          </MyGrid>
+        </MyGrid>
       </Box>
     </PageContainer>
   );

@@ -8,6 +8,7 @@ import img4 from 'src/assets/images/products/s11.jpg';
 import { Stack } from '@mui/system';
 import { IconBasket } from '@tabler/icons-react';
 import BlankCard from '../../../components/shared/BlankCard';
+import MyGrid from '../../../components/container/MyGrid';
 
 const ecoCard = [
     {
@@ -46,9 +47,9 @@ const ecoCard = [
 
 const Blog = () => {
     return (
-        <Grid container spacing={3}>
+        <MyGrid container spacing={3}>
             {ecoCard.map((product, index) => (
-                <Grid item sm={12} md={4} lg={3} key={index}>
+                <MyGrid item sm={12} md={4} lg={3} key={index}>
                     <BlankCard>
                         <Typography component={Link} to="/">
                             <img src={product.photo} alt="img" width="100%" />
@@ -75,9 +76,9 @@ const Blog = () => {
                             </Stack>
                         </CardContent>
                     </BlankCard>
-                </Grid>
+                </MyGrid>
             ))}
-        </Grid>
+        </MyGrid>
     );
 };
 

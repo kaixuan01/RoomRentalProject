@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  Grid2,
   Box,
   Card,
   Typography,
@@ -19,6 +18,7 @@ import CustomTextField from 'src/components/forms/theme-elements/CustomTextField
 import { showErrorAlert, showSuccessAlert } from '../../utils/helpers/alertHelpers';
 import { useHTTPReq } from 'src/hooks/HttpReq';
 import { useAuthHandlers } from 'src/hooks/AuthHandlers';
+import MyGrid from '../../components/container/MyGrid';
 
 const Login2 = () => {
   const { HTTPReq } = useHTTPReq();
@@ -79,9 +79,12 @@ const Login2 = () => {
           },
         }}
       >
-        <Grid2 container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
-          <Grid2
-          size={{xs: 6, sm: 12, lg: 4, xl: 3}}
+        <MyGrid container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
+          <MyGrid
+            xs={6}
+            sm={12}
+            lg={4}
+            xl={3}
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -185,8 +188,8 @@ const Login2 = () => {
                 </Typography>
               </Stack>
             </Card>
-          </Grid2>
-        </Grid2>
+          </MyGrid>
+        </MyGrid>
       </Box>
     </PageContainer>
   );

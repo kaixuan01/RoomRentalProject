@@ -4,7 +4,6 @@ import {
   Card,
   Typography,
   Stack,
-  Grid,
   Button,
   FormControl,
   RadioGroup,
@@ -23,6 +22,7 @@ import { showErrorAlert, showSuccessAlert } from '../../utils/helpers/alertHelpe
 import { User_Roles } from '../../utils/enum';
 import { isStrongPassword } from '../../utils/helpers/passwordHelpers';
 import { Person, AccountCircle, Email, Phone, Lock } from '@mui/icons-material';
+import MyGrid from '../../components/container/MyGrid';
 
 const Register2 = () => {
   const { HTTPReq } = useHTTPReq();
@@ -115,8 +115,8 @@ const Register2 = () => {
           },
         }}
       >
-        <Grid container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
-          <Grid
+        <MyGrid container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
+          <MyGrid
             item
             xs={12}
             sm={12}
@@ -177,8 +177,8 @@ const Register2 = () => {
                     }}
                   />
 
-                  <Grid container spacing={2} mt="10px">
-                    <Grid item xs={6}>
+                  <MyGrid container spacing={2} mt="10px">
+                    <MyGrid item xs={6}>
                       <CustomTextField
                         fullWidth
                         required
@@ -198,9 +198,9 @@ const Register2 = () => {
                           ),
                         }}
                       />
-                    </Grid>
+                    </MyGrid>
 
-                    <Grid item xs={6}>
+                    <MyGrid item xs={6}>
                       <CustomTextField
                         fullWidth
                         required
@@ -220,8 +220,8 @@ const Register2 = () => {
                           ),
                         }}
                       />
-                    </Grid>
-                  </Grid>
+                    </MyGrid>
+                  </MyGrid>
 
                   <CustomTextField
                     id="email"
@@ -265,8 +265,8 @@ const Register2 = () => {
                     }}
                   />
 
-                  <Grid container spacing={2} mt="10px">
-                    <Grid item xs={6}>
+                  <MyGrid container spacing={2} mt="10px">
+                    <MyGrid item xs={6}>
                       <Card sx={{ borderRadius: 3, boxShadow: 3, backgroundColor: '#f5f5f5' }}>
                         <CardContent>
                           <FormControl component="fieldset">
@@ -282,9 +282,9 @@ const Register2 = () => {
                           </FormControl>
                         </CardContent>
                       </Card>
-                    </Grid>
+                    </MyGrid>
 
-                    <Grid item xs={6}>
+                    <MyGrid item xs={6}>
                       <Card sx={{ borderRadius: 3, boxShadow: 3, backgroundColor: '#f5f5f5' }}>
                         <CardContent>
                           <FormControl component="fieldset">
@@ -300,8 +300,8 @@ const Register2 = () => {
                           </FormControl>
                         </CardContent>
                       </Card>
-                    </Grid>
-                  </Grid>
+                    </MyGrid>
+                  </MyGrid>
                 </Stack>
 
                 <Button
@@ -331,8 +331,8 @@ const Register2 = () => {
                 </Typography>
               </Stack>
             </Card>
-          </Grid>
-        </Grid>
+          </MyGrid>
+        </MyGrid>
       </Box>
     </PageContainer>
   );
