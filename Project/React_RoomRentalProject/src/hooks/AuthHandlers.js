@@ -20,9 +20,8 @@ export const useAuthHandlers = () => {
       url: `/OAuth/Logout`,
       method: 'POST',
     });
-    window.location.href = "/";
-  }, [dispatch, HTTPReq]);
-
+    window.location.href = "/auth/login";
+  }, [dispatch, FuncHTTPReq]);
 
   return { handleLogin, handleLogout };
 };
