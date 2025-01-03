@@ -71,8 +71,8 @@
 
         public class UrlPath
         {
-            public const string ConfirmEmail = "/ConfirmEmail/{token}";
-            public const string ResetPassword = "/Account/ResetPassword/{token}";
+            public const string ConfirmEmail = "/auth/ConfirmEmail/{token}";
+            public const string ResetPassword = "/auth/ResetPassword/{token}";
         }
 
         public class Status

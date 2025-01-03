@@ -3,7 +3,7 @@ import { styled, Container, Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 
 
-import Header from './header/Header';
+import PortalHeader from './header/PortalHeader';
 import Sidebar from './sidebar/Sidebar';
 
 const MainWrapper = styled('div')(() => ({
@@ -21,7 +21,7 @@ const PageWrapper = styled('div')(() => ({
   backgroundColor: 'transparent',
 }));
 
-const FullLayout = () => {
+const PortalLayout = () => {
 
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
@@ -44,9 +44,9 @@ const FullLayout = () => {
         className="page-wrapper"
       >
         {/* ------------------------------------------- */}
-        {/* Header */}
+        {/* PortalHeader */}
         {/* ------------------------------------------- */}
-        <Header toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
+        <PortalHeader toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
         {/* ------------------------------------------- */}
         {/* PageContent */}
         {/* ------------------------------------------- */}
@@ -70,4 +70,4 @@ const FullLayout = () => {
   );
 };
 
-export default FullLayout;
+export default PortalLayout;

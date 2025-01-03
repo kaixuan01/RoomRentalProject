@@ -10,6 +10,7 @@ export const useAuthHandlers = () => {
   const handleLogin = useCallback(() => {
     dispatch(updateData('isLogin', 'Login'));
     localStorage.setItem('isLogin', 'Login');
+    window.location.href = "/portal";
   }, [dispatch]);
 
   const handleLogout = useCallback(() => {
@@ -21,6 +22,8 @@ export const useAuthHandlers = () => {
     });
     window.location.href = "/";
   }, [dispatch, HTTPReq]);
+    window.location.href = "/auth/login";
+  }, [dispatch, FuncHTTPReq]);
 
   return { handleLogin, handleLogout };
 };

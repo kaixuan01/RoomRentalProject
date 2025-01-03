@@ -145,7 +145,7 @@ const Login2 = () => {
                   </FormGroup>
                   <Typography
                     component={Link}
-                    to="/ForgotPassword"
+                    to="/auth/ForgotPassword"
                     fontWeight="500"
                     sx={{
                       textDecoration: 'none',
