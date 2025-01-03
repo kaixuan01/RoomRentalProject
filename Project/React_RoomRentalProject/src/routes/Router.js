@@ -37,7 +37,7 @@ const Router = () => {
       path: '/',
       element: <MainLayout />,
       children: [
-        // { path: '/', element: <LandingPage /> },
+        { path: '/', element: <SamplePage /> },
         // { path: '/about', element: <AboutPage /> },
         // { path: '/contact', element: <ContactPage /> },
         // { path: '/listings', element: <ListingPage /> },

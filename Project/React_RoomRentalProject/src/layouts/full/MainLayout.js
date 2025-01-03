@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { styled, Container, Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 
-import PortalHeader from './header/PortalHeader';
+import MainHeader from './header/MainHeader';
 
 const MainWrapper = styled('div')(() => ({
   display: 'flex',
@@ -20,9 +20,11 @@ const PageWrapper = styled('div')(() => ({
 }));
 
 const MainLayout = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  // const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+
+  const toggleMobileSidebar = () => {
+    setMobileSidebarOpen((prev) => !prev);
+  };
 
   return (
     <MainWrapper
@@ -37,7 +39,8 @@ const MainLayout = () => {
         {/* ------------------------------------------- */}
         {/* Header */}
         {/* ------------------------------------------- */}
-        <PortalHeader toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
+        <MainHeader isMobileSidebarOpen={isMobileSidebarOpen} toggleMobileSidebar={toggleMobileSidebar} />
+
         {/* ------------------------------------------- */}
         {/* PageContent */}
         {/* ------------------------------------------- */}
