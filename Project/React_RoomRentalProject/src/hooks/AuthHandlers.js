@@ -21,7 +21,7 @@ export const useAuthHandlers = () => {
       method: 'POST',
     });
     window.location.href = "/auth/login";
-  }, [dispatch, FuncHTTPReq]);
+  }, [dispatch, HTTPReq]);
 
   return { handleLogin, handleLogout };
 };
