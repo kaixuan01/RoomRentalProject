@@ -3,7 +3,6 @@ import Cookies from "js-cookie";
 import { showErrorAlert } from '../utils/helpers/alertHelpers';
 import { useLoading } from '../components/shared/Loading/LoadingContext';
 
-// Define the handleResponseErrors function outside of the hook to avoid dependency issues
 const handleResponseErrors = (
   response,
   customHandlers = {}
@@ -22,7 +21,6 @@ const handleResponseErrors = (
             );
           } else {
             showErrorAlert("Your session is expired. Please login again.");
-            // handleLogout();
           }
           break;
 
@@ -41,74 +39,80 @@ const handleResponseErrors = (
   }
   return true;
 };
-
 export const useHTTPReq = () => {
-
   const { setLoading } = useLoading();
 
-  const HTTPReq = useCallback(({
-    method = 'GET',
-    url,
-    baseUrl = 'https://localhost:7032',
-    data = null,
-    credentials = 'include',
-    headers = {},
-    responseType = 'json',
-    onSuccess,
-    onError,
-    customHandlers = {}
-  }) => {
-    (async () => {
-      setLoading(true);
-
-      try {
-        const options = {
-          method,
-          credentials,
-          headers: {
-            'Content-Type': 'application/json',
-            ...headers,
-          },
-          ...(['POST', 'PUT', 'PATCH'].includes(method.toUpperCase()) && data && { body: JSON.stringify(data) }),
-        };
-
-        const response = await fetch(`${baseUrl}${url}`, options);
-
-        if (!handleResponseErrors(response, customHandlers)) {
-          setLoading(false)
-          return;
+  const HTTPReq = useCallback(
+    ({
+      method = 'GET',
+      url,
+      baseUrl = 'https://localhost:7032',
+      data = null,
+      credentials = 'include',
+      headers = {},
+      responseType = 'json',
+      onSuccess,
+      onError,
+      customHandlers = {},
+      hideLoading = false
+    }) => {
+      (async () => {
+        if (!hideLoading) {
+          setLoading(true);
         }
 
-        let result;
-        switch (responseType) {
-          case 'json':
-            result = await response.json();
-            break;
-          case 'text':
-            result = await response.text();
-            break;
-          default:
-            result = await response.blob();
-            break;
+        try {
+          const options = {
+            method,
+            credentials,
+            headers: {
+              'Content-Type': 'application/json',
+              ...headers,
+            },
+            ...(['POST', 'PUT', 'PATCH'].includes(method.toUpperCase()) && data && { body: JSON.stringify(data) }),
+          };
+
+          const response = await fetch(`${baseUrl}${url}`, options);
+
+          if (!hideLoading) {
+            setLoading(false);
+          }
+
+          if (!handleResponseErrors(response, customHandlers)) {
+            return;
+          }
+
+          let result;
+          switch (responseType) {
+            case 'json':
+              result = await response.json();
+              break;
+            case 'text':
+              result = await response.text();
+              break;
+            default:
+              result = await response.blob();
+              break;
+          }
+
+          if (responseType === 'json' && result.success) {
+            onSuccess?.(result.data, result.message);
+          } else {
+            showErrorAlert(result.message);
+            onError?.(result.message);
+          }
+        } catch (error) {
+          if (!hideLoading) {
+            setLoading(false);
+          }
+          showErrorAlert(error.message || "An error occurred.");
+          onError?.(error);
         }
-
-
-        setLoading(false);
-
-        if (responseType === 'json' && result.success) {
-          onSuccess?.(result.data, result.message);
-        } else {
-          showErrorAlert(result.message);
-          onError?.(result.message);
-        }
-      } catch (error) {
-        setLoading(false);
-
-        showErrorAlert(error.message || "An error occurred.");
-        onError?.(error);
-      }
-    })();
-  }, [setLoading, handleResponseErrors]);
+      })();
+    },
+    [setLoading, handleResponseErrors]
+  );
 
   return { HTTPReq };
 };
+
