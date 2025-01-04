@@ -9,18 +9,24 @@ const PortalLayout = Loadable(lazy(() => import('../layouts/full/PortalLayout'))
 const MainLayout = Loadable(lazy(() => import('../layouts/full/MainLayout')));
 const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')));
 
-/* ****Pages***** */
+/* ****Main Pages***** */
+const AboutUsPage = Loadable(lazy(() => import('../views/MainPage/AboutUs/AboutUs')));
+
+/* ****Auth Pages***** */
+const Register = Loadable(lazy(() => import('../views/authentication/Register')));
+const Login = Loadable(lazy(() => import('../views/authentication/Login')));
+const ForgotPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ForgotPassword')));
+const ResetPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ResetPassword')));
+const EmailConfirmation = Loadable(lazy(() => import('../views/authentication/EmailConfirmation')));
+
+/* ****Portal Pages***** */
 const Dashboard = Loadable(lazy(() => import('../views/dashboard/Dashboard')));
 const SamplePage = Loadable(lazy(() => import('../views/sample-page/SamplePage')));
 const Icons = Loadable(lazy(() => import('../views/icons/Icons')));
 const TypographyPage = Loadable(lazy(() => import('../views/utilities/TypographyPage')));
 const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')));
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
-const Register = Loadable(lazy(() => import('../views/authentication/Register')));
-const Login = Loadable(lazy(() => import('../views/authentication/Login')));
-const EmailConfirmation = Loadable(lazy(() => import('../views/authentication/EmailConfirmation')));
-const ForgotPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ForgotPassword')));
-const ResetPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ResetPassword')));
+
 
 const Router = () => {
   const isLogin = useSelector((state) => state.isLogin);
@@ -38,7 +44,7 @@ const Router = () => {
       element: <MainLayout />,
       children: [
         { path: '/', element: <SamplePage /> },
-        // { path: '/about', element: <AboutPage /> },
+        { path: '/about', element: <AboutUsPage /> },
         // { path: '/contact', element: <ContactPage /> },
         // { path: '/listings', element: <ListingPage /> },
         { path: '*', element: <Navigate to="/" replace /> },

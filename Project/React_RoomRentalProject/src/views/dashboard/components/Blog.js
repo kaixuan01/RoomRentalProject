@@ -43,6 +43,22 @@ const ecoCard = [
         price: 345,
         rating: 2,
     },
+    {
+        title: 'Cute Soft Teddybear 2',
+        subheader: 'September 14, 2023',
+        photo: img4,
+        salesPrice: 285,
+        price: 345,
+        rating: 2,
+    },
+    {
+        title: 'Cute Soft Teddybear 3',
+        subheader: 'September 14, 2023',
+        photo: img4,
+        salesPrice: 285,
+        price: 345,
+        rating: 2,
+    },
 ];
 
 const Blog = () => {
