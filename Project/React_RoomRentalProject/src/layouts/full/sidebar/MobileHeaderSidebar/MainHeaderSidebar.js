@@ -1,65 +1,58 @@
 import React from 'react';
-import { Drawer, Box, List, ListItem, ListItemText, Button, Stack } from '@mui/material';
+import { Drawer } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Profile from '../../header/MainProfile';
+import { Sidebar, Logo } from 'react-mui-sidebar';
+import SidebarItem from './MainHeaderSidebarItems';
+import { useSelector } from 'react-redux';
 
-const MobileSidebar = ({ isOpen, onClose, isLogin }) => {
+const MobileSidebar = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const handleNavigation = (path) => navigate(path);
+  const isLogin = useSelector((state) => state.isLogin)  ?? false;
+
+  // Custom CSS for short scrollbar
+  const scrollbarStyles = {
+    '&::-webkit-scrollbar': {
+      width: '7px',
+
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: '#eff2f7',
+      borderRadius: '15px',
+    },
+  };
 
   return (
-    <Drawer anchor="right" open={isOpen} onClose={onClose} variant="temporary"
+    <Drawer       
+    anchor="right"
+    open={isOpen}
+    onClose={onClose}
+    variant="temporary"
+    
     PaperProps={{
       sx: {
 
         boxShadow: (theme) => theme.shadows[8],
+        ...scrollbarStyles,
       },
     }}>
-      <Box sx={{ width: 250 }} role="presentation" onClick={onClose}>
-        <List>
-          {/* Conditionally render Profile or Login/Register */}
-          <ListItem>
-            <Stack direction="row" spacing={2} alignItems="center" width="100%">
-              {isLogin ? (
-                <Profile/>
-              ) : (
-                <>
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    size="small"
-                    onClick={() => handleNavigation('/auth/login')}
-                  >
-                    Login
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    onClick={() => handleNavigation('/auth/register')}
-                  >
-                    Register
-                  </Button>
-                </>
-              )}
-            </Stack>
-          </ListItem>
-
-          <ListItem button>
-            <ListItemText primary="Home" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="About" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="Contact" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="Listings" />
-          </ListItem>
-        </List>
-      </Box>
+        <Sidebar
+          width={'270px'}
+          collapsewidth="80px"
+          isCollapse={false}
+          mode="light"
+          direction="ltr"
+          themeColor="#5d87ff"
+          themeSecondaryColor="#49beff"
+          showProfile={isLogin}
+          userName="Kx"
+          designation="test"
+          >
+            <SidebarItem/>
+        </Sidebar>
+        
     </Drawer>
   );
 };

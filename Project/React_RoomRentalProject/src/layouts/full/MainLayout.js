@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { styled, Container, Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-
+import MainHeaderSidebar from './sidebar/MobileHeaderSidebar/MainHeaderSidebar';
+import { useSelector } from 'react-redux';
 import MainHeader from './header/MainHeader';
 
 const MainWrapper = styled('div')(() => ({
@@ -30,6 +31,10 @@ const MainLayout = () => {
     <MainWrapper
       className='mainwrapper'
     >
+
+    <MainHeaderSidebar isOpen={isMobileSidebarOpen} onClose={toggleMobileSidebar}/>
+
+
       {/* ------------------------------------------- */}
       {/* Main Wrapper */}
       {/* ------------------------------------------- */}
@@ -39,7 +44,7 @@ const MainLayout = () => {
         {/* ------------------------------------------- */}
         {/* Header */}
         {/* ------------------------------------------- */}
-        <MainHeader isMobileSidebarOpen={isMobileSidebarOpen} toggleMobileSidebar={toggleMobileSidebar} />
+        <MainHeader toggleMobileSidebar={toggleMobileSidebar}/>
 
         {/* ------------------------------------------- */}
         {/* PageContent */}

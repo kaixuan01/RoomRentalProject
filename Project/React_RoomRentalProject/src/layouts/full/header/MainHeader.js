@@ -5,13 +5,12 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import { IconMenu } from '@tabler/icons-react';
 import PropTypes from 'prop-types';
 import Logo from '../../../assets/images/logos/Logo.png';
-import MainHeaderSidebar from '../sidebar/MobileHeaderSidebar/MainHeaderSidebar';
 
 // Components
 import Profile from './MainProfile';
 
 const MainHeader = (props) => {
-  const isLogin = useSelector((state) => state.isLogin);
+  const isLogin = useSelector((state) => state.isLogin) ?? false;
   const navigate = useNavigate();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
@@ -125,7 +124,6 @@ const MainHeader = (props) => {
                 <IconMenu width="20" height="20" />
             </IconButton>
 
-            <MainHeaderSidebar isOpen={props.isMobileSidebarOpen} onClose={props.toggleMobileSidebar} isLogin={isLogin}/>
         </>
           
         )}
