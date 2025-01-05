@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using DAL.Repository.UserRP.UserRepository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using System.Security.Claims;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Threading.Tasks;
-using DAL.Repository.UserRP.UserRepository;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Utils.Enums;
 
 namespace E_commerce.AttributeOrFilter
 {
@@ -20,8 +18,6 @@ namespace E_commerce.AttributeOrFilter
         {
             _userRepository = userRepository;
             _configuration = configuration;
-
-            var jwtSettings = configuration.GetSection("JwtSettings");
         }
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -32,7 +28,7 @@ namespace E_commerce.AttributeOrFilter
                 var username = GetUsernameByToken(token);
                 var user = await _userRepository.GetByUsernameAsync(username);
 
-                if (user != null && user.IsBlocked)
+                if (user != null && user.Status == (short)Enum_UserStatus.Blocked)
                 {
                     // Clear cookies
                     context.HttpContext.Response.Cookies.Append("authToken", "", new CookieOptions

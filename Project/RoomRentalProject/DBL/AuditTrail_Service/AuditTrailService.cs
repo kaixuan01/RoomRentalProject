@@ -144,7 +144,7 @@ namespace DBL.AuditTrail_Service
                 // Save the audit trail
                 await _auditTrailRepository.CreateAsync(auditTrail);
 
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Insert Audit Trail successful (Object). Record: {JsonConvert.SerializeObject(auditTrail)}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"Insert Audit Trail successful.");
             }
             catch (Exception ex)
             {

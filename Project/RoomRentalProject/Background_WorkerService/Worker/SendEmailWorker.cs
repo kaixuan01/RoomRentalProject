@@ -4,7 +4,7 @@ using DBL.SystemConfig_Service;
 using Serilog;
 using System.Net;
 using System.Net.Mail;
-using Utils;
+using Utils.Constant;
 using Utils.Enums;
 using LogHelper = Background_WorkerService.Tools.LogHelper;
 
@@ -168,7 +168,7 @@ namespace Background_WorkerService.Worker
         {
             int successCount = 0;
             int failureCount = 0;
-            string Status = string.Empty;
+            short Status = (short)Enum_Status.Pending;
             string Remark = string.Empty;
 
             try
@@ -192,7 +192,7 @@ namespace Background_WorkerService.Worker
                     _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Email Sent Successful.");
 
                     // Update email status to Completed;
-                    Status = ConstantCode.Status.Code_Completed;
+                    Status = (short)Enum_Status.Completed;
 
                     // Increment success count
                     successCount++;
@@ -202,7 +202,7 @@ namespace Background_WorkerService.Worker
             {
                 _logHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"An error occurred in send email.", ex);
 
-                Status = ConstantCode.Status.Code_Failed;
+                Status = (short)Enum_Status.Failed;
                 Remark = $"Failed to send email, Exception: {ex.Message}";
                 failureCount++;
 

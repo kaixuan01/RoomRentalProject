@@ -29,22 +29,15 @@ public partial class TUser
 
     /// <summary>
     /// User Status
-    /// False (0) - Active
-    /// True (1)  - Blocked
+    /// 0 - Active
+    /// 1 - Inactive
+    /// 2 - Blocked
     /// </summary>
-    public bool IsBlocked { get; set; }
+    public short Status { get; set; }
 
     public bool IsEmailVerified { get; set; }
 
     public DateTime? CreatedDate { get; set; }
-
-    public virtual ICollection<TRoom> TRoomApprovedByNavigations { get; set; } = new List<TRoom>();
-
-    public virtual ICollection<TRoom> TRoomCreatedByNavigations { get; set; } = new List<TRoom>();
-
-    public virtual ICollection<TRoom> TRoomOwners { get; set; } = new List<TRoom>();
-
-    public virtual ICollection<TRoom> TRoomUpdatedByNavigations { get; set; } = new List<TRoom>();
 
     public virtual ICollection<TUserLoginHistory> TUserLoginHistories { get; set; } = new List<TUserLoginHistory>();
 

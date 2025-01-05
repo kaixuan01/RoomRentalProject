@@ -1,6 +1,7 @@
 ﻿using E_commerce.Tools;
 using System.Net;
 using System.Text.Json;
+using Utils.Constant;
 using Utils.Enums;
 
 namespace E_commerce.Middleware
@@ -25,7 +26,7 @@ namespace E_commerce.Middleware
             }
             catch (Exception ex)
             {
-                LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Exception Message: {ex.Message}", ex);
+                LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, string.Format(ConstantCode.LogMessageTemplate.GeneralExceptionMessageTemplate, ex.Message), ex);
                 await HandleExceptionAsync(context, ex);
             }
         }

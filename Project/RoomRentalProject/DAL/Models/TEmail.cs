@@ -17,11 +17,11 @@ public partial class TEmail
 
     /// <summary>
     /// Status of the email
-    /// P - Pending
-    /// C - Completed
-    /// F - Failed
+    /// 0 - Pending
+    /// 1 - Completed
+    /// 2 - Failed
     /// </summary>
-    public string? Status { get; set; }
+    public short Status { get; set; }
 
     public string? Remark { get; set; }
 

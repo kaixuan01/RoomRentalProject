@@ -17,7 +17,8 @@ const MainHeader = (props) => {
   // Styled Components
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
     boxShadow: 'none',
-    background: theme.palette.background.paper,
+
+    backgroundColor: theme.palette.primary.light,
     backdropFilter: 'blur(6px)',
     borderBottom: `1px solid ${theme.palette.divider}`,
     [theme.breakpoints.up('lg')]: {

@@ -1,6 +1,8 @@
 ﻿using DAL.Models;
 using DAL.Repository.UserRP.UserRepository.Class;
 using Microsoft.EntityFrameworkCore;
+using Utils.Enums;
+using Utils.Tools;
 
 namespace DAL.Repository.UserRP.UserRepository
 {
@@ -61,7 +63,7 @@ namespace DAL.Repository.UserRP.UserRepository
                 if (oReq.Status.HasValue)
                 {
                     // Apply status filter
-                    query = query.Where(u => u.IsBlocked == oReq.Status.Value);
+                    query = query.Where(u => u.Status == oReq.Status.Value);
                 }
             }
 
@@ -74,7 +76,7 @@ namespace DAL.Repository.UserRP.UserRepository
                     Email = u.Email,
                     Phone = u.Phone,
                     Role = u.UserRole.Name, // Map UserRole.Name to role
-                    Status = u.IsBlocked ? "Blocked" : "Active" // Map status
+                    Status = ((Enum_UserStatus)u.Status).GetDescription()
                 });
 
             return result;

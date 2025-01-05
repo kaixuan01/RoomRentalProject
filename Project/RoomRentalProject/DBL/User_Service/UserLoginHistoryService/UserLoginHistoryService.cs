@@ -3,7 +3,7 @@ using DAL.Repository.UserRP.UserLoginHistoryRepository;
 using DAL.Shared.Class;
 using DAL.Tools.ListingHelper;
 using DBL.Tools;
-using Utils;
+using Utils.Constant;
 using Utils.Enums;
 
 namespace DBL.User_Service.UserLoginHistoryService

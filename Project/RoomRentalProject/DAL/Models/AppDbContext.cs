@@ -23,10 +23,6 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<TEmail> TEmails { get; set; }
 
-    public virtual DbSet<TRoom> TRooms { get; set; }
-
-    public virtual DbSet<TRoomPhoto> TRoomPhotos { get; set; }
-
     public virtual DbSet<TSystemConfig> TSystemConfigs { get; set; }
 
     public virtual DbSet<TUser> TUsers { get; set; }
@@ -34,7 +30,7 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<TUserLoginHistory> TUserLoginHistories { get; set; }
 
     public virtual DbSet<TUserToken> TUserTokens { get; set; }
-    
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<EUserRole>(entity =>
@@ -87,57 +83,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.RecipientName).HasMaxLength(200);
             entity.Property(e => e.Remark).HasMaxLength(300);
             entity.Property(e => e.SentDateTime).HasPrecision(0);
-            entity.Property(e => e.Status)
-                .HasMaxLength(1)
-                .HasComment("Status of the email\r\nP - Pending\r\nC - Completed\r\nF - Failed");
-        });
-
-        modelBuilder.Entity<TRoom>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__T_Room__3214EC079F1C3839");
-
-            entity.ToTable("T_Room");
-
-            entity.Property(e => e.AdditionalServices).HasMaxLength(255);
-            entity.Property(e => e.Address).HasMaxLength(255);
-            entity.Property(e => e.AreaSize).HasColumnType("decimal(10, 2)");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-            entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
-            entity.Property(e => e.RoomType).HasMaxLength(50);
-            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-            entity.HasOne(d => d.ApprovedByNavigation).WithMany(p => p.TRoomApprovedByNavigations)
-                .HasForeignKey(d => d.ApprovedBy)
-                .HasConstraintName("FK__T_Room__Approved__5629CD9C");
-
-            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.TRoomCreatedByNavigations)
-                .HasForeignKey(d => d.CreatedBy)
-                .HasConstraintName("FK__T_Room__CreatedB__5441852A");
-
-            entity.HasOne(d => d.Owner).WithMany(p => p.TRoomOwners)
-                .HasForeignKey(d => d.OwnerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__T_Room__OwnerId__534D60F1");
-
-            entity.HasOne(d => d.UpdatedByNavigation).WithMany(p => p.TRoomUpdatedByNavigations)
-                .HasForeignKey(d => d.UpdatedBy)
-                .HasConstraintName("FK__T_Room__UpdatedB__5535A963");
-        });
-
-        modelBuilder.Entity<TRoomPhoto>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__T_RoomPh__3214EC078D9DE637");
-
-            entity.ToTable("T_RoomPhoto");
-
-            entity.Property(e => e.Photo).HasMaxLength(255);
-
-            entity.HasOne(d => d.Room).WithMany(p => p.TRoomPhotos)
-                .HasForeignKey(d => d.RoomId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__T_RoomPho__RoomI__59063A47");
+            entity.Property(e => e.Status).HasComment("Status of the email\r\n0 - Pending\r\n1 - Completed\r\n2 - Failed");
         });
 
         modelBuilder.Entity<TSystemConfig>(entity =>
@@ -163,10 +109,10 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.ICountFailedLogin)
                 .HasComment("Used to count user login failed attempt.")
                 .HasColumnName("iCountFailedLogin");
-            entity.Property(e => e.IsBlocked).HasComment("User Status\r\nFalse (0) - Active\r\nTrue (1)  - Blocked");
             entity.Property(e => e.Name).HasMaxLength(200);
             entity.Property(e => e.Password).HasMaxLength(300);
             entity.Property(e => e.Phone).HasMaxLength(30);
+            entity.Property(e => e.Status).HasComment("User Status\r\n0 - Active\r\n1 - Inactive\r\n2 - Blocked");
             entity.Property(e => e.UserRoleId).HasComment("User role id in E_UserRole table");
             entity.Property(e => e.Username).HasMaxLength(100);
 
@@ -197,9 +143,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Token)
                 .HasMaxLength(255)
                 .HasComment("Store Base64 Encoded Token");
-            entity.Property(e => e.TokenType)
-                .HasMaxLength(100)
-                .HasComment("Type of the token\r\n1. EmailConfirmation = Used for confirming a newly created user's email address.\r\n2. ResetPassword = Used when a user requests a password reset after forgetting their password.");
+            entity.Property(e => e.TokenType).HasComment("Type of the token\r\n0 - Email Confirmation = Used for confirming a newly created user's email address.\r\n1 - Reset Password = Used when a user requests a password reset after forgetting their password.");
 
             entity.HasOne(d => d.User).WithMany(p => p.TUserTokens).HasForeignKey(d => d.UserId);
         });
