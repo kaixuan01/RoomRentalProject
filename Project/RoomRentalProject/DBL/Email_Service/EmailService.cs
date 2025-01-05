@@ -4,7 +4,7 @@ using DBL.SystemConfig_Service;
 using DBL.Tools;
 using DBL.User_Service.UserTokensService;
 using Microsoft.Extensions.Configuration;
-using Utils;
+using Utils.Constant;
 using Utils.Enums;
 using Utils.Tools;
 
@@ -50,7 +50,7 @@ namespace DBL.Email_Service
 
         #region [ Update Email ]
 
-        public async Task UpdateEmailAsync(long oId, string oStatus, string oRemark)
+        public async Task UpdateEmailAsync(long oId, short oStatus, string oRemark)
         {
             try
             {
@@ -67,14 +67,14 @@ namespace DBL.Email_Service
                 email.Remark = string.IsNullOrEmpty(email.Remark) ? oRemark : email.Remark + "\n" + oRemark;
 
                 // Add Failed Count for Send Email Failed
-                if (email.Status.Contains(ConstantCode.Status.Code_Failed))
+                if (email.Status == (short)Enum_Status.Failed)
                 {
                     email.IcntFailedSend++;
                 }
 
                 await _emailRepository.UpdateAsync(email);
 
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"Update Email Successful. Email Id: {email.Id}, Status: {ConstantCode.Status.StatusDictionary[email.Status]}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"Update Email Successful. Email Id: {email.Id}, Status: {((Enum_Status)email.Status).GetDescription()}");
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace DBL.Email_Service
 
             try
             {
-                var oUserToken = await _userTokenService.CreateAsync(oUser.Id, ConstantCode.UserTokenType.EmailConfirmation);
+                var oUserToken = await _userTokenService.CreateAsync(oUser.Id, (short)Enum_EmailToken.EmailConfirmation);
 
                 string confirmEmailUrl = GenerateUrlHelper.GenerateUrl(_reactBaseUrl, ConstantCode.UrlPath.ConfirmEmail, oUserToken.Token);
 
@@ -114,11 +114,11 @@ namespace DBL.Email_Service
 
                 var email = new TEmail
                 {
-                    EmailSubject = "Email Confirmation",
+                    EmailSubject = Enum_EmailToken.EmailConfirmation.GetDescription(),
                     EmailContent = emailContent,
                     RecipientName = oUser.Name,
                     RecipientEmail = oUser.Email,
-                    Status = ConstantCode.Status.Code_Pending,
+                    Status = (short)Enum_Status.Pending,
                     CreatedDateTime = DateTime.Now
                 };
 
@@ -145,7 +145,7 @@ namespace DBL.Email_Service
 
             try
             {
-                var oUserToken = await _userTokenService.CreateAsync(oUser.Id, ConstantCode.UserTokenType.ResetPassword);
+                var oUserToken = await _userTokenService.CreateAsync(oUser.Id, (short)Enum_EmailToken.ResetPassword);
 
                 string resetPasswordEmailUrl = GenerateUrlHelper.GenerateUrl(_reactBaseUrl, ConstantCode.UrlPath.ResetPassword, oUserToken.Token);
 
@@ -164,7 +164,7 @@ namespace DBL.Email_Service
                     EmailContent = emailContent,
                     RecipientName = oUser.Name,
                     RecipientEmail = oUser.Email,
-                    Status = ConstantCode.Status.Code_Pending,
+                    Status = (short)Enum_Status.Pending,
                     CreatedDateTime = DateTime.Now
                 };
 

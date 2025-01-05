@@ -1,10 +1,11 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { useTheme } from '@mui/material/styles';
-import { Grid, Stack, Typography, Avatar } from '@mui/material';
+import { Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowUpLeft } from '@tabler/icons-react';
 
 import DashboardCard from '../../../components/shared/DashboardCard';
+import MyGrid from '../../../components/container/MyGrid';
 
 const YearlyBreakup = () => {
   // chart color
@@ -63,9 +64,9 @@ const YearlyBreakup = () => {
 
   return (
     <DashboardCard title="Yearly Breakup">
-      <Grid container spacing={3}>
+      <MyGrid container spacing={3}>
         {/* column */}
-        <Grid item xs={7} sm={7}>
+        <MyGrid item xs={7} sm={7}>
           <Typography variant="h3" fontWeight="700">
             $36,358
           </Typography>
@@ -98,17 +99,17 @@ const YearlyBreakup = () => {
               </Typography>
             </Stack>
           </Stack>
-        </Grid>
+        </MyGrid>
         {/* column */}
-        <Grid item xs={5} sm={5}>
+        <MyGrid item xs={5} sm={5}>
           <Chart
             options={optionscolumnchart}
             series={seriescolumnchart}
             type="donut"
             height="150px"
           />
-        </Grid>
-      </Grid>
+        </MyGrid>
+      </MyGrid>
     </DashboardCard>
   );
 };

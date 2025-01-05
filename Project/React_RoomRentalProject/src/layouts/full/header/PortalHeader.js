@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Profile from './Profile';
 import { IconBellRinging, IconMenu } from '@tabler/icons-react';
 
-const Header = (props) => {
+const PortalHeader = (props) => {
 
   // const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   // const lgDown = useMediaQuery((theme) => theme.breakpoints.down('lg'));
@@ -73,8 +73,8 @@ const Header = (props) => {
   );
 };
 
-Header.propTypes = {
+PortalHeader.propTypes = {
   sx: PropTypes.object,
 };
 
-export default Header;
+export default PortalHeader;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CardContent, Typography, Grid, Rating, Tooltip, Fab } from '@mui/material';
+import { CardContent, Typography, Rating, Tooltip, Fab } from '@mui/material';
 import img1 from 'src/assets/images/products/s4.jpg';
 import img2 from 'src/assets/images/products/s5.jpg';
 import img3 from 'src/assets/images/products/s7.jpg';
@@ -8,6 +8,7 @@ import img4 from 'src/assets/images/products/s11.jpg';
 import { Stack } from '@mui/system';
 import { IconBasket } from '@tabler/icons-react';
 import BlankCard from '../../../components/shared/BlankCard';
+import MyGrid from '../../../components/container/MyGrid';
 
 const ecoCard = [
     {
@@ -42,13 +43,29 @@ const ecoCard = [
         price: 345,
         rating: 2,
     },
+    {
+        title: 'Cute Soft Teddybear 2',
+        subheader: 'September 14, 2023',
+        photo: img4,
+        salesPrice: 285,
+        price: 345,
+        rating: 2,
+    },
+    {
+        title: 'Cute Soft Teddybear 3',
+        subheader: 'September 14, 2023',
+        photo: img4,
+        salesPrice: 285,
+        price: 345,
+        rating: 2,
+    },
 ];
 
 const Blog = () => {
     return (
-        <Grid container spacing={3}>
+        <MyGrid container spacing={3}>
             {ecoCard.map((product, index) => (
-                <Grid item sm={12} md={4} lg={3} key={index}>
+                <MyGrid item sm={12} md={4} lg={3} key={index}>
                     <BlankCard>
                         <Typography component={Link} to="/">
                             <img src={product.photo} alt="img" width="100%" />
@@ -75,9 +92,9 @@ const Blog = () => {
                             </Stack>
                         </CardContent>
                     </BlankCard>
-                </Grid>
+                </MyGrid>
             ))}
-        </Grid>
+        </MyGrid>
     );
 };
 

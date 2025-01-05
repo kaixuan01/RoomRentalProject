@@ -15,17 +15,17 @@ public partial class TUserToken
     public string Token { get; set; } = null!;
 
     /// <summary>
-    /// Type of the token
-    /// 1. EmailConfirmation = Used for confirming a newly created user&apos;s email address.
-    /// 2. ResetPassword = Used when a user requests a password reset after forgetting their password.
+    /// Please refer E_EmailToken table
     /// </summary>
-    public string TokenType { get; set; } = null!;
+    public short TokenType { get; set; }
 
     public DateTime CreatedDateTime { get; set; }
 
     public DateTime ExpiresDateTime { get; set; }
 
     public bool IsUsed { get; set; }
+
+    public virtual EEmailToken TokenTypeNavigation { get; set; } = null!;
 
     public virtual TUser User { get; set; } = null!;
 }

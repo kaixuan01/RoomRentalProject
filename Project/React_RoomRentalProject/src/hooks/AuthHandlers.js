@@ -1,26 +1,27 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateData } from '../Redux/actions';
-import { useFuncHTTPReq } from '../components/shared/FuncHttpReq';
+import { useHTTPReq } from './HttpReq';
 
 export const useAuthHandlers = () => {
   const dispatch = useDispatch();
-  const { FuncHTTPReq } = useFuncHTTPReq();
+  const { HTTPReq } = useHTTPReq();
 
   const handleLogin = useCallback(() => {
     dispatch(updateData('isLogin', 'Login'));
     localStorage.setItem('isLogin', 'Login');
+    window.location.href = "/portal";
   }, [dispatch]);
 
   const handleLogout = useCallback(() => {
     dispatch(updateData('isLogin', null));
     localStorage.removeItem('isLogin');
-    FuncHTTPReq({
+    HTTPReq({
       url: `/OAuth/Logout`,
       method: 'POST',
     });
-    window.location.href = "/";
-  }, [dispatch, FuncHTTPReq]);
+    window.location.href = "/auth/login";
+  }, [dispatch, HTTPReq]);
 
   return { handleLogin, handleLogout };
 };

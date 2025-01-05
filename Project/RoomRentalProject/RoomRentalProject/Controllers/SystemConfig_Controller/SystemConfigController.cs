@@ -4,7 +4,7 @@ using E_commerce.Tools;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Utils;
+using Utils.Constant;
 using Utils.Enums;
 using Utils.Model;
 

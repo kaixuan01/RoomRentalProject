@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { styled, Container, Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-
-
-import Header from './header/Header';
-import Sidebar from './sidebar/Sidebar';
+import MainHeaderSidebar from './sidebar/MobileHeaderSidebar/MainHeaderSidebar';
+import MainHeader from './header/MainHeader';
 
 const MainWrapper = styled('div')(() => ({
   display: 'flex',
@@ -21,22 +19,20 @@ const PageWrapper = styled('div')(() => ({
   backgroundColor: 'transparent',
 }));
 
-const FullLayout = () => {
-
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+const MainLayout = () => {
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  // const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+
+  const toggleMobileSidebar = () => {
+    setMobileSidebarOpen((prev) => !prev);
+  };
 
   return (
     <MainWrapper
       className='mainwrapper'
     >
-      {/* ------------------------------------------- */}
-      {/* Sidebar */}
-      {/* ------------------------------------------- */}
-      <Sidebar isSidebarOpen={isSidebarOpen}
-        isMobileSidebarOpen={isMobileSidebarOpen}
-        onSidebarClose={() => setMobileSidebarOpen(false)} />
+
+     <MainHeaderSidebar isOpen={isMobileSidebarOpen} onClose={toggleMobileSidebar}/>
+
       {/* ------------------------------------------- */}
       {/* Main Wrapper */}
       {/* ------------------------------------------- */}
@@ -46,7 +42,8 @@ const FullLayout = () => {
         {/* ------------------------------------------- */}
         {/* Header */}
         {/* ------------------------------------------- */}
-        <Header toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
+        <MainHeader toggleMobileSidebar={toggleMobileSidebar}/>
+
         {/* ------------------------------------------- */}
         {/* PageContent */}
         {/* ------------------------------------------- */}
@@ -70,4 +67,4 @@ const FullLayout = () => {
   );
 };
 
-export default FullLayout;
+export default MainLayout;

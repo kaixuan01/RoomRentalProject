@@ -16,12 +16,9 @@ public partial class TEmail
     public string? RecipientEmail { get; set; }
 
     /// <summary>
-    /// Status of the email
-    /// P - Pending
-    /// C - Completed
-    /// F - Failed
+    /// Please refer E_Status table
     /// </summary>
-    public string? Status { get; set; }
+    public short Status { get; set; }
 
     public string? Remark { get; set; }
 
@@ -30,4 +27,6 @@ public partial class TEmail
     public DateTime? CreatedDateTime { get; set; }
 
     public DateTime? SentDateTime { get; set; }
+
+    public virtual EStatus StatusNavigation { get; set; } = null!;
 }

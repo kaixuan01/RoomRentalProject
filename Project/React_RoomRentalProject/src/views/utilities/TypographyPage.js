@@ -1,19 +1,20 @@
 import React from 'react';
-import { Typography, Grid, CardContent } from '@mui/material';
+import { Typography, CardContent } from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 import DashboardCard from '../../components/shared/DashboardCard';
 import BlankCard from 'src/components/shared/BlankCard';
+import MyGrid from '../../components/container/MyGrid';
 
 
 const TypographyPage = () => {
   return (
     <PageContainer title="Typography" description="this is Typography">
 
-      <Grid container spacing={3}>
-        <Grid item sm={12}>
+      <MyGrid container spacing={3}>
+        <MyGrid item sm={12}>
           <DashboardCard title="Default Text">
-            <Grid container spacing={3}>
-              <Grid item sm={12}>
+            <MyGrid container spacing={3}>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h1">h1. Heading</Typography>
@@ -22,8 +23,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h2">h2. Heading</Typography>
@@ -32,8 +33,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h3">h3. Heading</Typography>
@@ -43,8 +44,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h4">h4. Heading</Typography>
@@ -54,8 +55,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h5">h5. Heading</Typography>
@@ -65,8 +66,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h6">h6. Heading</Typography>
@@ -76,8 +77,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="subtitle1">
@@ -90,8 +91,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="subtitle2">
@@ -104,8 +105,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="body1">
@@ -117,8 +118,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="body2">
@@ -130,8 +131,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="caption">
@@ -144,8 +145,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="overline">
@@ -158,15 +159,15 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-            </Grid>
+              </MyGrid>
+            </MyGrid>
 
           </DashboardCard>
-        </Grid>
-        <Grid item sm={12}>
+        </MyGrid>
+        <MyGrid item sm={12}>
           <DashboardCard title="Default Text">
-            <Grid container spacing={3}>
-              <Grid item sm={12}>
+            <MyGrid container spacing={3}>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h5" color="textprimary">
@@ -178,8 +179,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h5" color="textSecondary">
@@ -191,8 +192,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h5" sx={{ color: (theme) => theme.palette.info.main }}>
@@ -204,8 +205,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h5" sx={{ color: (theme) => theme.palette.primary.main }}>
@@ -217,8 +218,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h5" sx={{ color: (theme) => theme.palette.warning.main }}>
@@ -230,8 +231,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h5" sx={{ color: (theme) => theme.palette.error.main }}>
@@ -243,8 +244,8 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-              <Grid item sm={12}>
+              </MyGrid>
+              <MyGrid item sm={12}>
                 <BlankCard>
                   <CardContent>
                     <Typography variant="h5" sx={{ color: (theme) => theme.palette.success.main }}>
@@ -256,11 +257,11 @@ const TypographyPage = () => {
                     </Typography>
                   </CardContent>
                 </BlankCard>
-              </Grid>
-            </Grid>
+              </MyGrid>
+            </MyGrid>
           </DashboardCard>
-        </Grid>
-      </Grid >
+        </MyGrid>
+      </MyGrid >
     </PageContainer>
   );
 };

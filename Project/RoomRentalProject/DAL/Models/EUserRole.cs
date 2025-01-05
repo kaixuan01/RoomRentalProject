@@ -5,7 +5,7 @@ namespace DAL.Models;
 
 public partial class EUserRole
 {
-    public int Id { get; set; }
+    public short Id { get; set; }
 
     public string Name { get; set; } = null!;
 

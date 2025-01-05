@@ -4,7 +4,7 @@ using E_commerce.Tools;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Security.Claims;
-using Utils;
+using Utils.Constant;
 using Utils.Enums;
 using Utils.Model;
 using Utils.Tools;
@@ -44,8 +44,6 @@ namespace E_commerce.Controllers
 
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Request to register account, Request: {JsonConvert.SerializeObject(oUser)}");
 
-                // User role as normal user when register account
-                oUser.userRoleId = (int)Enum_UserRole.NormalUser;
                 var oResp = await _userService.CreateAsync(oUser);
 
                 switch (oResp.Code)

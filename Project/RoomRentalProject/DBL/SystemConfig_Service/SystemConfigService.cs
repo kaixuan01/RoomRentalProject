@@ -3,7 +3,7 @@ using DAL.Repository.SystemConfigRP;
 using DAL.Shared.Class;
 using DBL.AuditTrail_Service;
 using DBL.Tools;
-using Utils;
+using Utils.Constant;
 using Utils.Enums;
 
 namespace DBL.SystemConfig_Service
@@ -67,13 +67,13 @@ namespace DBL.SystemConfig_Service
 
                 rtnValue.Code = RespCode.RespCode_Success;
                 rtnValue.Message = RespCode.RespMessage_Update_Successful;
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"{RespCode.RespMessage_Update_Successful}.");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Information, RespCode.RespMessage_Update_Successful);
             }
             catch (Exception ex)
             {
                 rtnValue.Code = RespCode.RespCode_Exception;
                 rtnValue.Message = ex.Message;
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Exception Message: {ex.Message}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, string.Format(ConstantCode.LogMessageTemplate.GeneralExceptionMessageTemplate, ex.Message));
             }
             
             return rtnValue;

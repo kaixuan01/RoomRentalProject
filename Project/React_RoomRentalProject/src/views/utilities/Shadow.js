@@ -1,8 +1,9 @@
 import React from 'react';
-import { Paper, Box, Grid } from '@mui/material';
+import { Paper, Box } from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 import DashboardCard from '../../components/shared/DashboardCard';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import MyGrid from '../../components/container/MyGrid';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body1,
@@ -20,9 +21,9 @@ const Shadow = () => {
     <PageContainer title="Shadow" description="this is Shadow">
 
       <DashboardCard title="Shadow">
-        <Grid container spacing={2}>
+        <MyGrid container spacing={2}>
           {[lightTheme, darkTheme].map((theme, index) => (
-            <Grid item xs={6} key={index}>
+            <MyGrid item xs={6} key={index}>
               <ThemeProvider theme={theme}>
                 <Box
                   sx={{
@@ -40,9 +41,9 @@ const Shadow = () => {
                   ))}
                 </Box>
               </ThemeProvider>
-            </Grid>
+            </MyGrid>
           ))}
-        </Grid>
+        </MyGrid>
       </DashboardCard>
     </PageContainer>
   );

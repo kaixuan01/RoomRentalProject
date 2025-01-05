@@ -1,4 +1,4 @@
-﻿namespace Utils
+﻿namespace Utils.Constant
 {
     public class RespCode
     {
@@ -11,6 +11,11 @@
         public const string RespMessage_Insert_Successful = "Record Insert Successful";
         public const string RespMessage_Update_Successful = "Record Update Successful";
         public const string RespMessage_Delete_Successful = "Record Delete Successful";
+    }
+
+    public class SuccessMessage
+    {
+        public const string LoginSuccessful = "Login Successfully";
     }
 
     public class ErrorMessage
@@ -50,6 +55,12 @@
 
         // Error for when input exceeds allowed limits (e.g., character length, file size)
         public const string ExceededLimit = "Your input exceeds the allowed limit. Please reduce and try again.";
+
+        // Error for when user login blocked account
+        public const string AccountBlocked = "Your account has been blocked. Please contact the admin for assistance.";
+
+        // Error for when user login inactive accoutn
+        public const string AccountInactive = "Your account is inactive. Please contact the admin for assistance.";
     }
 
 }

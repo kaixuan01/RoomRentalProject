@@ -10,7 +10,7 @@ using Serilog;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
-using Utils;
+using Utils.Constant;
 using Utils.Enums;
 using Utils.Tools;
 

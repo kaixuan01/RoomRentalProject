@@ -6,7 +6,7 @@ namespace DBL.User_Service.UserTokensService
     {
         Task<TUserToken> GetByTokenAsync(string token);
         Task<TUserToken> GetByUserIdAsync(int UserId);
-        Task<TUserToken> CreateAsync(int UserId, string TokenType);
+        Task<TUserToken> CreateAsync(int UserId, short TokenType);
         Task UpdateAsync(TUserToken userTokens);
     }
 }
