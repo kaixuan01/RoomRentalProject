@@ -109,7 +109,6 @@ builder.Services.AddAuthorization(options =>
 var reactSettings = builder.Configuration.GetSection("ReactSettings");
 var reactBaseUrl = reactSettings["BaseUrl"];
 
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhost",

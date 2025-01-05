@@ -9,17 +9,20 @@ using Utils.Model;
 namespace E_commerce.Controllers.AuditTrail_Controller
 {
     [ApiController]
+    [ApiVersion("1.0")]
     [Route("[controller]")]
     [Authorize(Roles = nameof(Enum_UserRole.Admin))]
     public class AuditTrailController : BaseAPIController
     {
         private IAuditTrailService _auditTrailService;
-        public AuditTrailController(IAuditTrailService auditTrailService) 
+
+        public AuditTrailController(IAuditTrailService auditTrailService)
         {
             _auditTrailService = auditTrailService;
         }
 
         [HttpGet]
+        [ApiVersion("1.0")]
         [Route("GetAuditTrailList")]
         public async Task<IActionResult> GetAuditTrailList([FromQuery] FilterParameters filterParameters)
         {
@@ -36,7 +39,6 @@ namespace E_commerce.Controllers.AuditTrail_Controller
             {
                 apiResponse = ApiResponse<PagedResult<TAuditTrail>>.CreateErrorResponse($"Get Audit Trail List Failed. Exception: {ex.Message}");
             }
-
 
             return Ok(apiResponse);
         }
