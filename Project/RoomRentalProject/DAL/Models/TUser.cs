@@ -18,9 +18,9 @@ public partial class TUser
     public string? Phone { get; set; }
 
     /// <summary>
-    /// User role id in E_UserRole table
+    /// Please refer E_UserRole table
     /// </summary>
-    public int UserRoleId { get; set; }
+    public short UserRoleId { get; set; }
 
     /// <summary>
     /// Used to count user login failed attempt.
@@ -28,16 +28,15 @@ public partial class TUser
     public int ICountFailedLogin { get; set; }
 
     /// <summary>
-    /// User Status
-    /// 0 - Active
-    /// 1 - Inactive
-    /// 2 - Blocked
+    /// Please refer E_UserStatus table
     /// </summary>
     public short Status { get; set; }
 
     public bool IsEmailVerified { get; set; }
 
     public DateTime? CreatedDate { get; set; }
+
+    public virtual EUserStatus StatusNavigation { get; set; } = null!;
 
     public virtual ICollection<TUserLoginHistory> TUserLoginHistories { get; set; } = new List<TUserLoginHistory>();
 

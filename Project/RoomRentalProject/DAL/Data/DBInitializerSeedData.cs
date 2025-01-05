@@ -88,7 +88,7 @@ namespace DAL.Data
                 Name = name,
                 Email = email,
                 Phone = phone,
-                UserRoleId = (int)role,
+                UserRoleId = (short)role,
                 IsEmailVerified = true
             };
         }
@@ -97,7 +97,7 @@ namespace DAL.Data
         {
             return new EUserRole
             {
-                Id = (int)role,
+                Id = (short)role,
                 Name = name,
                 Description = description
             };

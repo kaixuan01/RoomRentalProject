@@ -11,6 +11,6 @@ namespace Utils.Enums
         Inactive = 1,
 
         [Description("Blocked")]
-        Blocked = 1,
+        Blocked = 2,
     }
 }
