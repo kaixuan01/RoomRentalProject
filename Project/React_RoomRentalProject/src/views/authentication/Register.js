@@ -117,7 +117,6 @@ const Register2 = () => {
       >
         <MyGrid container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
           <MyGrid
-            item
             xs={12}
             sm={12}
             lg={4}
@@ -178,7 +177,7 @@ const Register2 = () => {
                   />
 
                   <MyGrid container spacing={2} mt="10px">
-                    <MyGrid item xs={6}>
+                    <MyGrid xs={6}>
                       <CustomTextField
                         fullWidth
                         required
@@ -200,7 +199,7 @@ const Register2 = () => {
                       />
                     </MyGrid>
 
-                    <MyGrid item xs={6}>
+                    <MyGrid xs={6}>
                       <CustomTextField
                         fullWidth
                         required
@@ -266,7 +265,7 @@ const Register2 = () => {
                   />
 
                   <MyGrid container spacing={2} mt="10px">
-                    <MyGrid item xs={6}>
+                    <MyGrid xs={6}>
                       <Card sx={{ borderRadius: 3, boxShadow: 3, backgroundColor: '#f5f5f5' }}>
                         <CardContent>
                           <FormControl component="fieldset">
@@ -284,7 +283,7 @@ const Register2 = () => {
                       </Card>
                     </MyGrid>
 
-                    <MyGrid item xs={6}>
+                    <MyGrid xs={6}>
                       <Card sx={{ borderRadius: 3, boxShadow: 3, backgroundColor: '#f5f5f5' }}>
                         <CardContent>
                           <FormControl component="fieldset">

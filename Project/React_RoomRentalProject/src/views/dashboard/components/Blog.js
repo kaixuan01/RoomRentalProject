@@ -65,7 +65,7 @@ const Blog = () => {
     return (
         <MyGrid container spacing={3}>
             {ecoCard.map((product, index) => (
-                <MyGrid item sm={12} md={4} lg={3} key={index}>
+                <MyGrid sm={12} md={4} lg={3} key={index}>
                     <BlankCard>
                         <Typography component={Link} to="/">
                             <img src={product.photo} alt="img" width="100%" />

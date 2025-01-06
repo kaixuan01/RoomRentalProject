@@ -19,34 +19,34 @@ const Dashboard = () => {
     <PageContainer title="Dashboard" description="this is Dashboard">
       <Box>
         <MyGrid container spacing={3}>
-          <MyGrid  item xs={12} lg={6}>
+          <MyGrid xs={12} lg={6}>
             <DashboardCard title={"File Uploader"}>
               <UppyFileUpload/>
               <InputLabel/>
             </DashboardCard>
           </MyGrid>
-          <MyGrid item xs={6}>
+          <MyGrid xs={6}>
           </MyGrid>
-          <MyGrid item xs={12} lg={8}>
+          <MyGrid xs={12} lg={8}>
             <SalesOverview />
           </MyGrid>
-          <MyGrid item xs={12} lg={4}>
+          <MyGrid xs={12} lg={4}>
             <MyGrid container spacing={3}>
-              <MyGrid item xs={12}>
+              <MyGrid xs={12}>
                 <YearlyBreakup />
               </MyGrid>
-              <MyGrid item xs={12}>
+              <MyGrid xs={12}>
                 <MonthlyEarnings />
               </MyGrid>
             </MyGrid>
           </MyGrid>
-          <MyGrid item xs={12} lg={4}>
+          <MyGrid xs={12} lg={4}>
             <RecentTransactions />
           </MyGrid>
-          <MyGrid item xs={12} lg={8}>
+          <MyGrid xs={12} lg={8}>
             <ProductPerformance />
           </MyGrid>
-          <MyGrid item xs={12}>
+          <MyGrid xs={12}>
             <Blog />
           </MyGrid>
         </MyGrid>

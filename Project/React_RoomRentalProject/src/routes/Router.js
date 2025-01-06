@@ -13,7 +13,7 @@ const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')))
 const AboutUsPage = Loadable(lazy(() => import('../views/MainPage/AboutUs/AboutUs')));
 
 /* ****Auth Pages***** */
-const Register = Loadable(lazy(() => import('../views/authentication/Register')));
+const UserRegister = Loadable(lazy(() => import('../views/authentication/UserRegister')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
 const ForgotPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ForgotPassword')));
 const ResetPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ResetPassword')));
@@ -74,7 +74,7 @@ const Router = () => {
       element: <BlankLayout />,
       children: [
         { path: '/auth', element: <Navigate to="/auth/login" replace /> },
-        { path: '/auth/register', element: <Register /> },
+        { path: '/auth/register', element: <UserRegister /> },
         { path: '/auth/login', element: <Login /> },
         { path: '/auth/ConfirmEmail/:token', element: <EmailConfirmation /> },
         { path: '/auth/ResetPassword/:token', element: <ResetPassword /> },
