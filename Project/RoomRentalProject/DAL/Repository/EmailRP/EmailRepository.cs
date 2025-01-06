@@ -1,6 +1,7 @@
 ﻿using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Utils;
+using Utils.Enums;
 
 namespace DAL.Repository.EmailRP
 {
@@ -39,8 +40,8 @@ namespace DAL.Repository.EmailRP
             }
 
             return await _appDbContext.TEmails
-                        .Where(e => e.Status == ConstantCode.Status.Code_Pending ||
-                                    (e.Status == ConstantCode.Status.Failed && e.IcntFailedSend < oRetryAttempt))  // Filter for pending or failed emails within retry limit
+                        .Where(e => e.Status == (short)Enum_Status.Pending ||
+                                    (e.Status == (short)Enum_Status.Failed && e.IcntFailedSend < oRetryAttempt))  // Filter for pending or failed emails within retry limit
                         .OrderBy(e => e.CreatedDateTime)  // Order by creation date to process oldest emails first
                         .ToListAsync();  // Execute the query and return the results as a list
         }

@@ -11,7 +11,7 @@ using DBL.User_Service.UserService.UserActionClass;
 using DBL.User_Service.UserTokensService;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using Utils;
+using Utils.Constant;
 using Utils.Enums;
 using Utils.Tools;
 
@@ -77,7 +77,7 @@ namespace DBL.User_Service.UserService
             {
                 rtnValue.Code = RespCode.RespCode_Exception;
                 rtnValue.Message = ErrorMessage.GeneralError;
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Exception Message: {ex.Message}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, string.Format(ConstantCode.LogMessageTemplate.GeneralExceptionMessageTemplate, ex.Message));
             }
 
             return rtnValue;
@@ -180,7 +180,7 @@ namespace DBL.User_Service.UserService
             {
                 rtnValue.Code = RespCode.RespCode_Exception;
                 rtnValue.Message = ErrorMessage.GeneralError;
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Exception Message: {ex.Message}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, string.Format(ConstantCode.LogMessageTemplate.GeneralExceptionMessageTemplate, ex.Message));
             }
 
             return rtnValue;
@@ -262,7 +262,7 @@ namespace DBL.User_Service.UserService
             {
                 rtnValue.Code = RespCode.RespCode_Exception;
                 rtnValue.Message = ErrorMessage.GeneralError;
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Exception Message: {ex.Message}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, string.Format(ConstantCode.LogMessageTemplate.GeneralExceptionMessageTemplate, ex.Message));
             }
 
             return rtnValue;
@@ -293,7 +293,7 @@ namespace DBL.User_Service.UserService
             }
             catch (Exception ex)
             {
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Exception Message: {ex.Message}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, string.Format(ConstantCode.LogMessageTemplate.GeneralExceptionMessageTemplate, ex.Message));
             }
         }
 
@@ -338,7 +338,7 @@ namespace DBL.User_Service.UserService
                 rtnValue.Code = RespCode.RespCode_Exception;
                 rtnValue.Message = ErrorMessage.GeneralError;
 
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Exception Message: {ex.Message}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, string.Format(ConstantCode.LogMessageTemplate.GeneralExceptionMessageTemplate, ex.Message));
             }
 
             return rtnValue;
@@ -384,13 +384,13 @@ namespace DBL.User_Service.UserService
                 // Reverse the user status
                 // If the user is currently blocked, set them to active
                 // If the user is currently active, set them to blocked
-                oUser.IsBlocked = !oUser.IsBlocked;
+                oUser.Status = oUser.Status == (short)Enum_UserStatus.Active ? (short)Enum_UserStatus.Blocked : (short)Enum_UserStatus.Active;
 
                 await _userRepository.UpdateAsync(oUser);
 
                 await _auditTrailService.CreateAuditTrailAsync(ConstantCode.Module.User, ConstantCode.Action.Edit, copyUser, oUser);
 
-                var userStatus = (oUser.IsBlocked ? ConstantCode.UserStatus.Blocked : ConstantCode.UserStatus.Active);
+                var userStatus = ((Enum_UserStatus)oUser.Status).GetDescription();
 
                 rtnValue.Code = RespCode.RespCode_Success;
                 rtnValue.Message = $"User's status updated to {userStatus}.";
@@ -401,7 +401,7 @@ namespace DBL.User_Service.UserService
                 rtnValue.Code = RespCode.RespCode_Exception;
                 rtnValue.Message = ErrorMessage.GeneralError;
 
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Exception Message: {ex.Message}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, string.Format(ConstantCode.LogMessageTemplate.GeneralExceptionMessageTemplate, ex.Message));
             }
 
 
@@ -461,10 +461,18 @@ namespace DBL.User_Service.UserService
                         return rtnValue;
                     }
 
-                    if (oUser.IsBlocked)
+                    if (oUser.Status == (int)Enum_UserStatus.Blocked)
                     {
                         rtnValue.Code = RespCode.RespCode_Failed;
-                        rtnValue.Message = "Your account has been blocked. Please contact the admin for assistance.";
+                        rtnValue.Message = ErrorMessage.AccountBlocked;
+
+                        return rtnValue;
+                    }
+
+                    if (oUser.Status == (int)Enum_UserStatus.Inactive)
+                    {
+                        rtnValue.Code = RespCode.RespCode_Failed;
+                        rtnValue.Message = ErrorMessage.AccountInactive;
 
                         return rtnValue;
                     }
@@ -487,11 +495,11 @@ namespace DBL.User_Service.UserService
 
                     if (success)
                     {
-                        oLoginHistory.Remark = "Login Successfully";
+                        oLoginHistory.Remark = SuccessMessage.LoginSuccessful;
                         oUser.ICountFailedLogin = 0;
 
                         rtnValue.Code = RespCode.RespCode_Success;
-                        rtnValue.Message = $"Login Successfully";
+                        rtnValue.Message = SuccessMessage.LoginSuccessful;
                     }
                     else
                     {
@@ -503,7 +511,7 @@ namespace DBL.User_Service.UserService
                             if (oUser.ICountFailedLogin >= maxAttempts)
                             {
                                 // Block the user if failed more than the system config setting
-                                oUser.IsBlocked = true;
+                                oUser.Status = (short)Enum_UserStatus.Blocked;
                             }
                         }
 
@@ -534,7 +542,7 @@ namespace DBL.User_Service.UserService
                 rtnValue.Code = RespCode.RespCode_Exception;
                 rtnValue.Message = ErrorMessage.GeneralError;
 
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"Exception Message: {ex.Message}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Error, string.Format(ConstantCode.LogMessageTemplate.GeneralExceptionMessageTemplate, ex.Message));
 
                 throw;
             }
@@ -591,7 +599,7 @@ namespace DBL.User_Service.UserService
                     return rtnValue;
                 }
 
-                if (oUserToken.IsUsed || oUserToken.ExpiresDateTime < DateTime.Now || oUserToken.TokenType != ConstantCode.UserTokenType.EmailConfirmation)
+                if (oUserToken.IsUsed || oUserToken.ExpiresDateTime < DateTime.Now || oUserToken.TokenType != (short)Enum_EmailToken.EmailConfirmation)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = "Invalid or expired confirm email link.";
@@ -813,7 +821,7 @@ namespace DBL.User_Service.UserService
                     return rtnValue;
                 }
 
-                if (oUserToken.IsUsed || oUserToken.ExpiresDateTime < DateTime.Now || oUserToken.TokenType != ConstantCode.UserTokenType.ResetPassword)
+                if (oUserToken.IsUsed || oUserToken.ExpiresDateTime < DateTime.Now || oUserToken.TokenType != (short)Enum_EmailToken.ResetPassword)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = "Invalid or expired reset password email link.";

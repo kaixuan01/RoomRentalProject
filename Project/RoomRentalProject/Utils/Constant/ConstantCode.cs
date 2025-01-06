@@ -1,4 +1,4 @@
-﻿namespace Utils
+﻿namespace Utils.Constant
 {
     public class ConstantCode
     {
@@ -18,18 +18,6 @@
             public const string View = "View";
         }
 
-        public class UserStatus
-        {
-            public const string Active = "Active";
-            public const string Blocked = "Blocked";
-        }
-
-        public class UserTokenType
-        {
-            public const string EmailConfirmation = "EmailConfirmation";
-            public const string ResetPassword = "ResetPassword";
-        }
-
         public class SystemConfig_Key
         {
             public const string MaxLoginFailedAttempt = "MaxLoginFailedAttempt";
@@ -37,7 +25,6 @@
             public const string SendEmailIntervalSec_Background = "SendEmailIntervalSec_Background";
             public const string SendEmailTotalRetry_Background = "SendEmailTotalRetry_Background";
             public const string UserTokenExpiration = "UserTokenExpiration";
-
         }
 
         public class TableName
@@ -75,29 +62,15 @@
             public const string ResetPassword = "/auth/ResetPassword/{token}";
         }
 
-        public class Status
-        {
-            public static readonly Dictionary<string, string> StatusDictionary = new Dictionary<string, string>
-            {
-                { Code_Pending, Pending },
-                { Code_Completed, Completed },
-                { Code_Failed, Failed }
-            };
-
-            public const string Code_Pending = "P";
-            public const string Pending = "Pending";
-
-            public const string Code_Completed = "C";
-            public const string Completed = "Completed";
-
-            public const string Code_Failed = "F";
-            public const string Failed = "Failed";
-        }
-
         public class AuthorizePolicy
         {
             public const string AdminAccessPolicy = "AdminAccessPolicy";
             public const string AdminOwnerAccessPolicy = "AdminOwnerAccessPolicy";
+        }
+
+        public class LogMessageTemplate
+        {
+            public const string GeneralExceptionMessageTemplate = "Exception Message: {0}";
         }
     }
 }

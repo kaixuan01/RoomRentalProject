@@ -6,7 +6,7 @@
         public string? username { get; set; }
         public string? password { get; set; }
         public string? email { get; set; }
-        public int userRoleId { get; set; } = 2;
+        public short userRoleId { get; set; } = 2;
         public string? phone { get; set; }
     }
 

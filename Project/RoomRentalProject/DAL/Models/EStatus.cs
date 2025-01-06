@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DAL.Models;
 
-public partial class EUserRole
+public partial class EStatus
 {
     public short Id { get; set; }
 
@@ -11,5 +11,5 @@ public partial class EUserRole
 
     public string Description { get; set; } = null!;
 
-    public virtual ICollection<TUser> TUsers { get; set; } = new List<TUser>();
+    public virtual ICollection<TEmail> TEmails { get; set; } = new List<TEmail>();
 }

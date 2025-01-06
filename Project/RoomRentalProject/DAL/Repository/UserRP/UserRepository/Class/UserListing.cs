@@ -10,7 +10,7 @@ namespace DAL.Repository.UserRP.UserRepository.Class
         public string? Email { get; set; }
         public string? Phone { get; set; }
         public string? Role { get; set; }
-        public bool? Status { get; set; }
+        public int? Status { get; set; }
     }
 
     public class UserListing_RESP : ShareResp

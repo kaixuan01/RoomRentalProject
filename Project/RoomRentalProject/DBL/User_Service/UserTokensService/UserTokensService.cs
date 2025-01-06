@@ -3,7 +3,7 @@ using DAL.Repository.UserRP.UserTokens;
 using DBL.AuditTrail_Service;
 using DBL.SystemConfig_Service;
 using DBL.Tools;
-using Utils;
+using Utils.Constant;
 using Utils.Enums;
 using Utils.Tools;
 
@@ -11,28 +11,20 @@ namespace DBL.User_Service.UserTokensService
 {
     public class UserTokensService : IUserTokensService
     {
-        private readonly IAuditTrailService _auditTrailService;
         private readonly IUserTokensRepository _userTokensRepository;
         private readonly ISystemConfigService _systemConfigService;
 
-        public UserTokensService(IUserTokensRepository userTokensRepository, IAuditTrailService auditTrailService, ISystemConfigService systemConfigService)
+        public UserTokensService(IUserTokensRepository userTokensRepository, ISystemConfigService systemConfigService)
         {
-            _auditTrailService = auditTrailService;
             _userTokensRepository = userTokensRepository;
             _systemConfigService = systemConfigService;
         }
 
-        public async Task<TUserToken> CreateAsync(int UserId, string TokenType)
+        public async Task<TUserToken> CreateAsync(int UserId, short TokenType)
         {
-            if (string.IsNullOrEmpty(TokenType))
-            {
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Warning, $"Invalid parameters: UserId or TokenType is null or empty.");
-                throw new ArgumentException("UserId and TokenType cannot be null or empty.");
-            }
-
             try
             {
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"Receive Request to Generate Token. User Id: {UserId}, Token Type: {TokenType}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"Receive Request to Generate Token. User Id: {UserId}, Token Type: {((Enum_EmailToken)TokenType).GetDescription()}");
                 var oUserTokenExpiration = await _systemConfigService.GetSystemConfigByKeyAsync(ConstantCode.SystemConfig_Key.UserTokenExpiration);
 
                 var newToken = new TUserToken
