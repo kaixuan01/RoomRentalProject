@@ -25,7 +25,7 @@ import { Person, AccountCircle, Email, Phone, Lock } from '@mui/icons-material';
 import MyGrid from '../../components/container/MyGrid';
 import MyInput from '../../components/input/MyInput';
 import { useSelector } from 'react-redux';
-import { areAllValuesEmpty, isObjectEmpty } from '../../utils/helpers/validateHelper';
+import ValidationHandler from '../../components/input/ValidationHandler';
 
 const UserRegister = () => {
     const [formData, setFormData] = useState({
@@ -38,23 +38,23 @@ const UserRegister = () => {
         phone: '',
     });
 
-    const validateGroup = "register";
-    const validateRegister = useSelector((state) => state[validateGroup]);
+    const registerValidGroup = "register";
+    const regFormValidation = {
+        name: { required: true, validateGroup: registerValidGroup },
+        username: { required: true, validateGroup: registerValidGroup },
+        password: { required: true, validateGroup: registerValidGroup },
+    }
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
         setFormData((prevData) => ({
-          ...prevData,
-          [id]: value,
+            ...prevData,
+            [id]: value,
         }));
-      };
+    };
 
-      const handleAuthRegister = () => {
-        if (validateRegister && areAllValuesEmpty(validateRegister)) {
-            console.log("Validation passed!");
-        } else {
-            console.log("Validation failed!");
-        }
+    const handleAuthRegister = () => {
+        console.log("Validation passed!");
     };
 
     return (
@@ -91,54 +91,66 @@ const UserRegister = () => {
                             <Typography variant="subtitle1" textAlign="center" color="textSecondary" mb={1}>
                                 Your Social Campaigns
                             </Typography>
+
                             <Box>
                                 <Stack mb={3}>
-                                <MyInput
-                                    validateGroup={validateGroup}
-                                    required
-                                    id="name"
-                                    label="Name"
-                                    placeholder="Your full name"
-                                    value={formData.name}
-                                    onChange={(e) => handleInputChange(e)}
-                                    icon={<Person />}
-                                />
-                                </Stack>
-                                <Stack mb={3}>
-                                <MyInput
-                                    validateGroup={validateGroup}
-                                    required
-                                    id="username"
-                                    label="Username"
-                                    placeholder="Username"
-                                    value={formData.username}
-                                    onChange={(e) => {handleInputChange(e)}}
-                                    icon={<Person />}
-                                />
+                                    <MyInput
+                                        {...regFormValidation.name}
+                                        id="name"
+                                        label="Name"
+                                        placeholder="Your full name"
+                                        value={formData.name}
+                                        onChange={(e) => handleInputChange(e)}
+                                        icon={<Person />}
+                                    />
                                 </Stack>
                                 <Stack mb={3}>
                                     <MyInput
-                                        validateGroup={validateGroup}
-                                        required
+                                        {...regFormValidation.username}
+                                        id="username"
+                                        label="Username"
+                                        placeholder="Username"
+                                        value={formData.username}
+                                        onChange={(e) => { handleInputChange(e) }}
+                                        icon={<Person />}
+                                    />
+                                </Stack>
+                                <Stack mb={3}>
+                                    <MyInput
+                                        {...regFormValidation.password}
                                         id="password"
                                         label="Password"
                                         placeholder="••••••"
                                         input="password"
                                         value={formData.password}
-                                        onChange={(e) => {handleInputChange(e)}}
+                                        onChange={(e) => { handleInputChange(e) }}
                                         icon={<Person />}
                                     />
                                 </Stack>
-                                <Button
-                                    color="primary"
-                                    variant="contained"
-                                    size="large"
-                                    fullWidth
-                                    onClick={handleAuthRegister}
+                                <ValidationHandler
+                                    formData={formData}
+                                    regFormValidation={regFormValidation}
+                                    validateGroup="register"
+                                    onValidationComplete={(isValid) => {
+                                        if (isValid) {
+                                            handleAuthRegister();
+                                        }
+                                    }}
                                 >
-                                    Sign Up
-                                </Button>
+                                    {({ validate }) => (
+                                        <Button
+                                            color="primary"
+                                            variant="contained"
+                                            size="large"
+                                            fullWidth
+                                            onClick={validate}
+                                        >
+                                            Sign Up
+                                        </Button>
+                                    )}
+                                </ValidationHandler>
                             </Box>
+
                             <Stack direction="row" justifyContent="center" spacing={1} mt={3}>
                                 <Typography color="textSecondary" variant="h6" fontWeight="400">
                                     Already have an Account?
