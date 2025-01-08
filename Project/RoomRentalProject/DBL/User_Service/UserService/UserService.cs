@@ -824,7 +824,7 @@ namespace DBL.User_Service.UserService
                 if (oUserToken.IsUsed || oUserToken.ExpiresDateTime < DateTime.Now || oUserToken.TokenType != (short)Enum_EmailToken.ResetPassword)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
-                    rtnValue.Message = "Invalid or expired reset password email link.";
+                    rtnValue.Message = "Invalid or expired reset password link.";
                     return rtnValue;
                 }
 
