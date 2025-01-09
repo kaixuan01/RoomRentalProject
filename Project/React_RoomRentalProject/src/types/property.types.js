@@ -26,7 +26,17 @@ const FacilityType = {
   Gym: 2,
   Parking: 3,
   Security: 4,
-  WiFi: 5
+  WiFi: 5,
+  AirCon: 6,
+  Laundry: 7,
+  PetFriendly: 8,
+  Balcony: 9,
+  Storage: 10,
+  CCTV: 11,
+  Elevator: 12,
+  Garden: 13,
+  BBQ: 14,
+  PlayArea: 15
 };
 
 /**

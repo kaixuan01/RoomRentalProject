@@ -11,12 +11,30 @@ export const mockProperties = [
     propertyStatus: PropertyStatus.Available,
     approvalStatus: ApprovalStatus.Approved,
     description: "Modern luxury apartment with city view, featuring high-end finishes and state-of-the-art appliances.",
-    facilities: [FacilityType.Pool, FacilityType.Gym, FacilityType.Parking],
+    facilities: [
+      FacilityType.Pool,
+      FacilityType.Gym,
+      FacilityType.Parking,
+      FacilityType.Security,
+      FacilityType.WiFi,
+      FacilityType.AirCon,
+      FacilityType.Balcony
+    ],
     photos: [
       {
         id: 1,
         filePath: "src/assets/images/products/s5.jpg",
         isMain: true
+      },
+      {
+        id: 2,
+        filePath: "src/assets/images/products/s4.jpg",
+        isMain: false
+      },
+      {
+        id: 3,
+        filePath: "src/assets/images/products/s7.jpg",
+        isMain: false
       }
     ],
     latitude: 1.3521,
@@ -32,13 +50,25 @@ export const mockProperties = [
     propertyStatus: PropertyStatus.Available,
     approvalStatus: ApprovalStatus.Approved,
     description: "Beautiful family home with large backyard and modern amenities.",
-    facilities: [FacilityType.Parking, FacilityType.Security, FacilityType.WiFi],
+    facilities: [
+      FacilityType.Parking,
+      FacilityType.Security,
+      FacilityType.WiFi,
+      FacilityType.AirCon,
+      FacilityType.Laundry,
+      FacilityType.PetFriendly
+    ],
     photos: [
       {
         id: 2,
         filePath: "src/assets/images/products/s4.jpg",
         isMain: true
-      }
+      },
+      {
+        id: 2,
+        filePath: "src/assets/images/products/s11.jpg",
+        isMain: false
+      },
     ],
     latitude: 1.3522,
     longitude: 103.8199
@@ -53,7 +83,15 @@ export const mockProperties = [
     propertyStatus: PropertyStatus.Available,
     approvalStatus: ApprovalStatus.Approved,
     description: "Cozy studio condo perfect for singles or couples, located in the heart of the city.",
-    facilities: [FacilityType.Gym, FacilityType.WiFi],
+    facilities: [
+      FacilityType.Gym,
+      FacilityType.Parking,
+      FacilityType.CCTV,
+      FacilityType.Elevator,
+      FacilityType.Garden,
+      FacilityType.BBQ,
+      FacilityType.PlayArea
+    ],
     photos: [
       {
         id: 3,
@@ -74,7 +112,14 @@ export const mockProperties = [
     propertyStatus: PropertyStatus.Available,
     approvalStatus: ApprovalStatus.Approved,
     description: "Stunning beachfront villa with private pool and panoramic ocean views.",
-    facilities: [FacilityType.Pool, FacilityType.Security, FacilityType.Parking, FacilityType.WiFi],
+    facilities: [
+      FacilityType.Pool,
+      FacilityType.Security,
+      FacilityType.Parking,
+      FacilityType.WiFi,
+      FacilityType.AirCon,
+      FacilityType.Balcony
+    ],
     photos: [
       {
         id: 4,
@@ -95,7 +140,12 @@ export const mockProperties = [
     propertyStatus: PropertyStatus.Rented,
     approvalStatus: ApprovalStatus.Approved,
     description: "Charming apartment with private garden and modern amenities.",
-    facilities: [FacilityType.Parking, FacilityType.WiFi],
+    facilities: [
+      FacilityType.Parking,
+      FacilityType.WiFi,
+      FacilityType.AirCon,
+      FacilityType.Balcony
+    ],
     photos: [
       {
         id: 5,
@@ -116,7 +166,14 @@ export const mockProperties = [
     propertyStatus: PropertyStatus.Maintenance,
     approvalStatus: ApprovalStatus.Pending,
     description: "Industrial-style loft with high ceilings and exposed brick walls.",
-    facilities: [FacilityType.Gym, FacilityType.Parking, FacilityType.Security],
+    facilities: [
+      FacilityType.Gym,
+      FacilityType.Parking,
+      FacilityType.Security,
+      FacilityType.AirCon,
+      FacilityType.Laundry,
+      FacilityType.PetFriendly
+    ],
     photos: [
       {
         id: 6,
@@ -137,7 +194,13 @@ export const mockProperties = [
     propertyStatus: PropertyStatus.Available,
     approvalStatus: ApprovalStatus.Approved,
     description: "Spacious family home in quiet suburban neighborhood with great schools nearby.",
-    facilities: [FacilityType.Parking, FacilityType.Security],
+    facilities: [
+      FacilityType.Parking,
+      FacilityType.Security,
+      FacilityType.AirCon,
+      FacilityType.Laundry,
+      FacilityType.PetFriendly
+    ],
     photos: [
       {
         id: 7,
@@ -158,7 +221,15 @@ export const mockProperties = [
     propertyStatus: PropertyStatus.Available,
     approvalStatus: ApprovalStatus.Approved,
     description: "Luxurious hillside villa with private tennis court and infinity pool.",
-    facilities: [FacilityType.Pool, FacilityType.Gym, FacilityType.Security, FacilityType.Parking, FacilityType.WiFi],
+    facilities: [
+      FacilityType.Pool,
+      FacilityType.Gym,
+      FacilityType.Security,
+      FacilityType.Parking,
+      FacilityType.WiFi,
+      FacilityType.AirCon,
+      FacilityType.Balcony
+    ],
     photos: [
       {
         id: 8,
