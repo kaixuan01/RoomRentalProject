@@ -69,7 +69,7 @@ export default function ResetPassword() {
       },
       onError: (error) => {
         showErrorAlert(error);
-      },
+      }
     });
   };
 

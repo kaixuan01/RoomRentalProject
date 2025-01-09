@@ -79,7 +79,7 @@ const MainHeader = (props) => {
               </NavLink>
               <NavLink to="/about">About</NavLink>
               <NavLink to="/contact">Contact</NavLink>
-              <NavLink to="/listings">Listings</NavLink>
+              <NavLink to="/property-listing">Property</NavLink>
             </NavLinks>
 
             {/* Right Actions */}
