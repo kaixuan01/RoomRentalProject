@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, TextField, Button, MyGrid, Modal, Card, CardContent, CardMedia, Slider, Box } from '@mui/material';
+import { Typography, TextField, Button, Grid, Modal, Card, CardContent, CardMedia, Slider, Box } from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 
 // SearchBar Component
@@ -123,13 +123,13 @@ const LandingPage = () => {
 
       {/* Featured Properties */}
       <Typography variant="h5" mb={3}>Featured Properties</Typography>
-      <MyGrid container spacing={3}>
+      <Grid container spacing={3}>
         {properties.slice(0, 3).map(property => (  // Display only 3 properties
-          <MyGrid item xs={12} sm={6} md={4} key={property.id}>
+          <Grid item xs={12} sm={6} md={4} key={property.id}>
             <PropertyCard property={property} onClick={handlePropertyClick} />
-          </MyGrid>
+          </Grid>
         ))}
-      </MyGrid>
+      </Grid>
 
       {/* Show More Button */}
       <Box mt={3} textAlign="center">

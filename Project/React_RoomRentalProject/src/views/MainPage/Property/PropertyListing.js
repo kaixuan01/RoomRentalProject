@@ -12,32 +12,37 @@ const PropertyListing = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Simulate API call
     setProperties(mockProperties);
     setFilteredProperties(mockProperties);
   }, []);
 
   const handleFilter = (filters) => {
-    let filtered = properties.filter(property => {
-      const matchesSearch = !filters.searchText || 
-        property.name.toLowerCase().includes(filters.searchText.toLowerCase()) ||
-        property.address.toLowerCase().includes(filters.searchText.toLowerCase());
-      
-      const matchesType = !filters.propertyType || 
-        property.propertyType === filters.propertyType;
-      
-      const matchesStatus = !filters.propertyStatus || 
-        property.propertyStatus === filters.propertyStatus;
-      
-      const matchesArea = !filters.minArea || 
-        property.areaSize >= filters.minArea;
-      
-      const matchesPrice = property.price >= filters.priceRange[0] && 
-        property.price <= filters.priceRange[1];
+    let filtered = properties;
+    
+    // Only apply filters if there are any active filters
+    if (filters.searchText || filters.propertyType || filters.propertyStatus || 
+        filters.minArea || filters.priceRange[0] > 0 || filters.priceRange[1] < 10000) {
+      filtered = properties.filter(property => {
+        const matchesSearch = !filters.searchText || 
+          property.name.toLowerCase().includes(filters.searchText.toLowerCase()) ||
+          property.address.toLowerCase().includes(filters.searchText.toLowerCase());
+        
+        const matchesType = !filters.propertyType || 
+          property.propertyType === filters.propertyType;
+        
+        const matchesStatus = !filters.propertyStatus || 
+          property.propertyStatus === filters.propertyStatus;
+        
+        const matchesArea = !filters.minArea || 
+          property.areaSize >= filters.minArea;
+        
+        const matchesPrice = property.price >= filters.priceRange[0] && 
+          property.price <= filters.priceRange[1];
 
-      return matchesSearch && matchesType && matchesStatus && 
-        matchesArea && matchesPrice;
-    });
+        return matchesSearch && matchesType && matchesStatus && 
+          matchesArea && matchesPrice;
+      });
+    }
 
     setFilteredProperties(filtered);
   };
@@ -48,30 +53,27 @@ const PropertyListing = () => {
 
   return (
     <>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Property Listings
-      </Typography>
-
       <PropertyFilter onFilter={handleFilter} />
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <MyGrid container spacing={3}>
+          {filteredProperties.map((property) => (
+            <MyGrid item key={property.id} xs={12} sm={6} md={4}>
+              <PropertyCard
+                property={property}
+                onViewDetails={handleViewDetails}
+              />
+            </MyGrid>
+          ))}
+        </MyGrid>
 
-      <MyGrid container spacing={3}>
-        {filteredProperties.map((property) => (
-          <MyGrid item key={property.id} xs={12} sm={6} md={4}>
-            <PropertyCard
-              property={property}
-              onViewDetails={handleViewDetails}
-            />
-          </MyGrid>
-        ))}
-      </MyGrid>
-
-      {filteredProperties.length === 0 && (
-        <Box textAlign="center" py={4}>
-          <Typography variant="h6" color="text.secondary">
-            No properties found matching your criteria
-          </Typography>
-        </Box>
-      )}
+        {filteredProperties.length === 0 && (
+          <Box textAlign="center" py={4}>
+            <Typography variant="h6" color="text.secondary">
+              No properties found matching your criteria
+            </Typography>
+          </Box>
+        )}
+      </Container>
     </>
   );
 };
