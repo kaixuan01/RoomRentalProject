@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { updateData } from "../../Redux/actions";
+import { InputFormat } from "../../utils/enum";
 
 const ValidationHandler = ({ formData, regFormValidation, validateGroup, onValidationComplete, children }) => {
   const dispatch = useDispatch();
@@ -17,21 +18,37 @@ const ValidationHandler = ({ formData, regFormValidation, validateGroup, onValid
       }
 
       if (rules.required && (!formData[field] || (typeof formData[field] === "string" && formData[field].trim() === ""))) {
+        console.log(formData[field]);
         errors[field] = `${field} is required.`;
         isValid = false;
       }
+
+      if (rules.format === InputFormat.PASSWORD) {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,])[A-Za-z\d!@#$%^&*.,]{8,}$/;
+        if (!passwordRegex.test(formData[field])) {
+          errors[field] = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.';
+          isValid = false;
+        }
+      } else if (rules.format === InputFormat.CONFIRM_PASSWORD) {
+        const originalPassword = Object.entries(formData).find(
+          ([key, value]) => regFormValidation[key]?.format === InputFormat.PASSWORD
+        )?.[1];
+        
+        if (formData[field] !== originalPassword) {
+          errors[field] = 'Passwords do not match.';
+          isValid = false;
+        }
+      }
+
+
     }
 
-    // Dispatch the errors to Redux
     dispatch(updateData(validateGroup, errors));
 
-    // Call callback with validation result
     if (onValidationComplete) {
       onValidationComplete(isValid);
     }
   };
-
-  // Pass the `validate` function to the children
   return children({ validate });
 };
 

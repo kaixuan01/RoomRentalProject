@@ -19,7 +19,7 @@ import Logo from 'src/layouts/full/shared/logo/Logo';
 import CustomTextField from '../../components/forms/theme-elements/CustomTextField';
 import { useHTTPReq } from '../../hooks/HttpReq';
 import { showErrorAlert, showSuccessAlert } from '../../utils/helpers/alertHelpers';
-import { User_Roles } from '../../utils/enum';
+import { InputFormat, User_Roles } from '../../utils/enum';
 import { isStrongPassword } from '../../utils/helpers/passwordHelpers';
 import { Person, AccountCircle, Email, Phone, Lock } from '@mui/icons-material';
 import MyGrid from '../../components/container/MyGrid';
@@ -42,7 +42,10 @@ const UserRegister = () => {
     const regFormValidation = {
         name: { required: true, validateGroup: registerValidGroup },
         username: { required: true, validateGroup: registerValidGroup },
-        password: { required: true, validateGroup: registerValidGroup },
+        password: { required: true, format: InputFormat.PASSWORD, validateGroup: registerValidGroup },
+        confirmPassword: { required: true, format: InputFormat.CONFIRM_PASSWORD, validateGroup: registerValidGroup },
+        email: { required: true, format: InputFormat.EMAIL, validateGroup: registerValidGroup },
+        phone: { required: true, format: InputFormat.PHONE, validateGroup: registerValidGroup },
     }
 
     const handleInputChange = (e) => {
@@ -121,10 +124,46 @@ const UserRegister = () => {
                                         id="password"
                                         label="Password"
                                         placeholder="••••••"
-                                        input="password"
+                                        type="password"
                                         value={formData.password}
                                         onChange={(e) => { handleInputChange(e) }}
                                         icon={<Person />}
+                                    />
+                                </Stack>
+                                <Stack mb={3}>
+                                    <MyInput
+                                        {...regFormValidation.confirmPassword}
+                                        id="confirmPassword"
+                                        label="Confirm Password"
+                                        placeholder="••••••"
+                                        type="password"
+                                        value={formData.confirmPassword}
+                                        onChange={(e) => { handleInputChange(e) }}
+                                        icon={<Lock />}
+                                    />
+                                </Stack>
+                                <Stack mb={3}>
+                                    <MyInput
+                                        {...regFormValidation.email}
+                                        id="email"
+                                        label="Email"
+                                        placeholder="example@email.com"
+                                        type="email"
+                                        value={formData.email}
+                                        onChange={(e) => { handleInputChange(e) }}
+                                        icon={<Email />}
+                                    />
+                                </Stack>
+                                <Stack mb={3}>
+                                    <MyInput
+                                        {...regFormValidation.phone}
+                                        id="phone"
+                                        label="Phone Number"
+                                        placeholder="Your phone number"
+                                        type="tel"
+                                        value={formData.phone}
+                                        onChange={(e) => { handleInputChange(e) }}
+                                        icon={<Phone />}
                                     />
                                 </Stack>
                                 <ValidationHandler

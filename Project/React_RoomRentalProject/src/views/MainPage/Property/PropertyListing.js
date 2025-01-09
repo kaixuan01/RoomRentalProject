@@ -47,7 +47,7 @@ const PropertyListing = () => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <>
       <Typography variant="h4" component="h1" gutterBottom>
         Property Listings
       </Typography>
@@ -72,7 +72,7 @@ const PropertyListing = () => {
           </Typography>
         </Box>
       )}
-    </Container>
+    </>
   );
 };
 
