@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Paper,
-  MyGrid,
   TextField,
   MenuItem,
   Slider,
