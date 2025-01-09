@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Grid, Typography, Box } from '@mui/material';
+import { Container, Typography, Box } from '@mui/material';
 import PropertyCard from '../../../components/Property/PropertyCard';
 import PropertyFilter from '../../../components/Property/PropertyFilter.js';
 import { mockProperties } from '../../../mock/propertyData';
 import { useNavigate } from 'react-router-dom';
+import MyGrid from '../../../components/container/MyGrid.js';
 
 const PropertyListing = () => {
   const [properties, setProperties] = useState([]);
@@ -53,16 +54,16 @@ const PropertyListing = () => {
 
       <PropertyFilter onFilter={handleFilter} />
 
-      <Grid container spacing={3}>
+      <MyGrid container spacing={3}>
         {filteredProperties.map((property) => (
-          <Grid item key={property.id} xs={12} sm={6} md={4}>
+          <MyGrid item key={property.id} xs={12} sm={6} md={4}>
             <PropertyCard
               property={property}
               onViewDetails={handleViewDetails}
             />
-          </Grid>
+          </MyGrid>
         ))}
-      </Grid>
+      </MyGrid>
 
       {filteredProperties.length === 0 && (
         <Box textAlign="center" py={4}>

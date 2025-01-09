@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Paper,
-  Grid,
+  MyGrid,
   TextField,
   MenuItem,
   Slider,
@@ -10,6 +10,7 @@ import {
   Box
 } from '@mui/material';
 import { PropertyType, PropertyStatus } from '../../types/property.types.js';
+import MyGrid from '../container/MyGrid.js';
 
 const PropertyFilter = ({ onFilter }) => {
   // Initial filter state
@@ -43,16 +44,16 @@ const PropertyFilter = ({ onFilter }) => {
 
   return (
     <Paper sx={{ p: 3, mb: 3 }}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={3}>
+      <MyGrid container spacing={3}>
+        <MyGrid item xs={12} sm={6} md={3}>
           <TextField
             fullWidth
             label="Search"
             value={filters.searchText}
             onChange={handleChange('searchText')}
           />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        </MyGrid>
+        <MyGrid item xs={12} sm={6} md={3}>
           <TextField
             select
             fullWidth
@@ -69,8 +70,8 @@ const PropertyFilter = ({ onFilter }) => {
               </MenuItem>
             ))}
           </TextField>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        </MyGrid>
+        <MyGrid item xs={12} sm={6} md={3}>
           <TextField
             select
             fullWidth
@@ -87,8 +88,8 @@ const PropertyFilter = ({ onFilter }) => {
               </MenuItem>
             ))}
           </TextField>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        </MyGrid>
+        <MyGrid item xs={12} sm={6} md={3}>
           <TextField
             fullWidth
             type="number"
@@ -96,8 +97,8 @@ const PropertyFilter = ({ onFilter }) => {
             value={filters.minArea}
             onChange={handleChange('minArea')}
           />
-        </Grid>
-        <Grid item xs={12}>
+        </MyGrid>
+        <MyGrid item xs={12}>
           <Typography gutterBottom>Price Range ($)</Typography>
           <Slider
             value={filters.priceRange}
@@ -106,8 +107,8 @@ const PropertyFilter = ({ onFilter }) => {
             min={0}
             max={10000}
           />
-        </Grid>
-        <Grid item xs={12}>
+        </MyGrid>
+        <MyGrid item xs={12}>
           <Box display="flex" justifyContent="flex-end" gap={2}>
             <Button
               variant="outlined"
@@ -124,8 +125,8 @@ const PropertyFilter = ({ onFilter }) => {
               Apply Filters
             </Button>
           </Box>
-        </Grid>
-      </Grid>
+        </MyGrid>
+      </MyGrid>
     </Paper>
   );
 };
