@@ -1,9 +1,37 @@
+import { 
+  LocationOn, 
+  Pool,
+  FitnessCenter,
+  LocalParking,
+  Security,
+  Wifi,
+  CheckCircle,
+  Cancel,
+  Build,
+  Close as CloseIcon,
+  MoreHoriz as MoreHorizIcon,
+  AcUnit,
+  LocalLaundryService,
+  Pets,
+  Balcony,
+  Inventory,
+  Videocam,
+  Elevator,
+  Park,
+  OutdoorGrill,
+  Park as PlaygroundIcon
+} from '@mui/icons-material';
+
 // Property Types
 const PropertyType = {
   Apartment: 1,
   Condo: 2,
   House: 3,
   Villa: 4
+};
+
+const getPropertyTypeLabel = (typeId) => {
+  return Object.keys(PropertyType).find(key => PropertyType[key] === typeId) || 'Unknown';
 };
 
 // Property Status
@@ -39,6 +67,111 @@ const FacilityType = {
   PlayArea: 15
 };
 
+// Facility Configurations
+// Facility configuration with icons and labels
+const FacilityConfig = {
+  [FacilityType.Pool]: { 
+    icon: <Pool fontSize="small" />, 
+    label: 'Pool',
+    color: 'info' 
+  },
+  [FacilityType.Gym]: { 
+    icon: <FitnessCenter fontSize="small" />, 
+    label: 'Gym',
+    color: 'error' 
+  },
+  [FacilityType.Parking]: { 
+    icon: <LocalParking fontSize="small" />, 
+    label: 'Parking',
+    color: 'primary' 
+  },
+  [FacilityType.Security]: { 
+    icon: <Security fontSize="small" />, 
+    label: 'Security',
+    color: 'success' 
+  },
+  [FacilityType.WiFi]: { 
+    icon: <Wifi fontSize="small" />, 
+    label: 'WiFi',
+    color: 'secondary' 
+  },
+  [FacilityType.AirCon]: { 
+    icon: <AcUnit fontSize="small" />, 
+    label: 'Air Con',
+    color: 'info' 
+  },
+  [FacilityType.Laundry]: { 
+    icon: <LocalLaundryService fontSize="small" />, 
+    label: 'Laundry',
+    color: 'primary' 
+  },
+  [FacilityType.PetFriendly]: { 
+    icon: <Pets fontSize="small" />, 
+    label: 'Pet Friendly',
+    color: 'warning' 
+  },
+  [FacilityType.Balcony]: { 
+    icon: <Balcony fontSize="small" />, 
+    label: 'Balcony',
+    color: 'success' 
+  },
+  [FacilityType.Storage]: { 
+    icon: <Inventory fontSize="small" />, 
+    label: 'Storage',
+    color: 'secondary' 
+  },
+  [FacilityType.CCTV]: { 
+    icon: <Videocam fontSize="small" />, 
+    label: 'CCTV',
+    color: 'error' 
+  },
+  [FacilityType.Elevator]: { 
+    icon: <Elevator fontSize="small" />, 
+    label: 'Elevator',
+    color: 'primary' 
+  },
+  [FacilityType.Garden]: { 
+    icon: <Park fontSize="small" />, 
+    label: 'Garden',
+    color: 'success' 
+  },
+  [FacilityType.BBQ]: { 
+    icon: <OutdoorGrill fontSize="small" />, 
+    label: 'BBQ Area',
+    color: 'warning' 
+  },
+  [FacilityType.PlayArea]: { 
+    icon: <PlaygroundIcon fontSize="small" />, 
+    label: 'Play Area',
+    color: 'info' 
+  }
+};
+
+// Updated status configuration with better contrast
+const StatusConfig = {
+  [PropertyStatus.Available]: { 
+    icon: <CheckCircle fontSize="small" />, 
+    label: 'Available',
+    color: 'success',
+    bgColor: 'rgba(46, 125, 50, 0.1)', // darker green background
+    textColor: '#2e7d32' // dark green text
+  },
+  [PropertyStatus.Rented]: { 
+    icon: <Cancel fontSize="small" />, 
+    label: 'Rented',
+    color: 'error',
+    bgColor: 'rgba(211, 47, 47, 0.1)', // darker red background
+    textColor: '#d32f2f' // dark red text
+  },
+  [PropertyStatus.Maintenance]: { 
+    icon: <Build fontSize="small" />, 
+    label: 'Under Maintenance',
+    color: 'warning',
+    bgColor: 'rgba(237, 108, 2, 0.1)', // darker orange background
+    textColor: '#ed6c02' // dark orange text
+  }
+};
+
 /**
  * @typedef {Object} PropertyPhoto
  * @property {number} id
@@ -67,5 +200,8 @@ export {
   PropertyType,
   PropertyStatus,
   ApprovalStatus,
-  FacilityType
+  FacilityType,
+  FacilityConfig,
+  StatusConfig,
+  getPropertyTypeLabel
 };

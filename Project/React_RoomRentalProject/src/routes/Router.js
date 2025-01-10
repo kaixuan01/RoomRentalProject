@@ -12,6 +12,7 @@ const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')))
 /* ****Main Pages***** */
 const AboutUsPage = Loadable(lazy(() => import('../views/MainPage/AboutUs/AboutUs')));
 const PropertyListing = Loadable(lazy(() => import('../views/MainPage/Property/PropertyListing')));
+const PropertyDetails = Loadable(lazy(() => import('../views/MainPage/Property/PropertyDetails')));
 
 /* ****Auth Pages***** */
 const UserRegister = Loadable(lazy(() => import('../views/authentication/UserRegister')));
@@ -48,6 +49,7 @@ const Router = () => {
         { path: '/about', element: <AboutUsPage /> },
         // { path: '/contact', element: <ContactPage /> },
         { path: '/property-listing', element: <PropertyListing /> },
+        { path: '/property-details/:id', element: <PropertyDetails /> },
         { path: '*', element: <Navigate to="/" replace /> },
       ],
     },

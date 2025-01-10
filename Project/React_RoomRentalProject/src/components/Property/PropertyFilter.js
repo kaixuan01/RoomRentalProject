@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   Paper,
-  Grid,
   TextField,
   MenuItem,
   Slider,
@@ -21,6 +20,7 @@ import {
   Close as CloseIcon,
 } from '@mui/icons-material';
 import { PropertyType, PropertyStatus } from '../../types/property.types.js';
+import MyGrid  from '../../components/container/MyGrid';
 
 const PropertyFilter = ({ onFilter }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -201,8 +201,8 @@ const PropertyFilter = ({ onFilter }) => {
           onClick={(e) => e.stopPropagation()} // Prevent clicks from bubbling up
         >
           <Box sx={{ p: 2, bgcolor: 'grey.50' }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6} md={3}>
+            <MyGrid container spacing={2}>
+              <MyGrid xs={12} sm={6} md={3}>
                 <TextField
                   select
                   size="small"
@@ -216,9 +216,9 @@ const PropertyFilter = ({ onFilter }) => {
                     <MenuItem key={value} value={value}>{key}</MenuItem>
                   ))}
                 </TextField>
-              </Grid>
+                </MyGrid>
               
-              <Grid item xs={12} sm={6} md={3}>
+              <MyGrid xs={12} sm={6} md={3}>
                 <TextField
                   select
                   size="small"
@@ -232,9 +232,9 @@ const PropertyFilter = ({ onFilter }) => {
                     <MenuItem key={value} value={value}>{key}</MenuItem>
                   ))}
                 </TextField>
-              </Grid>
+              </MyGrid>
               
-              <Grid item xs={12} sm={6} md={3}>
+              <MyGrid xs={12} sm={6} md={3}>
                 <TextField
                   size="small"
                   fullWidth
@@ -243,9 +243,9 @@ const PropertyFilter = ({ onFilter }) => {
                   value={tempFilters.minArea}
                   onChange={handleChange('minArea')}
                 />
-              </Grid>
+              </MyGrid>
               
-              <Grid item xs={12} sm={6} md={3}>
+              <MyGrid xs={12} sm={6} md={3}>
                 <Typography variant="body2" color="text.secondary" gutterBottom>
                   Price Range ($)
                 </Typography>
@@ -257,8 +257,8 @@ const PropertyFilter = ({ onFilter }) => {
                   min={0}
                   max={10000}
                 />
-              </Grid>
-            </Grid>
+              </MyGrid>
+            </MyGrid>
 
             <Box display="flex" justifyContent="flex-end" gap={1} mt={2}>
               <Button

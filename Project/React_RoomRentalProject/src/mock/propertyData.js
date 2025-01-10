@@ -1,4 +1,9 @@
 import { PropertyType, PropertyStatus, ApprovalStatus, FacilityType } from '../types/property.types.js';
+import s4 from '../assets/images/products/s4.jpg';
+import s5 from '../assets/images/products/s5.jpg';
+import s7 from '../assets/images/products/s7.jpg';
+import s11 from '../assets/images/products/s11.jpg';
+import emptyShoppingBag from '../assets/images/products/empty-shopping-bag.gif';
 
 export const mockProperties = [
   {
@@ -23,17 +28,42 @@ export const mockProperties = [
     photos: [
       {
         id: 1,
-        filePath: "src/assets/images/products/s5.jpg",
+        filePath: s5,
         isMain: true
       },
       {
         id: 2,
-        filePath: "src/assets/images/products/s4.jpg",
+        filePath: s4,
         isMain: false
       },
       {
         id: 3,
-        filePath: "src/assets/images/products/s7.jpg",
+        filePath: s7,
+        isMain: false
+      },
+      {
+        id: 4,
+        filePath: s11,
+        isMain: false
+      },
+      {
+        id: 5,
+        filePath: emptyShoppingBag,
+        isMain: false
+      },
+      {
+        id: 6,
+        filePath: s5,
+        isMain: false
+      },
+      {
+        id: 7,
+        filePath: s5,
+        isMain: false
+      },
+      {
+        id: 8,
+        filePath: s5,
         isMain: false
       }
     ],
@@ -60,13 +90,13 @@ export const mockProperties = [
     ],
     photos: [
       {
-        id: 2,
-        filePath: "src/assets/images/products/s4.jpg",
+        id: 9,
+        filePath: s4,
         isMain: true
       },
       {
-        id: 2,
-        filePath: "src/assets/images/products/s11.jpg",
+        id: 10,
+        filePath: s11,
         isMain: false
       },
     ],
@@ -94,8 +124,8 @@ export const mockProperties = [
     ],
     photos: [
       {
-        id: 3,
-        filePath: "src/assets/images/products/s7.jpg",
+        id: 11,
+        filePath: s7,
         isMain: true
       }
     ],
@@ -122,8 +152,8 @@ export const mockProperties = [
     ],
     photos: [
       {
-        id: 4,
-        filePath: "src/assets/images/products/s11.jpg",
+        id: 12,
+        filePath: s11,
         isMain: true
       }
     ],
@@ -148,8 +178,8 @@ export const mockProperties = [
     ],
     photos: [
       {
-        id: 5,
-        filePath: "src/assets/images/products/empty-shopping-bag.gif",
+        id: 13,
+        filePath: emptyShoppingBag,
         isMain: true
       }
     ],
@@ -176,8 +206,8 @@ export const mockProperties = [
     ],
     photos: [
       {
-        id: 6,
-        filePath: "src/assets/images/products/s11.jpg",
+        id: 14,
+        filePath: s11,
         isMain: true
       }
     ],
@@ -203,8 +233,8 @@ export const mockProperties = [
     ],
     photos: [
       {
-        id: 7,
-        filePath: "src/assets/images/products/s5.jpg",
+        id: 15,
+        filePath: s5,
         isMain: true
       }
     ],
@@ -232,8 +262,8 @@ export const mockProperties = [
     ],
     photos: [
       {
-        id: 8,
-        filePath: "src/assets/images/products/s7.jpg",
+        id: 16,
+        filePath: s7,
         isMain: true
       }
     ],

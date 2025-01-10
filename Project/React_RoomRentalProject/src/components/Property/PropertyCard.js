@@ -1,52 +1,28 @@
 import React, { useState } from 'react';
 import {
   Card,
-  CardMedia,
   CardContent,
   Typography,
   Chip,
   Box,
   Button,
-  Stack,
-  ImageList,
-  ImageListItem,
   Dialog,
   IconButton,
   Tooltip,
 } from '@mui/material';
 import { 
   LocationOn, 
-  Pool,
-  FitnessCenter,
-  LocalParking,
-  Security,
-  Wifi,
-  CheckCircle,
-  Cancel,
-  Build,
   Close as CloseIcon,
   NavigateBefore,
   NavigateNext,
   SquareFoot,
-  Square,
-  MoreHoriz as MoreHorizIcon,
-  AcUnit,
-  LocalLaundryService,
-  Pets,
-  Balcony,
-  Inventory,
-  Videocam,
-  Elevator,
-  Park,
-  OutdoorGrill,
-  Park as PlaygroundIcon
+  MoreHoriz as MoreHorizIcon
 } from '@mui/icons-material';
-import { FacilityType, PropertyStatus } from '../../types/property.types.js';
+import { FacilityConfig, StatusConfig } from '../../types/property.types.js';
 
 const PropertyCard = ({ property, onViewDetails }) => {
   const [openImageViewer, setOpenImageViewer] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [showAllFacilities, setShowAllFacilities] = useState(false);
   
   // Get available photos (up to 3)
   const displayPhotos = property.photos.slice(0, 3);
@@ -130,109 +106,6 @@ const PropertyCard = ({ property, onViewDetails }) => {
     );
   };
 
-  // Facility configuration with icons and labels
-  const facilityConfig = {
-    [FacilityType.Pool]: { 
-      icon: <Pool fontSize="small" />, 
-      label: 'Pool',
-      color: 'info' 
-    },
-    [FacilityType.Gym]: { 
-      icon: <FitnessCenter fontSize="small" />, 
-      label: 'Gym',
-      color: 'error' 
-    },
-    [FacilityType.Parking]: { 
-      icon: <LocalParking fontSize="small" />, 
-      label: 'Parking',
-      color: 'primary' 
-    },
-    [FacilityType.Security]: { 
-      icon: <Security fontSize="small" />, 
-      label: 'Security',
-      color: 'success' 
-    },
-    [FacilityType.WiFi]: { 
-      icon: <Wifi fontSize="small" />, 
-      label: 'WiFi',
-      color: 'secondary' 
-    },
-    [FacilityType.AirCon]: { 
-      icon: <AcUnit fontSize="small" />, 
-      label: 'Air Con',
-      color: 'info' 
-    },
-    [FacilityType.Laundry]: { 
-      icon: <LocalLaundryService fontSize="small" />, 
-      label: 'Laundry',
-      color: 'primary' 
-    },
-    [FacilityType.PetFriendly]: { 
-      icon: <Pets fontSize="small" />, 
-      label: 'Pet Friendly',
-      color: 'warning' 
-    },
-    [FacilityType.Balcony]: { 
-      icon: <Balcony fontSize="small" />, 
-      label: 'Balcony',
-      color: 'success' 
-    },
-    [FacilityType.Storage]: { 
-      icon: <Inventory fontSize="small" />, 
-      label: 'Storage',
-      color: 'secondary' 
-    },
-    [FacilityType.CCTV]: { 
-      icon: <Videocam fontSize="small" />, 
-      label: 'CCTV',
-      color: 'error' 
-    },
-    [FacilityType.Elevator]: { 
-      icon: <Elevator fontSize="small" />, 
-      label: 'Elevator',
-      color: 'primary' 
-    },
-    [FacilityType.Garden]: { 
-      icon: <Park fontSize="small" />, 
-      label: 'Garden',
-      color: 'success' 
-    },
-    [FacilityType.BBQ]: { 
-      icon: <OutdoorGrill fontSize="small" />, 
-      label: 'BBQ Area',
-      color: 'warning' 
-    },
-    [FacilityType.PlayArea]: { 
-      icon: <PlaygroundIcon fontSize="small" />, 
-      label: 'Play Area',
-      color: 'info' 
-    }
-  };
-
-  // Updated status configuration with better contrast
-  const statusConfig = {
-    [PropertyStatus.Available]: { 
-      icon: <CheckCircle fontSize="small" />, 
-      label: 'Available',
-      color: 'success',
-      bgColor: 'rgba(46, 125, 50, 0.1)', // darker green background
-      textColor: '#2e7d32' // dark green text
-    },
-    [PropertyStatus.Rented]: { 
-      icon: <Cancel fontSize="small" />, 
-      label: 'Rented',
-      color: 'error',
-      bgColor: 'rgba(211, 47, 47, 0.1)', // darker red background
-      textColor: '#d32f2f' // dark red text
-    },
-    [PropertyStatus.Maintenance]: { 
-      icon: <Build fontSize="small" />, 
-      label: 'Under Maintenance',
-      color: 'warning',
-      bgColor: 'rgba(237, 108, 2, 0.1)', // darker orange background
-      textColor: '#ed6c02' // dark orange text
-    }
-  };
 
   return (
     <Card sx={{ 
@@ -287,11 +160,11 @@ const PropertyCard = ({ property, onViewDetails }) => {
           }}
         >
           <Chip
-            icon={statusConfig[property.propertyStatus]?.icon}
-            label={statusConfig[property.propertyStatus]?.label}
+            icon={StatusConfig[property.propertyStatus]?.icon}
+            label={StatusConfig[property.propertyStatus]?.label}
             sx={{
               backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              color: statusConfig[property.propertyStatus]?.textColor,
+              color: StatusConfig[property.propertyStatus]?.textColor,
               fontWeight: '600',
               '& .MuiChip-icon': {
                 color: 'inherit'
@@ -339,7 +212,7 @@ const PropertyCard = ({ property, onViewDetails }) => {
             </Typography>
           </Box>
           <Box display="flex" alignItems="center" gap={1}>
-            <Square fontSize="small" color="action" />
+            <SquareFoot fontSize="small" color="action" />
             <Typography variant="body2" color="text.secondary">
               {property.areaSize.toLocaleString()} sq ft
             </Typography>
@@ -365,8 +238,8 @@ const PropertyCard = ({ property, onViewDetails }) => {
             {displayFacilities.map((facility) => (
               <Chip
                 key={facility}
-                label={facilityConfig[facility]?.label}
-                icon={facilityConfig[facility]?.icon}
+                label={FacilityConfig[facility]?.label}
+                icon={FacilityConfig[facility]?.icon}
                 size="small"
                 variant="outlined"
                 sx={{
@@ -382,7 +255,7 @@ const PropertyCard = ({ property, onViewDetails }) => {
               <Tooltip 
                 title={property.facilities
                   .slice(maxVisibleFacilities)
-                  .map(f => facilityConfig[f]?.label)
+                  .map(f => FacilityConfig[f]?.label)
                   .join(', ')
                 }
               >

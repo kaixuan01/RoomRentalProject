@@ -1,80 +1,153 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Typography, Box } from '@mui/material';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Container, Typography, Box, Alert } from '@mui/material';
 import PropertyCard from '../../../components/Property/PropertyCard';
 import PropertyFilter from '../../../components/Property/PropertyFilter.js';
-import { mockProperties } from '../../../mock/propertyData';
 import { useNavigate } from 'react-router-dom';
 import MyGrid from '../../../components/container/MyGrid.js';
+import PropertyCardSkeleton from '../../../components/Property/PropertyCardSkeleton';
+import { propertyService } from 'src/services/propertyService';
 
 const PropertyListing = () => {
   const [properties, setProperties] = useState([]);
-  const [filteredProperties, setFilteredProperties] = useState([]);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [error, setError] = useState(null);
+  const [filters, setFilters] = useState({});
+  const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
+  
+  const ITEMS_PER_PAGE = 9;
+  const observer = useRef();
 
+  // Fetch properties
+  const fetchProperties = async (pageNum, currentFilters, isNewFilter = false) => {
+    try {
+      setIsLoading(true);
+      setError(null);
+
+      const { properties: newProperties, totalCount, hasMore } = 
+        await propertyService.getProperties({
+          page: pageNum,
+          limit: ITEMS_PER_PAGE,
+          filters: currentFilters
+        });
+
+      setProperties(prev => isNewFilter ? newProperties : [...prev, ...newProperties]);
+      setTotalCount(totalCount);
+      setHasMore(hasMore);
+    } catch (error) {
+      setError('Failed to load properties. Please try again later.');
+      console.error('Error fetching properties:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Initial load
   useEffect(() => {
-    setProperties(mockProperties);
-    setFilteredProperties(mockProperties);
+    fetchProperties(1, filters, true);
   }, []);
 
-  const handleFilter = (filters) => {
-    let filtered = properties;
+  // Handle pagination
+  useEffect(() => {
+    if (page === 1) return;
+    fetchProperties(page, filters);
+  }, [page]);
+
+  // Last element ref callback
+  const lastPropertyRef = useCallback(node => {
+    if (isLoading) return;
     
-    // Only apply filters if there are any active filters
-    if (filters.searchText || filters.propertyType || filters.propertyStatus || 
-        filters.minArea || filters.priceRange[0] > 0 || filters.priceRange[1] < 10000) {
-      filtered = properties.filter(property => {
-        const matchesSearch = !filters.searchText || 
-          property.name.toLowerCase().includes(filters.searchText.toLowerCase()) ||
-          property.address.toLowerCase().includes(filters.searchText.toLowerCase());
-        
-        const matchesType = !filters.propertyType || 
-          property.propertyType === filters.propertyType;
-        
-        const matchesStatus = !filters.propertyStatus || 
-          property.propertyStatus === filters.propertyStatus;
-        
-        const matchesArea = !filters.minArea || 
-          property.areaSize >= filters.minArea;
-        
-        const matchesPrice = property.price >= filters.priceRange[0] && 
-          property.price <= filters.priceRange[1];
+    if (observer.current) observer.current.disconnect();
+    
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && hasMore) {
+        setPage(prevPage => prevPage + 1);
+      }
+    });
+    
+    if (node) observer.current.observe(node);
+  }, [isLoading, hasMore]);
 
-        return matchesSearch && matchesType && matchesStatus && 
-          matchesArea && matchesPrice;
-      });
-    }
-
-    setFilteredProperties(filtered);
+  // Handle filters
+  const handleFilter = async (newFilters) => {
+    setPage(1);
+    setFilters(newFilters);
+    await fetchProperties(1, newFilters, true);
   };
 
   const handleViewDetails = (propertyId) => {
-    navigate(`/properties/${propertyId}`);
+    navigate(`/property-details/${propertyId}`);
   };
 
   return (
-    <>
+    <Container maxWidth="lg" sx={{ py: 4 }}>
       <PropertyFilter onFilter={handleFilter} />
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <MyGrid container spacing={3}>
-          {filteredProperties.map((property) => (
-            <MyGrid item key={property.id} xs={12} sm={6} md={4}>
-              <PropertyCard
-                property={property}
-                onViewDetails={handleViewDetails}
-              />
-            </MyGrid>
-          ))}
-        </MyGrid>
 
-        {filteredProperties.length === 0 && (
-          <Box textAlign="center" py={4}>
-            <Typography variant="h6" color="text.secondary">
-              No properties found matching your criteria
-            </Typography>
-          </Box>
+      {error && (
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {error}
+        </Alert>
+      )}
+
+      {totalCount > 0 && (
+        <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 2 }}>
+          Showing {properties.length} of {totalCount} properties
+        </Typography>
+      )}
+
+      <MyGrid container spacing={3}>
+        {properties.map((property, index) => (
+          <MyGrid 
+            key={property.id}
+            ref={index === properties.length - 1 ? lastPropertyRef : null}
+            xs={12}
+            sm={6}
+            md={4}
+          >
+            <PropertyCard
+              property={property}
+              onViewDetails={handleViewDetails}
+            />
+          </MyGrid>
+        ))}
+        
+        {/* Show skeletons while loading more */}
+        {isLoading && (
+          <>
+            {[...Array(3)].map((_, index) => (
+              <MyGrid 
+                key={`skeleton-${index}`}
+                xs={12}
+                sm={6}
+                md={4}
+              >
+                <PropertyCardSkeleton />
+              </MyGrid>
+            ))}
+          </>
         )}
-      </Container>
-    </>
+      </MyGrid>
+
+      {!isLoading && properties.length === 0 && (
+        <Box textAlign="center" py={4}>
+          <Typography variant="h6" color="text.secondary">
+            No properties found matching your criteria
+          </Typography>
+        </Box>
+      )}
+
+      {!hasMore && properties.length > 0 && (
+        <Typography 
+          textAlign="center" 
+          color="text.secondary" 
+          sx={{ mt: 4 }}
+        >
+          You've reached the end of the list
+        </Typography>
+      )}
+    </Container>
   );
 };
 
