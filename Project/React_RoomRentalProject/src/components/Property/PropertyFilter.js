@@ -22,23 +22,32 @@ import {
 import { PropertyType, PropertyStatus } from '../../types/property.types.js';
 import MyGrid  from '../../components/container/MyGrid';
 
-const PropertyFilter = ({ onFilter }) => {
+const PropertyFilter = ({ onFilter, initialFilters }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [tempFilters, setTempFilters] = useState({
     priceRange: [0, 10000],
-    propertyType: '',
+    propertyType: initialFilters?.propertyType || '',
     propertyStatus: '',
     minArea: '',
-    searchText: ''
+    searchText: initialFilters?.searchText || ''
   });
   const [appliedFilters, setAppliedFilters] = useState({
     priceRange: [0, 10000],
-    propertyType: '',
+    propertyType: initialFilters?.propertyType || '',
     propertyStatus: '',
     minArea: '',
-    searchText: ''
+    searchText: initialFilters?.searchText || ''
   });
   const filterRef = useRef(null);
+
+  // Update filters when initialFilters changes
+  useEffect(() => {
+    if (initialFilters?.searchText) {
+      setTempFilters(prev => ({ ...prev, searchText: initialFilters.searchText }));
+      setAppliedFilters(prev => ({ ...prev, searchText: initialFilters.searchText }));
+      onFilter({ ...appliedFilters, searchText: initialFilters.searchText });
+    }
+  }, [initialFilters?.searchText]);
 
   // Improved click outside handler
   useEffect(() => {

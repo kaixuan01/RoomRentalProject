@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Container, Typography, Box, Alert } from '@mui/material';
 import PropertyCard from '../../../components/Property/PropertyCard';
 import PropertyFilter from '../../../components/Property/PropertyFilter.js';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import MyGrid from '../../../components/container/MyGrid.js';
 import PropertyCardSkeleton from '../../../components/Property/PropertyCardSkeleton';
 import { propertyService } from 'src/services/propertyService';
@@ -13,7 +13,14 @@ const PropertyListing = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [error, setError] = useState(null);
-  const [filters, setFilters] = useState({});
+  const location = useLocation();
+  const searchKeyword = location.state?.keyword || '';
+  const propertyType = location.state?.propertyType || '';
+  
+  const [filters, setFilters] = useState({
+    searchText: searchKeyword,
+    propertyType: propertyType
+  });
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
   
@@ -46,8 +53,8 @@ const PropertyListing = () => {
 
   // Initial load
   useEffect(() => {
-    fetchProperties(1, filters, true);
-  }, []);
+    fetchProperties(1, { ...filters }, true);
+  }, [filters.searchText]);
 
   // Handle pagination
   useEffect(() => {
@@ -71,10 +78,8 @@ const PropertyListing = () => {
   }, [isLoading, hasMore]);
 
   // Handle filters
-  const handleFilter = async (newFilters) => {
-    setPage(1);
-    setFilters(newFilters);
-    await fetchProperties(1, newFilters, true);
+  const handleFilter = (newFilters) => {
+    fetchProperties(1, newFilters, true);
   };
 
   const handleViewDetails = (propertyId) => {
@@ -83,7 +88,10 @@ const PropertyListing = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
-      <PropertyFilter onFilter={handleFilter} />
+      <PropertyFilter 
+        onFilter={handleFilter}
+        initialFilters={filters} // Pass initial filters
+      />
 
       {error && (
         <Alert severity="error" sx={{ mb: 3 }}>

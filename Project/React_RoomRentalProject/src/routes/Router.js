@@ -10,7 +10,9 @@ const MainLayout = Loadable(lazy(() => import('../layouts/full/MainLayout')));
 const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')));
 
 /* ****Main Pages***** */
-const AboutUsPage = Loadable(lazy(() => import('../views/MainPage/AboutUs/AboutUs')));
+const MainHomePage = Loadable(lazy(() => import('../views/MainPage/Home/index')));
+const AboutUsPage = Loadable(lazy(() => import('../views/MainPage/About/index')));
+const ContactPage = Loadable(lazy(() => import('../views/MainPage/Contact/index')));
 const PropertyListing = Loadable(lazy(() => import('../views/MainPage/Property/PropertyListing')));
 const PropertyDetails = Loadable(lazy(() => import('../views/MainPage/Property/PropertyDetails')));
 
@@ -45,9 +47,9 @@ const Router = () => {
       path: '/',
       element: <MainLayout />,
       children: [
-        { path: '/', element: <SamplePage /> },
-        { path: '/about', element: <AboutUsPage /> },
-        // { path: '/contact', element: <ContactPage /> },
+        { path: '/', element: <MainHomePage /> },
+        { path: '/about-us', element: <AboutUsPage /> },
+        { path: '/contact-us', element: <ContactPage /> },
         { path: '/property-listing', element: <PropertyListing /> },
         { path: '/property-details/:id', element: <PropertyDetails /> },
         { path: '*', element: <Navigate to="/" replace /> },
