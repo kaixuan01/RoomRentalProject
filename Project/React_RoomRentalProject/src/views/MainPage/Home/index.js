@@ -26,11 +26,13 @@ import { useNavigate } from 'react-router-dom';
 import { mockProperties } from '../../../mock/propertyData';
 import PropertyCard from '../../../components/Property/PropertyCard';
 import PropertyCardSkeleton from '../../../components/Property/PropertyCardSkeleton';
+import { PropertyType } from '../../../types/property.types.js';
 import MyGrid from '../../../components/container/MyGrid.js';
 import { propertyService } from 'src/services/propertyService';
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [searchKeyword, setSearchKeyword] = useState('');
 
   const [properties, setProperties] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -38,10 +40,10 @@ const HomePage = () => {
 
   // Property types with icons
   const propertyTypes = [
-    { icon: <Apartment />, label: 'Apartment', count: '250+' },
-    { icon: <HomeWork />, label: 'Villa', count: '100+' },
-    { icon: <Home />, label: 'House', count: '150+' },
-    { icon: <Business />, label: 'Condo', count: '180+' },
+    { icon: <Apartment />, label: 'Apartment', count: '250+', index: PropertyType.Apartment },
+    { icon: <HomeWork />, label: 'Villa', count: '100+', index: PropertyType.Villa },
+    { icon: <Home />, label: 'House', count: '150+', index: PropertyType.House },
+    { icon: <Business />, label: 'Condo', count: '180+', index: PropertyType.Condo },
   ];
 
   // Fetch properties
@@ -93,6 +95,23 @@ const HomePage = () => {
     },
   ];
 
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (searchKeyword.trim()) {
+      navigate('/property-listing', {
+        state: { keyword: searchKeyword }
+      });
+    }
+  };
+
+  const handlePropertyTypeClick = (propertyType) => {
+    navigate('/property-listing', { 
+      state: { 
+        propertyType: propertyType // Pass the property type
+      }
+    });
+  };
+
   return (
     <Box>
       {/* Hero Section */}
@@ -116,10 +135,16 @@ const HomePage = () => {
           </Typography>
 
           {/* Search Bar */}
-          <Box sx={{ maxWidth: 600, bgcolor: 'white', borderRadius: 1, p: 0.5 }}>
+          <Box 
+            component="form" 
+            onSubmit={handleSearch}
+            sx={{ maxWidth: 600, bgcolor: 'white', borderRadius: 1, p: 0.5 }}
+          >
             <TextField
               fullWidth
               placeholder="Search by location, property name..."
+              value={searchKeyword}
+              onChange={(e) => setSearchKeyword(e.target.value)}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -127,7 +152,11 @@ const HomePage = () => {
                   </InputAdornment>
                 ),
                 endAdornment: (
-                  <Button variant="contained" sx={{ px: 4 }}>
+                  <Button 
+                    type="submit"
+                    variant="contained" 
+                    sx={{ px: 4 }}
+                  >
                     Search
                   </Button>
                 ),
@@ -151,7 +180,7 @@ const HomePage = () => {
                   cursor: 'pointer',
                   '&:hover': { transform: 'translateY(-5px)', transition: '0.3s' }
                 }}
-                onClick={() => navigate('/properties', { state: { type: type.label } })}
+                onClick={() => handlePropertyTypeClick(type.index)}
               >
                 <CardContent>
                   <IconButton 
