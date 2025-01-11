@@ -11,7 +11,8 @@ using Utils.Model;
 namespace E_commerce.Controllers.SystemConfig_Controller
 {
     [ApiController]
-    [Route("[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [Authorize(Roles = nameof(Enum_UserRole.Admin))]
     public class SystemConfigController : BaseAPIController
     {
@@ -23,6 +24,7 @@ namespace E_commerce.Controllers.SystemConfig_Controller
         }
 
         [HttpGet]
+        [ApiVersion("1.0")]
         [Route("GetSystemConfigList")]
         public async Task<IActionResult> GetSystemConfigList()
         {
@@ -46,6 +48,7 @@ namespace E_commerce.Controllers.SystemConfig_Controller
         }
 
         [HttpPost]
+        [ApiVersion("1.0")]
         [Route("UpdateSystemConfig")]
         public async Task<IActionResult> UpdateSystemConfig([FromBody] UpdateSystemConfig_REQ oReq)
         {
@@ -69,6 +72,7 @@ namespace E_commerce.Controllers.SystemConfig_Controller
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
 
                         break;
+
                     default: // Default is throw exception message
                         // Create a error response using ApiResponse<T>
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
@@ -84,9 +88,7 @@ namespace E_commerce.Controllers.SystemConfig_Controller
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Exception when update system config, Message: {ex.Message}", ex);
             }
 
-
             return Ok(apiResponse);
         }
-
     }
 }

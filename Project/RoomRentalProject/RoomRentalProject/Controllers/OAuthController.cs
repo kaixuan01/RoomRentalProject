@@ -1,6 +1,7 @@
 using DBL.User_Service.UserService;
 using DBL.User_Service.UserService.UserActionClass;
 using E_commerce.Tools;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Security.Claims;
@@ -8,10 +9,13 @@ using Utils.Constant;
 using Utils.Enums;
 using Utils.Model;
 using Utils.Tools;
+
 namespace E_commerce.Controllers
 {
+    [Authorize]
+    [ApiVersion("1.0")]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class OAuthController : BaseAPIController
     {
         private readonly IUserService _userService;
@@ -30,6 +34,7 @@ namespace E_commerce.Controllers
         #region [ Register Account ]
 
         [HttpPost]
+        [ApiVersion("1.0")]
         [Route("RegisterAcc")]
         public async Task<IActionResult> RegisterAcc([FromBody] CreateUser_REQ oUser)
         {
@@ -58,6 +63,7 @@ namespace E_commerce.Controllers
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
 
                         break;
+
                     default: // Default is throw exception message
                         // Create a error response using ApiResponse<T>
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
@@ -73,11 +79,10 @@ namespace E_commerce.Controllers
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Exception when register account, Message: {ex.Message}", ex);
             }
 
-
             return Ok(apiResponse);
         }
 
-        #endregion
+        #endregion [ Register Account ]
 
         #region [ Login / Logout ]
 
@@ -101,7 +106,7 @@ namespace E_commerce.Controllers
                             // Set the tokens in cookies
                             SetCookies(token, refreshToken);
 
-                            var response = ApiResponse<string>.CreateSuccessResponse( user.username , "Login successful");
+                            var response = ApiResponse<string>.CreateSuccessResponse(user.username, "Login successful");
                             return Ok(response);
 
                         case RespCode.RespCode_Failed:
@@ -151,7 +156,7 @@ namespace E_commerce.Controllers
             }
         }
 
-        #endregion
+        #endregion [ Login / Logout ]
 
         #region [ Refresh Token ]
 
@@ -220,11 +225,11 @@ namespace E_commerce.Controllers
             return Ok(apiResponse);
         }
 
-        #endregion
+        #endregion [ Refresh Token ]
 
         #region [ Confirm Email ]
 
-            #region [ Confirm Email Process ]
+        #region [ Confirm Email Process ]
 
         [HttpPost("ConfirmEmail")]
         public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmail_REQ oReq)
@@ -259,9 +264,9 @@ namespace E_commerce.Controllers
             return Ok(response);
         }
 
-            #endregion
+        #endregion [ Confirm Email Process ]
 
-            #region [ Resend Confirm Email ]
+        #region [ Resend Confirm Email ]
 
         [HttpPost("ResendConfirmEmail")]
         public async Task<IActionResult> ResendConfirmEmail([FromBody] ResendConfirmEmail_REQ oReq)
@@ -296,9 +301,9 @@ namespace E_commerce.Controllers
             return Ok(response);
         }
 
-            #endregion
+        #endregion [ Resend Confirm Email ]
 
-        #endregion
+        #endregion [ Confirm Email ]
 
         #region [ Forgot / Reset Password Request ]
 
@@ -326,6 +331,7 @@ namespace E_commerce.Controllers
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
 
                         break;
+
                     default: // Default is throw exception message
                         // Create a error response using ApiResponse<T>
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
@@ -339,7 +345,6 @@ namespace E_commerce.Controllers
 
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Exception when forgot password request, Message: {ex.Message}", ex);
             }
-
 
             return Ok(apiResponse);
         }
@@ -368,6 +373,7 @@ namespace E_commerce.Controllers
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
 
                         break;
+
                     default: // Default is throw exception message
                         // Create a error response using ApiResponse<T>
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
@@ -383,11 +389,10 @@ namespace E_commerce.Controllers
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Exception when reset password, Message: {ex.Message}", ex);
             }
 
-
             return Ok(apiResponse);
         }
 
-        #endregion
+        #endregion [ Forgot / Reset Password Request ]
 
         #region [ Function ]
 
@@ -432,6 +437,6 @@ namespace E_commerce.Controllers
             });
         }
 
-        #endregion
+        #endregion [ Function ]
     }
 }

@@ -9,8 +9,9 @@ using Utils.Model;
 namespace E_commerce.Controllers.User_Controller
 {
     [Authorize]
+    [ApiVersion("1.0")]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class UserRoleController : BaseAPIController
     {
         private readonly IUserRoleService _userRoleService;
@@ -21,6 +22,7 @@ namespace E_commerce.Controllers.User_Controller
         }
 
         [HttpGet]
+        [ApiVersion("1.0")]
         [Route("GetRoleList")]
         public async Task<IActionResult> GetRoleList()
         {

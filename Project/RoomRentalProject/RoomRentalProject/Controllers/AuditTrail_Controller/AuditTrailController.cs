@@ -10,7 +10,7 @@ namespace E_commerce.Controllers.AuditTrail_Controller
 {
     [ApiController]
     [ApiVersion("1.0")]
-    [Route("[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [Authorize(Roles = nameof(Enum_UserRole.Admin))]
     public class AuditTrailController : BaseAPIController
     {

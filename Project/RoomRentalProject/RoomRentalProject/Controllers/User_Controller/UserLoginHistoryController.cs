@@ -1,11 +1,16 @@
 ﻿using DAL.Models;
 using DAL.Tools.ListingHelper;
 using DBL.User_Service.UserLoginHistoryService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Utils.Model;
 
 namespace E_commerce.Controllers.User_Controller
 {
+    [Authorize]
+    [ApiVersion("1.0")]
+    [ApiController]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class UserLoginHistoryController : BaseAPIController
     {
         private readonly IUserLoginHistoryService _userLoginHistoryService;
@@ -16,6 +21,7 @@ namespace E_commerce.Controllers.User_Controller
         }
 
         [HttpGet]
+        [ApiVersion("1.0")]
         [Route("GetUserLoginHistoryList")]
         public async Task<IActionResult> GetUserLoginHistoryList([FromQuery] FilterParameters filterParameters)
         {
@@ -32,7 +38,6 @@ namespace E_commerce.Controllers.User_Controller
             {
                 apiResponse = ApiResponse<PagedResult<TUserLoginHistory>>.CreateErrorResponse($"Get TUser Login History List Failed. Exception: {ex.Message}");
             }
-
 
             return Ok(apiResponse);
         }

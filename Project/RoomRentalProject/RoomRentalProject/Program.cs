@@ -4,8 +4,12 @@ using E_commerce.Extension;
 using E_commerce.Middleware;
 using E_commerce.Tools;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Security.Claims;
 using System.Text;
@@ -41,7 +45,47 @@ builder.Services.AddControllers()
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// Add Swagger for API documentation
+builder.Services.AddSwaggerGen(options =>
+{
+    var provider = builder.Services.BuildServiceProvider()
+        .GetRequiredService<IApiVersionDescriptionProvider>();
+
+    // Add a Swagger document for each API version
+    foreach (var description in provider.ApiVersionDescriptions)
+    {
+        options.SwaggerDoc(description.GroupName, new OpenApiInfo
+        {
+            Title = $"Room Rental API {description.ApiVersion}",
+            Version = description.ApiVersion.ToString(),
+            Description = $"API Documentation for Version {description.ApiVersion}",
+        });
+    }
+
+    // Add JWT support if required
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter a valid JWT token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 // Load the key from appsettings.json
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
@@ -128,6 +172,25 @@ builder.Services.AddAllService();
 
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddApiVersioning(options =>
+{
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0); // Default to version 1.0
+    options.ReportApiVersions = true; // Report supported versions in headers
+    options.ApiVersionReader = ApiVersionReader.Combine(
+        new UrlSegmentApiVersionReader(),   // Version in the URL (e.g., /api/v1/controller)
+        new QueryStringApiVersionReader("api-version"), // Version in the query string
+        new HeaderApiVersionReader("x-api-version")    // Version in a custom header
+    );
+});
+
+// Add versioned API explorer (for Swagger)
+builder.Services.AddVersionedApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV"; // Format: v1, v2
+    options.SubstituteApiVersionInUrl = true; // Substitute version in route URLs
+});
+
 // Initialize EncryptionHelper with configuration
 EncryptionHelper.Initialize(builder.Configuration);
 
@@ -137,7 +200,15 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+        foreach (var description in provider.ApiVersionDescriptions)
+        {
+            options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+                description.GroupName.ToUpperInvariant());
+        }
+    });
 }
 
 app.UseHttpsRedirection();
@@ -150,11 +221,14 @@ app.UseMiddleware<JwtMiddleware>();
 app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthentication();
-app.UseAuthorization();
 
 app.MapControllers();
 
 // Auto insert seed data Database table
 app.InitializerSeedDataDatabase();
+
+app.UseSwagger();
+
+app.UseAuthorization();
 
 app.Run();

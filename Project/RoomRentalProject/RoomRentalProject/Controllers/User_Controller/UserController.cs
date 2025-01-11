@@ -15,8 +15,9 @@ using Utils.Tools;
 namespace E_commerce.Controllers.User_Controller
 {
     [Authorize]
+    [ApiVersion("1.0")]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class UserController : BaseAPIController
     {
         private readonly IUserService _userService;
@@ -27,6 +28,7 @@ namespace E_commerce.Controllers.User_Controller
         }
 
         [HttpGet]
+        [ApiVersion("1.0")]
         [Route("GetUserList")]
         public async Task<IActionResult> GetUserList([FromQuery] UserListing_REQ oReq)
         {
@@ -49,6 +51,7 @@ namespace E_commerce.Controllers.User_Controller
                         apiResponse = ApiResponse<PagedResult<UserL>>.CreateErrorResponse(oResp.Message);
 
                         break;
+
                     default: // Default is throw exception message
                         // Create a error response using ApiResponse<T>
                         apiResponse = ApiResponse<PagedResult<UserL>>.CreateErrorResponse(oResp.Message);
@@ -68,6 +71,7 @@ namespace E_commerce.Controllers.User_Controller
         }
 
         [HttpGet]
+        [ApiVersion("1.0")]
         [Route("ViewUser")]
         public async Task<IActionResult> ViewUser([FromQuery] int id)
         {
@@ -94,6 +98,7 @@ namespace E_commerce.Controllers.User_Controller
         #region [ Create, Edit, Delete ]
 
         [HttpPost]
+        [ApiVersion("1.0")]
         [Route("AddUser")]
         [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> AddUser([FromBody] CreateUser_REQ oUser)
@@ -123,6 +128,7 @@ namespace E_commerce.Controllers.User_Controller
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
 
                         break;
+
                     default: // Default is throw exception message
                         // Create a error response using ApiResponse<T>
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
@@ -138,11 +144,11 @@ namespace E_commerce.Controllers.User_Controller
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Exception when create user, Message: {ex.Message}", ex);
             }
 
-
             return Ok(apiResponse);
         }
 
         [HttpPost]
+        [ApiVersion("1.0")]
         [Route("EditUser")]
         [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> EditUser([FromBody] EditUser_REQ oUser)
@@ -172,6 +178,7 @@ namespace E_commerce.Controllers.User_Controller
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
 
                         break;
+
                     default: // Default is throw exception message
                         // Create a error response using ApiResponse<T>
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
@@ -187,11 +194,11 @@ namespace E_commerce.Controllers.User_Controller
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Exception when edit user, Message: {ex.Message}", ex);
             }
 
-
             return Ok(apiResponse);
         }
 
         [HttpPost]
+        [ApiVersion("1.0")]
         [Route("DeleteUser")]
         [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> DeleteUser([FromBody] int userId)
@@ -216,6 +223,7 @@ namespace E_commerce.Controllers.User_Controller
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
 
                         break;
+
                     default: // Default is throw exception
                         // Create a error response using ApiResponse<T>
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
@@ -234,11 +242,12 @@ namespace E_commerce.Controllers.User_Controller
             return Ok(apiResponse);
         }
 
-        #endregion
+        #endregion [ Create, Edit, Delete ]
 
         #region [ Set User Status ]
 
         [HttpPost]
+        [ApiVersion("1.0")]
         [Route("SetUserStatus")]
         [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> SetUserStatus([FromBody] int userId)
@@ -263,6 +272,7 @@ namespace E_commerce.Controllers.User_Controller
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
 
                         break;
+
                     default: // Default is throw exception
                         // Create a error response using ApiResponse<T>
                         apiResponse = ApiResponse<string>.CreateErrorResponse(oResp.Message);
@@ -281,6 +291,6 @@ namespace E_commerce.Controllers.User_Controller
             return Ok(apiResponse);
         }
 
-        #endregion
+        #endregion [ Set User Status ]
     }
 }

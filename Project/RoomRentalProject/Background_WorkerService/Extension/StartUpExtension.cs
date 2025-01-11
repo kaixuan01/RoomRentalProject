@@ -48,7 +48,10 @@ namespace Background_WorkerService.Extension
                         services.AddScoped(serviceType);
                     }
                 }
+
+
             }
+
         }
        
     }
