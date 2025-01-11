@@ -46,7 +46,7 @@ const Menuitems = [
     id: uniqueId(),
     title: 'Register',
     icon: IconUserPlus,
-    href: '/auth/register',
+    href: '/auth/ownerRegister',
   },
   {
     navlabel: true,

@@ -21,7 +21,7 @@ import { useHTTPReq } from '../../hooks/HttpReq';
 import { showErrorAlert, showSuccessAlert } from '../../utils/helpers/alertHelpers';
 import { InputFormat, User_Roles } from '../../utils/enum';
 import { isStrongPassword } from '../../utils/helpers/passwordHelpers';
-import { Person, AccountCircle, Email, Phone, Lock } from '@mui/icons-material';
+import { Person, AccountCircle, Email, Phone, Lock, HomeWork } from '@mui/icons-material';
 import MyGrid from '../../components/container/MyGrid';
 import MyInput from '../../components/input/MyInput';
 import { useSelector } from 'react-redux';
@@ -37,7 +37,7 @@ const UserRegister = () => {
         userRoleId: User_Roles.TENANT,
         phone: '',
     });
-
+    const { HTTPReq } = useHTTPReq();
     const registerValidGroup = "register";
     const regFormValidation = {
         name: { required: true, validateGroup: registerValidGroup },
@@ -57,7 +57,20 @@ const UserRegister = () => {
     };
 
     const handleAuthRegister = () => {
-        console.log("Validation passed!");
+        // console.log("Validation passed!");
+        HTTPReq({
+            url: `/OAuth/RegisterAcc`,
+            data: formData,
+            method: 'POST',
+            onSuccess: (data, msg) => {
+                showSuccessAlert(msg).then(() => {
+                    navigate('/');
+                });
+            },
+            onError: (error) => {
+                showErrorAlert(error);
+            },
+        });
     };
 
     return (
@@ -88,11 +101,14 @@ const UserRegister = () => {
                         alignItems="center"
                     >
                         <Card elevation={9} sx={{ p: 4, zIndex: 1, width: '100%', maxWidth: '500px' }}>
-                            <Box display="flex" alignItems="center" justifyContent="center">
+                            <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
                                 <Logo />
                             </Box>
-                            <Typography variant="subtitle1" textAlign="center" color="textSecondary" mb={1}>
-                                Your Social Campaigns
+                            <Typography variant="h3" textAlign="center" mb={1}>
+                                Owner Registration
+                            </Typography>
+                            <Typography variant="subtitle1" textAlign="center" color="textSecondary" mb={3}>
+                                Create your owner account to manage your properties
                             </Typography>
 
                             <Box>
@@ -118,7 +134,7 @@ const UserRegister = () => {
                                         icon={<Person />}
                                     />
                                 </Stack>
-                                <Stack mb={3}>
+                                <Stack mb={3} direction="row" spacing={2}>
                                     <MyInput
                                         {...regFormValidation.password}
                                         id="password"
@@ -127,10 +143,9 @@ const UserRegister = () => {
                                         type="password"
                                         value={formData.password}
                                         onChange={(e) => { handleInputChange(e) }}
-                                        icon={<Person />}
+                                        icon={<Lock />}
+                                        fullWidth
                                     />
-                                </Stack>
-                                <Stack mb={3}>
                                     <MyInput
                                         {...regFormValidation.confirmPassword}
                                         id="confirmPassword"
@@ -140,6 +155,7 @@ const UserRegister = () => {
                                         value={formData.confirmPassword}
                                         onChange={(e) => { handleInputChange(e) }}
                                         icon={<Lock />}
+                                        fullWidth
                                     />
                                 </Stack>
                                 <Stack mb={3}>
@@ -184,7 +200,7 @@ const UserRegister = () => {
                                             fullWidth
                                             onClick={validate}
                                         >
-                                            Sign Up
+                                            Register as Property Owner
                                         </Button>
                                     )}
                                 </ValidationHandler>

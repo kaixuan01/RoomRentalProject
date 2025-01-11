@@ -15,7 +15,7 @@ const PropertyListing = Loadable(lazy(() => import('../views/MainPage/Property/P
 const PropertyDetails = Loadable(lazy(() => import('../views/MainPage/Property/PropertyDetails')));
 
 /* ****Auth Pages***** */
-const UserRegister = Loadable(lazy(() => import('../views/authentication/UserRegister')));
+const UserRegister = Loadable(lazy(() => import('../views/authentication/OwnerRegister')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
 const ForgotPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ForgotPassword')));
 const ResetPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ResetPassword')));
@@ -77,7 +77,7 @@ const Router = () => {
       element: <BlankLayout />,
       children: [
         { path: '/auth', element: <Navigate to="/auth/login" replace /> },
-        { path: '/auth/register', element: <UserRegister /> },
+        { path: '/auth/OwnerRegister', element: <UserRegister /> },
         { path: '/auth/login', element: <Login /> },
         { path: '/auth/ConfirmEmail/:token', element: <EmailConfirmation /> },
         { path: '/auth/ResetPassword/:token', element: <ResetPassword /> },

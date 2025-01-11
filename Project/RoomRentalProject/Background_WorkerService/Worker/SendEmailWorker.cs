@@ -173,14 +173,14 @@ namespace Background_WorkerService.Worker
 
             try
             {
-                using (var smtpClient = new SmtpClient("smtp.gmail.com", 587))
+                using (var smtpClient = new SmtpClient("smtp.office365.com", 587))
                 {
-                    smtpClient.Credentials = new NetworkCredential("smtpezsport@gmail.com", "qmqbgfhlspzpmajf");
+                    smtpClient.Credentials = new NetworkCredential("stayseeker@hotmail.com", "wglcytbctqgchhtz");
                     smtpClient.EnableSsl = true;  // Enable SSL
 
                     var mailMessage = new MailMessage
                     {
-                        From = new MailAddress("smtpezsport@gmail.com", "Ez-Sport"),
+                        From = new MailAddress("stayseeker@hotmail.com", "StaySeeker-noReply"),
                         Subject = oEmail.EmailSubject,
                         Body = oEmail.EmailContent,
                         IsBodyHtml = true

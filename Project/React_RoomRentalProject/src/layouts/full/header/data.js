@@ -150,7 +150,7 @@ const pageLinks = [
     title: 'Authentication Design'
   },
   {
-    href: '/auth/register',
+    href: '/auth/ownerRegister',
     title: 'Register Now'
   },
   {

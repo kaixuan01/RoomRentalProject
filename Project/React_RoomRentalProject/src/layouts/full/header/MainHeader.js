@@ -4,7 +4,7 @@ import { AppBar, Toolbar, styled, Stack, IconButton, Button, Box, useMediaQuery 
 import { useNavigate, NavLink } from 'react-router-dom';
 import { IconMenu } from '@tabler/icons-react';
 import PropTypes from 'prop-types';
-import Logo from '../../../assets/images/logos/Logo.png';
+import Logo from '../../../assets/images/logos/SmallLogo.png';
 
 // Components
 import Profile from './MainProfile';
@@ -100,7 +100,7 @@ const MainHeader = (props) => {
                     variant="contained"
                     color="primary"
                     size="small"
-                    onClick={() => handleNavigation('/auth/register')}
+                    onClick={() => handleNavigation('/auth/ownerRegister')}
                   >
                     Register
                   </Button>

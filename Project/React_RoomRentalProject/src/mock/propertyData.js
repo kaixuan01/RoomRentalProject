@@ -1,9 +1,13 @@
 import { PropertyType, PropertyStatus, ApprovalStatus, FacilityType } from '../types/property.types.js';
-import s4 from '../assets/images/products/s4.jpg';
-import s5 from '../assets/images/products/s5.jpg';
-import s7 from '../assets/images/products/s7.jpg';
-import s11 from '../assets/images/products/s11.jpg';
+import villaSmallBedroom from '../assets/images/Property_example/Villa/small-bedroom.jpg';
+import villaLivingRoom from '../assets/images/Property_example/Villa/livingroom.jpg';
+import villaSwimmingPool from '../assets/images/Property_example/Villa/swimmingPool.png';
+import villaBalcony from '../assets/images/Property_example/Villa/balcony.jpg';
 import emptyShoppingBag from '../assets/images/products/empty-shopping-bag.gif';
+import condoBadroom from '../assets/images/Property_example/Condo/bedroom.jpg';
+import apartmentKitchen from '../assets/images/Property_example/Apartment/kitchen.jpg';
+import apermentBedroom from '../assets/images/Property_example/Apartment/bedroom.jpg';
+import houseBedroom from '../assets/images/Property_example/House/bedroom.jpg';
 
 export const mockProperties = [
   {
@@ -28,22 +32,22 @@ export const mockProperties = [
     photos: [
       {
         id: 1,
-        filePath: s5,
+        filePath: villaLivingRoom,
         isMain: true
       },
       {
         id: 2,
-        filePath: s4,
+        filePath: villaSmallBedroom,
         isMain: false
       },
       {
         id: 3,
-        filePath: s7,
+        filePath: villaSwimmingPool,
         isMain: false
       },
       {
         id: 4,
-        filePath: s11,
+        filePath: villaBalcony,
         isMain: false
       },
       {
@@ -53,17 +57,17 @@ export const mockProperties = [
       },
       {
         id: 6,
-        filePath: s5,
+        filePath: villaLivingRoom,
         isMain: false
       },
       {
         id: 7,
-        filePath: s5,
+        filePath: villaLivingRoom,
         isMain: false
       },
       {
         id: 8,
-        filePath: s5,
+        filePath: villaLivingRoom,
         isMain: false
       }
     ],
@@ -91,12 +95,12 @@ export const mockProperties = [
     photos: [
       {
         id: 9,
-        filePath: s4,
+        filePath: apermentBedroom,
         isMain: true
       },
       {
         id: 10,
-        filePath: s11,
+        filePath: villaBalcony,
         isMain: false
       },
     ],
@@ -125,7 +129,7 @@ export const mockProperties = [
     photos: [
       {
         id: 11,
-        filePath: s7,
+        filePath: apartmentKitchen,
         isMain: true
       }
     ],
@@ -153,7 +157,7 @@ export const mockProperties = [
     photos: [
       {
         id: 12,
-        filePath: s11,
+        filePath: condoBadroom,
         isMain: true
       }
     ],
@@ -179,7 +183,7 @@ export const mockProperties = [
     photos: [
       {
         id: 13,
-        filePath: emptyShoppingBag,
+        filePath: houseBedroom,
         isMain: true
       }
     ],
@@ -207,7 +211,7 @@ export const mockProperties = [
     photos: [
       {
         id: 14,
-        filePath: s11,
+        filePath: villaBalcony,
         isMain: true
       }
     ],
@@ -234,7 +238,7 @@ export const mockProperties = [
     photos: [
       {
         id: 15,
-        filePath: s5,
+        filePath: villaLivingRoom,
         isMain: true
       }
     ],
@@ -263,7 +267,7 @@ export const mockProperties = [
     photos: [
       {
         id: 16,
-        filePath: s7,
+        filePath: villaSwimmingPool,
         isMain: true
       }
     ],

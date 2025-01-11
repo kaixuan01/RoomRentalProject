@@ -84,7 +84,7 @@ const Register2 = () => {
     }
 
     HTTPReq({
-      url: `/OAuth/RegisterAcc`,
+      url: `/OAuth/ownerRegisterAcc`,
       data: formData,
       method: 'POST',
       onSuccess: (data, msg) => {
