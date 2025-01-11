@@ -77,9 +77,9 @@ const MainHeader = (props) => {
               <NavLink to="/" end>
                 Home
               </NavLink>
-              <NavLink to="/about">About</NavLink>
-              <NavLink to="/contact">Contact</NavLink>
-              <NavLink to="/property-listing">Property</NavLink>
+              <NavLink to="/property-listing">Properties</NavLink>
+              <NavLink to="/about-us">About Us</NavLink>
+              <NavLink to="/contact-us">Contact Us</NavLink>
             </NavLinks>
 
             {/* Right Actions */}

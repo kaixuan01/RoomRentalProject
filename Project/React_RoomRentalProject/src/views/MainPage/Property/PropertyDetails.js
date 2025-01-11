@@ -11,6 +11,14 @@ import {
   Button,
   IconButton,
   Tooltip,
+  Card,
+  Stack,
+  Alert,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
 } from '@mui/material';
 import {
   LocationOn,
@@ -35,6 +43,8 @@ const PropertyDetails = () => {
   const [property, setProperty] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [openRentDialog, setOpenRentDialog] = useState(false);
+  const [rentalPeriod, setRentalPeriod] = useState('12'); // Default 12 months
 
   useEffect(() => {
     const fetchPropertyDetails = async () => {
@@ -63,6 +73,21 @@ const PropertyDetails = () => {
   const handleToggleFavorite = () => {
     setIsFavorite(!isFavorite);
     // TODO: Implement favorite functionality with backend
+  };
+
+  const handleRentNow = () => {
+    setOpenRentDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenRentDialog(false);
+  };
+
+  const handleSubmitRental = (event) => {
+    event.preventDefault();
+    // TODO: Implement rental submission
+    console.log('Rental submitted');
+    setOpenRentDialog(false);
   };
 
   if (isLoading) {
@@ -167,7 +192,6 @@ const PropertyDetails = () => {
               <MyGrid xs={6} md={4}>
                 <Typography color="text.secondary">Status</Typography>
                 <Typography variant="subtitle1">
-                    {/* Status Badge */}
                     <Box>
                     <Chip
                         icon={StatusConfig[property.propertyStatus]?.icon}
@@ -231,29 +255,129 @@ const PropertyDetails = () => {
 
         {/* Contact Section */}
         <MyGrid xs={12} md={4}>
-          <Paper sx={{ p: 3, position: 'sticky', top: 100 }}>
-            <Typography variant="h6" gutterBottom>
-              Contact Agent
+          <Card sx={{ p: 2, position: 'sticky', top: 20 }}>
+            <Typography variant="h5" gutterBottom>
+              Rental Details
             </Typography>
-            <Divider sx={{ my: 2 }} />
-            <Button
-              variant="contained"
-              fullWidth
-              sx={{ mb: 2 }}
-              onClick={() => {/* TODO: Implement contact functionality */}}
-            >
-              Contact Now
-            </Button>
-            <Button
-              variant="outlined"
-              fullWidth
-              onClick={() => {/* TODO: Implement schedule viewing */}}
-            >
-              Schedule Viewing
-            </Button>
-          </Paper>
+            
+            <Stack spacing={2}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography>Monthly Rent:</Typography>
+                <Typography variant="h6" color="primary">
+                  ${property.price.toLocaleString()}
+                </Typography>
+              </Box>
+
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography>Security Deposit:</Typography>
+                <Typography>
+                  ${(property.price * 2).toLocaleString()}
+                </Typography>
+              </Box>
+
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography>Available From:</Typography>
+                <Typography>
+                  {new Date().toLocaleDateString()}
+                </Typography>
+              </Box>
+
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography>Minimum Stay:</Typography>
+                <Typography>12 months</Typography>
+              </Box>
+
+              <Button 
+                variant="contained" 
+                size="large"
+                fullWidth
+                onClick={handleRentNow}
+              >
+                Rent Now
+              </Button>
+
+              <Alert severity="info" sx={{ mt: 2 }}>
+                Direct rental available. No agent fees!
+              </Alert>
+            </Stack>
+          </Card>
         </MyGrid>
       </MyGrid>
+
+      {/* Rental Dialog */}
+      <Dialog open={openRentDialog} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
+        <form onSubmit={handleSubmitRental}>
+          <DialogTitle>Rent Property</DialogTitle>
+          <DialogContent>
+            <Stack spacing={3} sx={{ mt: 2 }}>
+              <TextField
+                label="Full Name"
+                required
+                fullWidth
+              />
+              
+              <TextField
+                label="Email"
+                type="email"
+                required
+                fullWidth
+              />
+
+              <TextField
+                label="Phone Number"
+                required
+                fullWidth
+              />
+
+              <TextField
+                select
+                label="Rental Period"
+                value={rentalPeriod}
+                onChange={(e) => setRentalPeriod(e.target.value)}
+                fullWidth
+                SelectProps={{
+                  native: true,
+                }}
+              >
+                <option value="12">12 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+              </TextField>
+
+              <TextField
+                label="Move-in Date"
+                type="date"
+                required
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                inputProps={{
+                  min: new Date().toISOString().split('T')[0]
+                }}
+              />
+
+              <TextField
+                label="Additional Notes"
+                multiline
+                rows={4}
+                fullWidth
+              />
+
+              <Alert severity="info">
+                By submitting this form, you agree to proceed with the rental application process.
+                A security deposit of ${(property.price * 2).toLocaleString()} will be required.
+              </Alert>
+            </Stack>
+          </DialogContent>
+          <DialogActions sx={{ p: 2, pt: 0 }}>
+            <Button onClick={handleCloseDialog}>Cancel</Button>
+            <Button type="submit" variant="contained">
+              Submit Application
+            </Button>
+          </DialogActions>
+        </form>
+      </Dialog>
     </Container>
   );
 };
