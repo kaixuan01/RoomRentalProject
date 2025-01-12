@@ -42,40 +42,15 @@ export const propertyService = {
           matchesArea && matchesPrice;
       });
 
-        // Apply filters to mock data
-        let filteredData2 = mockProperties.filter(property => {
-            const matchesSearch = !filters.searchText || 
-            property.name.toLowerCase().includes(filters.searchText.toLowerCase()) ||
-            property.address.toLowerCase().includes(filters.searchText.toLowerCase());
-            
-            const matchesType = !filters.propertyType || 
-            property.propertyType === filters.propertyType;
-            
-            const matchesStatus = !filters.propertyStatus || 
-            property.propertyStatus === filters.propertyStatus;
-            
-            const matchesArea = !filters.minArea || 
-            property.areaSize >= filters.minArea;
-            
-            const matchesPrice = (!filters.priceRange?.[0] || property.price >= filters.priceRange[0]) && 
-            (!filters.priceRange?.[1] || property.price <= filters.priceRange[1]);
-
-            return matchesSearch && matchesType && matchesStatus && 
-            matchesArea && matchesPrice;
-        });
-
-
-        var filteredData3 = [...filteredData, ...filteredData2];
-
       // Calculate pagination
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;
-      const paginatedData = filteredData3.slice(startIndex, endIndex);
+      const paginatedData = filteredData.slice(startIndex, endIndex);
 
       return {
         properties: paginatedData,
-        totalCount: filteredData3.length,
-        hasMore: endIndex < filteredData3.length,
+        totalCount: filteredData.length,
+        hasMore: endIndex < filteredData.length,
         currentPage: page
       };
 

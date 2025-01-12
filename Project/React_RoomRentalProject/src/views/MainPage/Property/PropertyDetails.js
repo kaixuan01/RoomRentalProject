@@ -4,7 +4,6 @@ import {
   Container,
   Box,
   Typography,
-  Grid,
   Paper,
   Chip,
   Divider,
@@ -29,9 +28,6 @@ import {
 import { propertyService } from '../../../services/propertyService';
 import PropertyDetailsSkeleton from '../../../components/Property/PropertyDetailsSkeleton';
 import { 
-  PropertyType, 
-  PropertyStatus,
-  FacilityType,
   FacilityConfig,
   StatusConfig,
   getPropertyTypeLabel

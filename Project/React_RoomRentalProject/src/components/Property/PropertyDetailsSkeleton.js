@@ -2,10 +2,10 @@ import React from 'react';
 import {
   Container,
   Box,
-  Grid,
   Paper,
   Skeleton,
 } from '@mui/material';
+import MyGrid from '../container/MyGrid';
 
 const PropertyDetailsSkeleton = () => {
   return (
@@ -19,38 +19,38 @@ const PropertyDetailsSkeleton = () => {
 
       {/* Image Gallery Skeleton */}
       <Box sx={{ mb: 4 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={8}>
+        <MyGrid container spacing={2}>
+          <MyGrid xs={12} md={8}>
             <Skeleton variant="rectangular" height={400} sx={{ borderRadius: 2 }} />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Grid container spacing={2}>
+          </MyGrid>
+          <MyGrid xs={12} md={4}>
+            <MyGrid container spacing={2}>
               {[...Array(4)].map((_, index) => (
-                <Grid item xs={6} key={index}>
+                <MyGrid xs={6} key={index}>
                   <Skeleton variant="rectangular" height={190} sx={{ borderRadius: 2 }} />
-                </Grid>
+                </MyGrid>
               ))}
-            </Grid>
-          </Grid>
-        </Grid>
+            </MyGrid>
+          </MyGrid>
+        </MyGrid>
       </Box>
 
       {/* Details Section Skeleton */}
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={8}>
+      <MyGrid container spacing={4}>
+        <MyGrid xs={12} md={8}>
           <Paper sx={{ p: 3, mb: 3 }}>
             <Skeleton variant="text" width="30%" height={32} />
             <Box sx={{ my: 2 }}>
               <Skeleton variant="text" />
             </Box>
-            <Grid container spacing={2}>
+            <MyGrid container spacing={2}>
               {[...Array(3)].map((_, index) => (
-                <Grid item xs={6} md={4} key={index}>
+                <MyGrid xs={6} md={4} key={index}>
                   <Skeleton variant="text" width="60%" />
                   <Skeleton variant="text" width="80%" />
-                </Grid>
+                </MyGrid>
               ))}
-            </Grid>
+            </MyGrid>
           </Paper>
 
           <Paper sx={{ p: 3, mb: 3 }}>
@@ -62,9 +62,9 @@ const PropertyDetailsSkeleton = () => {
               <Skeleton key={index} variant="text" />
             ))}
           </Paper>
-        </Grid>
+        </MyGrid>
 
-        <Grid item xs={12} md={4}>
+        <MyGrid xs={12} md={4}>
           <Paper sx={{ p: 3 }}>
             <Skeleton variant="text" width="40%" height={32} />
             <Box sx={{ my: 2 }}>
@@ -73,8 +73,8 @@ const PropertyDetailsSkeleton = () => {
             <Skeleton variant="rectangular" height={40} sx={{ mb: 2 }} />
             <Skeleton variant="rectangular" height={40} />
           </Paper>
-        </Grid>
-      </Grid>
+        </MyGrid>
+      </MyGrid>
     </Container>
   );
 };

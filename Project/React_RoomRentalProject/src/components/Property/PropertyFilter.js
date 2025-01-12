@@ -39,6 +39,7 @@ const PropertyFilter = ({ onFilter, initialFilters }) => {
     searchText: initialFilters?.searchText || ''
   });
   const filterRef = useRef(null);
+  const [searchText, setSearchText] = useState(initialFilters?.searchText || '');
 
   // Update filters when initialFilters changes
   useEffect(() => {
@@ -90,10 +91,14 @@ const PropertyFilter = ({ onFilter, initialFilters }) => {
   };
 
   const handleSearchText = (event) => {
-    const newSearchText = event.target.value;
-    setTempFilters(prev => ({ ...prev, searchText: newSearchText }));
-    setAppliedFilters(prev => ({ ...prev, searchText: newSearchText }));
-    onFilter({ ...appliedFilters, searchText: newSearchText });
+    setSearchText(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    setTempFilters(prev => ({ ...prev, searchText }));
+    setAppliedFilters(prev => ({ ...prev, searchText }));
+    onFilter({ ...appliedFilters, searchText });
   };
 
   const handleSubmit = (event) => {
@@ -112,6 +117,7 @@ const PropertyFilter = ({ onFilter, initialFilters }) => {
       minArea: '',
       searchText: ''
     };
+    setSearchText('');
     setTempFilters(initialFilters);
     setAppliedFilters(initialFilters);
     onFilter(initialFilters);
@@ -144,27 +150,51 @@ const PropertyFilter = ({ onFilter, initialFilters }) => {
         }}
       >
         <Toolbar sx={{ minHeight: '56px !important' }}>
-          <Box sx={{ width: '100%', maxWidth: 'lg', mx: 'auto', px: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
-            <TextField
-              size="small"
-              placeholder="Search properties..."
-              value={tempFilters.searchText}
-              onChange={handleSearchText}
-              onClick={(e) => e.stopPropagation()}
+          <Box sx={{ width: '100%', maxWidth: 'lg', mx: 'auto', display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Box 
+              component="form" 
+              onSubmit={handleSearchSubmit}
               sx={{ 
                 flex: 1,
-                '& .MuiOutlinedInput-root': {
-                  backgroundColor: 'white'
-                }
+                display: 'flex',
+                gap: 1
               }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon color="action" />
-                  </InputAdornment>
-                )
-              }}
-            />
+            >
+              <TextField
+                size="small"
+                placeholder="Search properties..."
+                value={searchText}
+                onChange={handleSearchText}
+                onClick={(e) => e.stopPropagation()}
+                sx={{ 
+                  flex: 1,
+                  '& .MuiOutlinedInput-root': {
+                    backgroundColor: 'white'
+                  }
+                }}
+                
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton 
+                        type="submit"
+                        color="primary"
+                        size="small"
+                        sx={{ 
+                          bgcolor: 'primary.main',
+                          color: 'white',
+                          '&:hover': {
+                            bgcolor: 'primary.dark'
+                          }
+                        }}
+                      >
+                        <SearchIcon fontSize="small" />
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </Box>
             
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               {activeFilterCount > 0 && (

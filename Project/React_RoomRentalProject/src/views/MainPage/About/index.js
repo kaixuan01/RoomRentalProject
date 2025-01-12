@@ -3,7 +3,6 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   Card,
   CardContent,
   Avatar,
@@ -17,6 +16,7 @@ import {
   LinkedIn,
   Email,
 } from '@mui/icons-material';
+import MyGrid from '../../../components/container/MyGrid';
 
 const AboutPage = () => {
   const features = [
@@ -46,21 +46,21 @@ const AboutPage = () => {
     {
       name: 'John Doe',
       position: 'CEO & Founder',
-      image: '/path-to-image/john.jpg', // Add team member images
+      image: 'src/assets/images/profile/BoyProfile1.jpg', // Add team member images
       linkedin: '#',
       email: 'john@example.com'
     },
     {
-      name: 'Jane Smith',
+      name: 'Mike Johnson',
       position: 'Property Manager',
-      image: '/path-to-image/jane.jpg',
+      image: 'src/assets/images/profile/BoyProfile2.jpg',
       linkedin: '#',
       email: 'jane@example.com'
     },
     {
-      name: 'Mike Johnson',
+      name: 'Jane Smith',
       position: 'Customer Relations',
-      image: '/path-to-image/mike.jpg',
+      image: 'src/assets/images/profile/GirlProfile1.jpg',
       linkedin: '#',
       email: 'mike@example.com'
     }
@@ -89,8 +89,8 @@ const AboutPage = () => {
 
       {/* Mission Section */}
       <Container maxWidth="lg" sx={{ mb: 8 }}>
-        <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={6}>
+        <MyGrid container spacing={4} alignItems="center">
+          <MyGrid xs={12} md={6}>
             <Box
               component="img"
               src="src/assets/images/backgrounds/OurMission.jpg" // Add your mission image
@@ -101,8 +101,8 @@ const AboutPage = () => {
                 borderRadius: 2,
               }}
             />
-          </Grid>
-          <Grid item xs={12} md={6}>
+          </MyGrid>
+          <MyGrid xs={12} md={6}>
             <Typography variant="h4" gutterBottom>
               Our Mission
             </Typography>
@@ -115,8 +115,8 @@ const AboutPage = () => {
               not a stressful process. That's why we've created a platform that puts your 
               needs first.
             </Typography>
-          </Grid>
-        </Grid>
+          </MyGrid>
+        </MyGrid>
       </Container>
 
       {/* Features Section */}
@@ -125,9 +125,9 @@ const AboutPage = () => {
           <Typography variant="h4" gutterBottom align="center" sx={{ mb: 4 }}>
             Why Choose Us
           </Typography>
-          <Grid container spacing={4}>
+          <MyGrid container spacing={4}>
             {features.map((feature, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
+              <MyGrid xs={12} sm={6} md={3} key={index}>
                 <Card 
                   sx={{ 
                     height: '100%',
@@ -156,9 +156,9 @@ const AboutPage = () => {
                     </Typography>
                   </CardContent>
                 </Card>
-              </Grid>
+              </MyGrid>
             ))}
-          </Grid>
+          </MyGrid>
         </Container>
       </Box>
 
@@ -167,9 +167,9 @@ const AboutPage = () => {
         <Typography variant="h4" gutterBottom align="center" sx={{ mb: 4 }}>
           Meet Our Team
         </Typography>
-        <Grid container spacing={4}>
+        <MyGrid container spacing={4}>
           {team.map((member, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <MyGrid xs={12} sm={6} md={4} key={index}>
               <Card 
                 sx={{ 
                   textAlign: 'center',
@@ -216,40 +216,40 @@ const AboutPage = () => {
                   </Box>
                 </CardContent>
               </Card>
-            </Grid>
+            </MyGrid>
           ))}
-        </Grid>
+        </MyGrid>
       </Container>
 
       {/* Stats Section */}
       <Box sx={{ bgcolor: 'primary.main', color: 'white', py: 8 }}>
         <Container maxWidth="lg">
-          <Grid container spacing={4} textAlign="center">
-            <Grid item xs={12} sm={4}>
+          <MyGrid container spacing={4} textAlign="center">
+            <MyGrid xs={12} sm={4}>
               <Typography variant="h3" gutterBottom>
                 1000+
               </Typography>
               <Typography variant="h6">
                 Properties Listed
               </Typography>
-            </Grid>
-            <Grid item xs={12} sm={4}>
+            </MyGrid>
+            <MyGrid xs={12} sm={4}>
               <Typography variant="h3" gutterBottom>
                 500+
               </Typography>
               <Typography variant="h6">
                 Happy Tenants
               </Typography>
-            </Grid>
-            <Grid item xs={12} sm={4}>
+            </MyGrid>
+            <MyGrid xs={12} sm={4}>
               <Typography variant="h3" gutterBottom>
                 50+
               </Typography>
               <Typography variant="h6">
                 Cities Covered
               </Typography>
-            </Grid>
-          </Grid>
+            </MyGrid>
+          </MyGrid>
         </Container>
       </Box>
     </Box>

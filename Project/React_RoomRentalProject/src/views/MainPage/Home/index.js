@@ -11,8 +11,7 @@ import {
   IconButton,
 } from '@mui/material';
 import {
-  Search,
-  LocationOn,
+  Search as SearchIcon,
   Apartment,
   HomeWork,
   Home,
@@ -117,7 +116,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("src/assets/images/products/empty-shopping-bag.gif")',
+          background: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("src/assets/images/backgrounds/HomeBg.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '70vh',
@@ -138,30 +137,42 @@ const HomePage = () => {
           <Box 
             component="form" 
             onSubmit={handleSearch}
-            sx={{ maxWidth: 600, bgcolor: 'white', borderRadius: 1, p: 0.5 }}
+            sx={{ maxWidth: 500, bgcolor: 'white', borderRadius: 1, p: 0.5 }}
           >
             <TextField
-              fullWidth
-              placeholder="Search by location, property name..."
-              value={searchKeyword}
-              onChange={(e) => setSearchKeyword(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Search />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <Button 
-                    type="submit"
-                    variant="contained" 
-                    sx={{ px: 4 }}
-                  >
-                    Search
-                  </Button>
-                ),
-              }}
-            />
+                fullWidth
+                placeholder="Search by location, property name..."
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)}
+                onClick={(e) => e.stopPropagation()}
+                sx={{ 
+                  flex: 1,
+                  '& .MuiOutlinedInput-root': {
+                    backgroundColor: 'whitesmoke'
+                  }
+                }}
+                
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton 
+                        type="submit"
+                        color="primary"
+                        size="small"
+                        sx={{ 
+                          bgcolor: 'primary.main',
+                          color: 'white',
+                          '&:hover': {
+                            bgcolor: 'primary.dark'
+                          }
+                        }}
+                      >
+                        <SearchIcon fontSize="small" />
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+              />
           </Box>
         </Container>
       </Box>

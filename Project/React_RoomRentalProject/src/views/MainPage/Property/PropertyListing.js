@@ -14,6 +14,9 @@ const PropertyListing = () => {
   const [hasMore, setHasMore] = useState(true);
   const [error, setError] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  
+  // Get and clear the state values
   const searchKeyword = location.state?.keyword || '';
   const propertyType = location.state?.propertyType || '';
   
@@ -22,8 +25,7 @@ const PropertyListing = () => {
     propertyType: propertyType
   });
   const [totalCount, setTotalCount] = useState(0);
-  const navigate = useNavigate();
-  
+
   const ITEMS_PER_PAGE = 9;
   const observer = useRef();
 
@@ -54,6 +56,11 @@ const PropertyListing = () => {
   // Initial load
   useEffect(() => {
     fetchProperties(1, { ...filters }, true);
+    
+    if (location.state) {
+      // Replace the current history state with null state
+      navigate(location.pathname, { replace: true, state: null });
+    }
   }, [filters.searchText]);
 
   // Handle pagination

@@ -3,7 +3,6 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   TextField,
   Button,
   Card,
@@ -19,6 +18,7 @@ import {
   Instagram,
   LinkedIn,
 } from '@mui/icons-material';
+import MyGrid from '../../../components/container/MyGrid';
 
 const ContactPage = () => {
   const handleSubmit = (event) => {
@@ -57,9 +57,9 @@ const ContactPage = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 8 }}>
-      <Grid container spacing={4}>
+      <MyGrid container spacing={4}>
         {/* Contact Form Section */}
-        <Grid item xs={12} md={7}>
+        <MyGrid xs={12} md={7}>
           <Typography variant="h4" gutterBottom>
             Get in Touch
           </Typography>
@@ -68,36 +68,36 @@ const ContactPage = () => {
           </Typography>
           
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 4 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+            <MyGrid container spacing={2}>
+              <MyGrid xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label="First Name"
                   required
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              </MyGrid>
+              <MyGrid xs={12} sm={6}>
                 <TextField
                   fullWidth
                   label="Last Name"
                   required
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </MyGrid>
+              <MyGrid xs={12}>
                 <TextField
                   fullWidth
                   label="Email"
                   type="email"
                   required
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </MyGrid>
+              <MyGrid xs={12}>
                 <TextField
                   fullWidth
                   label="Phone Number"
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </MyGrid>
+              <MyGrid xs={12}>
                 <TextField
                   fullWidth
                   label="Message"
@@ -105,8 +105,8 @@ const ContactPage = () => {
                   rows={4}
                   required
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </MyGrid>
+              <MyGrid xs={12}>
                 <Button
                   type="submit"
                   variant="contained"
@@ -115,13 +115,13 @@ const ContactPage = () => {
                 >
                   Send Message
                 </Button>
-              </Grid>
-            </Grid>
+              </MyGrid>
+            </MyGrid>
           </Box>
-        </Grid>
+        </MyGrid>
 
         {/* Contact Information Section */}
-        <Grid item xs={12} md={5}>
+        <MyGrid xs={12} md={5}>
           <Box sx={{ pl: { md: 4 } }}>
             <Typography variant="h4" gutterBottom>
               Contact Information
@@ -142,6 +142,7 @@ const ContactPage = () => {
               >
                 <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconButton 
+                    href={info.link}
                     sx={{ 
                       mr: 2,
                       bgcolor: 'primary.light',
@@ -199,8 +200,8 @@ const ContactPage = () => {
               </Box>
             </Box>
           </Box>
-        </Grid>
-      </Grid>
+        </MyGrid>
+      </MyGrid>
     </Container>
   );
 };
