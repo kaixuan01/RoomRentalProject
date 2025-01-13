@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
 import { initData } from '../Redux/actions';
+import OwnerLogin from 'src/views/authentication/OwnerLogin';
 
 /* ***Layouts**** */
 const PortalLayout = Loadable(lazy(() => import('../layouts/full/PortalLayout')));
@@ -40,7 +41,7 @@ const Router = () => {
     const storedLoginStatus = localStorage.getItem('isLogin');
     const storedUserProfile = localStorage.getItem('userProfile');
     dispatch(initData('isLogin', storedLoginStatus || null));
-    dispatch(initData('userProfile', storedUserProfile || {}));
+    dispatch(initData('userProfile', storedUserProfile || null));
   }, [dispatch]);
 
   const routes = [
@@ -81,7 +82,8 @@ const Router = () => {
       element: <BlankLayout />,
       children: [
         { path: '/auth', element: <Navigate to="/auth/login" replace /> },
-        { path: '/auth/OwnerRegister', element: <UserRegister /> },
+        { path: '/auth/ownerLogin', element: <OwnerLogin /> },
+        { path: '/auth/ownerRegister', element: <UserRegister /> },
         { path: '/auth/login', element: <Login /> },
         { path: '/auth/ConfirmEmail/:token', element: <EmailConfirmation /> },
         { path: '/auth/ResetPassword/:token', element: <ResetPassword /> },

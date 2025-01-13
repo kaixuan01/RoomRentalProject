@@ -5,7 +5,16 @@ import { useHTTPReq } from './HttpReq';
 
 export const useAuthHandlers = () => {
   const dispatch = useDispatch();
-  const { HTTPReq } = useHTTPReq();
+  const handleLogout = useCallback(() => {
+    dispatch(updateData('isLogin', null));
+    localStorage.removeItem('isLogin');
+
+    // Clear user profile
+    dispatch(updateData('userProfile', null));
+    localStorage.removeItem('userProfile');
+  }, []);
+
+  const { HTTPReq } = useHTTPReq(handleLogout);
 
   const handleLogin = useCallback((userData) => {
     dispatch(updateData('isLogin', 'Login'));
@@ -17,20 +26,6 @@ export const useAuthHandlers = () => {
 
     window.location.href = "/portal";
   }, [dispatch]);
-
-  const handleLogout = useCallback(() => {
-    dispatch(updateData('isLogin', null));
-    localStorage.removeItem('isLogin');
-
-    // Clear user profile
-    dispatch(updateData('userProfile', null));
-    localStorage.removeItem('userProfile');
-    HTTPReq({
-      url: `/OAuth/Logout`,
-      method: 'POST',
-    });
-    window.location.href = "/auth/login";
-  }, [dispatch, HTTPReq]);
 
   return { handleLogin, handleLogout };
 };

@@ -15,18 +15,11 @@ import { useSelector } from 'react-redux';
 
 const MobileSidebar = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
-  const reduxState = useSelector((state) => state); // Get entire Redux state
   const isLogin = useSelector((state) => state.isLogin) ?? false;
-  const jsonUserProfile = useSelector((state) => state.userProfile) ?? {};
+  const jsonUserProfile = useSelector((state) => state.userProfile) ?? null;
   const userProfile = JSON.parse(jsonUserProfile);
 
-  useEffect(() => {
-    console.log("Redux State - isLogin:", isLogin);
-    console.log("Redux State - userProfile:", userProfile);
-    console.log("Data Namespace:", reduxState);
 
-    console.log("LocalStorage - userProfile:", localStorage.getItem('userProfile'));
-  }, [isLogin, userProfile]);
 
   const mainMenuItems = [
     { text: 'Home', icon: <Home />, path: '/' },
@@ -88,8 +81,7 @@ const MobileSidebar = ({ isOpen, onClose }) => {
       {/* Main Navigation */}
       <List>
         {mainMenuItems.map((item) => (
-          <ListItem 
-            button 
+          <ListItem
             key={item.text}
             onClick={() => handleNavigation(item.path)}
             sx={{
@@ -114,7 +106,6 @@ const MobileSidebar = ({ isOpen, onClose }) => {
           <List>
             {userMenuItems.map((item) => (
               <ListItem 
-                button 
                 key={item.text}
                 onClick={() => handleNavigation(item.path)}
                 sx={{
@@ -139,7 +130,6 @@ const MobileSidebar = ({ isOpen, onClose }) => {
         <Box sx={{ p: 2 }}>
           <Stack spacing={1}>
             <ListItem 
-              button 
               onClick={() => handleNavigation('/auth/login')}
               sx={{
                 bgcolor: 'primary.main',
@@ -157,7 +147,6 @@ const MobileSidebar = ({ isOpen, onClose }) => {
             </ListItem>
 
             <ListItem 
-              button 
               onClick={() => handleNavigation('/auth/register')}
               sx={{
                 bgcolor: 'white',

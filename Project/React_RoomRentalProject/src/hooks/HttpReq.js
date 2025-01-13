@@ -5,7 +5,8 @@ import { useLoading } from '../components/shared/Loading/LoadingContext';
 
 const handleResponseErrors = (
   response,
-  customHandlers = {}
+  customHandlers = {},
+  handleLogout
 ) => {
   const isBlocked = Cookies.get("isBlocked");
 
@@ -22,6 +23,7 @@ const handleResponseErrors = (
           } else {
             showErrorAlert("Your session is expired. Please login again.");
           }
+          handleLogout();
           break;
 
         case 403:
@@ -39,7 +41,7 @@ const handleResponseErrors = (
   }
   return true;
 };
-export const useHTTPReq = () => {
+export const useHTTPReq = (onLogout) => {
   const { setLoading } = useLoading();
 
   const HTTPReq = useCallback(
@@ -78,7 +80,7 @@ export const useHTTPReq = () => {
             setLoading(false);
           }
 
-          if (!handleResponseErrors(response, customHandlers)) {
+          if (!handleResponseErrors(response, customHandlers, onLogout)) {
             return;
           }
 
@@ -110,7 +112,7 @@ export const useHTTPReq = () => {
         }
       })();
     },
-    [setLoading, handleResponseErrors]
+    [setLoading, onLogout]
   );
 
   return { HTTPReq };

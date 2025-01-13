@@ -33,6 +33,8 @@ import {
   getPropertyTypeLabel
 } from '../../../types/property.types';
 import MyGrid from '../../../components/container/MyGrid';
+import { useSelector } from 'react-redux';
+import LoginDialog from '../../../components/dialog/LoginDialog';
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -41,6 +43,9 @@ const PropertyDetails = () => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [openRentDialog, setOpenRentDialog] = useState(false);
   const [rentalPeriod, setRentalPeriod] = useState('12'); // Default 12 months
+  const [openLoginDialog, setOpenLoginDialog] = useState(false);
+  const [actionAfterLogin, setActionAfterLogin] = useState(null);
+  const isLoggedIn = useSelector((state) => state.isLogin); 
 
   useEffect(() => {
     const fetchPropertyDetails = async () => {
@@ -66,13 +71,26 @@ const PropertyDetails = () => {
     }).catch((error) => console.log('Error sharing', error));
   };
 
+  const handleProtectedAction = (action) => {
+    if (!isLoggedIn) {
+      setActionAfterLogin(action);
+      setOpenLoginDialog(true);
+      return false;
+    }
+    return true;
+  };
+
   const handleToggleFavorite = () => {
-    setIsFavorite(!isFavorite);
-    // TODO: Implement favorite functionality with backend
+    if (handleProtectedAction('favorite')) {
+      setIsFavorite(!isFavorite);
+      // TODO: Implement favorite functionality with backend
+    }
   };
 
   const handleRentNow = () => {
-    setOpenRentDialog(true);
+    if (handleProtectedAction('rent')) {
+      setOpenRentDialog(true);
+    }
   };
 
   const handleCloseDialog = () => {
@@ -84,6 +102,16 @@ const PropertyDetails = () => {
     // TODO: Implement rental submission
     console.log('Rental submitted');
     setOpenRentDialog(false);
+  };
+
+  const handleLoginSuccess = () => {
+    setOpenLoginDialog(false);
+    if (actionAfterLogin === 'favorite') {
+      handleToggleFavorite();
+    } else if (actionAfterLogin === 'rent') {
+      handleRentNow();
+    }
+    setActionAfterLogin(null);
   };
 
   if (isLoading) {
@@ -307,25 +335,6 @@ const PropertyDetails = () => {
           <DialogContent>
             <Stack spacing={3} sx={{ mt: 2 }}>
               <TextField
-                label="Full Name"
-                required
-                fullWidth
-              />
-              
-              <TextField
-                label="Email"
-                type="email"
-                required
-                fullWidth
-              />
-
-              <TextField
-                label="Phone Number"
-                required
-                fullWidth
-              />
-
-              <TextField
                 select
                 label="Rental Period"
                 value={rentalPeriod}
@@ -374,6 +383,12 @@ const PropertyDetails = () => {
           </DialogActions>
         </form>
       </Dialog>
+
+      <LoginDialog 
+        open={openLoginDialog}
+        onClose={() => setOpenLoginDialog(false)}
+        onLoginSuccess={handleLoginSuccess}
+      />
     </Container>
   );
 };
