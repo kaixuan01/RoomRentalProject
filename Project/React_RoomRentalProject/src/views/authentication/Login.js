@@ -45,7 +45,8 @@ const Login2 = () => {
       data: formData,
       method: 'POST',
       onSuccess: (data, msg) => {
-        handleLogin();
+        console.log("data: " + data);
+        handleLogin(data);
         showSuccessAlert('Login Success');
       },
       onError: (error) => {

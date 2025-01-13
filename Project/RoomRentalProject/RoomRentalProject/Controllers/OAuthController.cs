@@ -1,3 +1,5 @@
+using DAL.Models;
+using DAL.Repository.UserRP.UserRepository.Class;
 using DBL.User_Service.UserService;
 using DBL.User_Service.UserService.UserActionClass;
 using E_commerce.Tools;
@@ -93,7 +95,7 @@ namespace E_commerce.Controllers
                     switch (oVerifyResp.Code)
                     {
                         case RespCode.RespCode_Success:
-                            var token = _authToken.GenerateJwtToken(user.username, (Enum_UserRole)oVerifyResp.UserRoleId);
+                            var token = _authToken.GenerateJwtToken(user.username, (Enum_UserRole)oVerifyResp.oUser.UserRoleId);
                             var refreshToken = AuthToken.GenerateToken();
                             // Update the refresh token in your storage
                             AuthToken.StoreRefreshToken(user.username, refreshToken); // Implement StoreRefreshToken
@@ -101,7 +103,7 @@ namespace E_commerce.Controllers
                             // Set the tokens in cookies
                             SetCookies(token, refreshToken);
 
-                            var response = ApiResponse<string>.CreateSuccessResponse( user.username , "Login successful");
+                            var response = ApiResponse<UserDto>.CreateSuccessResponse( oVerifyResp.oUser , "Login successful");
                             return Ok(response);
 
                         case RespCode.RespCode_Failed:

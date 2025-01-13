@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Drawer, Box, List, ListItem, ListItemIcon, ListItemText, Divider, Avatar, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -15,8 +15,18 @@ import { useSelector } from 'react-redux';
 
 const MobileSidebar = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
+  const reduxState = useSelector((state) => state); // Get entire Redux state
   const isLogin = useSelector((state) => state.isLogin) ?? false;
-  const userProfile = useSelector((state) => state.userProfile) ?? {};
+  const jsonUserProfile = useSelector((state) => state.userProfile) ?? {};
+  const userProfile = JSON.parse(jsonUserProfile);
+
+  useEffect(() => {
+    console.log("Redux State - isLogin:", isLogin);
+    console.log("Redux State - userProfile:", userProfile);
+    console.log("Data Namespace:", reduxState);
+
+    console.log("LocalStorage - userProfile:", localStorage.getItem('userProfile'));
+  }, [isLogin, userProfile]);
 
   const mainMenuItems = [
     { text: 'Home', icon: <Home />, path: '/' },
@@ -59,13 +69,15 @@ const MobileSidebar = ({ isOpen, onClose }) => {
         <Box sx={{ p: 2 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
             <Avatar 
-              src={userProfile.avatar}
+              src={userProfile?.avatar}
               sx={{ width: 40, height: 40, mr: 2 }}
             />
             <Box>
-              <Box sx={{ fontWeight: 'bold' }}>{userProfile.name || 'User'}</Box>
+              <Box sx={{ fontWeight: 'bold' }}>
+                {userProfile?.Name || userProfile?.name || 'User'}
+              </Box>
               <Box sx={{ fontSize: '0.875rem', color: 'text.secondary' }}>
-                {userProfile.email || 'user@example.com'}
+                {userProfile?.Email || userProfile?.email || 'user@example.com'}
               </Box>
             </Box>
           </Box>

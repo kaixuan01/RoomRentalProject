@@ -1,4 +1,7 @@
-﻿namespace DBL.User_Service.UserService.UserActionClass
+﻿using DAL.Models;
+using DAL.Repository.UserRP.UserRepository.Class;
+
+namespace DBL.User_Service.UserService.UserActionClass
 {
     public class VerifyUser_REQ
     {
@@ -10,7 +13,7 @@
     {
         public string Code { get; set; }
         public string Message { get; set; }
-        public int? UserRoleId { get; set; }
+        public UserDto oUser { get; set; }
     }
 
 }

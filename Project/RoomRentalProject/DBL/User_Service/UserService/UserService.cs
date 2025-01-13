@@ -525,7 +525,12 @@ namespace DBL.User_Service.UserService
                     // Update User's login failed Count
                     await _userRepository.UpdateAsync(oUser);
 
-                    rtnValue.UserRoleId = oUser.UserRoleId;
+                    rtnValue.oUser = new UserDto()
+                    {
+                        Name = oUser.Name,
+                        Email = oUser.Email,
+                        UserRoleId = oUser.UserRoleId
+                    };
                 }
                 else
                 {
