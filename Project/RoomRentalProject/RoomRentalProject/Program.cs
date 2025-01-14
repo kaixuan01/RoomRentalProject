@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System.Net.NetworkInformation;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
 using Utils.Constant;
 using Utils.Enums;
 using Utils.Tools;
+using MySql.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -122,7 +124,8 @@ builder.Services.AddCors(options =>
 
 // Add services to the container.
 var sqlConnString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddSqlServer<AppDbContext>(sqlConnString);
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySQL(sqlConnString));
 
 // Auto Add All Services
 builder.Services.AddAllService();
