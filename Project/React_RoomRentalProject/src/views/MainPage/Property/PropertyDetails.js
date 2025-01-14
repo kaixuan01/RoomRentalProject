@@ -45,7 +45,7 @@ const PropertyDetails = () => {
   const [rentalPeriod, setRentalPeriod] = useState('12'); // Default 12 months
   const [openLoginDialog, setOpenLoginDialog] = useState(false);
   const [actionAfterLogin, setActionAfterLogin] = useState(null);
-  const isLoggedIn = useSelector((state) => state.isLogin); 
+  const isLoggedIn = useSelector((state) => state.isLogin) ?? false; 
 
   useEffect(() => {
     const fetchPropertyDetails = async () => {

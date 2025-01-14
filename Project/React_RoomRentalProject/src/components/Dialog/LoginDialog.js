@@ -11,6 +11,11 @@ import {
     Tabs,
     Tab,
     Box,
+    IconButton,
+    InputAdornment,
+    styled,
+    Divider,
+    alpha,
 } from '@mui/material';
 import { useHTTPReq } from '../../hooks/HttpReq';
 import { useAuthHandlers } from '../../hooks/AuthHandlers';
@@ -20,9 +25,38 @@ import MyInput from '../input/MyInput';
 import ValidationHandler from '../input/ValidationHandler';
 import { InputFormat } from '../../utils/enum';
 import { Link } from 'react-router-dom';
+import CloseIcon from '@mui/icons-material/Close';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
+const StyledDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialog-paper': {
+        borderRadius: '12px',
+        padding: theme.spacing(2),
+    },
+}));
+
+const StyledTab = styled(Tab)(({ theme }) => ({
+    textTransform: 'none',
+    fontWeight: 600,
+    fontSize: '1rem',
+    minHeight: 48,
+}));
+
+const StyledInput = styled(TextField)(({ theme }) => ({
+    '& .MuiOutlinedInput-root': {
+        borderRadius: '8px',
+        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderWidth: '1px',
+        },
+    },
+}));
 
 const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
     const [activeTab, setActiveTab] = useState(0);
+    const [showPassword, setShowPassword] = useState(false);
     const [loginData, setLoginData] = useState({
         username: '',
         password: '',
@@ -93,7 +127,7 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
             method: 'POST',
             onSuccess: (data, msg) => {
                 showSuccessAlert(msg);
-                setActiveTab(0); // Switch back to login tab
+                setActiveTab(0);
             },
             onError: (error) => {
                 showErrorAlert(error);
@@ -102,138 +136,267 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
     };
 
     return (
-        <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-            <DialogTitle>
-                <Tabs value={activeTab} onChange={handleTabChange} centered>
-                    <Tab label="Login" />
-                    <Tab label="Register as Tenant" />
-                </Tabs>
-            </DialogTitle>
-            <DialogContent>
-                {activeTab === 0 ? (
-                    // Login Form
-                    <form onSubmit={handleLoginSubmit}>
-                        <Stack spacing={3} sx={{ mt: 2 }}>
-                            <TextField
-                                id="username"
-                                label="Username"
-                                fullWidth
-                                value={loginData.username}
-                                onChange={handleLoginInputChange}
-                                required
-                            />
-                            <TextField
-                                id="password"
-                                label="Password"
-                                type="password"
-                                fullWidth
-                                value={loginData.password}
-                                onChange={handleLoginInputChange}
-                                required
-                            />
-                            <Button type="submit" variant="contained" fullWidth>
-                                Login
-                            </Button>
-                            <Typography 
-                                variant="body2" 
-                                align="center" 
-                                sx={{ mt: 2 }}
-                            >
-                                Are you a property owner?{' '}
-                                <Link 
-                                    to="/auth/ownerLogin"
-                                    onClick={onClose}
-                                    style={{ 
-                                        color: 'primary.main',
-                                        textDecoration: 'none'
+        <StyledDialog 
+            open={open} 
+            onClose={onClose} 
+            maxWidth="sm" 
+            fullWidth
+        >
+            <Box sx={{ position: 'relative' }}>
+                <IconButton
+                    onClick={onClose}
+                    sx={{
+                        position: 'absolute',
+                        right: -12,
+                        top: -12,
+                        color: 'text.secondary',
+                    }}
+                >
+                    <CloseIcon />
+                </IconButton>
+
+                <DialogTitle sx={{ pb: 0 }}>
+                    <Tabs 
+                        value={activeTab} 
+                        onChange={handleTabChange} 
+                        centered
+                        sx={{
+                            '& .MuiTabs-indicator': {
+                                height: 3,
+                                borderRadius: '2px',
+                            },
+                        }}
+                    >
+                        <StyledTab label="Sign in" />
+                        <StyledTab label="Register" />
+                    </Tabs>
+                </DialogTitle>
+
+                <DialogContent>
+                    {activeTab === 0 ? (
+                        // Login Form
+                        <form onSubmit={handleLoginSubmit}>
+                            <Stack spacing={3} sx={{ mt: 3 }}>
+                                <StyledInput
+                                    id="username"
+                                    label="Username"
+                                    fullWidth
+                                    value={loginData.username}
+                                    onChange={handleLoginInputChange}
+                                    required
+                                    InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <PersonOutlineIcon color="action" />
+                                            </InputAdornment>
+                                        ),
                                     }}
-                                >
-                                    Login here
-                                </Link>
-                            </Typography>
-                        </Stack>
-                    </form>
-                ) : (
-                    // Register Form (Tenant Only)
-                    <Box sx={{ mt: 2 }}>
-                        <Stack spacing={2}>
-                            <MyInput
-                                {...regFormValidation.name}
-                                id="name"
-                                label="Name"
-                                value={registerData.name}
-                                onChange={handleRegisterInputChange}
-                            />
-                            <MyInput
-                                {...regFormValidation.username}
-                                id="username"
-                                label="Username"
-                                value={registerData.username}
-                                onChange={handleRegisterInputChange}
-                            />
-                            <Stack direction="row" spacing={2}>
-                                <MyInput
-                                    {...regFormValidation.password}
+                                />
+                                <StyledInput
                                     id="password"
                                     label="Password"
-                                    type="password"
-                                    value={registerData.password}
-                                    onChange={handleRegisterInputChange}
+                                    type={showPassword ? "text" : "password"}
                                     fullWidth
+                                    value={loginData.password}
+                                    onChange={handleLoginInputChange}
+                                    required
+                                    InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <LockOutlinedIcon color="action" />
+                                            </InputAdornment>
+                                        ),
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    onClick={() => setShowPassword(!showPassword)}
+                                                    edge="end"
+                                                >
+                                                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                                <Button 
+                                    type="submit" 
+                                    variant="contained" 
+                                    fullWidth
+                                    size="large"
+                                    sx={{ 
+                                        borderRadius: '8px',
+                                        textTransform: 'none',
+                                        fontSize: '1rem',
+                                    }}
+                                >
+                                    Sign in
+                                </Button>
+
+                                <Divider>
+                                    <Typography variant="body2" color="text.secondary">
+                                        or
+                                    </Typography>
+                                </Divider>
+
+                                <Typography 
+                                    variant="body2" 
+                                    align="center"
+                                >
+                                    Are you a property owner?{' '}
+                                    <Link 
+                                        to="/auth/ownerLogin"
+                                        onClick={onClose}
+                                        style={{ 
+                                            color: 'primary',
+                                            textDecoration: 'none',
+                                            fontWeight: 500,
+                                        }}
+                                    >
+                                        Login here
+                                    </Link>
+                                </Typography>
+                            </Stack>
+                        </form>
+                    ) : (
+                        // Register Form
+                        <Box sx={{ mt: 3 }}>
+                            <Stack spacing={2.5}>
+                                <MyInput
+                                    {...regFormValidation.name}
+                                    id="name"
+                                    label="Name"
+                                    value={registerData.name}
+                                    onChange={handleRegisterInputChange}
                                 />
                                 <MyInput
-                                    {...regFormValidation.confirmPassword}
-                                    id="confirmPassword"
-                                    label="Confirm Password"
-                                    type="password"
-                                    value={registerData.confirmPassword}
+                                    {...regFormValidation.username}
+                                    id="username"
+                                    label="Username"
+                                    value={registerData.username}
                                     onChange={handleRegisterInputChange}
-                                    fullWidth
                                 />
-                            </Stack>
-                            <MyInput
-                                {...regFormValidation.email}
-                                id="email"
-                                label="Email"
-                                type="email"
-                                value={registerData.email}
-                                onChange={handleRegisterInputChange}
-                            />
-                            <MyInput
-                                {...regFormValidation.phone}
-                                id="phone"
-                                label="Phone"
-                                value={registerData.phone}
-                                onChange={handleRegisterInputChange}
-                            />
-                            <ValidationHandler
-                                formData={registerData}
-                                regFormValidation={regFormValidation}
-                                validateGroup={registerValidGroup}
-                                onValidationComplete={(isValid) => {
-                                    if (isValid) {
-                                        handleRegisterSubmit();
-                                    }
-                                }}
-                            >
-                                {({ validate }) => (
-                                    <Button
-                                        variant="contained"
+                                <Stack direction="row" spacing={2}>
+                                    <MyInput
+                                        {...regFormValidation.password}
+                                        id="password"
+                                        label="Password"
+                                        type="password"
+                                        value={registerData.password}
+                                        onChange={handleRegisterInputChange}
                                         fullWidth
-                                        onClick={validate}
+                                    />
+                                    <MyInput
+                                        {...regFormValidation.confirmPassword}
+                                        id="confirmPassword"
+                                        label="Confirm Password"
+                                        type="password"
+                                        value={registerData.confirmPassword}
+                                        onChange={handleRegisterInputChange}
+                                        fullWidth
+                                    />
+                                </Stack>
+                                <MyInput
+                                    {...regFormValidation.email}
+                                    id="email"
+                                    label="Email"
+                                    type="email"
+                                    value={registerData.email}
+                                    onChange={handleRegisterInputChange}
+                                />
+                                <MyInput
+                                    {...regFormValidation.phone}
+                                    id="phone"
+                                    label="Phone"
+                                    value={registerData.phone}
+                                    onChange={handleRegisterInputChange}
+                                />
+                                <ValidationHandler
+                                    formData={registerData}
+                                    regFormValidation={regFormValidation}
+                                    validateGroup={registerValidGroup}
+                                    onValidationComplete={(isValid) => {
+                                        if (isValid) {
+                                            handleRegisterSubmit();
+                                        }
+                                    }}
+                                >
+                                    {({ validate }) => (
+                                        <Button
+                                            variant="contained"
+                                            fullWidth
+                                            size="large"
+                                            onClick={validate}
+                                            sx={{ 
+                                                mt: 2,
+                                                borderRadius: '8px',
+                                                textTransform: 'none',
+                                                fontSize: '1rem',
+                                            }}
+                                        >
+                                            Create Tenant Account
+                                        </Button>
+                                    )}
+                                </ValidationHandler>
+
+                                <Divider sx={{ my: 2 }}>
+                                    <Typography 
+                                        variant="body2" 
+                                        sx={{ 
+                                            color: 'text.secondary',
+                                            px: 2,
+                                        }}
                                     >
-                                        Register as Tenant
+                                        or
+                                    </Typography>
+                                </Divider>
+
+                                <Box
+                                    sx={{
+                                        p: 2.5,
+                                        borderRadius: 2,
+                                        bgcolor: (theme) => alpha(theme.palette.primary.main, 0.04),
+                                        border: '1px dashed',
+                                        borderColor: 'primary.main',
+                                    }}
+                                >
+                                    <Typography 
+                                        variant="subtitle1" 
+                                        align="center"
+                                        color="primary"
+                                        gutterBottom
+                                    >
+                                        Want to list your property?
+                                    </Typography>
+                                    <Typography 
+                                        variant="body2" 
+                                        align="center"
+                                        color="text.secondary"
+                                        mb={2}
+                                    >
+                                        Register as a property owner to start listing your properties
+                                    </Typography>
+                                    <Button
+                                        component={Link}
+                                        to="/auth/ownerRegister"
+                                        onClick={onClose}
+                                        variant="outlined"
+                                        fullWidth
+                                        size="large"
+                                        sx={{ 
+                                            borderRadius: '8px',
+                                            textTransform: 'none',
+                                            fontSize: '1rem',
+                                        }}
+                                    >
+                                        Register as Owner
                                     </Button>
-                                )}
-                            </ValidationHandler>
-                        </Stack>
-                    </Box>
-                )}
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={onClose}>Cancel</Button>
-            </DialogActions>
-        </Dialog>
+                                </Box>
+                            </Stack>
+                        </Box>
+                    )}
+                </DialogContent>
+            </Box>
+        </StyledDialog>
     );
 };
 

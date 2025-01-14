@@ -94,7 +94,7 @@ const MainHeader = (props) => {
                     size="small"
                     onClick={() => handleNavigation('/auth/ownerLogin')}
                   >
-                    Owner Login
+                    Login
                   </Button>
                   <Button
                     variant="contained"
