@@ -64,7 +64,7 @@ export default function ResetPassword() {
       method: 'POST',
       onSuccess: (data, result) => {
         showSuccessAlert(result).then(() => {
-          navigate('/auth/login');
+          navigate('/auth/ownerLogin');
         });
       },
       onError: (error) => {

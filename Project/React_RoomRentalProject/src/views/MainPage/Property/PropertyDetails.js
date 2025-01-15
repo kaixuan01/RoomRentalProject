@@ -34,7 +34,7 @@ import {
 } from '../../../types/property.types';
 import MyGrid from '../../../components/container/MyGrid';
 import { useSelector } from 'react-redux';
-import LoginDialog from '../../../components/dialog/LoginDialog';
+import LoginDialog from '../../../components/Dialog/LoginDialog';
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -47,19 +47,19 @@ const PropertyDetails = () => {
   const [actionAfterLogin, setActionAfterLogin] = useState(null);
   const isLoggedIn = useSelector((state) => state.isLogin) ?? false; 
 
-  useEffect(() => {
-    const fetchPropertyDetails = async () => {
-      try {
-        setIsLoading(true);
-        const data = await propertyService.getPropertyById(id);
-        setProperty(data);
-      } catch (error) {
-        console.error('Error fetching property details:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  const fetchPropertyDetails = async () => {
+    try {
+      setIsLoading(true);
+      const data = await propertyService.getPropertyById(id);
+      setProperty(data);
+    } catch (error) {
+      console.error('Error fetching property details:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchPropertyDetails();
   }, [id]);
 
@@ -106,6 +106,9 @@ const PropertyDetails = () => {
 
   const handleLoginSuccess = () => {
     setOpenLoginDialog(false);
+    // Refetch property details after successful login
+    fetchPropertyDetails();
+    
     if (actionAfterLogin === 'favorite') {
       handleToggleFavorite();
     } else if (actionAfterLogin === 'rent') {
@@ -384,11 +387,13 @@ const PropertyDetails = () => {
         </form>
       </Dialog>
 
-      <LoginDialog 
-        open={openLoginDialog}
-        onClose={() => setOpenLoginDialog(false)}
-        onLoginSuccess={handleLoginSuccess}
-      />
+      {openLoginDialog && (
+        <LoginDialog 
+          open={openLoginDialog}
+          onClose={() => setOpenLoginDialog(false)}
+          onLoginSuccess={handleLoginSuccess}
+        />
+      )}
     </Container>
   );
 };

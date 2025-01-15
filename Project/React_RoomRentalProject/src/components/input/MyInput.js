@@ -4,7 +4,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../Redux/actions";
 
-const MyInput = ({ required, onChange, icon, InputProps, value, validateGroup, ...props }) => {
+const MyInput = ({ required, onChange, icon, inputProps, value, validateGroup, ...props }) => {
     const [error, setError] = React.useState('');
     const dispatch = useDispatch();
     const validateRedux = useSelector((state) => state[validateGroup]);
@@ -53,13 +53,14 @@ const MyInput = ({ required, onChange, icon, InputProps, value, validateGroup, .
             value={value}
             error={(validateRedux && !isEmpty(validateRedux[props.id]))}
             helperText={validateRedux && validateRedux[props.id]}
+            inputProps={inputProps}
             InputProps={{
-                ...InputProps,
+                ...props.InputProps,
                 startAdornment: icon ? (
                     <InputAdornment position="start">
                         {icon}
                     </InputAdornment>
-                ) : InputProps?.startAdornment,
+                ) : undefined,
             }}
             {...props}
         />

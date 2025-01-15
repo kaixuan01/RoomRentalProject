@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Dialog,
     DialogTitle,
@@ -30,6 +30,10 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+import { useDispatch } from 'react-redux';
+import { updateData } from '../../Redux/actions';
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialog-paper': {
@@ -54,8 +58,9 @@ const StyledInput = styled(TextField)(({ theme }) => ({
     },
 }));
 
-const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
-    const [activeTab, setActiveTab] = useState(0);
+const LoginDialog = ({ open, onClose, onLoginSuccess, defaultTab = 0 }) => {
+    const dispatch = useDispatch();
+    const [activeTab, setActiveTab] = useState(defaultTab);
     const [showPassword, setShowPassword] = useState(false);
     const [loginData, setLoginData] = useState({
         username: '',
@@ -74,7 +79,7 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
     const { HTTPReq } = useHTTPReq();
     const { handleLogin } = useAuthHandlers();
 
-    const registerValidGroup = "register";
+    const registerValidGroup = "tenantRegister";
     const regFormValidation = {
         name: { required: true, validateGroup: registerValidGroup },
         username: { required: true, validateGroup: registerValidGroup },
@@ -83,6 +88,16 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
         email: { required: true, format: InputFormat.EMAIL, validateGroup: registerValidGroup },
         phone: { required: true, format: InputFormat.PHONE, validateGroup: registerValidGroup },
     };
+
+    useEffect(() => {
+        return () => {
+            dispatch(updateData(registerValidGroup, {}));
+        };
+    }, []);
+
+    useEffect(() => {
+        setActiveTab(defaultTab);
+    }, [defaultTab]);
 
     const handleTabChange = (event, newValue) => {
         setActiveTab(newValue);
@@ -158,7 +173,7 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
                 <DialogTitle sx={{ pb: 0 }}>
                     <Tabs 
                         value={activeTab} 
-                        onChange={handleTabChange} 
+                        onChange={(e, newValue) => setActiveTab(newValue)} 
                         centered
                         sx={{
                             '& .MuiTabs-indicator': {
@@ -167,8 +182,8 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
                             },
                         }}
                     >
-                        <StyledTab label="Sign in" />
-                        <StyledTab label="Register" />
+                        <Tab label="Login" />
+                        <Tab label="Register" />
                     </Tabs>
                 </DialogTitle>
 
@@ -267,6 +282,7 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
                                     label="Name"
                                     value={registerData.name}
                                     onChange={handleRegisterInputChange}
+                                    icon={<PersonOutlineIcon />}
                                 />
                                 <MyInput
                                     {...regFormValidation.username}
@@ -274,6 +290,7 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
                                     label="Username"
                                     value={registerData.username}
                                     onChange={handleRegisterInputChange}
+                                    icon={<PersonOutlineIcon />}
                                 />
                                 <Stack direction="row" spacing={2}>
                                     <MyInput
@@ -283,6 +300,7 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
                                         type="password"
                                         value={registerData.password}
                                         onChange={handleRegisterInputChange}
+                                        icon={<LockOutlinedIcon />}
                                         fullWidth
                                     />
                                     <MyInput
@@ -292,6 +310,7 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
                                         type="password"
                                         value={registerData.confirmPassword}
                                         onChange={handleRegisterInputChange}
+                                        icon={<LockOutlinedIcon />}
                                         fullWidth
                                     />
                                 </Stack>
@@ -302,6 +321,7 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
                                     type="email"
                                     value={registerData.email}
                                     onChange={handleRegisterInputChange}
+                                    icon={<EmailIcon />}
                                 />
                                 <MyInput
                                     {...regFormValidation.phone}
@@ -309,6 +329,7 @@ const LoginDialog = ({ open, onClose, onLoginSuccess }) => {
                                     label="Phone"
                                     value={registerData.phone}
                                     onChange={handleRegisterInputChange}
+                                    icon={<PhoneIcon />}
                                 />
                                 <ValidationHandler
                                     formData={registerData}

@@ -20,7 +20,7 @@ const ForgotPassword = () => {
         method: 'POST',
         onSuccess: (data, msg) => {
             showSuccessAlert('Send reset password email to:', email).then(() => {
-              navigate('/auth/login');
+              navigate('/auth/ownerLogin');
             });
         },
         onError: (error) => {
@@ -91,7 +91,7 @@ const ForgotPassword = () => {
                 </Typography>
                 <Typography
                   component={Link}
-                  to="/auth/login"
+                  to="/auth/ownerLogin"
                   sx={{ textDecoration: 'none', color: 'primary.main', fontWeight: 500 }}
                 >
                   Back to Login

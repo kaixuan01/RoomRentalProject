@@ -57,7 +57,6 @@ const UserRegister = () => {
     };
 
     const handleAuthRegister = () => {
-        // console.log("Validation passed!");
         HTTPReq({
             url: `/OAuth/RegisterAcc`,
             data: formData,
@@ -212,7 +211,7 @@ const UserRegister = () => {
                                 </Typography>
                                 <Typography
                                     component={Link}
-                                    to="/auth/login"
+                                    to="/auth/ownerLogin"
                                     fontWeight="500"
                                     sx={{
                                         textDecoration: 'none',

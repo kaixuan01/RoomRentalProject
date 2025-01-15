@@ -40,7 +40,7 @@ const Menuitems = [
     id: uniqueId(),
     title: 'Login',
     icon: IconLogin,
-    href: '/auth/login',
+    href: '/auth/ownerLogin',
   },
   {
     id: uniqueId(),

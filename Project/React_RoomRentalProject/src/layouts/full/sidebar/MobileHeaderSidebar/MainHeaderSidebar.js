@@ -130,7 +130,7 @@ const MobileSidebar = ({ isOpen, onClose }) => {
         <Box sx={{ p: 2 }}>
           <Stack spacing={1}>
             <ListItem 
-              onClick={() => handleNavigation('/auth/login')}
+              onClick={() => handleNavigation('/auth/ownerLogin')}
               sx={{
                 bgcolor: 'primary.main',
                 color: 'white',
