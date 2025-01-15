@@ -29,6 +29,9 @@ import { PropertyType } from '../../../types/property.types.js';
 import MyGrid from '../../../components/container/MyGrid.js';
 import { propertyService } from 'src/services/propertyService';
 
+// Import background image
+import HomeBg from 'src/assets/images/backgrounds/HomeBg.jpg';
+
 const HomePage = () => {
   const navigate = useNavigate();
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -116,7 +119,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <Box
         sx={{
-          background: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("src/assets/images/backgrounds/HomeBg.jpg")',
+          background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${HomeBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '70vh',

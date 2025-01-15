@@ -19,8 +19,11 @@ using MySql.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Serilog
+var Logging = builder.Configuration.GetSection("Logging");
+var LogDir = Logging["LogDir"];
+
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.File(LogDir, rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 // Register log event to DBL

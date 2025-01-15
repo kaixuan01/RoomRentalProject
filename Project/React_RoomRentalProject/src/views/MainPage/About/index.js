@@ -17,6 +17,10 @@ import {
   Email,
 } from '@mui/icons-material';
 import MyGrid from '../../../components/container/MyGrid';
+import BoyProfile1 from 'src/assets/images/profile/BoyProfile1.jpg';
+import BoyProfile2 from 'src/assets/images/profile/BoyProfile2.jpg';
+import GirlProfile1 from 'src/assets/images/profile/GirlProfile1.jpg';
+import OurMission from 'src/assets/images/backgrounds/OurMission.jpg';
 
 const AboutPage = () => {
   const features = [
@@ -46,21 +50,21 @@ const AboutPage = () => {
     {
       name: 'John Doe',
       position: 'CEO & Founder',
-      image: 'src/assets/images/profile/BoyProfile1.jpg', // Add team member images
+      image: BoyProfile1,
       linkedin: '#',
       email: 'john@example.com'
     },
     {
       name: 'Mike Johnson',
       position: 'Property Manager',
-      image: 'src/assets/images/profile/BoyProfile2.jpg',
+      image: BoyProfile2,
       linkedin: '#',
       email: 'jane@example.com'
     },
     {
       name: 'Jane Smith',
       position: 'Customer Relations',
-      image: 'src/assets/images/profile/GirlProfile1.jpg',
+      image: GirlProfile1,
       linkedin: '#',
       email: 'mike@example.com'
     }
@@ -93,7 +97,7 @@ const AboutPage = () => {
           <MyGrid xs={12} md={6}>
             <Box
               component="img"
-              src="src/assets/images/backgrounds/OurMission.jpg" // Add your mission image
+              src={OurMission}
               alt="Our Mission"
               sx={{
                 width: '100%',

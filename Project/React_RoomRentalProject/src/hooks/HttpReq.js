@@ -48,7 +48,7 @@ export const useHTTPReq = (onLogout) => {
     ({
       method = 'GET',
       url,
-      baseUrl = 'https://localhost:7032',
+      baseUrl = import.meta.env.VITE_API_URL,
       data = null,
       credentials = 'include',
       headers = {},
@@ -58,6 +58,7 @@ export const useHTTPReq = (onLogout) => {
       customHandlers = {},
       hideLoading = false
     }) => {
+
       (async () => {
         if (!hideLoading) {
           setLoading(true);
