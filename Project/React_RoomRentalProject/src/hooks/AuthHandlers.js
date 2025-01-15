@@ -12,6 +12,10 @@ export const useAuthHandlers = () => {
     // Clear user profile
     dispatch(updateData('userProfile', null));
     localStorage.removeItem('userProfile');
+    HTTPReq({
+      url: `/OAuth/Logout`,
+      method: 'POST',
+    });
   }, []);
 
   const { HTTPReq } = useHTTPReq(handleLogout);
