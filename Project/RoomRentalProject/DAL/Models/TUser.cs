@@ -38,6 +38,14 @@ public partial class TUser
 
     public virtual EUserStatus StatusNavigation { get; set; } = null!;
 
+    public virtual ICollection<TProperty> TPropertyApprovedByNavigations { get; set; } = new List<TProperty>();
+
+    public virtual ICollection<TProperty> TPropertyCreatedByNavigations { get; set; } = new List<TProperty>();
+
+    public virtual ICollection<TProperty> TPropertyOwners { get; set; } = new List<TProperty>();
+
+    public virtual ICollection<TProperty> TPropertyUpdatedByNavigations { get; set; } = new List<TProperty>();
+
     public virtual ICollection<TUserLoginHistory> TUserLoginHistories { get; set; } = new List<TUserLoginHistory>();
 
     public virtual ICollection<TUserToken> TUserTokens { get; set; } = new List<TUserToken>();

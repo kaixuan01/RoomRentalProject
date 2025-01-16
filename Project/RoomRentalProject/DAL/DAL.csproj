@@ -24,4 +24,10 @@
     <ProjectReference Include="..\Utils\Utils.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\PropertyRP\PropertyPhotoRepository\" />
+    <Folder Include="Repository\PropertyRP\PropertyLanguageRepository\" />
+    <Folder Include="Repository\PropertyRP\PropertyFacilityRepository\" />
+  </ItemGroup>
+
 </Project>

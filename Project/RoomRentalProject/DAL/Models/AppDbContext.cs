@@ -29,6 +29,14 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<TEmail> TEmails { get; set; }
 
+    public virtual DbSet<TProperty> TProperties { get; set; }
+
+    public virtual DbSet<TPropertyFacility> TPropertyFacilities { get; set; }
+
+    public virtual DbSet<TPropertyLanguage> TPropertyLanguages { get; set; }
+
+    public virtual DbSet<TPropertyPhoto> TPropertyPhotos { get; set; }
+
     public virtual DbSet<TSystemConfig> TSystemConfigs { get; set; }
 
     public virtual DbSet<TUser> TUsers { get; set; }
@@ -36,6 +44,10 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<TUserLoginHistory> TUserLoginHistories { get; set; }
 
     public virtual DbSet<TUserToken> TUserTokens { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=Room_Rental;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -122,6 +134,96 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.Status)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_T_Email_Status");
+        });
+
+        modelBuilder.Entity<TProperty>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__T_Proper__3214EC07ACE7D70A");
+
+            entity.ToTable("T_Properties");
+
+            entity.HasIndex(e => e.Address, "IDX_PropertyAddress");
+
+            entity.HasIndex(e => e.PropertyStatus, "IDX_PropertyLanguagId");
+
+            entity.HasIndex(e => e.Price, "IDX_PropertyPrice");
+
+            entity.HasIndex(e => e.PropertyStatus, "IDX_PropertyStatus");
+
+            entity.Property(e => e.Address).HasMaxLength(255);
+            entity.Property(e => e.ApprovedAt).HasColumnType("datetime");
+            entity.Property(e => e.AreaSize).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Latitude).HasColumnType("decimal(9, 6)");
+            entity.Property(e => e.Longitude).HasColumnType("decimal(9, 6)");
+            entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.Remark).HasMaxLength(1000);
+            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+
+            entity.HasOne(d => d.ApprovedByNavigation).WithMany(p => p.TPropertyApprovedByNavigations)
+                .HasForeignKey(d => d.ApprovedBy)
+                .HasConstraintName("FK__T_Propert__Appro__59FA5E80");
+
+            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.TPropertyCreatedByNavigations)
+                .HasForeignKey(d => d.CreatedBy)
+                .HasConstraintName("FK__T_Propert__Creat__5812160E");
+
+            entity.HasOne(d => d.Owner).WithMany(p => p.TPropertyOwners)
+                .HasForeignKey(d => d.OwnerId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__T_Propert__Owner__571DF1D5");
+
+            entity.HasOne(d => d.UpdatedByNavigation).WithMany(p => p.TPropertyUpdatedByNavigations)
+                .HasForeignKey(d => d.UpdatedBy)
+                .HasConstraintName("FK__T_Propert__Updat__59063A47");
+        });
+
+        modelBuilder.Entity<TPropertyFacility>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("T_PropertyFacilities");
+
+            entity.HasIndex(e => new { e.PropertyId, e.FacilityType }, "IDX_PropertyId_FacilityType");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<TPropertyLanguage>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("T_PropertyLanguages");
+
+            entity.HasIndex(e => new { e.PropertyId, e.LanguageId }, "IDX_PropertyId_LanguageId");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Name).HasMaxLength(50);
+            entity.Property(e => e.PropertyDescription).HasMaxLength(4000);
+            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<TPropertyPhoto>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__T_Proper__3214EC076A3F05FA");
+
+            entity.ToTable("T_PropertyPhotos");
+
+            entity.HasIndex(e => e.PropertyId, "IDX_PropertyId");
+
+            entity.Property(e => e.PhotoFilePath).HasMaxLength(255);
+
+            entity.HasOne(d => d.Property).WithMany(p => p.TPropertyPhotos)
+                .HasForeignKey(d => d.PropertyId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__T_Propert__Photo__619B8048");
         });
 
         modelBuilder.Entity<TSystemConfig>(entity =>

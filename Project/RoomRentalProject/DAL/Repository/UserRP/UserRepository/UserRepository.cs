@@ -99,7 +99,7 @@ namespace DAL.Repository.UserRP.UserRepository
             return await _appDbContext.TUsers.FirstOrDefaultAsync(x => x.Email == email);
         }
 
-        #endregion
+        #endregion [ Get User ]
 
         #region [ Get User's Role ]
 
@@ -111,7 +111,7 @@ namespace DAL.Repository.UserRP.UserRepository
                 .FirstOrDefaultAsync();
         }
 
-        #endregion
+        #endregion [ Get User's Role ]
 
         public async Task CreateAsync(TUser user)
         {
