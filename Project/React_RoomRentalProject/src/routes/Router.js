@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
 import { initData } from '../Redux/actions';
+import OwnerLogin from 'src/views/authentication/OwnerLogin';
 
 /* ***Layouts**** */
 const PortalLayout = Loadable(lazy(() => import('../layouts/full/PortalLayout')));
@@ -10,11 +11,14 @@ const MainLayout = Loadable(lazy(() => import('../layouts/full/MainLayout')));
 const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')));
 
 /* ****Main Pages***** */
-const AboutUsPage = Loadable(lazy(() => import('../views/MainPage/AboutUs/AboutUs')));
+const MainHomePage = Loadable(lazy(() => import('../views/MainPage/Home/index')));
+const AboutUsPage = Loadable(lazy(() => import('../views/MainPage/About/index')));
+const ContactPage = Loadable(lazy(() => import('../views/MainPage/Contact/index')));
+const PropertyListing = Loadable(lazy(() => import('../views/MainPage/Property/PropertyListing')));
+const PropertyDetails = Loadable(lazy(() => import('../views/MainPage/Property/PropertyDetails')));
 
 /* ****Auth Pages***** */
-const Register = Loadable(lazy(() => import('../views/authentication/Register')));
-const Login = Loadable(lazy(() => import('../views/authentication/Login')));
+const UserRegister = Loadable(lazy(() => import('../views/authentication/OwnerRegister')));
 const ForgotPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ForgotPassword')));
 const ResetPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword/ResetPassword')));
 const EmailConfirmation = Loadable(lazy(() => import('../views/authentication/EmailConfirmation')));
@@ -34,7 +38,9 @@ const Router = () => {
 
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem('isLogin');
+    const storedUserProfile = localStorage.getItem('userProfile');
     dispatch(initData('isLogin', storedLoginStatus || null));
+    dispatch(initData('userProfile', storedUserProfile || null));
   }, [dispatch]);
 
   const routes = [
@@ -43,10 +49,11 @@ const Router = () => {
       path: '/',
       element: <MainLayout />,
       children: [
-        { path: '/', element: <SamplePage /> },
-        { path: '/about', element: <AboutUsPage /> },
-        // { path: '/contact', element: <ContactPage /> },
-        // { path: '/listings', element: <ListingPage /> },
+        { path: '/', element: <MainHomePage /> },
+        { path: '/about-us', element: <AboutUsPage /> },
+        { path: '/contact-us', element: <ContactPage /> },
+        { path: '/property-listing', element: <PropertyListing /> },
+        { path: '/property-details/:id', element: <PropertyDetails /> },
         { path: '*', element: <Navigate to="/" replace /> },
       ],
     },
@@ -73,13 +80,13 @@ const Router = () => {
       path: '/auth',
       element: <BlankLayout />,
       children: [
-        { path: '/auth', element: <Navigate to="/auth/login" replace /> },
-        { path: '/auth/register', element: <Register /> },
-        { path: '/auth/login', element: <Login /> },
+        { path: '/auth', element: <Navigate to="/auth/ownerLogin" replace /> },
+        { path: '/auth/ownerLogin', element: <OwnerLogin /> },
+        { path: '/auth/ownerRegister', element: <UserRegister /> },
         { path: '/auth/ConfirmEmail/:token', element: <EmailConfirmation /> },
         { path: '/auth/ResetPassword/:token', element: <ResetPassword /> },
         { path: '/auth/ForgotPassword', element: <ForgotPassword /> },
-        { path: '*', element: <Navigate to="/auth/login" replace /> },
+        { path: '*', element: <Navigate to="/auth/ownerLogin" replace /> },
       ],
     },
   ];

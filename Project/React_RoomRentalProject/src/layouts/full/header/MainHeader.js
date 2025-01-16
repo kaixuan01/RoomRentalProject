@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AppBar, Toolbar, styled, Stack, IconButton, Button, Box, useMediaQuery } from '@mui/material';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { IconMenu } from '@tabler/icons-react';
 import PropTypes from 'prop-types';
-import Logo from '../../../assets/images/logos/Logo.png';
+import Logo from '../../../assets/images/logos/SmallLogo.png';
+import LoginDialog from '../../../components/Dialog/LoginDialog';
 
 // Components
 import Profile from './MainProfile';
@@ -13,6 +14,8 @@ const MainHeader = (props) => {
   const isLogin = useSelector((state) => state.isLogin) ?? false;
   const navigate = useNavigate();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+  const [openLoginDialog, setOpenLoginDialog] = useState(false);
+  const [isRegisterTab, setIsRegisterTab] = useState(false);
 
   // Styled Components
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
@@ -53,6 +56,20 @@ const MainHeader = (props) => {
 
   const handleNavigation = (path) => navigate(path);
 
+  const handleLoginClick = () => {
+    setIsRegisterTab(false);
+    setOpenLoginDialog(true);
+  };
+
+  const handleRegisterClick = () => {
+    setIsRegisterTab(true);
+    setOpenLoginDialog(true);
+  };
+
+  const handleLoginSuccess = () => {
+    setOpenLoginDialog(false);
+  };
+
   return (
     <AppBarStyled position="sticky" >
       <ToolbarStyled logo={Logo}>
@@ -77,9 +94,9 @@ const MainHeader = (props) => {
               <NavLink to="/" end>
                 Home
               </NavLink>
-              <NavLink to="/about">About</NavLink>
-              <NavLink to="/contact">Contact</NavLink>
-              <NavLink to="/listings">Listings</NavLink>
+              <NavLink to="/property-listing">Properties</NavLink>
+              <NavLink to="/about-us">About Us</NavLink>
+              <NavLink to="/contact-us">Contact Us</NavLink>
             </NavLinks>
 
             {/* Right Actions */}
@@ -92,7 +109,7 @@ const MainHeader = (props) => {
                     variant="outlined"
                     color="primary"
                     size="small"
-                    onClick={() => handleNavigation('/auth/login')}
+                    onClick={handleLoginClick}
                   >
                     Login
                   </Button>
@@ -100,7 +117,7 @@ const MainHeader = (props) => {
                     variant="contained"
                     color="primary"
                     size="small"
-                    onClick={() => handleNavigation('/auth/register')}
+                    onClick={handleRegisterClick}
                   >
                     Register
                   </Button>
@@ -129,6 +146,16 @@ const MainHeader = (props) => {
           
         )}
       </ToolbarStyled>
+
+      {/* Add LoginDialog */}
+      {openLoginDialog && (
+        <LoginDialog 
+          open={openLoginDialog}
+          onClose={() => setOpenLoginDialog(false)}
+          onLoginSuccess={handleLoginSuccess}
+          defaultTab={isRegisterTab ? 1 : 0}
+        />
+      )}
     </AppBarStyled>
   );
 };

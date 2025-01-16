@@ -1,10 +1,11 @@
-import React, { Suspense } from "react";
+import { Suspense } from 'react';
+import Loading from '../../../../components/shared/Loading/Loading';
 
 const Loadable = (Component) => (props) =>
-(
-  <Suspense>
-    <Component {...props} />
-  </Suspense>
-);
+  (
+    <Suspense fallback={<Loading />}>
+      <Component {...props} />
+    </Suspense>
+  );
 
 export default Loadable;

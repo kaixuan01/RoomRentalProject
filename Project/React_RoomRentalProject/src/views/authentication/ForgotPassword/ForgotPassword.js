@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Box, Card, Stack, Typography, TextField, Button } from '@mui/material';
 
 // components
@@ -10,7 +10,9 @@ import { useHTTPReq } from '../../../hooks/HttpReq';
 import MyGrid from '../../../components/container/MyGrid';
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-    const { HTTPReq } = useHTTPReq(); 
+  const { HTTPReq } = useHTTPReq(); 
+  const navigate = useNavigate();
+    
   const handleSend = () => {
     HTTPReq({
         url: `/OAuth/ForgotPassword`,
@@ -18,7 +20,7 @@ const ForgotPassword = () => {
         method: 'POST',
         onSuccess: (data, msg) => {
             showSuccessAlert('Send reset password email to:', email).then(() => {
-                navigate('/');
+              navigate('/auth/ownerLogin');
             });
         },
         onError: (error) => {
@@ -89,7 +91,7 @@ const ForgotPassword = () => {
                 </Typography>
                 <Typography
                   component={Link}
-                  to="/auth/login"
+                  to="/auth/ownerLogin"
                   sx={{ textDecoration: 'none', color: 'primary.main', fontWeight: 500 }}
                 >
                   Back to Login

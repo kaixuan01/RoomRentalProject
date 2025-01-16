@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-// import PBLogo from "src/assets/images/logos/PBLogo.png"; // Import as a file
-import { ReactComponent as LogoDark1 } from "src/assets/images/logos/dark1-logo.svg";
+import LogoDark1 from "../../../../assets/images/logos/SmallLogo.png";
 import { styled } from "@mui/material";
 
 const LinkStyled = styled(Link)(() => ({
@@ -17,10 +16,10 @@ const Logo = () => {
       style={{
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      {/* <img src={PBLogo} alt="Logo" style={{ height: "100%", width: "auto" }} /> */}
-      <LogoDark1/>
+      <img src={LogoDark1} alt="Logo" style={{ height: "100%", width: "auto" }} />
     </LinkStyled>
   );
 };

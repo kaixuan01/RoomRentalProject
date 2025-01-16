@@ -26,14 +26,14 @@ const Menuitems = [
     id: uniqueId(),
     title: 'Login',
     icon: IconLogin,
-    href: '/auth/login',
+    href: '/auth/ownerLogin',
     authRequired: false,
   },
   {
     id: uniqueId(),
     title: 'Register',
     icon: IconUserPlus,
-    href: '/auth/register',
+    href: '/auth/ownerRegister',
     authRequired: false,
   },
   {

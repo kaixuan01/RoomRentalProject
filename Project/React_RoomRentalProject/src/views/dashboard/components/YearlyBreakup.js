@@ -66,7 +66,7 @@ const YearlyBreakup = () => {
     <DashboardCard title="Yearly Breakup">
       <MyGrid container spacing={3}>
         {/* column */}
-        <MyGrid item xs={7} sm={7}>
+        <MyGrid xs={7} sm={7}>
           <Typography variant="h3" fontWeight="700">
             $36,358
           </Typography>
@@ -101,7 +101,7 @@ const YearlyBreakup = () => {
           </Stack>
         </MyGrid>
         {/* column */}
-        <MyGrid item xs={5} sm={5}>
+        <MyGrid xs={5} sm={5}>
           <Chart
             options={optionscolumnchart}
             series={seriescolumnchart}

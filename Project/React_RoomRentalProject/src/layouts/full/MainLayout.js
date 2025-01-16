@@ -47,9 +47,9 @@ const MainLayout = () => {
         {/* ------------------------------------------- */}
         {/* PageContent */}
         {/* ------------------------------------------- */}
-        <Container sx={{
+        <Container maxWidth={false} sx={{
           paddingTop: "20px",
-          maxWidth: '1200px',
+          maxWidth: '1500px',
         }}
         >
           {/* ------------------------------------------- */}

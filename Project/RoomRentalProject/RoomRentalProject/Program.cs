@@ -11,18 +11,23 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using System.Net.NetworkInformation;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
 using Utils.Constant;
 using Utils.Enums;
 using Utils.Tools;
+using MySql.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Serilog
+var Logging = builder.Configuration.GetSection("Logging");
+var LogDir = Logging["LogDir"];
+
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.File(LogDir, rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 // Register log event to DBL
@@ -165,7 +170,8 @@ builder.Services.AddCors(options =>
 
 // Add services to the container.
 var sqlConnString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddSqlServer<AppDbContext>(sqlConnString);
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySQL(sqlConnString));
 
 // Auto Add All Services
 builder.Services.AddAllService();
