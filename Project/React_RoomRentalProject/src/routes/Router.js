@@ -34,15 +34,6 @@ const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 
 const Router = () => {
   const isLogin = useSelector((state) => state.isLogin);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const storedLoginStatus = localStorage.getItem('isLogin');
-    const storedUserProfile = localStorage.getItem('userProfile');
-
-    dispatch(initData('isLogin', storedLoginStatus || null));
-    dispatch(initData('userProfile', JSON.parse(storedUserProfile) || null));
-  }, [dispatch]);
 
   const routes = [
     // Main Page Routes
