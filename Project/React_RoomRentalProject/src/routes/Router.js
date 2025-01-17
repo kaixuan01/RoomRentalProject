@@ -34,7 +34,7 @@ const UserManagement = Loadable(lazy(() => import('../views/portal/UserManagemen
 
 
 const Router = () => {
-  const isLogin = useSelector((state) => state.isLogin);
+  const isLogin = localStorage.getItem('isLogin') ?? false;
 
   const routes = [
     // Main Page Routes
