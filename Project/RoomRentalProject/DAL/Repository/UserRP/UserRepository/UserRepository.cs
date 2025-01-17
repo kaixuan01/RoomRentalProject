@@ -75,8 +75,8 @@ namespace DAL.Repository.UserRP.UserRepository
                     Name = u.Name,
                     Email = u.Email,
                     Phone = u.Phone,
-                    Role = u.UserRole.Name, // Map UserRole.Name to role
-                    Status = ((Enum_UserStatus)u.Status).GetDescription()
+                    Role = u.UserRoleId,
+                    Status = u.Status
                 });
 
             return result;

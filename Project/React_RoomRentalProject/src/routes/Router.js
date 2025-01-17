@@ -30,6 +30,7 @@ const Icons = Loadable(lazy(() => import('../views/icons/Icons')));
 const TypographyPage = Loadable(lazy(() => import('../views/utilities/TypographyPage')));
 const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')));
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
+const UserManagement = Loadable(lazy(() => import('../views/portal/UserManagement/UserManagement')));
 
 
 const Router = () => {
@@ -71,6 +72,7 @@ const Router = () => {
               { path: '/portal/icons', element: <Icons /> },
               { path: '/portal/ui/typography', element: <TypographyPage /> },
               { path: '/portal/ui/shadow', element: <Shadow /> },
+              { path: '/portal/user-management', element: <UserManagement /> },
               { path: '*', element: <Navigate to="/portal/dashboard" replace /> },
             ],
           },
