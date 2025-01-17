@@ -1,9 +1,10 @@
 import React, { lazy, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
 import { initData } from '../Redux/actions';
 import OwnerLogin from 'src/views/authentication/OwnerLogin';
+import { User_Roles } from '../utils/enum';
 
 /* ***Layouts**** */
 const PortalLayout = Loadable(lazy(() => import('../layouts/full/PortalLayout')));
@@ -35,6 +36,11 @@ const UserManagement = Loadable(lazy(() => import('../views/portal/UserManagemen
 
 const Router = () => {
   const isLogin = localStorage.getItem('isLogin') ?? false;
+  const userProfile = JSON.parse(localStorage.getItem('userProfile')) || null;
+  const userRole = userProfile ? userProfile.userRoleId : null || -1;
+
+  const location = useLocation(); // Get the current location
+  const currentPath = location.pathname; // Extract the current path
 
   const routes = [
     // Main Page Routes
@@ -42,8 +48,11 @@ const Router = () => {
       path: '/',
       element: <MainLayout />,
       children: [
-        { path: '/', element: <MainHomePage /> },
-        { path: '/about-us', element: <AboutUsPage /> },
+        {
+          path: '/',
+          element: <MainHomePage />,
+        },
+        { path: '/about-us', element: <AboutUsPage />},
         { path: '/contact-us', element: <ContactPage /> },
         { path: '/property-listing', element: <PropertyListing /> },
         { path: '/property-details/:id', element: <PropertyDetails /> },
@@ -58,18 +67,18 @@ const Router = () => {
             element: <PortalLayout />,
             children: [
               { path: '/portal', element: <Navigate to="/portal/dashboard" replace /> },
-              { path: '/portal/dashboard', element: <Dashboard /> },
-              { path: '/portal/sample-page', element: <SamplePage /> },
-              { path: '/portal/icons', element: <Icons /> },
-              { path: '/portal/ui/typography', element: <TypographyPage /> },
-              { path: '/portal/ui/shadow', element: <Shadow /> },
-              { path: '/portal/user-management', element: <UserManagement /> },
-              { path: '*', element: <Navigate to="/portal/dashboard" replace /> },
+              { path: '/portal/dashboard', element: <Dashboard />, accessible: [User_Roles.ADMIN, User_Roles.OWNER] },
+              { path: '/portal/sample-page', element: <SamplePage />, accessible: [User_Roles.ADMIN, User_Roles.OWNER] },
+              { path: '/portal/icons', element: <Icons />, accessible: [User_Roles.ADMIN, User_Roles.OWNER] },
+              { path: '/portal/ui/typography', element: <TypographyPage />, accessible: [User_Roles.ADMIN, User_Roles.OWNER] },
+              { path: '/portal/ui/shadow', element: <Shadow />, accessible: [User_Roles.ADMIN, User_Roles.OWNER] },
+              { path: '/portal/user-management', element: <UserManagement />, accessible: [User_Roles.ADMIN] },
+              { path: '*', element: <Navigate to="/" replace /> },
             ],
           },
         ]
       : []),
-    // Authentication Routes
+    // Authentication Routes  
     {
       path: '/auth',
       element: <BlankLayout />,
@@ -85,6 +94,23 @@ const Router = () => {
     },
   ];
 
-  return routes;
+  const renderRoutes = (routes, currentPath) => {
+    return routes.map((route) => {
+      const filteredRoutes = route.children
+      ? route.children.filter(
+          (childRoute) => !childRoute.accessible || childRoute.accessible.includes(userRole)
+        )
+      : [];
+
+      // Return a new route object with updated children
+      return {
+        ...route,
+        children: filteredRoutes,
+      };
+    });
+  };
+
+  var router123 = renderRoutes(routes, currentPath); // Pass the current path to renderRoutes
+  return router123;
 };
 export default Router;

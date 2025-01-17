@@ -1,13 +1,15 @@
 // User Role Enum
 export const User_Roles = {
-    ADMIN: 0,
-    OWNER: 1,
-    TENANT: 2,
+    ADMIN: 1,
+    OWNER: 2,
+    TENANT: 3,
   };
 
   export const InputFormat = { 
-    PASSWORD: 0,
-    CONFIRM_PASSWORD: 1,
-    EMAIL: 2,
-    PHONE: 3,
+    PASSWORD: 1,
+    CONFIRM_PASSWORD: 2,
+    EMAIL: 3,
+    PHONE: 4,
   };
+
+  

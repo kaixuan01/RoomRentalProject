@@ -6,6 +6,7 @@ import {
 } from '@tabler/icons-react';
 
 import { uniqueId } from 'lodash';
+import { User_Roles } from '../../../utils/enum';
 
 const getMenuItems = (userRoleId) => [
   // Common Dashboard for all users
@@ -21,7 +22,7 @@ const getMenuItems = (userRoleId) => [
   },
 
   // Admin Only Section
-  ...(userRoleId === 0 ? [
+  ...(userRoleId === User_Roles.ADMIN ? [
     {
       navlabel: true,
       subheader: 'Administration',
@@ -101,7 +102,7 @@ const getMenuItems = (userRoleId) => [
   ] : []),
 
   // Owner Only Section
-  ...(userRoleId === 1 ? [
+  ...(userRoleId === User_Roles.OWNER ? [
     {
       navlabel: true,
       subheader: 'Property Management',
@@ -135,7 +136,7 @@ const getMenuItems = (userRoleId) => [
   ] : []),
 
   // Tenant Only Section
-  ...(userRoleId === 2 ? [
+  ...(userRoleId === User_Roles.TENANT ? [
     {
       navlabel: true,
       subheader: 'Room Search',
@@ -155,7 +156,7 @@ const getMenuItems = (userRoleId) => [
   ] : []),
 
   // Common sections for Owner and Tenant
-  ...(userRoleId === 1 || userRoleId === 2 ? [
+  ...(userRoleId === User_Roles.TENANT || userRoleId === User_Roles.OWNER ? [
     {
       navlabel: true,
       subheader: 'Contracts & Payments',
@@ -181,8 +182,8 @@ const getMenuItems = (userRoleId) => [
   },
   {
     id: uniqueId(),
-    title: userRoleId === 0 ? 'Platform Finance' : 
-          userRoleId === 1 ? 'My Income' : 
+    title: userRoleId === User_Roles.ADMIN ? 'Platform Finance' : 
+          userRoleId === User_Roles.OWNER ? 'My Income' : 
           'My Payments',
     icon: IconWallet,
     href: '/portal/finance',
