@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router';
 import { Box, List } from '@mui/material';
-import { useSelector } from 'react-redux';
 import NavItem from './NavItem';
 import NavGroup from './NavGroup/NavGroup';
 import { getMenuItems } from './MenuItems';
@@ -10,7 +9,7 @@ const SidebarItems = () => {
   const { pathname } = useLocation();
   const pathDirect = pathname;
 
-  const userProfile = useSelector((state) => state.userProfile) ?? null;
+  const userProfile = JSON.parse(localStorage.getItem('userProfile')) || null;
 
   const userRoleId = userProfile?.userRoleId ?? null;
   // Get menu items based on user role
