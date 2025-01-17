@@ -16,10 +16,7 @@ import { useSelector } from 'react-redux';
 const MobileSidebar = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const isLogin = useSelector((state) => state.isLogin) ?? false;
-  const jsonUserProfile = useSelector((state) => state.userProfile) ?? null;
-  const userProfile = JSON.parse(jsonUserProfile);
-
-
+  const userProfile = useSelector((state) => state.userProfile) ?? null;
 
   const mainMenuItems = [
     { text: 'Home', icon: <Home />, path: '/' },

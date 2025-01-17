@@ -40,6 +40,7 @@ const StyledDialog = styled(Dialog)(({ theme }) => ({
         borderRadius: '12px',
         padding: theme.spacing(2),
     },
+    zIndex: 50,
 }));
 
 const StyledTab = styled(Tab)(({ theme }) => ({

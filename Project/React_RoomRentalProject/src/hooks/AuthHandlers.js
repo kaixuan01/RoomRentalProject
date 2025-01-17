@@ -28,7 +28,6 @@ export const useAuthHandlers = () => {
     dispatch(updateData('userProfile', userData));
     localStorage.setItem('userProfile', JSON.stringify(userData));
 
-    window.location.href = "/portal";
   }, [dispatch]);
 
   return { handleLogin, handleLogout };
