@@ -11,7 +11,7 @@ import LoginDialog from '../../../components/Dialog/LoginDialog';
 import Profile from './MainProfile';
 
 const MainHeader = (props) => {
-  const isLogin = useSelector((state) => state.isLogin) ?? false;
+  const isLogin = localStorage.getItem('isLogin') ?? false;
   const navigate = useNavigate();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const [openLoginDialog, setOpenLoginDialog] = useState(false);

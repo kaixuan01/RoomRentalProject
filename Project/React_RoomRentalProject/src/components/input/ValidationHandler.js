@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { updateData } from "../../Redux/actions";
 import { InputFormat } from "../../utils/enum";
+import { validateField } from "../../utils/helpers/formHelper";
 
 const ValidationHandler = ({ formData, regFormValidation, validateGroup, onValidationComplete, children }) => {
   const dispatch = useDispatch();
@@ -17,30 +18,23 @@ const ValidationHandler = ({ formData, regFormValidation, validateGroup, onValid
         continue;
       }
 
-      if (rules.required && (!formData[field] || (typeof formData[field] === "string" && formData[field].trim() === ""))) {
-        console.log(formData[field]);
-        errors[field] = `${field} is required.`;
+      const errorMessage = validateField(formData[field], rules);
+      if (errorMessage) {
+        errors[field] = errorMessage;
         isValid = false;
       }
 
-      if (rules.format === InputFormat.PASSWORD) {
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,])[A-Za-z\d!@#$%^&*.,]{8,}$/;
-        if (!passwordRegex.test(formData[field])) {
-          errors[field] = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.';
-          isValid = false;
-        }
-      } else if (rules.format === InputFormat.CONFIRM_PASSWORD) {
+      // Special case for confirm password
+      if (rules.format === InputFormat.CONFIRM_PASSWORD) {
         const originalPassword = Object.entries(formData).find(
           ([key, value]) => regFormValidation[key]?.format === InputFormat.PASSWORD
         )?.[1];
         
         if (formData[field] !== originalPassword) {
-          errors[field] = 'Passwords do not match.';
+          errors[field] = 'Passwords do not match';
           isValid = false;
         }
       }
-
-
     }
 
     dispatch(updateData(validateGroup, errors));
@@ -49,6 +43,7 @@ const ValidationHandler = ({ formData, regFormValidation, validateGroup, onValid
       onValidationComplete(isValid);
     }
   };
+
   return children({ validate });
 };
 

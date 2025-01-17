@@ -3,8 +3,9 @@ import CustomTextField from "../forms/theme-elements/CustomTextField";
 import InputAdornment from '@mui/material/InputAdornment';
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../Redux/actions";
+import { validateField } from "../../utils/helpers/formHelper";
 
-const MyInput = ({ required, onChange, icon, inputProps, value, validateGroup, ...props }) => {
+const MyInput = ({ required, onChange, icon, inputProps, value, validateGroup, format, ...props }) => {
     const [error, setError] = React.useState('');
     const dispatch = useDispatch();
     const validateRedux = useSelector((state) => state[validateGroup]);
@@ -26,20 +27,19 @@ const MyInput = ({ required, onChange, icon, inputProps, value, validateGroup, .
 
     const handleChange = (e) => {
         const newValue = e.target.value;
-
+        
         if (onChange) {
             onChange(e);
-            var errorMessage = '';
-            if (required && !newValue) {
-                errorMessage = 'This field is required';
-            }
-            setError(errorMessage);
+            
+            const rules = { required, format };
+            const errorMessage = validateField(newValue, rules);
+            
             dispatch(updateData(validateGroup, {
                 ...validateRedux,
                 [props.id]: errorMessage,
             }));
-        };
-    }
+        }
+    };
     const isEmpty = (value) => {
         return value === null || value === undefined || value === '';
     };
