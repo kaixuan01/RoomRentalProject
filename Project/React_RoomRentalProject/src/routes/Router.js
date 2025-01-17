@@ -39,8 +39,9 @@ const Router = () => {
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem('isLogin');
     const storedUserProfile = localStorage.getItem('userProfile');
+
     dispatch(initData('isLogin', storedLoginStatus || null));
-    dispatch(initData('userProfile', storedUserProfile || null));
+    dispatch(initData('userProfile', JSON.parse(storedUserProfile) || null));
   }, [dispatch]);
 
   const routes = [
