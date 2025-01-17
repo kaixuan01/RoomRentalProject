@@ -4,13 +4,16 @@ namespace Utils.Enums
 {
     public enum Enum_UserStatus
     {
+        [Description("None")]
+        None = 0,
+
         [Description("Active")]
-        Active = 0,
+        Active = 1,
 
         [Description("Inactive")]
-        Inactive = 1,
+        Inactive = 2,
 
         [Description("Blocked")]
-        Blocked = 2,
+        Blocked = 3,
     }
 }

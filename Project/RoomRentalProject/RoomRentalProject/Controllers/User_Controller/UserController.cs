@@ -17,6 +17,7 @@ namespace E_commerce.Controllers.User_Controller
     [Authorize]
     [ApiController]
     [Route("[controller]")]
+    [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
     public class UserController : BaseAPIController
     {
         private readonly IUserService _userService;
@@ -95,7 +96,6 @@ namespace E_commerce.Controllers.User_Controller
 
         [HttpPost]
         [Route("AddUser")]
-        [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> AddUser([FromBody] CreateUser_REQ oUser)
         {
             ApiResponse<string>? apiResponse = null;
@@ -144,7 +144,6 @@ namespace E_commerce.Controllers.User_Controller
 
         [HttpPost]
         [Route("EditUser")]
-        [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> EditUser([FromBody] EditUser_REQ oUser)
         {
             ApiResponse<string>? apiResponse = null;
@@ -193,7 +192,6 @@ namespace E_commerce.Controllers.User_Controller
 
         [HttpPost]
         [Route("DeleteUser")]
-        [Authorize(Policy = ConstantCode.AuthorizePolicy.AdminAccessPolicy)]
         public async Task<IActionResult> DeleteUser([FromBody] int userId)
         {
             ApiResponse<string>? apiResponse = null;

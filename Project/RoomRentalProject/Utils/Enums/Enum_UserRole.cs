@@ -4,13 +4,16 @@ namespace Utils.Enums
 {
     public enum Enum_UserRole 
     {
+        [Description("None")]
+        None = 0,
+
         [Description("Admin")]
-        Admin = 0,
+        Admin = 1,
 
         [Description("Owner")]
-        Owner = 1,
+        Owner = 2,
 
         [Description("Normal User")]
-        NormalUser = 2
+        NormalUser = 3
     }
 }

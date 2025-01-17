@@ -10,34 +10,55 @@ import {
   TableHead,
   TableRow,
   TablePagination,
+  TableSortLabel,
   Chip,
   IconButton,
   Typography,
+  TextField,
+  InputAdornment,
+  Paper,
+  Toolbar,
+  Tooltip,
+  alpha,
 } from '@mui/material';
-import { IconEdit, IconTrash, IconPlus } from '@tabler/icons-react';
+import {
+  IconEdit,
+  IconTrash,
+  IconPlus,
+  IconSearch,
+  IconFilter,
+  IconRefresh,
+} from '@tabler/icons-react';
 import { useUserService } from '../../../services/userService';
 import UserDialog from './UserDialog';
 import DeleteConfirmDialog from '../../../components/Dialog/DeleteConfirmDialog';
 import { showSuccessAlert, showErrorAlert } from '../../../utils/helpers/alertHelpers';
 
-
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOpenDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [orderBy, setOrderBy] = useState('username');
+  const [order, setOrder] = useState('asc');
+  const [loading, setLoading] = useState(false);
   const userService = useUserService();
 
   const loadUsers = () => {
+    setLoading(true);
     userService.getUsers({
       onSuccess: (data) => {
-        console.log(data);
         setUsers(data.items);
+        setFilteredUsers(data.items);
+        setLoading(false);
       },
       onError: (error) => {
         showErrorAlert(error);
+        setLoading(false);
       },
     });
   };
@@ -45,6 +66,37 @@ const UserManagement = () => {
   useEffect(() => {
     loadUsers();
   }, []);
+
+  // Search and filter functionality
+  useEffect(() => {
+    const filtered = users.filter((user) =>
+      Object.values(user)
+        .join(' ')
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase())
+    );
+    setFilteredUsers(filtered);
+    setPage(0);
+  }, [searchQuery, users]);
+
+  // Sorting functionality
+  const handleSort = (property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+
+    const sortedUsers = [...filteredUsers].sort((a, b) => {
+      const aValue = a[property] || '';
+      const bValue = b[property] || '';
+      
+      if (isAsc) {
+        return bValue.toString().localeCompare(aValue.toString());
+      }
+      return aValue.toString().localeCompare(bValue.toString());
+    });
+
+    setFilteredUsers(sortedUsers);
+  };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -137,76 +189,163 @@ const UserManagement = () => {
     }
   };
 
+  // Table header cells configuration
+  const headCells = [
+    { id: 'username', label: 'Username', sortable: true },
+    { id: 'name', label: 'Name', sortable: true },
+    { id: 'email', label: 'Email', sortable: true },
+    { id: 'phone', label: 'Phone', sortable: true },
+    { id: 'role', label: 'Role', sortable: true },
+    { id: 'status', label: 'Status', sortable: true },
+    { id: 'actions', label: 'Actions', sortable: false },
+  ];
+
   return (
     <Box>
-      <Card>
-        <Box sx={{ p: 3 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-            <Typography variant="h4">User Management</Typography>
+      <Paper elevation={0} sx={{ mb: 2, p: 2 }}>
+        <Typography variant="h4" sx={{ mb: 2 }}>
+          User Management
+        </Typography>
+
+        <Toolbar
+          sx={{
+            pl: { sm: 2 },
+            pr: { xs: 1, sm: 1 },
+            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.05),
+            borderRadius: 1,
+          }}
+        >
+          <TextField
+            sx={{ flex: '1 1 100%' }}
+            placeholder="Search users..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            variant="outlined"
+            size="small"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <IconSearch size={20} />
+                </InputAdornment>
+              ),
+            }}
+          />
+          <Box sx={{ display: 'flex', gap: 1, ml: 2 }}>
+            <Tooltip title="Refresh">
+              <IconButton onClick={loadUsers} disabled={loading}>
+                <IconRefresh size={20} />
+              </IconButton>
+            </Tooltip>
             <Button
               variant="contained"
-              color="primary"
               startIcon={<IconPlus />}
               onClick={handleAdd}
             >
               Add User
             </Button>
           </Box>
+        </Toolbar>
+      </Paper>
 
-          <TableContainer>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Username</TableCell>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Email</TableCell>
-                  <TableCell>Phone</TableCell>
-                  <TableCell>Role</TableCell>
-                  <TableCell>Status</TableCell>
-                  <TableCell>Actions</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {users
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((user) => (
-                    <TableRow key={user.id}>
-                      <TableCell>{user.username}</TableCell>
-                      <TableCell>{user.name}</TableCell>
-                      <TableCell>{user.email}</TableCell>
-                      <TableCell>{user.phone}</TableCell>
-                      <TableCell>{getUserRoleLabel(user.role)}</TableCell>
-                      <TableCell>
-                        <Chip
-                          label={getUserStatusLabel(user.status).label}
-                          color={getUserStatusLabel(user.status).color}
+      <Paper elevation={0}>
+        <TableContainer>
+          <Table sx={{ minWidth: 750 }}>
+            <TableHead>
+              <TableRow>
+                {headCells.map((headCell) => (
+                  <TableCell
+                    key={headCell.id}
+                    sortDirection={orderBy === headCell.id ? order : false}
+                    sx={{ fontWeight: 'bold', backgroundColor: (theme) => 
+                      alpha(theme.palette.primary.main, 0.05) }}
+                  >
+                    {headCell.sortable ? (
+                      <TableSortLabel
+                        active={orderBy === headCell.id}
+                        direction={orderBy === headCell.id ? order : 'asc'}
+                        onClick={() => handleSort(headCell.id)}
+                      >
+                        {headCell.label}
+                      </TableSortLabel>
+                    ) : (
+                      headCell.label
+                    )}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {filteredUsers
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((user) => (
+                  <TableRow
+                    hover
+                    key={user.id}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell>{user.username}</TableCell>
+                    <TableCell>{user.name}</TableCell>
+                    <TableCell>{user.email}</TableCell>
+                    <TableCell>{user.phone}</TableCell>
+                    <TableCell>
+                      <Chip
+                        label={getUserRoleLabel(user.role)}
+                        size="small"
+                        color="primary"
+                        variant="outlined"
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Chip
+                        label={getUserStatusLabel(user.status).label}
+                        color={getUserStatusLabel(user.status).color}
+                        size="small"
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Tooltip title="Edit">
+                        <IconButton 
+                          onClick={() => handleEdit(user)} 
+                          color="primary"
                           size="small"
-                        />
-                      </TableCell>
-                      <TableCell>
-                        <IconButton onClick={() => handleEdit(user)} color="primary">
+                        >
                           <IconEdit size={18} />
                         </IconButton>
-                        <IconButton onClick={() => handleDelete(user)} color="error">
+                      </Tooltip>
+                      <Tooltip title="Delete">
+                        <IconButton 
+                          onClick={() => handleDelete(user)} 
+                          color="error"
+                          size="small"
+                        >
                           <IconTrash size={18} />
                         </IconButton>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-
-          <TablePagination
-            component="div"
-            count={users.length}
-            page={page}
-            onPageChange={handleChangePage}
-            rowsPerPage={rowsPerPage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </Box>
-      </Card>
+                      </Tooltip>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              {filteredUsers.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={7} align="center" sx={{ py: 3 }}>
+                    <Typography variant="body1" color="textSecondary">
+                      No users found
+                    </Typography>
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          component="div"
+          count={filteredUsers.length}
+          page={page}
+          onPageChange={handleChangePage}
+          rowsPerPage={rowsPerPage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+          rowsPerPageOptions={[5, 10, 25, 50]}
+        />
+      </Paper>
 
       <UserDialog
         open={openDialog}

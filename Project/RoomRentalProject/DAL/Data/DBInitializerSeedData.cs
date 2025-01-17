@@ -32,7 +32,8 @@ namespace DAL.Data
             {
                 CreateUser("admin1", "admin", "Admin 1", "woonyap616@gmail.com", "0123456789", Enum_UserRole.Admin),
                 CreateUser("admin2", "admin", "Admin 2", "kaixuan0131@gmail.com", "0123456789", Enum_UserRole.Admin),
-                CreateUser("Owner1", "Owner", "Owner 1", "owner@owner.com", "0123456789", Enum_UserRole.Owner)
+                CreateUser("owner1", "owner", "Owner 1", "owner@owner.com", "0123456789", Enum_UserRole.Owner),
+                CreateUser("tenant1", "tenant", "Owner 1", "tenant@tenant.com", "0123456789", Enum_UserRole.NormalUser)
             };
 
             #endregion
@@ -89,6 +90,7 @@ namespace DAL.Data
                 Email = email,
                 Phone = phone,
                 UserRoleId = (short)role,
+                Status = (short)Enum_UserStatus.Active,
                 IsEmailVerified = true
             };
         }

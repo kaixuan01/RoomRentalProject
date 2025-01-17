@@ -15,9 +15,6 @@ public partial class TEmail
 
     public string? RecipientEmail { get; set; }
 
-    /// <summary>
-    /// Please refer E_Status table
-    /// </summary>
     public short Status { get; set; }
 
     public string? Remark { get; set; }

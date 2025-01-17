@@ -4,19 +4,22 @@ namespace Utils.Enums
 {
     public enum Enum_Status
     {
+        [Description("None")]
+        None = 0,
+
         [Description("Pending")]
-        Pending = 0,
+        Pending = 1,
 
         [Description("Approved")]
-        Approved = 1,
+        Approved = 2,
 
         [Description("Completed")]
-        Completed = 2,
+        Completed = 3,
 
         [Description("Failed")]
-        Failed = 3,
+        Failed = 4,
 
         [Description("Rejected")]
-        Rejected = 4
+        Rejected = 5
     }
 }
