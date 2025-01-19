@@ -3,11 +3,13 @@ import Cookies from "js-cookie";
 import { showErrorAlert } from '../utils/helpers/alertHelpers';
 import { useLoading } from '../components/shared/Loading/LoadingContext';
 import { useAuthHandlers } from './AuthHandlers';
+import { useNavigate } from 'react-router';
 
 const handleResponseErrors = (
   response,
   customHandlers = {},
-  handleLogout
+  handleLogout,
+  navigate
 ) => {
   const isBlocked = Cookies.get("isBlocked");
 
@@ -24,7 +26,7 @@ const handleResponseErrors = (
             });
           } else {
             showErrorAlert("Your session is expired. Please login again.").then(() => {
-              navigate('/');
+              navi('/');
             });
           }
           break;
@@ -47,6 +49,7 @@ const handleResponseErrors = (
 export const useHTTPReq = () => {
   const { setLoading } = useLoading();
   const { handleLogout } = useAuthHandlers();
+  const navigate = useNavigate();
   const HTTPReq = useCallback(
     ({
       method = 'GET',
@@ -84,7 +87,7 @@ export const useHTTPReq = () => {
             setLoading(false);
           }
 
-          if (!handleResponseErrors(response, customHandlers, handleLogout)) {
+          if (!handleResponseErrors(response, customHandlers, handleLogout, navigate)) {
             return;
           }
 
