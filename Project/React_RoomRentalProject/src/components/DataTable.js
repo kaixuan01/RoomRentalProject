@@ -82,9 +82,9 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
 
   return (
     <DashboardCard title="Data Table">
-      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
+      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', overflow: 'auto', width: { xs: '400px', sm: 'auto' } }}>
           <TextField
-            placeholder="Search..."
+            placeholder="Search..."w
             variant="outlined"
             size="small"
             sx={{ mr: 1 }}
@@ -111,7 +111,7 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
             {showFilters ? 'Hide Filters' : 'Show Filters'}
           </Button>
       </Box>
-      <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
+      <Box sx={{ overflow: 'auto', width: { xs: '400px', sm: 'auto' } }}>
             
       {showFilters && (
         <Grid container spacing={2} sx={{ mb: 2 }}>
