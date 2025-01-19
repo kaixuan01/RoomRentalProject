@@ -27,7 +27,7 @@ namespace DBL.SystemConfig_Service
         {
             var result = await _systemConfigRepository.GetAllAsync();
             return result;
-         }
+        }
 
         public async Task<ShareResp> UpdateAsync(UpdateSystemConfig_REQ oReq)
         {

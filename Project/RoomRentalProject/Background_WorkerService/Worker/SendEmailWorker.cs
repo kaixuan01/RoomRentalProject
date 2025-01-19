@@ -173,30 +173,42 @@ namespace Background_WorkerService.Worker
 
             try
             {
-                using (var smtpClient = new SmtpClient("smtp.office365.com", 587))
+                using (var smtpClient = new SmtpClient("mail.stayseeker.xyz", 587))  // Use your mail server address and port
                 {
-                    smtpClient.Credentials = new NetworkCredential("stayseeker@hotmail.com", "wglcytbctqgchhtz");
-                    smtpClient.EnableSsl = true;  // Enable SSL
+                    // Credentials for no-reply@stayseeker.xyz
+                    smtpClient.Credentials = new NetworkCredential("no-reply", "20250112@stay_seeker");
+                    smtpClient.EnableSsl = true;  // Enable SSL/TLS for secure email transmission
 
                     var mailMessage = new MailMessage
                     {
-                        From = new MailAddress("stayseeker@hotmail.com", "StaySeeker-noReply"),
+                        From = new MailAddress("no-reply@stayseeker.xyz", "no-reply-StaySeeker"),
                         Subject = oEmail.EmailSubject,
                         Body = oEmail.EmailContent,
                         IsBodyHtml = true
                     };
 
                     mailMessage.To.Add(new MailAddress(oEmail.RecipientEmail, oEmail.RecipientName));
+
+                    // Send the email
                     await smtpClient.SendMailAsync(mailMessage);
 
                     _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Email Sent Successful.");
 
-                    // Update email status to Completed;
+                    // Update email status to Completed
                     Status = (short)Enum_Status.Completed;
 
                     // Increment success count
                     successCount++;
                 }
+            }
+            catch (SmtpException smtpEx)
+            {
+                // Handle SMTP exceptions (e.g., invalid credentials, issues with SMTP server, etc.)
+                Console.WriteLine($"Error sending email: {smtpEx.Message}");
+                _logHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Error sending email: {smtpEx.Message}");
+                Status = (short)Enum_Status.Failed;
+                Remark = $"Error sending email, Exception: {smtpEx.Message}";
+                failureCount++;
             }
             catch (Exception ex)
             {

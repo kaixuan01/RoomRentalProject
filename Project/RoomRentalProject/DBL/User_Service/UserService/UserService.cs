@@ -158,7 +158,8 @@ namespace DBL.User_Service.UserService
                     Name = oUser.name,
                     Email = oUser.email,
                     Phone = oUser.phone,
-                    UserRoleId = oUser.userRoleId
+                    UserRoleId = oUser.userRoleId,
+                    Status = (short)Enum_UserStatus.Active
                 };
 
                 // ## Create User Record

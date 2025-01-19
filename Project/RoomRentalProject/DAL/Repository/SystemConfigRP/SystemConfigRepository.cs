@@ -29,7 +29,7 @@ namespace DAL.Repository.SystemConfigRP
 
         public async Task<List<TSystemConfig>> GetAllAsync()
         {
-            return await _appDbContext.TSystemConfigs.ToListAsync();
+            return await _appDbContext.TSystemConfigs.AsNoTracking().ToListAsync();
         }
     }
 }
