@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import Cookies from "js-cookie";
 import { showErrorAlert } from '../utils/helpers/alertHelpers';
 import { useLoading } from '../components/shared/Loading/LoadingContext';
+import { useAuthHandlers } from './AuthHandlers';
 
 const handleResponseErrors = (
   response,
@@ -16,24 +17,26 @@ const handleResponseErrors = (
     } else {
       switch (response.status) {
         case 401:
-          if (isBlocked === "true") {
-            showErrorAlert(
-              "Your account has been blocked, please contact admin to proceed."
-            );
-          } else {
-            showErrorAlert("Your session is expired. Please login again.");
-          }
           handleLogout();
+          if (isBlocked === "true") {
+            showErrorAlert("Your account has been blocked, please contact admin to proceed.").then(() => {
+              navigate('/');
+            });
+          } else {
+            showErrorAlert("Your session is expired. Please login again.").then(() => {
+              navigate('/');
+            });
+          }
           break;
 
         case 403:
-          showErrorAlert("You have no permission on this function!");
+          showErrorAlert("You have no permission on this function!").then(() => {
+            navigate('/portal');
+          });
           break;
 
         default:
-          showErrorAlert(
-            "Service temporarily not available. Please try again later."
-          );
+          showErrorAlert("Service temporarily not available. Please try again later.");
           break;
       }
     }
@@ -41,9 +44,9 @@ const handleResponseErrors = (
   }
   return true;
 };
-export const useHTTPReq = (onLogout) => {
+export const useHTTPReq = () => {
   const { setLoading } = useLoading();
-
+  const { handleLogout } = useAuthHandlers();
   const HTTPReq = useCallback(
     ({
       method = 'GET',
@@ -81,7 +84,7 @@ export const useHTTPReq = (onLogout) => {
             setLoading(false);
           }
 
-          if (!handleResponseErrors(response, customHandlers, onLogout)) {
+          if (!handleResponseErrors(response, customHandlers, handleLogout)) {
             return;
           }
 
@@ -113,7 +116,7 @@ export const useHTTPReq = (onLogout) => {
         }
       })();
     },
-    [setLoading, onLogout]
+    [setLoading]
   );
 
   return { HTTPReq };
