@@ -25,6 +25,7 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { IconEye, IconEyeOff, IconEdit, IconTrash, IconRefresh, IconSearch } from '@tabler/icons-react';
+import DashboardCard from './shared/DashboardCard';
 
 const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPageChange, onSearchChange, onRefresh, loading }) => {
   const [filters, setFilters] = useState({});
@@ -80,10 +81,8 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
   };
 
   return (
-    <Card elevation={3} sx={{ padding: 2, borderRadius: 2 }}>
-      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography variant="h6">Data Table</Typography>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <DashboardCard title="Data Table">
+      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
           <TextField
             placeholder="Search..."
             variant="outlined"
@@ -111,8 +110,9 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
           >
             {showFilters ? 'Hide Filters' : 'Show Filters'}
           </Button>
-        </Box>
       </Box>
+      <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
+            
       {showFilters && (
         <Grid container spacing={2} sx={{ mb: 2 }}>
           {columns.map((column) => (
@@ -155,8 +155,7 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
           ))}
         </Grid>
       )}
-      <TableContainer sx={{ maxHeight: 400, overflow: 'auto' }}>
-        <Table sx={{ minWidth: 750, borderCollapse: 'collapse' }}>
+        <Table sx={{ overflow: 'auto', borderCollapse: 'collapse' }}>
           <TableHead>
             <TableRow>
               {columns.map((column) => (
@@ -200,10 +199,7 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
               </TableRow>
             )}
           </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        component="div"
+          <TablePagination
         count={sortedData.length}
         page={page}
         onPageChange={onPageChange}
@@ -211,7 +207,12 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
         onRowsPerPageChange={onRowsPerPageChange}
         rowsPerPageOptions={[5, 10, 25, 50]}
       />
-    </Card>
+        </Table>
+      
+      
+      </Box>
+
+    </DashboardCard>
   );
 };
 
