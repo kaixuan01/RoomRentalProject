@@ -18,8 +18,15 @@ namespace Background_WorkerService.Worker
         private readonly LogHelper _logHelper;
         private readonly ISystemConfigService _systemConfigService;
         private readonly IEmailService _emailService;
-
-        public SendEmailWorker(IServiceProvider serviceProvider)
+        private readonly IConfiguration _configuration;  // Inject IConfiguration
+        private readonly string _emailServer;
+        private readonly int _emailPort;
+        private readonly string _emailUser;
+        private readonly string _emailUserPassword;
+        private readonly string _emailAddress;
+        private readonly string _emailDisplayName;
+        
+        public SendEmailWorker(IServiceProvider serviceProvider, IConfiguration configuration)
         {
             _logger = new LoggerConfiguration()
             .WriteTo.File("Logs/SendEmailWorker/.txt", rollingInterval: RollingInterval.Day)
@@ -33,6 +40,32 @@ namespace Background_WorkerService.Worker
             var scope = _serviceProvider.CreateScope();
             _systemConfigService = scope.ServiceProvider.GetRequiredService<ISystemConfigService>();
             _emailService = scope.ServiceProvider.GetRequiredService<IEmailService>();
+            _configuration = configuration;
+
+            // Retrieve email settings from appsettings.json using IConfiguration
+            _emailServer = _configuration["EmailSettings:EmailServer"];
+            _emailUser = _configuration["EmailSettings:EmailUser"];
+            _emailUserPassword = _configuration["EmailSettings:EmailUserPassword"];
+            _emailAddress = _configuration["EmailSettings:EmailAddress"];
+            _emailDisplayName = _configuration["EmailSettings:EmailDisplayName"];
+
+            // Convert EmailSettings:ServerPort from string to integer
+            if (!int.TryParse(configuration["EmailSettings:ServerPort"], out _emailPort))
+            {
+                // Handle the error (set a default or throw an exception)
+                _emailPort = 587; // Default value if parsing fails
+                _logHelper.FormatMainLogMessage(Enum_LogLevel.Error, "Invalid email port configuration. Using default port 587.");
+            }
+
+            _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, "-------------------------------------------");
+            _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, "        Retrieve Email Config.");
+            _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, "-------------------------------------------");
+            _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Email Server: {_emailServer}");
+            _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Email Server Port: {_emailPort}");
+            _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Email User: {_emailUser}");
+            _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Email User Password: {_emailUserPassword}");
+            _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Email Address: {_emailAddress}");
+            _logHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Email Display Name: {_emailDisplayName}");
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -173,15 +206,15 @@ namespace Background_WorkerService.Worker
 
             try
             {
-                using (var smtpClient = new SmtpClient("mail.stayseeker.xyz", 587))  // Use your mail server address and port
+                using (var smtpClient = new SmtpClient(_emailServer, _emailPort))  // Use your mail server address and port
                 {
                     // Credentials for no-reply@stayseeker.xyz
-                    smtpClient.Credentials = new NetworkCredential("no-reply", "20250112@stay_seeker");
+                    smtpClient.Credentials = new NetworkCredential(_emailUser, _emailUserPassword);
                     smtpClient.EnableSsl = true;  // Enable SSL/TLS for secure email transmission
 
                     var mailMessage = new MailMessage
                     {
-                        From = new MailAddress("no-reply@stayseeker.xyz", "no-reply-StaySeeker"),
+                        From = new MailAddress(_emailAddress, _emailDisplayName),
                         Subject = oEmail.EmailSubject,
                         Body = oEmail.EmailContent,
                         IsBodyHtml = true
