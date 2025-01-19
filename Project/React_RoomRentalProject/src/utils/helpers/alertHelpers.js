@@ -1,30 +1,48 @@
 import Swal from 'sweetalert2';
 
 export const showBasicAlert = (title, text, icon = 'info') => {
-  Swal.fire({
-    title,
-    text,
-    icon,
-    confirmButtonText: 'OK',
+  return new Promise((resolve) => {
+    Swal.fire({
+      title,
+      text,
+      icon,
+      confirmButtonText: 'OK',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        resolve(); // Resolve the promise when the alert is confirmed
+      }
+    });
   });
 };
 
 export const showSuccessAlert = (title = 'Success', text = '') => {
-  return Swal.fire({
-    title,
-    text,
-    icon: 'success',
-    confirmButtonText: 'Great!',
+  return new Promise((resolve) => {
+    Swal.fire({
+      title,
+      text,
+      icon: 'success',
+      confirmButtonText: 'Great!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        resolve(); // Resolve the promise when the alert is confirmed
+      }
+    });
   });
 };
 
 // Error alert
 export const showErrorAlert = (title = 'Error', text = '') => {
-  Swal.fire({
-    title,
-    text,
-    icon: 'error',
-    confirmButtonText: 'OK',
+  return new Promise((resolve) => {
+    Swal.fire({
+      title,
+      text,
+      icon: 'error',
+      confirmButtonText: 'OK',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        resolve(); // Resolve the promise when the alert is confirmed
+      }
+    });
   });
 };
 
