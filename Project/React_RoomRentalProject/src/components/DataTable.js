@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   Table,
   TableBody,
@@ -27,11 +27,13 @@ import {
 import { IconEye, IconEyeOff, IconEdit, IconTrash, IconRefresh, IconSearch } from '@tabler/icons-react';
 import DashboardCard from './shared/DashboardCard';
 
-const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPageChange, onSearchChange, onRefresh, loading }) => {
+const DataTable = ({ data, columns, onSearchChange, loading, onQueryParamsChange }) => {
   const [filters, setFilters] = useState({});
   const [showFilters, setShowFilters] = useState(false);
-  const [orderBy, setOrderBy] = useState('');
-  const [order, setOrder] = useState('asc');
+  const orderBy = useRef('');
+  const order = useRef('asc');
+  const pageNumber = useRef(1);
+  const pageSize = useRef(5);
 
   const handleFilterChange = (columnId, value) => {
     setFilters((prevFilters) => ({
@@ -40,54 +42,46 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
     }));
   };
 
+  const handlePageChange = (event, newPage) => {
+    pageNumber.current = newPage + 1;
+    OnSearchChange();
+  };
+
+  const handlePageSizeChange = (e) => {
+    pageSize.current = e.target.value; 
+    pageNumber.current = 1; 
+    OnSearchChange();
+  }
+
+  const OnSearchChange = () => {
+    const queryParams = {
+      PageNumber: pageNumber.current,
+      PageSize: pageSize.current,
+      SortBy: orderBy.current ? orderBy.current : '',
+      SortDescending: order.current === 'desc',
+    };
+    onQueryParamsChange(queryParams);
+  };
+
   const handleSort = (property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
+    const isAsc = orderBy.current === property && order.current === 'asc';
+    order.current = (isAsc ? 'desc' : 'asc');
+    orderBy.current = property;
+    OnSearchChange()
   };
 
-  const filteredData = data.filter((row) => {
-    return Object.keys(filters).every((columnId) => {
-      const filterValue = filters[columnId]?.toLowerCase() || '';
-      const cellValue = row[columnId]?.toString().toLowerCase() || '';
-      return cellValue.includes(filterValue);
-    });
-  });
-
-  const sortedData = filteredData.sort((a, b) => {
-    if (order === 'asc') {
-      return a[orderBy] < b[orderBy] ? -1 : 1;
-    } else {
-      return a[orderBy] > b[orderBy] ? -1 : 1;
-    }
-  });
-
-  const getUserRoleLabel = (role) => {
-    // Implement your logic to get a readable label for the role
-    return role;
-  };
-
-  const getUserStatusLabel = (status) => {
-    // Implement your logic to get a readable label and color for the status
-    return { label: status, color: 'default' };
-  };
-
-  const handleEdit = (user) => {
-    // Implement the edit logic
-  };
-
-  const handleDelete = (user) => {
-    // Implement the delete logic
-  };
+  useEffect(() => {
+    OnSearchChange();
+  }, []);
 
   return (
     <DashboardCard title="Data Table">
-      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', overflow: 'auto', width: { xs: '400px', sm: 'auto' } }}>
+      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap', alignItems: 'center', overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
           <TextField
-            placeholder="Search..."w
+            placeholder="Search..."
             variant="outlined"
             size="small"
-            sx={{ mr: 1 }}
+            sx={{ mr: 1, flexGrow: 1, display: 'flex' }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -97,22 +91,22 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
             }}
             onChange={(e) => onSearchChange(e.target.value)}
           />
-          <Tooltip title="Refresh">
-            <IconButton onClick={onRefresh} disabled={loading}>
-              {loading ? <CircularProgress size={20} /> : <IconRefresh size={20} />}
-            </IconButton>
-          </Tooltip>
-          <Button
-            variant="contained"
-            onClick={() => setShowFilters((prev) => !prev)}
-            sx={{ mb: 2, ml: 1 }}
-            startIcon={showFilters ? <IconEyeOff /> : <IconEye />}
-          >
-            {showFilters ? 'Hide Filters' : 'Show Filters'}
-          </Button>
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
+            <Tooltip title="Refresh">
+              <IconButton onClick={OnSearchChange} disabled={loading}>
+                {loading ? <CircularProgress size={20} /> : <IconRefresh size={20} />}
+              </IconButton>
+            </Tooltip>
+            <Button
+              variant="contained"
+              onClick={() => setShowFilters((prev) => !prev)}
+              startIcon={showFilters ? <IconEyeOff /> : <IconEye />}
+            >
+              {showFilters ? 'Hide Filters' : 'Show Filters'}
+            </Button>
+          </Box>
       </Box>
-      <Box sx={{ overflow: 'auto', width: { xs: '400px', sm: 'auto' } }}>
-            
+      <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
       {showFilters && (
         <Grid container spacing={2} sx={{ mb: 2 }}>
           {columns.map((column) => (
@@ -161,13 +155,13 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
-                  sortDirection={orderBy === column.id ? order : false}
+                  sortDirection={orderBy.current === column.id ? order.current : false}
                   sx={{ fontWeight: 'bold', borderBottom: '2px solid #e0e0e0' }}
                 >
                   {column.sortable ? (
                     <TableSortLabel
-                      active={orderBy === column.id}
-                      direction={orderBy === column.id ? order : 'asc'}
+                      active={orderBy.current === column.id}
+                      direction={orderBy.current === column.id ? order.current : 'asc'}
                       onClick={() => handleSort(column.id)}
                     >
                       {column.label}
@@ -179,8 +173,9 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
               ))}
             </TableRow>
           </TableHead>
+          {data && data.items && <>      
           <TableBody>
-            {sortedData.map((row) => (
+            {data.items.map((row) => (
               <TableRow hover key={row.id} sx={{ '&:hover': { backgroundColor: '#f5f5f5' } }}>
                 {columns.map((column) => (
                   <TableCell key={column.id} sx={{ borderBottom: '1px solid #e0e0e0' }}>
@@ -189,7 +184,7 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
                 ))}
               </TableRow>
             ))}
-            {sortedData.length === 0 && (
+            {data.items.length === 0 && (
               <TableRow>
                 <TableCell colSpan={columns.length} align="center" sx={{ py: 3 }}>
                   <Typography variant="body1" color="textSecondary">
@@ -200,13 +195,15 @@ const DataTable = ({ data, columns, page, rowsPerPage, onPageChange, onRowsPerPa
             )}
           </TableBody>
           <TablePagination
-        count={sortedData.length}
-        page={page}
-        onPageChange={onPageChange}
-        rowsPerPage={rowsPerPage}
-        onRowsPerPageChange={onRowsPerPageChange}
-        rowsPerPageOptions={[5, 10, 25, 50]}
-      />
+            count={parseInt(data.totalCount, 10)}
+            page={pageNumber.current - 1}
+            onPageChange={handlePageChange}
+            rowsPerPage={pageSize.current}
+            onRowsPerPageChange={(e) => {handlePageSizeChange(e)}}
+            rowsPerPageOptions={[5, 10, 25, 50]}
+          />
+          </>
+        }
         </Table>
       
       

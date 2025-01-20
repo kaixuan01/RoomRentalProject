@@ -38,75 +38,25 @@ import { getUserRoleLabel, getUserStatusLabel } from '../../../utils/enumHelpers
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
-  const [filteredUsers, setFilteredUsers] = useState([]);
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOpenDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [orderBy, setOrderBy] = useState('username');
-  const [order, setOrder] = useState('asc');
   const [loading, setLoading] = useState(false);
   const userService = useUserService();
 
-  const loadUsers = () => {
+  const loadUsers = (param) => {
     setLoading(true);
     userService.getUsers({
       onSuccess: (data) => {
-        setUsers(data.items);
-        setFilteredUsers(data.items);
+        setUsers(data);
         setLoading(false);
       },
       onError: (error) => {
         showErrorAlert(error);
         setLoading(false);
       },
-    });
-  };
-
-  useEffect(() => {
-    loadUsers();
-  }, []);
-
-  // Search and filter functionality
-  useEffect(() => {
-    const filtered = users.filter((user) =>
-      Object.values(user)
-        .join(' ')
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase())
-    );
-    setFilteredUsers(filtered);
-    setPage(0);
-  }, [searchQuery, users]);
-
-  // Sorting functionality
-  const handleSort = (property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
-
-    const sortedUsers = [...filteredUsers].sort((a, b) => {
-      const aValue = a[property] || '';
-      const bValue = b[property] || '';
-      
-      if (isAsc) {
-        return bValue.toString().localeCompare(aValue.toString());
-      }
-      return aValue.toString().localeCompare(bValue.toString());
-    });
-
-    setFilteredUsers(sortedUsers);
-  };
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
+    }, param);
   };
 
   const handleAdd = () => {
@@ -172,8 +122,6 @@ const UserManagement = () => {
       },
     });
   };
-
-
   // Define columns for the DataTable
   const columns = [
     { id: 'username', label: 'Username', sortable: true },
@@ -249,15 +197,12 @@ const UserManagement = () => {
 
       <Paper elevation={0}>
         <DataTable
-          data={filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)}
+          data={users}
           columns={columns}
-          page={page}
-          rowsPerPage={rowsPerPage}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
           onSearchChange={setSearchQuery}
           onRefresh={loadUsers}
           loading={loading}
+          onQueryParamsChange={(param) => loadUsers(param)}
         />
       </Paper>
 

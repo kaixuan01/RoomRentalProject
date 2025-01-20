@@ -26,7 +26,7 @@ const handleResponseErrors = (
             });
           } else {
             showErrorAlert("Your session is expired. Please login again.").then(() => {
-              navi('/');
+              navigate('/');
             });
           }
           break;

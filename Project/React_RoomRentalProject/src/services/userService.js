@@ -1,11 +1,12 @@
 import { useHTTPReq } from '../hooks/HttpReq';
+import { buildQueryString } from '../utils/helpers/stringHelper';
 
 export const useUserService = () => {
   const { HTTPReq } = useHTTPReq();
 
-  const getUsers = (callbacks = {}) => {
+  const getUsers = (callbacks = {}, param) => {
     return HTTPReq({
-      url: '/User/GetUserList',
+      url: `/User/GetUserList?${buildQueryString(param)}`,
       method: 'GET',
       onSuccess: (data) => {
         if (callbacks.onSuccess) callbacks.onSuccess(data);
