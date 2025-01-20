@@ -25,16 +25,10 @@ namespace Background_WorkerService.Worker
         private readonly string _emailUserPassword;
         private readonly string _emailAddress;
         private readonly string _emailDisplayName;
-        
+        private readonly string _logDir;
+
         public SendEmailWorker(IServiceProvider serviceProvider, IConfiguration configuration)
         {
-            _logger = new LoggerConfiguration()
-            .WriteTo.File("Logs/SendEmailWorker/.txt", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
-
-            _logHelper = new LogHelper(_logger);
-            DBL.Tools.LogHelper.OnLogEvent += _logHelper.LogMessage;
-
             _serviceProvider = serviceProvider;
             // Resolve services from the service provider in the correct scope
             var scope = _serviceProvider.CreateScope();
@@ -48,6 +42,19 @@ namespace Background_WorkerService.Worker
             _emailUserPassword = _configuration["EmailSettings:EmailUserPassword"];
             _emailAddress = _configuration["EmailSettings:EmailAddress"];
             _emailDisplayName = _configuration["EmailSettings:EmailDisplayName"];
+
+            // ## Setup Logger for Send Email Worker
+            // Retrieve the directory path from the configuration
+            _logDir = _configuration["Logging:LogDir:SendEmailWorkerDir"];
+
+
+            _logger = new LoggerConfiguration()
+            .WriteTo.File(_logDir, rollingInterval: RollingInterval.Day)
+            .CreateLogger();
+
+            _logHelper = new LogHelper(_logger);
+            DBL.Tools.LogHelper.OnLogEvent += _logHelper.LogMessage;
+
 
             // Convert EmailSettings:ServerPort from string to integer
             if (!int.TryParse(configuration["EmailSettings:ServerPort"], out _emailPort))
