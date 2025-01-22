@@ -27,13 +27,15 @@ import {
 import { IconEye, IconEyeOff, IconEdit, IconTrash, IconRefresh, IconSearch } from '@tabler/icons-react';
 import DashboardCard from './shared/DashboardCard';
 
-const DataTable = ({ data, columns, onSearchChange, loading, onQueryParamsChange }) => {
+const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
   const [filters, setFilters] = useState({});
   const [showFilters, setShowFilters] = useState(false);
   const orderBy = useRef('');
   const order = useRef('asc');
   const pageNumber = useRef(1);
   const pageSize = useRef(5);
+  const searchTerm = useRef(null);
+  const [searchTimeout, setSearchTimeout] = useState(null);
 
   const handleFilterChange = (columnId, value) => {
     setFilters((prevFilters) => ({
@@ -59,6 +61,7 @@ const DataTable = ({ data, columns, onSearchChange, loading, onQueryParamsChange
       PageSize: pageSize.current,
       SortBy: orderBy.current ? orderBy.current : '',
       SortDescending: order.current === 'desc',
+      ...(searchTerm.current ? { SearchTerm: searchTerm.current } : {}),
     };
     onQueryParamsChange(queryParams);
   };
@@ -70,13 +73,39 @@ const DataTable = ({ data, columns, onSearchChange, loading, onQueryParamsChange
     OnSearchChange()
   };
 
+  const onUniversalSearchChange = (value) => {
+    searchTerm.current = value;
+    OnSearchChange();
+  };
+
   useEffect(() => {
     OnSearchChange();
   }, []);
 
   return (
     <DashboardCard title="Data Table">
-      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap', alignItems: 'center', overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
+      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap', alignItems: 'center', overflow: 'auto', width: {
+              xs: '280px',
+              sm: 'auto',
+            },
+          '@media (min-width: 375px) and (max-width: 414px)': {
+            width: '300px',
+          },
+          '@media (min-width: 415px) and (max-width: 450px)': {
+            width: '320px',
+          },
+          '@media (min-width: 451px) and (max-width: 600px)': {
+            width: '470px',
+          },
+          '@media (min-width: 601px) and (max-width: 770px)': {
+            width: '650px',
+          },
+          '@media (min-width: 771px) and (max-width: 840px)': {
+            width: '690px',
+          },
+          '@media (min-width: 841) and (max-width: 960px)': {
+            width: '703px',
+          }}}>
           <TextField
             placeholder="Search..."
             variant="outlined"
@@ -89,7 +118,20 @@ const DataTable = ({ data, columns, onSearchChange, loading, onQueryParamsChange
                 </InputAdornment>
               ),
             }}
-            onChange={(e) => onSearchChange(e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value;
+              searchTerm.current = value;
+              
+              if (searchTimeout) {
+                clearTimeout(searchTimeout);
+              }
+
+              const timeout = setTimeout(() => {
+                onUniversalSearchChange(value);
+              }, 800);
+
+              setSearchTimeout(timeout);
+            }}
           />
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
             <Tooltip title="Refresh">
@@ -106,7 +148,28 @@ const DataTable = ({ data, columns, onSearchChange, loading, onQueryParamsChange
             </Button>
           </Box>
       </Box>
-      <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
+      <Box sx={{ overflow: 'auto', display: 'flex', flexWrap: 'wrap', width: {
+            xs: '280px',
+            sm: 'auto'
+          },
+        '@media (min-width: 375px) and (max-width: 414px)': {
+          width: '300px',
+        },
+        '@media (min-width: 415px) and (max-width: 450px)': {
+          width: '320px',
+        },
+        '@media (min-width: 451px) and (max-width: 600px)': {
+          width: '470px',
+        },
+        '@media (min-width: 601px) and (max-width: 770px)': {
+          width: '650px',
+        },
+        '@media (min-width: 771px) and (max-width: 840px)': {
+          width: '690px',
+        },
+        '@media (min-width: 841) and (max-width: 960px)': {
+          width: '703px',
+        }}}>
       {showFilters && (
         <Grid container spacing={2} sx={{ mb: 2 }}>
           {columns.map((column) => (
