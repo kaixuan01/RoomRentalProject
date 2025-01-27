@@ -117,9 +117,8 @@ var reactBaseUrl = reactSettings["BaseUrl"];
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalhost",
-        builder => builder
-            .WithOrigins(reactBaseUrl)
+    options.AddPolicy("AllowReactApp",
+        builder => builder.WithOrigins("https://www.stayseeker.xyz")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()); // Allow credentials like cookies
@@ -150,7 +149,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Apply CORS policy before authentication
-app.UseCors("AllowLocalhost");
+app.UseCors("AllowReactApp");
 
 // Register custom JWT middleware before authentication and authorization
 app.UseMiddleware<JwtMiddleware>();
