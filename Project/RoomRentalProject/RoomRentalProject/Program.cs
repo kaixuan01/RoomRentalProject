@@ -118,7 +118,7 @@ var reactBaseUrl = reactSettings["BaseUrl"];
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
-        builder => builder.WithOrigins("https://www.stayseeker.xyz")
+        builder => builder.WithOrigins(reactBaseUrl)
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()); // Allow credentials like cookies

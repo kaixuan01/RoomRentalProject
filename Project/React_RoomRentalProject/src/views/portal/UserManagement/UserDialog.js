@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { User_Roles, User_Status } from 'src/utils/enum'; 
 
 const UserDialog = ({ open, onClose, onSave, user }) => {
   const validationSchema = Yup.object({
@@ -136,9 +137,9 @@ const UserDialog = ({ open, onClose, onSave, user }) => {
                 error={formik.touched.userRoleId && Boolean(formik.errors.userRoleId)}
                 helperText={formik.touched.userRoleId && formik.errors.userRoleId}
               >
-                <MenuItem value={0}>Admin</MenuItem>
-                <MenuItem value={1}>Owner</MenuItem>
-                <MenuItem value={2}>Tenant</MenuItem>
+                {Object.entries(User_Roles).map(([key, value]) => (
+                  <MenuItem key={value} value={value}>{key}</MenuItem>
+                ))}
               </TextField>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -152,9 +153,9 @@ const UserDialog = ({ open, onClose, onSave, user }) => {
                 error={formik.touched.status && Boolean(formik.errors.status)}
                 helperText={formik.touched.status && formik.errors.status}
               >
-                <MenuItem value={1}>Active</MenuItem>
-                <MenuItem value={2}>Inactive</MenuItem>
-                <MenuItem value={3}>Pending</MenuItem>
+                {Object.entries(User_Status).map(([key, value]) => (
+                  <MenuItem key={value} value={value}>{key}</MenuItem>
+                ))}
               </TextField>
             </Grid>
             <Grid item xs={12}>

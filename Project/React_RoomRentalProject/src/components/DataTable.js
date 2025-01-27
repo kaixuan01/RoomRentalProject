@@ -23,25 +23,30 @@ import {
   CircularProgress,
   Card,
   InputAdornment,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Popover,
 } from '@mui/material';
 import { IconEye, IconEyeOff, IconEdit, IconTrash, IconRefresh, IconSearch } from '@tabler/icons-react';
 import DashboardCard from './shared/DashboardCard';
+import { filter } from 'lodash';
 
 const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
-  const [filters, setFilters] = useState({});
-  const [showFilters, setShowFilters] = useState(false);
+  const filters = useRef({});
+  const [showFiltersDialog, setShowFiltersDialog] = useState(false);
   const orderBy = useRef('');
   const order = useRef('asc');
   const pageNumber = useRef(1);
   const pageSize = useRef(5);
   const searchTerm = useRef(null);
   const [searchTimeout, setSearchTimeout] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleFilterChange = (columnId, value) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [columnId]: value,
-    }));
+    filters.current[columnId] = value;
+    OnSearchChange();
   };
 
   const handlePageChange = (event, newPage) => {
@@ -62,6 +67,7 @@ const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
       SortBy: orderBy.current ? orderBy.current : '',
       SortDescending: order.current === 'desc',
       ...(searchTerm.current ? { SearchTerm: searchTerm.current } : {}),
+      ...filters.current
     };
     onQueryParamsChange(queryParams);
   };
@@ -78,6 +84,14 @@ const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
     OnSearchChange();
   };
 
+  const handleOpenFiltersDialog = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseFiltersDialog = () => {
+    setAnchorEl(null);
+  };
+
   useEffect(() => {
     OnSearchChange();
   }, []);
@@ -86,22 +100,22 @@ const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
     <DashboardCard title="Data Table">
       <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between',flexWrap: 'wrap', alignItems: 'center', overflow: 'auto', width: {
               xs: '280px',
-              sm: 'auto',
+              md: 'auto',
             },
           '@media (min-width: 375px) and (max-width: 414px)': {
-            width: '300px',
+            width: '275px',
           },
           '@media (min-width: 415px) and (max-width: 450px)': {
             width: '320px',
           },
           '@media (min-width: 451px) and (max-width: 600px)': {
-            width: '470px',
+            width: '450px',
           },
           '@media (min-width: 601px) and (max-width: 770px)': {
-            width: '650px',
+            width: '580px',
           },
           '@media (min-width: 771px) and (max-width: 840px)': {
-            width: '690px',
+            width: '650px',
           },
           '@media (min-width: 841) and (max-width: 960px)': {
             width: '703px',
@@ -141,77 +155,107 @@ const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
             </Tooltip>
             <Button
               variant="contained"
-              onClick={() => setShowFilters((prev) => !prev)}
-              startIcon={showFilters ? <IconEyeOff /> : <IconEye />}
+              onClick={handleOpenFiltersDialog}
             >
-              {showFilters ? 'Hide Filters' : 'Show Filters'}
+              Show Filters
             </Button>
           </Box>
       </Box>
       <Box sx={{ overflow: 'auto', display: 'flex', flexWrap: 'wrap', width: {
             xs: '280px',
-            sm: 'auto'
+            md: 'auto'
           },
         '@media (min-width: 375px) and (max-width: 414px)': {
-          width: '300px',
+          width: '275px',
         },
         '@media (min-width: 415px) and (max-width: 450px)': {
           width: '320px',
         },
         '@media (min-width: 451px) and (max-width: 600px)': {
-          width: '470px',
+          width: '450px',
         },
         '@media (min-width: 601px) and (max-width: 770px)': {
-          width: '650px',
+          width: '580px',
         },
         '@media (min-width: 771px) and (max-width: 840px)': {
-          width: '690px',
+          width: '650px',
         },
         '@media (min-width: 841) and (max-width: 960px)': {
           width: '703px',
         }}}>
-      {showFilters && (
-        <Grid container spacing={2} sx={{ mb: 2 }}>
-          {columns.map((column) => (
-            <Grid item xs={12} sm={6} md={4} key={column.id}>
-              {column.filterType === 'checkbox' ? (
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={filters[column.id] || false}
-                      onChange={(e) => handleFilterChange(column.id, e.target.checked)}
-                    />
-                  }
-                  label={`Filter ${column.label}`}
-                />
-              ) : column.filterType === 'dropdown' ? (
-                <TextField
-                  select
-                  fullWidth
-                  variant="outlined"
-                  size="small"
-                  value={filters[column.id] || ''}
-                  onChange={(e) => handleFilterChange(column.id, e.target.value)}
-                >
-                  {column.options.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              ) : (
-                <TextField
-                  fullWidth
-                  placeholder={`Filter ${column.label}`}
-                  variant="outlined"
-                  size="small"
-                  onChange={(e) => handleFilterChange(column.id, e.target.value)}
-                />
-              )}
-            </Grid>
-          ))}
-        </Grid>
-      )}
+      <Popover
+        open={Boolean(anchorEl)}
+        anchorEl={anchorEl}
+        onClose={handleCloseFiltersDialog}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        sx={{
+          '& .MuiPaper-root': {
+            border: '1px solid #e0e0e0',
+            borderRadius: 1,
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+          }
+        }}
+      >
+        <Box sx={{ 
+          p: 2, 
+          width: 'auto', 
+          maxWidth: '600px',
+        }}>
+          <Typography variant="h6" sx={{ mb: 2 }}>Filter Options</Typography>
+          <Grid container spacing={2} sx={{ mb: 2 }}>
+            {columns.map((column) => (
+              <Grid item xs={12} sm={6} md={4} key={column.id}>
+                {column.filterType === 'checkbox' ? (
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={filters.current[column.id] || false}
+                        onChange={(e) => handleFilterChange(column.id, e.target.checked)}
+                      />
+                    }
+                    label={`Filter ${column.label}`}
+                  />
+                ) : column.filterType === 'dropdown' ? (
+                  <TextField
+                    select
+                    fullWidth
+                    variant="outlined"
+                    size="small"
+                    value={filters.current[column.id] || ''}
+                    onChange={(e) => handleFilterChange(column.id, e.target.value)}
+                  >
+                    {column.options.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                ) : (
+                  <TextField
+                    fullWidth
+                    placeholder={`Filter ${column.label}`}
+                    variant="outlined"
+                    size="small"
+                    onChange={(e) => handleFilterChange(column.id, e.target.value)}
+                  />
+                )}
+              </Grid>
+            ))}
+          </Grid>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
+            <Button onClick={handleCloseFiltersDialog} color="primary">
+              Close
+            </Button>
+          </Box>
+        </Box>
+      </Popover>
         <Table sx={{ overflow: 'auto', borderCollapse: 'collapse' }}>
           <TableHead>
             <TableRow>

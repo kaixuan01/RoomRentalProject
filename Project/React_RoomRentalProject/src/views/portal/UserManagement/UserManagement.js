@@ -35,6 +35,7 @@ import DeleteConfirmDialog from '../../../components/Dialog/DeleteConfirmDialog'
 import { showSuccessAlert, showErrorAlert } from '../../../utils/helpers/alertHelpers';
 import DataTable from '../../../components/DataTable';
 import { getUserRoleLabel, getUserStatusLabel } from '../../../utils/enumHelpers';
+import { User_Roles, User_Status } from '../../../utils/enum';
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -131,6 +132,8 @@ const UserManagement = () => {
     {
       id: 'role',
       label: 'Role',
+      filterType: 'dropdown',
+      options: Object.entries(User_Roles).map(([key, value]) => ({ value, label: key })),
       sortable: true,
       render: (user) => (
         <Chip label={getUserRoleLabel(user.role)} size="small" color="primary" variant="outlined" />
@@ -139,6 +142,8 @@ const UserManagement = () => {
     {
       id: 'status',
       label: 'Status',
+      filterType: 'dropdown',
+      options: Object.entries(User_Status).map(([key, value]) => ({ value, label: key })),
       sortable: true,
       render: (user) => (
         <Chip
