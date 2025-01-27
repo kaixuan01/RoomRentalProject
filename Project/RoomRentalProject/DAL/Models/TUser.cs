@@ -17,19 +17,10 @@ public partial class TUser
 
     public string? Phone { get; set; }
 
-    /// <summary>
-    /// Please refer E_UserRole table
-    /// </summary>
     public short UserRoleId { get; set; }
 
-    /// <summary>
-    /// Used to count user login failed attempt.
-    /// </summary>
     public int ICountFailedLogin { get; set; }
 
-    /// <summary>
-    /// Please refer E_UserStatus table
-    /// </summary>
     public short Status { get; set; }
 
     public bool IsEmailVerified { get; set; }
@@ -42,7 +33,19 @@ public partial class TUser
 
     public virtual ICollection<TProperty> TPropertyCreatedByNavigations { get; set; } = new List<TProperty>();
 
+    public virtual ICollection<TPropertyFacility> TPropertyFacilityCreatedByNavigations { get; set; } = new List<TPropertyFacility>();
+
+    public virtual ICollection<TPropertyFacility> TPropertyFacilityUpdatedByNavigations { get; set; } = new List<TPropertyFacility>();
+
+    public virtual ICollection<TPropertyLanguage> TPropertyLanguageCreatedByNavigations { get; set; } = new List<TPropertyLanguage>();
+
+    public virtual ICollection<TPropertyLanguage> TPropertyLanguageUpdatedByNavigations { get; set; } = new List<TPropertyLanguage>();
+
     public virtual ICollection<TProperty> TPropertyOwners { get; set; } = new List<TProperty>();
+
+    public virtual ICollection<TPropertyPhoto> TPropertyPhotoCreatedByNavigations { get; set; } = new List<TPropertyPhoto>();
+
+    public virtual ICollection<TPropertyPhoto> TPropertyPhotoUpdatedByNavigations { get; set; } = new List<TPropertyPhoto>();
 
     public virtual ICollection<TProperty> TPropertyUpdatedByNavigations { get; set; } = new List<TProperty>();
 

@@ -4,6 +4,7 @@
     {
         public class Module
         {
+            //Can be enums
             public const string User = "User";
             public const string SystemConfig = "System Config";
             public const string Email = "Email";
@@ -12,6 +13,7 @@
 
         public class Action
         {
+            //Can be enums
             public const string Create = "Create";
             public const string Edit = "Edit";
             public const string Delete = "Delete";

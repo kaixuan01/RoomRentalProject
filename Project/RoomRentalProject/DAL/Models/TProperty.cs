@@ -1,4 +1,7 @@
-﻿namespace DAL.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace DAL.Models;
 
 public partial class TProperty
 {
@@ -41,6 +44,10 @@ public partial class TProperty
     public virtual TUser? CreatedByNavigation { get; set; }
 
     public virtual TUser Owner { get; set; } = null!;
+
+    public virtual ICollection<TPropertyFacility> TPropertyFacilities { get; set; } = new List<TPropertyFacility>();
+
+    public virtual ICollection<TPropertyLanguage> TPropertyLanguages { get; set; } = new List<TPropertyLanguage>();
 
     public virtual ICollection<TPropertyPhoto> TPropertyPhotos { get; set; } = new List<TPropertyPhoto>();
 

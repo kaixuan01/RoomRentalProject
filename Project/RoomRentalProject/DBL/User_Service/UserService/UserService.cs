@@ -120,14 +120,14 @@ namespace DBL.User_Service.UserService
 
             try
             {
-                if (string.IsNullOrEmpty(oUser.name) || string.IsNullOrEmpty(oUser.username) || string.IsNullOrEmpty(oUser.email) || string.IsNullOrEmpty(oUser.password) || oUser.userRoleId == null)
+                if (string.IsNullOrEmpty(oUser.Name) || string.IsNullOrEmpty(oUser.Username) || string.IsNullOrEmpty(oUser.Email) || string.IsNullOrEmpty(oUser.Password) || oUser.UserRoleId == null)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = ErrorMessage.MissingRequiredField;
                     return rtnValue;
                 }
 
-                if (!RegexHelper.IsEmailValid(oUser.email))
+                if (!RegexHelper.IsEmailValid(oUser.Email))
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = "Invalid email format. Please enter a valid email.";
@@ -135,7 +135,7 @@ namespace DBL.User_Service.UserService
                 }
 
                 // Check is username exist
-                bool isUsernameExist = await _userRepository.IsUsernameExistAsync(oUser.username);
+                bool isUsernameExist = await _userRepository.IsUsernameExistAsync(oUser.Username);
                 if (isUsernameExist)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
@@ -143,7 +143,7 @@ namespace DBL.User_Service.UserService
                     return rtnValue;
                 }
                 // Check is email exist
-                bool isEmailExist = await _userRepository.IsEmailExistAsync(oUser.email);
+                bool isEmailExist = await _userRepository.IsEmailExistAsync(oUser.Email);
                 if (isEmailExist)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
@@ -153,12 +153,12 @@ namespace DBL.User_Service.UserService
 
                 var createUser = new TUser
                 {
-                    Username = oUser.username,
-                    Password = oUser.password,
-                    Name = oUser.name,
-                    Email = oUser.email,
-                    Phone = oUser.phone,
-                    UserRoleId = oUser.userRoleId
+                    Username = oUser.Username,
+                    Password = oUser.Password,
+                    Name = oUser.Name,
+                    Email = oUser.Email,
+                    Phone = oUser.Phone,
+                    UserRoleId = oUser.UserRoleId
                 };
 
                 // ## Create User Record
@@ -203,25 +203,25 @@ namespace DBL.User_Service.UserService
 
             try
             {
-                if (string.IsNullOrEmpty(oReq.name) || string.IsNullOrEmpty(oReq.email) || oReq.userRoleId == null)
+                if (string.IsNullOrEmpty(oReq.Name) || string.IsNullOrEmpty(oReq.Email) || oReq.UserRoleId == null)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = ErrorMessage.MissingRequiredField;
                     return rtnValue;
                 }
 
-                if (!RegexHelper.IsEmailValid(oReq.email))
+                if (!RegexHelper.IsEmailValid(oReq.Email))
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = "Invalid email format. Please enter a valid email.";
                     return rtnValue;
                 }
 
-                var oUser = await _userRepository.GetByIdAsync(oReq.id);
+                var oUser = await _userRepository.GetByIdAsync(oReq.Id);
 
                 if (oUser == null)
                 {
-                    LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"User not found. user id: {oReq.id}");
+                    LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"User not found. user id: {oReq.Id}");
 
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = "User not found.";
@@ -229,7 +229,7 @@ namespace DBL.User_Service.UserService
                 }
 
                 // Check is email exist
-                bool isEmailExist = await _userRepository.IsEmailExistAsync(oReq.email, oUser.Id);
+                bool isEmailExist = await _userRepository.IsEmailExistAsync(oReq.Email, oUser.Id);
                 if (isEmailExist)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
@@ -240,15 +240,15 @@ namespace DBL.User_Service.UserService
                 // Used to create audit trail record
                 var copyUser = oUser.Clone();
 
-                if (!string.IsNullOrEmpty(oReq.password))
+                if (!string.IsNullOrEmpty(oReq.Password))
                 {
-                    oUser.Password = oReq.password;
+                    oUser.Password = oReq.Password;
                 }
 
-                oUser.Name = oReq.name;
-                oUser.Email = oReq.email;
-                oUser.Phone = oReq.phone;
-                oUser.UserRoleId = oReq.userRoleId;
+                oUser.Name = oReq.Name;
+                oUser.Email = oReq.Email;
+                oUser.Phone = oReq.Phone;
+                oUser.UserRoleId = oReq.UserRoleId;
 
                 await _userRepository.UpdateAsync(oUser);
 
@@ -256,7 +256,7 @@ namespace DBL.User_Service.UserService
 
                 rtnValue.Code = RespCode.RespCode_Success;
                 rtnValue.Message = RespCode.RespMessage_Update_Successful;
-                LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"{RespCode.RespMessage_Update_Successful}. User Id: {oReq.id}");
+                LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"{RespCode.RespMessage_Update_Successful}. User Id: {oReq.Id}");
             }
             catch (Exception ex)
             {
@@ -420,9 +420,9 @@ namespace DBL.User_Service.UserService
             {
                 var oUser = new TUser();
 
-                if (!string.IsNullOrEmpty(user.username) && !string.IsNullOrEmpty(user.password))
+                if (!string.IsNullOrEmpty(user.Username) && !string.IsNullOrEmpty(user.Password))
                 {
-                    oUser = await _userRepository.GetByUsernameAsync(user.username);
+                    oUser = await _userRepository.GetByUsernameAsync(user.Username);
                 }
                 else
                 {
@@ -485,7 +485,7 @@ namespace DBL.User_Service.UserService
                         return rtnValue;
                     }
 
-                    bool success = PasswordHelper.VerifyPassword(user.password, oUser.Password);
+                    bool success = PasswordHelper.VerifyPassword(user.Password, oUser.Password);
 
                     var oLoginHistory = new TUserLoginHistory()
                     {
@@ -537,7 +537,7 @@ namespace DBL.User_Service.UserService
                     rtnValue.Code = RespCode.RespCode_Exception;
                     rtnValue.Message = ErrorMessage.AuthenticationFailed;
 
-                    LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"User not found. User Name: {user.username}");
+                    LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"User not found. User Name: {user.Username}");
                 }
 
             }
@@ -782,9 +782,9 @@ namespace DBL.User_Service.UserService
         {
             var rtnValue = new ShareResp();
 
-            LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"Receive Request to Reset Password. Token: {oReq.token}");
+            LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"Receive Request to Reset Password. Token: {oReq.Token}");
 
-            if (string.IsNullOrEmpty(oReq.token) || string.IsNullOrEmpty(oReq.newPassword) || string.IsNullOrEmpty(oReq.confirmPassword))
+            if (string.IsNullOrEmpty(oReq.Token) || string.IsNullOrEmpty(oReq.NewPassword) || string.IsNullOrEmpty(oReq.ConfirmPassword))
             {
                 LogHelper.RaiseLogEvent(Enum_LogLevel.Error, "Error occurred during the reset password process: Required Value is missing.");
 
@@ -793,7 +793,7 @@ namespace DBL.User_Service.UserService
                 return rtnValue;
             }
 
-            if (!oReq.newPassword.Equals(oReq.confirmPassword))
+            if (!oReq.NewPassword.Equals(oReq.ConfirmPassword))
             {
                 LogHelper.RaiseLogEvent(Enum_LogLevel.Error, "Error occurred during the reset password process: New Password not equal with confirm password.");
 
@@ -805,11 +805,11 @@ namespace DBL.User_Service.UserService
             try
             {
 
-                var oUserToken = await _userTokenService.GetByTokenAsync(oReq.token);
+                var oUserToken = await _userTokenService.GetByTokenAsync(oReq.Token);
 
                 if (oUserToken == null)
                 {
-                    LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"User Token not found. Token: {oReq.token}");
+                    LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"User Token not found. Token: {oReq.Token}");
 
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = "Invalid or expired reset password email link.";
@@ -841,7 +841,7 @@ namespace DBL.User_Service.UserService
                 await _userTokenService.UpdateAsync(oUserToken);
 
                 // ## Update User Email Verified
-                oUser.Password = PasswordHelper.HashPassword(oReq.newPassword);
+                oUser.Password = PasswordHelper.HashPassword(oReq.NewPassword);
                 await _userRepository.UpdateAsync(oUser);
 
                 // ## Insert Audit Trail for User changes

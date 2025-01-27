@@ -15,7 +15,7 @@ namespace E_commerce.Extension
             var myContext = services.GetRequiredService<AppDbContext>();
 
             // Auto insert default data
-            DBInitializerSeedData.InitializeDatabase(myContext);
+            //DBInitializerSeedData.InitializeDatabase(myContext);
         }
 
         public static void AddAllService(this IServiceCollection services)

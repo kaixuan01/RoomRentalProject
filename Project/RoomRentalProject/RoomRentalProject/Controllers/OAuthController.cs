@@ -44,9 +44,9 @@ namespace E_commerce.Controllers
 
             try
             {
-                if (!string.IsNullOrEmpty(oUser.password))
+                if (!string.IsNullOrEmpty(oUser.Password))
                 {
-                    oUser.password = PasswordHelper.HashPassword(oUser.password);
+                    oUser.Password = PasswordHelper.HashPassword(oUser.Password);
                 }
 
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Request to register account, Request: {JsonConvert.SerializeObject(oUser)}");
@@ -91,7 +91,7 @@ namespace E_commerce.Controllers
         [HttpPost(Name = "OAuth")]
         public async Task<IActionResult> OAuth([FromBody] VerifyUser_REQ user)
         {
-            if (!string.IsNullOrEmpty(user.username) && !string.IsNullOrEmpty(user.password))
+            if (!string.IsNullOrEmpty(user.Username) && !string.IsNullOrEmpty(user.Password))
             {
                 var oVerifyResp = await _userService.VerifyUserAsync(user);
 
@@ -100,10 +100,10 @@ namespace E_commerce.Controllers
                     switch (oVerifyResp.Code)
                     {
                         case RespCode.RespCode_Success:
-                            var token = _authToken.GenerateJwtToken(user.username, (Enum_UserRole)oVerifyResp.oUser.UserRoleId);
+                            var token = _authToken.GenerateJwtToken(user.Username, (Enum_UserRole)oVerifyResp.oUser.UserRoleId);
                             var refreshToken = AuthToken.GenerateToken();
                             // Update the refresh token in your storage
-                            AuthToken.StoreRefreshToken(user.username, refreshToken); // Implement StoreRefreshToken
+                            AuthToken.StoreRefreshToken(user.Username, refreshToken); // Implement StoreRefreshToken
 
                             // Set the tokens in cookies
                             SetCookies(token, refreshToken);
@@ -317,9 +317,9 @@ namespace E_commerce.Controllers
 
             try
             {
-                LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Forgot Password Request, Email: {oReq.email}");
+                LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Forgot Password Request, Email: {oReq.Email}");
 
-                var oResp = await _userService.ForgotPasswordRequestAsync(oReq.email);
+                var oResp = await _userService.ForgotPasswordRequestAsync(oReq.Email);
 
                 switch (oResp.Code)
                 {
@@ -359,7 +359,7 @@ namespace E_commerce.Controllers
 
             try
             {
-                LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Reset Password Request, Token: {oReq.token}");
+                LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Reset Password Request, Token: {oReq.Token}");
 
                 var oResp = await _userService.UpdateResetPasswordAsync(oReq);
 

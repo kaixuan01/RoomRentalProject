@@ -107,9 +107,9 @@ namespace E_commerce.Controllers.User_Controller
 
             try
             {
-                if (!string.IsNullOrEmpty(oUser.password))
+                if (!string.IsNullOrEmpty(oUser.Password))
                 {
-                    oUser.password = PasswordHelper.HashPassword(oUser.password);
+                    oUser.Password = PasswordHelper.HashPassword(oUser.Password);
                 }
 
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Request to add user, Request: {JsonConvert.SerializeObject(oUser)}");
@@ -159,9 +159,9 @@ namespace E_commerce.Controllers.User_Controller
 
             try
             {
-                if (!string.IsNullOrEmpty(oUser.password))
+                if (!string.IsNullOrEmpty(oUser.Password))
                 {
-                    oUser.password = PasswordHelper.HashPassword(oUser.password);
+                    oUser.Password = PasswordHelper.HashPassword(oUser.Password);
                 }
 
                 var oResp = await _userService.UpdateAsync(oUser);

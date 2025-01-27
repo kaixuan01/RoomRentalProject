@@ -1,19 +1,19 @@
-﻿namespace DBL.User_Service.UserService.UserActionClass
+﻿using DBL.Shared;
+
+namespace DBL.User_Service.UserService.UserActionClass
 {
     public class CreateUser_REQ
     {
-        public string? name { get; set; }
-        public string? username { get; set; }
-        public string? password { get; set; }
-        public string? email { get; set; }
-        public short userRoleId { get; set; } = 2;
-        public string? phone { get; set; }
+        public string? Name { get; set; }
+        public string? Username { get; set; }
+        public string? Password { get; set; }
+        public string? Email { get; set; }
+        public short UserRoleId { get; set; } = 2;
+        public string? Phone { get; set; }
     }
 
-    public class CreateUser_RESP
+    public class CreateUser_RESP : Common_RESP
     {
-        public string Code { get; set; }
-        public string Message { get; set; }
         public int UserId { get; set; }
     }
 }

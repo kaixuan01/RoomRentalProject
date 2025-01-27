@@ -10,7 +10,7 @@ namespace DAL.Repository.PropertyRP.PropertyRepository
 
         Task<TProperty> GetByIdAsync(long id);
 
-        Task<TProperty> GetByOwnerIdAsync(int ownerId);
+        Task<TProperty?> GetByOwnerIdAsync(int ownerId);
 
         Task CreateAsync(TProperty property);
 

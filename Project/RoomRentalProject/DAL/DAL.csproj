@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster.Core" Version="1.2.1" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
       <PrivateAssets>all</PrivateAssets>
@@ -27,9 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\PropertyRP\PropertyPhotoRepository\" />
-    <Folder Include="Repository\PropertyRP\PropertyLanguageRepository\" />
-    <Folder Include="Repository\PropertyRP\PropertyFacilityRepository\" />
+    <Compile Update="Repository\PropertyRP\PropertyFacilityRepository\IPropertyFacilityRepository.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
 </Project>

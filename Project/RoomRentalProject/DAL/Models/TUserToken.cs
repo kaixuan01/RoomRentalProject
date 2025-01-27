@@ -9,14 +9,8 @@ public partial class TUserToken
 
     public int UserId { get; set; }
 
-    /// <summary>
-    /// Store Base64 Encoded Token
-    /// </summary>
     public string Token { get; set; } = null!;
 
-    /// <summary>
-    /// Please refer E_EmailToken table
-    /// </summary>
     public short TokenType { get; set; }
 
     public DateTime CreatedDateTime { get; set; }
