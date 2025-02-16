@@ -14,18 +14,22 @@ import {
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { User_Roles, User_Status } from 'src/utils/enum'; 
-
+import { useUserService } from '../../../services/userService';
+import { showSuccessAlert, showErrorAlert } from 'src/utils/helpers/alertHelpers';
+import StyledDialog from '../../../components/shared/StyledDialog';
 const UserDialog = ({ open, onClose, onSave, user }) => {
+  const userService = useUserService();
   const validationSchema = Yup.object({
     username: Yup.string().required('Username is required'),
-    password: Yup.string().when('isEditing', {
+    password: Yup.string().when('$isEditing', {
       is: false,
-      then: Yup.string().required('Password is required'),
+      then: () => Yup.string().required('Password is required'),
+      otherwise: () => Yup.string()
     }),
     name: Yup.string().required('Name is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
     phone: Yup.string(),
-    userRoleId: Yup.number().required('Role is required'),
+    role: Yup.number().required('Role is required'),
     status: Yup.number().required('Status is required'),
   });
 
@@ -36,19 +40,45 @@ const UserDialog = ({ open, onClose, onSave, user }) => {
       name: '',
       email: '',
       phone: '',
-      userRoleId: 2, // Default to Tenant
-      status: 1, // Default to Active
+      role: 0, // Default to Tenant
+      status: 0, // Default to Active
       isEmailVerified: false,
       isEditing: false,
     },
     validationSchema,
-    onSubmit: (values) => {
-      const submitData = { ...values };
-      delete submitData.isEditing;
-      if (values.isEditing && !values.password) {
-        delete submitData.password;
+    validateOnMount: true,
+    context: { isEditing: !!user },
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        setSubmitting(true);
+        const submitData = { ...values };
+        delete submitData.isEditing;
+        console.log(1)
+        
+        // Remove password if editing and password is empty
+        if (values.isEditing && !values.password) {
+          delete submitData.password;
+        }
+
+        let response;
+        if (values.isEditing) {
+          response = await userService.updateUser(submitData);
+          await showSuccessAlert('Success', 'User updated successfully');
+        } else {
+          response = await userService.createUser(submitData);
+          await showSuccessAlert('Success', 'User created successfully');
+        }
+
+        onSave(response);
+        onClose();
+      } catch (error) {
+        await showErrorAlert(
+          'Error',
+          error.message || 'An error occurred while saving the user'
+        );
+      } finally {
+        setSubmitting(false);
       }
-      onSave(submitData);
     },
   });
 
@@ -65,7 +95,7 @@ const UserDialog = ({ open, onClose, onSave, user }) => {
   }, [user]);
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
+    <StyledDialog open={open} onClose={onClose} maxWidth="md" fullWidth>
       <form onSubmit={formik.handleSubmit}>
         <DialogTitle>{user ? 'Edit User' : 'Add User'}</DialogTitle>
         <DialogContent>
@@ -130,12 +160,12 @@ const UserDialog = ({ open, onClose, onSave, user }) => {
               <TextField
                 fullWidth
                 select
-                name="userRoleId"
+                name="role"
                 label="Role"
-                value={formik.values.userRoleId}
+                value={formik.values.role}
                 onChange={formik.handleChange}
-                error={formik.touched.userRoleId && Boolean(formik.errors.userRoleId)}
-                helperText={formik.touched.userRoleId && formik.errors.userRoleId}
+                error={formik.touched.role && Boolean(formik.errors.role)}
+                helperText={formik.touched.role && formik.errors.role}
               >
                 {Object.entries(User_Roles).map(([key, value]) => (
                   <MenuItem key={value} value={value}>{key}</MenuItem>
@@ -173,13 +203,23 @@ const UserDialog = ({ open, onClose, onSave, user }) => {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose}>Cancel</Button>
-          <Button type="submit" variant="contained" color="primary">
-            {user ? 'Update' : 'Create'}
+          <Button 
+            onClick={onClose}
+            disabled={formik.isSubmitting}
+          >
+            Cancel
+          </Button>
+          <Button 
+            type="submit" 
+            variant="contained" 
+            color="primary"
+            disabled={formik.isSubmitting}
+          >
+            {formik.isSubmitting ? 'Saving...' : user ? 'Update' : 'Create'}
           </Button>
         </DialogActions>
       </form>
-    </Dialog>
+    </StyledDialog>
   );
 };
 

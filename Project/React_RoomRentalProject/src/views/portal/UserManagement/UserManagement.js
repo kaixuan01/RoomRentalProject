@@ -33,7 +33,7 @@ import { useUserService } from '../../../services/userService';
 import UserDialog from './UserDialog';
 import DeleteConfirmDialog from '../../../components/Dialog/DeleteConfirmDialog';
 import { showSuccessAlert, showErrorAlert } from '../../../utils/helpers/alertHelpers';
-import DataTable from '../../../components/DataTable';
+import DataTable from '../../../components/shared/DataTable';
 import { getUserRoleLabel, getUserStatusLabel } from '../../../utils/enumHelpers';
 import { User_Roles, User_Status } from '../../../utils/enum';
 
@@ -135,9 +135,9 @@ const UserManagement = () => {
       filterType: 'dropdown',
       options: Object.entries(User_Roles).map(([key, value]) => ({ value, label: key })),
       sortable: true,
-      render: (user) => (
-        <Chip label={getUserRoleLabel(user.role)} size="small" color="primary" variant="outlined" />
-      ),
+      render: (user) => {
+        return <Chip label={getUserRoleLabel(user.role)} size="small" color="primary" variant="outlined" />
+      }
     },
     {
       id: 'status',

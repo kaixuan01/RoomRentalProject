@@ -34,15 +34,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { useDispatch } from 'react-redux';
 import { updateData } from '../../Redux/actions';
-
-const StyledDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialog-paper': {
-        borderRadius: '12px',
-        padding: theme.spacing(2),
-    },
-    zIndex: 50,
-}));
-
+import StyledDialog from '../shared/StyledDialog';
 const StyledTab = styled(Tab)(({ theme }) => ({
     textTransform: 'none',
     fontWeight: 600,
@@ -421,5 +413,4 @@ const LoginDialog = ({ open, onClose, onLoginSuccess, defaultTab = 0 }) => {
         </StyledDialog>
     );
 };
-
 export default LoginDialog;

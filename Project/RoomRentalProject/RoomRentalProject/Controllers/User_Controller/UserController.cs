@@ -228,7 +228,6 @@ namespace E_commerce.Controllers.User_Controller
 
                 apiResponse = ApiResponse<String>.CreateErrorResponse($"Delete User Failed. Exception: {ex.Message}");
             }
-
             return Ok(apiResponse);
         }
 

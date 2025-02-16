@@ -32,7 +32,7 @@ export const useUserService = () => {
 
   const createUser = (userData, callbacks = {}) => {
     return HTTPReq({
-      url: '/User/CreateUser',
+      url: '/User/AddUser',
       method: 'POST',
       data: userData,
       onSuccess: (data, msg) => {
@@ -44,9 +44,9 @@ export const useUserService = () => {
     });
   };
 
-  const updateUser = (id, userData, callbacks = {}) => {
+  const updateUser = (userData, callbacks = {}) => {
     return HTTPReq({
-      url: `/User/UpdateUser/${id}`,
+      url: `/User/EditUser`,
       method: 'PUT',
       data: userData,
       onSuccess: (data, msg) => {
@@ -60,8 +60,9 @@ export const useUserService = () => {
 
   const deleteUser = (id, callbacks = {}) => {
     return HTTPReq({
-      url: `/User/DeleteUser/${id}`,
+      url: `/User/DeleteUser`,
       method: 'DELETE',
+      data: userData,
       onSuccess: (data, msg) => {
         if (callbacks.onSuccess) callbacks.onSuccess(data, msg);
       },

@@ -30,7 +30,7 @@ import {
   Popover,
 } from '@mui/material';
 import { IconEye, IconEyeOff, IconEdit, IconTrash, IconRefresh, IconSearch } from '@tabler/icons-react';
-import DashboardCard from './shared/DashboardCard';
+import DashboardCard from './DashboardCard';
 import { filter } from 'lodash';
 
 const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
@@ -46,7 +46,18 @@ const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
 
   const handleFilterChange = (columnId, value) => {
     filters.current[columnId] = value;
-    OnSearchChange();
+    
+    // Clear any existing timeout
+    if (searchTimeout) {
+      clearTimeout(searchTimeout);
+    }
+
+    // Set new timeout
+    const timeout = setTimeout(() => {
+      OnSearchChange();
+    }, 800);
+
+    setSearchTimeout(timeout);
   };
 
   const handlePageChange = (event, newPage) => {
@@ -90,6 +101,24 @@ const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
 
   const handleCloseFiltersDialog = () => {
     setAnchorEl(null);
+  };
+
+  const handleResetFilters = () => {
+    filters.current = {};
+    searchTerm.current = '';
+    // Reset the search input field
+    const searchInput = document.querySelector('input[placeholder="Search..."]');
+    if (searchInput) {
+      searchInput.value = '';
+    }
+    OnSearchChange();
+  };
+
+  const handleRefresh = () => {
+    // Reset all filters and search
+    handleResetFilters();
+    // Refresh the data
+    OnSearchChange();
   };
 
   useEffect(() => {
@@ -148,8 +177,8 @@ const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
             }}
           />
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
-            <Tooltip title="Refresh">
-              <IconButton onClick={OnSearchChange} disabled={loading}>
+            <Tooltip title="Reset & Refresh">
+              <IconButton onClick={handleRefresh} disabled={loading}>
                 {loading ? <CircularProgress size={20} /> : <IconRefresh size={20} />}
               </IconButton>
             </Tooltip>
@@ -226,6 +255,7 @@ const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
                   <TextField
                     select
                     fullWidth
+                    label={column.label}
                     variant="outlined"
                     size="small"
                     value={filters.current[column.id] || ''}
@@ -240,17 +270,35 @@ const DataTable = ({ data, columns, loading, onQueryParamsChange }) => {
                 ) : (
                   <TextField
                     fullWidth
+                    label={column.label}
                     placeholder={`Filter ${column.label}`}
                     variant="outlined"
                     size="small"
+                    value={filters.current[column.id] || ''}
                     onChange={(e) => handleFilterChange(column.id, e.target.value)}
                   />
                 )}
               </Grid>
             ))}
           </Grid>
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
-            <Button onClick={handleCloseFiltersDialog} color="primary">
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2, gap: 1 }}>
+            <Button 
+              onClick={handleResetFilters} 
+              sx={{ 
+                backgroundColor: '#ff1744',
+                '&:hover': {
+                  backgroundColor: '#d50000',
+                },
+              }}
+              variant="contained"
+            >
+              Reset Filters
+            </Button>
+            <Button 
+              onClick={handleCloseFiltersDialog} 
+              color="primary"
+              variant="contained"
+            >
               Close
             </Button>
           </Box>
