@@ -64,5 +64,14 @@ namespace DAL.Repository.PropertyRP.PropertyPhotoRepository
                 await _appDbContext.SaveChangesAsync();
             }
         }
+
+        public async Task DeleteAsync(long propertyId)
+        {
+            var facilities = _appDbContext.TPropertyPhotos
+                .Where(f => f.PropertyId == propertyId);
+
+            _appDbContext.TPropertyPhotos.RemoveRange(facilities);
+            await _appDbContext.SaveChangesAsync();
+        }
     }
 }

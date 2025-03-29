@@ -17,15 +17,56 @@ namespace DAL.Repository.PropertyRP.PropertyRepository
             _appDbContext = context;
         }
 
-        public async Task CreateAsync(TProperty property)
+        public async Task<long> CreateAsync(TProperty property)
         {
             await _appDbContext.TProperties.AddAsync(property);
             await _appDbContext.SaveChangesAsync();
+
+            return property.Id;
         }
 
-        public async Task<TProperty> GetByIdAsync(long id)
+        public async Task<PropertyL> GetByIdAsync(long id, int? languageId = null)
         {
-            return await _appDbContext.TProperties.FirstOrDefaultAsync(x => x.Id == id);
+            var query = _appDbContext.TProperties
+                .Where(property => property.Id == id)
+                .Join(_appDbContext.TPropertyLanguages,
+                      property => property.Id,
+                      language => language.PropertyId,
+                      (property, language) => new { property, language });
+
+            if (languageId.HasValue)
+            {
+                query = query.Where(joined => joined.language.Id == languageId.Value);
+            }
+
+            var result = await query
+                .GroupBy(joined => joined.property)
+                .Select(group => new PropertyL
+                {
+                    Id = group.Key.Id,
+                    OwnerId = group.Key.OwnerId,
+                    Address = group.Key.Address,
+                    Price = group.Key.Price,
+                    PropertyType = ((Enum_PropertyType)group.Key.PropertyType).GetDescription(),
+                    AreaSize = group.Key.AreaSize,
+                    Latitude = group.Key.Latitude,
+                    Longitude = group.Key.Longitude,
+                    PropertyStatus = ((Enum_PropertyStatus)group.Key.PropertyStatus).GetDescription(),
+                    ApprovalStatus = ((Enum_ApprovalStatus)group.Key.ApprovalStatus).GetDescription(),
+                    ApprovedAt = group.Key.ApprovedAt,
+                    CreatedAt = group.Key.CreatedAt,
+                    CreatedBy = group.Key.CreatedBy,
+                    UpdatedAt = group.Key.UpdatedAt,
+                    PropertyLanguages = group.Select(joined => new PropertyLanguageLItem
+                    {
+                        LanguageId = (Enum_LanguageId)joined.language.Id,
+                        Name = joined.language.Name,
+                        Description = joined.language.PropertyDescription
+                    }).ToList()
+                })
+                .FirstOrDefaultAsync();
+
+            return result;
         }
 
         public async Task<TProperty?> GetByOwnerIdAsync(int ownerId)
@@ -102,23 +143,37 @@ namespace DAL.Repository.PropertyRP.PropertyRepository
             if (!oReq.PropertyIds.IsNullOrEmpty())
                 query = query.Where(u => oReq.PropertyIds.Contains(u.Id));
 
-            var result = query
-                .Select(u => new PropertyL
+            var result = query.Join(
+                    _appDbContext.TPropertyLanguages,
+                    property => property.Id,
+                    language => language.PropertyId,
+                    (property, language) => new { property, language })
+                .Where(joined => joined.language.Id == (int)oReq.LanguageId)
+                .Select(joined => new PropertyL
                 {
-                    Id = u.Id,
-                    OwnerId = u.OwnerId,
-                    Address = u.Address,
-                    Price = u.Price,
-                    PropertyType = ((Enum_PropertyType)u.PropertyType).GetDescription(),
-                    AreaSize = u.AreaSize,
-                    Latitude = u.Latitude,
-                    Longitude = u.Longitude,
-                    PropertyStatus = ((Enum_PropertyStatus)u.PropertyStatus).GetDescription(),
-                    ApprovalStatus = ((Enum_ApprovalStatus)u.ApprovalStatus).GetDescription(),
-                    ApprovedAt = u.ApprovedAt,
-                    CreatedAt = u.CreatedAt,
-                    CreatedBy = u.CreatedBy,
-                    UpdatedAt = u.UpdatedAt,
+                    Id = joined.property.Id,
+                    OwnerId = joined.property.OwnerId,
+                    Address = joined.property.Address,
+                    Price = joined.property.Price,
+                    PropertyType = ((Enum_PropertyType)joined.property.PropertyType).GetDescription(),
+                    AreaSize = joined.property.AreaSize,
+                    Latitude = joined.property.Latitude,
+                    Longitude = joined.property.Longitude,
+                    PropertyStatus = ((Enum_PropertyStatus)joined.property.PropertyStatus).GetDescription(),
+                    ApprovalStatus = ((Enum_ApprovalStatus)joined.property.ApprovalStatus).GetDescription(),
+                    ApprovedAt = joined.property.ApprovedAt,
+                    CreatedAt = joined.property.CreatedAt,
+                    CreatedBy = joined.property.CreatedBy,
+                    UpdatedAt = joined.property.UpdatedAt,
+                    PropertyLanguages = new List<PropertyLanguageLItem>
+                    {
+                        new PropertyLanguageLItem
+                        {
+                            LanguageId = (Enum_LanguageId)joined.language.Id, // Convert to Enum if necessary
+                            Name = joined.language.Name,
+                            Description = joined.language.PropertyDescription
+                        }
+                    }
                 });
 
             return result;
@@ -145,6 +200,14 @@ namespace DAL.Repository.PropertyRP.PropertyRepository
             foreach (var property in propertiesToUpdate)
                 property.PropertyStatus = (int)status;
 
+            await _appDbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(long id)
+        {
+            var property = await _appDbContext.TProperties.FindAsync(id);
+
+            _appDbContext.TProperties.Remove(property);
             await _appDbContext.SaveChangesAsync();
         }
     }

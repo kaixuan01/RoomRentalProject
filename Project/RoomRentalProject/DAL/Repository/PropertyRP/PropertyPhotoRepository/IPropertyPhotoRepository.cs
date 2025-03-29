@@ -14,5 +14,7 @@ namespace DAL.Repository.PropertyRP.PropertyPhotoRepository
         Task CreateAsync(List<TPropertyPhoto> propertyPhotos);
 
         Task UpdateAsync(List<TPropertyPhoto> propertyPhotos);
+
+        Task DeleteAsync(long propertyId);
     }
 }

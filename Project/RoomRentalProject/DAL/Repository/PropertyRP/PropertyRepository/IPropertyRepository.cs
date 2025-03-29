@@ -8,14 +8,16 @@ namespace DAL.Repository.PropertyRP.PropertyRepository
     {
         Task<IQueryable<PropertyL>> GetPropertyListing(PropertyListing_REQ oReq);
 
-        Task<TProperty> GetByIdAsync(long id);
+        Task<PropertyL> GetByIdAsync(long id, int? languageId = null);
 
         Task<TProperty?> GetByOwnerIdAsync(int ownerId);
 
-        Task CreateAsync(TProperty property);
+        Task<long> CreateAsync(TProperty property);
 
         Task UpdateAsync(TProperty property);
 
         Task UpdateStatusAsync(List<long> ids, Enum_PropertyStatus status);
+
+        Task DeleteAsync(long id);
     }
 }

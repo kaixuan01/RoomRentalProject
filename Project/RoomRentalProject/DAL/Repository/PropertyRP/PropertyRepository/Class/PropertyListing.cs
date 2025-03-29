@@ -8,7 +8,7 @@ namespace DAL.Repository.PropertyRP.PropertyRepository.Class
     {
         public int? OwnerId { get; set; }
 
-        public string Address { get; set; } = null!;
+        public string? Address { get; set; }
 
         public decimal? FromPrice { get; set; }
 
@@ -48,9 +48,9 @@ namespace DAL.Repository.PropertyRP.PropertyRepository.Class
 
         public Enum_LanguageId LanguageId { get; set; }
 
-        public List<Enum_FacilityType> FacilityTypes { get; set; }
-
-        public List<long> PropertyIds { get; set; }
+        public List<Enum_FacilityType?>? FacilityTypes { get; set; }
+        
+        public List<long>? PropertyIds { get; set; }
     }
 
     public class PropertyListing_RESP : ShareResp

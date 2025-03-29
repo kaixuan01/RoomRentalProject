@@ -26,7 +26,7 @@ namespace DAL.Repository.PropertyRP.PropertyFacilityRepository
             return facilities;
         }
 
-        public async Task<List<long>> GetPropertyIdsByFacilityTypesAsync(List<long>? propertyIds, List<Enum_FacilityType> types)
+        public async Task<List<long>> GetPropertyIdsByFacilityTypesAsync(List<long?> propertyIds, List<Enum_FacilityType?> types)
         {
             // Start the query from the database table
             var query = _appDbContext.TPropertyFacilities.AsQueryable();
@@ -70,6 +70,15 @@ namespace DAL.Repository.PropertyRP.PropertyFacilityRepository
 
                 await _appDbContext.SaveChangesAsync();
             }
+        }
+
+        public async Task DeleteAsync(long propertyId)
+        {
+            var facilities = _appDbContext.TPropertyFacilities
+                .Where(f => f.PropertyId == propertyId);
+
+            _appDbContext.TPropertyFacilities.RemoveRange(facilities);
+            await _appDbContext.SaveChangesAsync();
         }
     }
 }

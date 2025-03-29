@@ -77,5 +77,14 @@ namespace DAL.Repository.PropertyRP.PropertyLanguageRepository
             // Save changes to the database
             await _appDbContext.SaveChangesAsync();
         }
+
+        public async Task DeleteAsync(long propertyId)
+        {
+            var facilities = _appDbContext.TPropertyLanguages
+                .Where(f => f.PropertyId == propertyId);
+
+            _appDbContext.TPropertyLanguages.RemoveRange(facilities);
+            await _appDbContext.SaveChangesAsync();
+        }
     }
 }

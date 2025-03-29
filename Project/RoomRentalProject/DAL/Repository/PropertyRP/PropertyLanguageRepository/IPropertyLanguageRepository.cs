@@ -25,5 +25,7 @@ namespace DAL.Repository.PropertyRP.PropertyLanguageRepository
         Task CreateAsync(List<TPropertyLanguage> propertyLanguages);
 
         Task UpdateAsync(List<TPropertyLanguage> propertyLanguages);
+
+        Task DeleteAsync(long id);
     }
 }

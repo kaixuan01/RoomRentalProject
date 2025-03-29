@@ -142,6 +142,7 @@ namespace DBL.User_Service.UserService
                     rtnValue.Message = "Username already exists. Please try another username.";
                     return rtnValue;
                 }
+
                 // Check is email exist
                 bool isEmailExist = await _userRepository.IsEmailExistAsync(oUser.Email);
                 if (isEmailExist)
