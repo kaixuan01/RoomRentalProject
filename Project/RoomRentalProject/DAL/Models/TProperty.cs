@@ -45,6 +45,8 @@ public partial class TProperty
 
     public virtual TUser Owner { get; set; } = null!;
 
+    public virtual ICollection<TBooking> TBookings { get; set; } = new List<TBooking>();
+
     public virtual ICollection<TPropertyFacility> TPropertyFacilities { get; set; } = new List<TPropertyFacility>();
 
     public virtual ICollection<TPropertyLanguage> TPropertyLanguages { get; set; } = new List<TPropertyLanguage>();

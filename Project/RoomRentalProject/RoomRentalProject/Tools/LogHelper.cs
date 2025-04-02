@@ -1,5 +1,7 @@
-﻿using Serilog;
+﻿using Org.BouncyCastle.Crypto.Prng;
+using Serilog;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using Utils.Enums;
 
 namespace E_commerce.Tools

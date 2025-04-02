@@ -75,6 +75,12 @@ namespace DBL.AuditTrail_Service
                 {
                     foreach (var property in typeof(T).GetProperties())
                     {
+                        if (property.Name.Equals("CreatedAt") || property.Name.Equals("CreatedBy") || property.Name.Equals("UpdatedAt") || property.Name.Equals("UpdatedBy") || property.Name.Equals("UpdatedDate") || property.Name.Equals("CreatedDate"))
+                        {
+                            // Skip those default field
+                            break;
+                        }
+
                         var originalValue = property.GetValue(originalObject)?.ToString();
                         var newValue = property.GetValue(newObject)?.ToString();
 
@@ -101,6 +107,12 @@ namespace DBL.AuditTrail_Service
                 {
                     foreach (var property in typeof(T).GetProperties())
                     {
+                        if (property.Name.Equals("CreatedAt") || property.Name.Equals("CreatedBy") || property.Name.Equals("UpdatedAt") || property.Name.Equals("UpdatedBy") || property.Name.Equals("UpdatedDate") || property.Name.Equals("CreatedDate"))
+                        {
+                            // Skip those default field
+                            break;
+                        }
+
                         var newValue = property.GetValue(newObject)?.ToString();
 
                         if (string.IsNullOrEmpty(newValue))
@@ -123,6 +135,12 @@ namespace DBL.AuditTrail_Service
                 {
                     foreach (var property in typeof(T).GetProperties())
                     {
+                        if (property.Name.Equals("CreatedAt") || property.Name.Equals("CreatedBy") || property.Name.Equals("UpdatedAt") || property.Name.Equals("UpdatedBy") || property.Name.Equals("UpdatedDate") || property.Name.Equals("CreatedDate"))
+                        {
+                            // Skip those default field
+                            break;
+                        }
+
                         var originalValue = property.GetValue(originalObject)?.ToString();
 
                         if (string.IsNullOrEmpty(originalValue))

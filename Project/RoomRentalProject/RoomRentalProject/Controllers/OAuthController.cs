@@ -1,11 +1,10 @@
-using DAL.Models;
+using System.Security.Claims;
 using DAL.Repository.UserRP.UserRepository.Class;
 using DBL.User_Service.UserService;
 using DBL.User_Service.UserService.UserActionClass;
 using E_commerce.Tools;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Security.Claims;
 using Utils.Constant;
 using Utils.Enums;
 using Utils.Model;

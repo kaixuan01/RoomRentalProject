@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "RoomRentalProject\\RoomRentalProject.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Background_WorkerService\\Background_WorkerService.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

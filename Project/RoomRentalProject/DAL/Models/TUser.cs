@@ -29,11 +29,25 @@ public partial class TUser
 
     public virtual EUserStatus StatusNavigation { get; set; } = null!;
 
+    public virtual ICollection<TBooking> TBookings { get; set; } = new List<TBooking>();
+
     public virtual ICollection<TProperty> TPropertyApprovedByNavigations { get; set; } = new List<TProperty>();
 
     public virtual ICollection<TProperty> TPropertyCreatedByNavigations { get; set; } = new List<TProperty>();
 
+    public virtual ICollection<TPropertyFacility> TPropertyFacilityCreatedByNavigations { get; set; } = new List<TPropertyFacility>();
+
+    public virtual ICollection<TPropertyFacility> TPropertyFacilityUpdatedByNavigations { get; set; } = new List<TPropertyFacility>();
+
+    public virtual ICollection<TPropertyLanguage> TPropertyLanguageCreatedByNavigations { get; set; } = new List<TPropertyLanguage>();
+
+    public virtual ICollection<TPropertyLanguage> TPropertyLanguageUpdatedByNavigations { get; set; } = new List<TPropertyLanguage>();
+
     public virtual ICollection<TProperty> TPropertyOwners { get; set; } = new List<TProperty>();
+
+    public virtual ICollection<TPropertyPhoto> TPropertyPhotoCreatedByNavigations { get; set; } = new List<TPropertyPhoto>();
+
+    public virtual ICollection<TPropertyPhoto> TPropertyPhotoUpdatedByNavigations { get; set; } = new List<TPropertyPhoto>();
 
     public virtual ICollection<TProperty> TPropertyUpdatedByNavigations { get; set; } = new List<TProperty>();
 

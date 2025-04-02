@@ -11,5 +11,7 @@ public partial class EStatus
 
     public string Description { get; set; } = null!;
 
+    public virtual ICollection<TBooking> TBookings { get; set; } = new List<TBooking>();
+
     public virtual ICollection<TEmail> TEmails { get; set; } = new List<TEmail>();
 }

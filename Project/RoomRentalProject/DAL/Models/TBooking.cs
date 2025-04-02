@@ -3,15 +3,19 @@ using System.Collections.Generic;
 
 namespace DAL.Models;
 
-public partial class TPropertyPhoto
+public partial class TBooking
 {
-    public long Id { get; set; }
+    public int Id { get; set; }
+
+    public int UserId { get; set; }
 
     public long PropertyId { get; set; }
 
-    public string PhotoFilePath { get; set; } = null!;
+    public DateTime StartDate { get; set; }
 
-    public int PhotoType { get; set; }
+    public DateTime EndDate { get; set; }
+
+    public short Status { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
@@ -21,9 +25,9 @@ public partial class TPropertyPhoto
 
     public int? UpdatedBy { get; set; }
 
-    public virtual TUser? CreatedByNavigation { get; set; }
-
     public virtual TProperty Property { get; set; } = null!;
 
-    public virtual TUser? UpdatedByNavigation { get; set; }
+    public virtual EStatus StatusNavigation { get; set; } = null!;
+
+    public virtual TUser User { get; set; } = null!;
 }

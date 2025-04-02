@@ -8,6 +8,7 @@
             public const string SystemConfig = "System Config";
             public const string Email = "Email";
             public const string UserTokens = "User Tokens";
+            public const string LegalTerms = "Legal Terms";
         }
 
         public class Action

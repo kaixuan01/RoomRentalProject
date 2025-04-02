@@ -27,7 +27,17 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<TAuditTrailDetail> TAuditTrailDetails { get; set; }
 
+    public virtual DbSet<TBooking> TBookings { get; set; }
+
     public virtual DbSet<TEmail> TEmails { get; set; }
+
+    public virtual DbSet<TLegalTerm> TLegalTerms { get; set; }
+
+    public virtual DbSet<TLegalTermsCategoriesLanguage> TLegalTermsCategoriesLanguages { get; set; }
+
+    public virtual DbSet<TLegalTermsCategory> TLegalTermsCategories { get; set; }
+
+    public virtual DbSet<TLegalTermsLanguage> TLegalTermsLanguages { get; set; }
 
     public virtual DbSet<TProperty> TProperties { get; set; }
 
@@ -127,6 +137,50 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("T_AuditTrailDetails_ibfk_1");
         });
 
+        modelBuilder.Entity<TBooking>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("T_Booking");
+
+            entity.HasIndex(e => e.UserId, "UserId");
+
+            entity.HasIndex(e => e.PropertyId, "propertyId");
+
+            entity.HasIndex(e => e.Status, "status");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime");
+            entity.Property(e => e.EndDate)
+                .HasColumnType("date")
+                .HasColumnName("endDate");
+            entity.Property(e => e.PropertyId).HasColumnName("propertyId");
+            entity.Property(e => e.StartDate)
+                .HasColumnType("date")
+                .HasColumnName("startDate");
+            entity.Property(e => e.Status).HasColumnName("status");
+            entity.Property(e => e.UpdatedAt)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime");
+
+            entity.HasOne(d => d.Property).WithMany(p => p.TBookings)
+                .HasForeignKey(d => d.PropertyId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("T_Booking_ibfk_2");
+
+            entity.HasOne(d => d.StatusNavigation).WithMany(p => p.TBookings)
+                .HasForeignKey(d => d.Status)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("T_Booking_ibfk_3");
+
+            entity.HasOne(d => d.User).WithMany(p => p.TBookings)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("T_Booking_ibfk_1");
+        });
+
         modelBuilder.Entity<TEmail>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
@@ -148,6 +202,71 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.Status)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("T_Email_ibfk_1");
+        });
+
+        modelBuilder.Entity<TLegalTerm>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("T_LegalTerms");
+
+            entity.HasIndex(e => e.CategoryId, "CategoryId");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime");
+            entity.Property(e => e.IsActive).HasDefaultValueSql("'1'");
+            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Category).WithMany(p => p.TLegalTerms)
+                .HasForeignKey(d => d.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("T_LegalTerms_ibfk_1");
+        });
+
+        modelBuilder.Entity<TLegalTermsCategoriesLanguage>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("T_LegalTermsCategoriesLanguages");
+
+            entity.HasIndex(e => e.CategoryId, "CategoryId");
+
+            entity.Property(e => e.CategoryName).HasMaxLength(255);
+            entity.Property(e => e.Description).HasMaxLength(255);
+
+            entity.HasOne(d => d.Category).WithMany(p => p.TLegalTermsCategoriesLanguages)
+                .HasForeignKey(d => d.CategoryId)
+                .HasConstraintName("T_LegalTermsCategoriesLanguages_ibfk_1");
+        });
+
+        modelBuilder.Entity<TLegalTermsCategory>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("T_LegalTermsCategories");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime");
+            entity.Property(e => e.IsActive).HasDefaultValueSql("'1'");
+            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<TLegalTermsLanguage>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("T_LegalTermsLanguages");
+
+            entity.HasIndex(e => e.LegalTermId, "LegalTermId");
+
+            entity.Property(e => e.Content).HasColumnType("text");
+            entity.Property(e => e.Title).HasMaxLength(255);
+
+            entity.HasOne(d => d.LegalTerm).WithMany(p => p.TLegalTermsLanguages)
+                .HasForeignKey(d => d.LegalTermId)
+                .HasConstraintName("T_LegalTermsLanguages_ibfk_1");
         });
 
         modelBuilder.Entity<TProperty>(entity =>
@@ -179,7 +298,10 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Longitude).HasPrecision(9, 6);
             entity.Property(e => e.Price).HasPrecision(10);
             entity.Property(e => e.Remark).HasMaxLength(1000);
-            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+            entity.Property(e => e.UpdatedAt)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime");
 
             entity.HasOne(d => d.ApprovedByNavigation).WithMany(p => p.TPropertyApprovedByNavigations)
                 .HasForeignKey(d => d.ApprovedBy)
@@ -201,44 +323,76 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<TPropertyFacility>(entity =>
         {
-            entity.HasKey(e => new { e.PropertyId, e.FacilityType }).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("T_PropertyFacilities");
 
+            entity.HasIndex(e => e.CreatedBy, "CreatedBy");
+
+            entity.HasIndex(e => e.PropertyId, "IDX_PropertyId");
+
             entity.HasIndex(e => new { e.PropertyId, e.FacilityType }, "IDX_PropertyId_FacilityType");
+
+            entity.HasIndex(e => e.UpdatedBy, "UpdatedBy");
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime");
-            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+            entity.Property(e => e.UpdatedAt)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime");
+
+            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.TPropertyFacilityCreatedByNavigations)
+                .HasForeignKey(d => d.CreatedBy)
+                .HasConstraintName("T_PropertyFacilities_ibfk_2");
 
             entity.HasOne(d => d.Property).WithMany(p => p.TPropertyFacilities)
                 .HasForeignKey(d => d.PropertyId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("T_PropertyFacilities_ibfk_1");
+
+            entity.HasOne(d => d.UpdatedByNavigation).WithMany(p => p.TPropertyFacilityUpdatedByNavigations)
+                .HasForeignKey(d => d.UpdatedBy)
+                .HasConstraintName("T_PropertyFacilities_ibfk_3");
         });
 
         modelBuilder.Entity<TPropertyLanguage>(entity =>
         {
-            entity.HasKey(e => new { e.PropertyId, e.LanguageId }).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("T_PropertyLanguages");
+
+            entity.HasIndex(e => e.CreatedBy, "CreatedBy");
+
+            entity.HasIndex(e => e.PropertyId, "IDX_PropertyId");
 
             entity.HasIndex(e => new { e.PropertyId, e.LanguageId }, "IDX_PropertyId_LanguageId");
 
             entity.HasIndex(e => e.LanguageId, "IDX_PropertyLanguageId");
+
+            entity.HasIndex(e => e.UpdatedBy, "UpdatedBy");
 
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime");
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.PropertyDescription).HasMaxLength(4000);
-            entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+            entity.Property(e => e.UpdatedAt)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime");
+
+            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.TPropertyLanguageCreatedByNavigations)
+                .HasForeignKey(d => d.CreatedBy)
+                .HasConstraintName("T_PropertyLanguages_ibfk_2");
 
             entity.HasOne(d => d.Property).WithMany(p => p.TPropertyLanguages)
                 .HasForeignKey(d => d.PropertyId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("T_PropertyLanguages_ibfk_1");
+
+            entity.HasOne(d => d.UpdatedByNavigation).WithMany(p => p.TPropertyLanguageUpdatedByNavigations)
+                .HasForeignKey(d => d.UpdatedBy)
+                .HasConstraintName("T_PropertyLanguages_ibfk_3");
         });
 
         modelBuilder.Entity<TPropertyPhoto>(entity =>
@@ -247,14 +401,33 @@ public partial class AppDbContext : DbContext
 
             entity.ToTable("T_PropertyPhotos");
 
+            entity.HasIndex(e => e.CreatedBy, "CreatedBy");
+
             entity.HasIndex(e => e.PropertyId, "IDX_PropertyId");
 
+            entity.HasIndex(e => e.UpdatedBy, "UpdatedBy");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime");
             entity.Property(e => e.PhotoFilePath).HasMaxLength(255);
+            entity.Property(e => e.UpdatedAt)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime");
+
+            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.TPropertyPhotoCreatedByNavigations)
+                .HasForeignKey(d => d.CreatedBy)
+                .HasConstraintName("T_PropertyPhotos_ibfk_2");
 
             entity.HasOne(d => d.Property).WithMany(p => p.TPropertyPhotos)
                 .HasForeignKey(d => d.PropertyId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("T_PropertyPhotos_ibfk_1");
+
+            entity.HasOne(d => d.UpdatedByNavigation).WithMany(p => p.TPropertyPhotoUpdatedByNavigations)
+                .HasForeignKey(d => d.UpdatedBy)
+                .HasConstraintName("T_PropertyPhotos_ibfk_3");
         });
 
         modelBuilder.Entity<TSystemConfig>(entity =>

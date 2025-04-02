@@ -1,3 +1,6 @@
+using System.Security.Claims;
+using System.Text;
+using System.Text.Json.Serialization;
 using DAL.Models;
 using E_commerce.AttributeOrFilter;
 using E_commerce.Extension;
@@ -7,14 +10,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
-using System.Net.NetworkInformation;
-using System.Security.Claims;
-using System.Text;
-using System.Text.Json.Serialization;
 using Utils.Constant;
 using Utils.Enums;
 using Utils.Tools;
-using MySql.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
