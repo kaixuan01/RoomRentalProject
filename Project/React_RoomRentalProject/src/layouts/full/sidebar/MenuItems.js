@@ -2,7 +2,7 @@ import {
   IconAperture, IconLayoutDashboard, IconUsers, IconBuilding, IconCalendarEvent, 
   IconFileDescription, IconHome, IconReportMoney, IconUserCheck, IconAlertTriangle,
   IconBellRinging, IconSearch, IconHistory, IconSettings, IconWallet, IconClipboardList,
-  IconMessageReport, IconBuildingStore, IconReceipt
+  IconMessageReport, IconBuildingStore, IconReceipt, IconScript
 } from '@tabler/icons-react';
 
 import { uniqueId } from 'lodash';
@@ -45,6 +45,15 @@ const getMenuItems = (userRoleId) => [
           icon: IconHistory,
           href: '/portal/user-management/logs',
         },
+      ]
+    },
+    {
+      id: uniqueId(),
+      title: 'Term and Conditions',
+      icon: IconScript,
+      href: '/portal/tnc',
+      children: [
+
       ]
     },
     {

@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\Booking_Controller\" />
     <Folder Include="Logs\" />
   </ItemGroup>
 

@@ -5,7 +5,7 @@ import Loadable from '../layouts/full/shared/loadable/Loadable';
 import { initData } from '../Redux/actions';
 import OwnerLogin from 'src/views/authentication/OwnerLogin';
 import { User_Roles } from '../utils/enum';
-
+import TNCCategory from '../views/portal/TermAndCondition/TNCCategory';
 /* ***Layouts**** */
 const PortalLayout = Loadable(lazy(() => import('../layouts/full/PortalLayout')));
 const MainLayout = Loadable(lazy(() => import('../layouts/full/MainLayout')));
@@ -73,6 +73,7 @@ const Router = () => {
               { path: '/portal/ui/typography', element: <TypographyPage />, accessible: [User_Roles.ADMIN, User_Roles.OWNER] },
               { path: '/portal/ui/shadow', element: <Shadow />, accessible: [User_Roles.ADMIN, User_Roles.OWNER] },
               { path: '/portal/user-management', element: <UserManagement />, accessible: [User_Roles.ADMIN] },
+              { path: '/portal/tnc', element: <TNCCategory/>, accessible: [User_Roles.ADMIN] },
               { path: '*', element: <Navigate to="/" replace /> },
             ],
           },
