@@ -22,8 +22,9 @@ namespace DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository
         public async Task<TLegalTermsCategory> GetLegalTermsCategoriesById(int Id)
         {
             return await _appDbContext.TLegalTermsCategories
-                            .Where(x => x.Id == Id)
-                            .FirstOrDefaultAsync();
+                .Include(x => x.TLegalTermsCategoriesLanguages) // <-- Include related table
+                .Where(x => x.Id == Id)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<List<TLegalTermsCategory>> GetLegalTermsListAsync()
