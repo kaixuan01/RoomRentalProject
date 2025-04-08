@@ -1,4 +1,6 @@
 ﻿using DAL.Models;
+using DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository.Class;
+using DAL.Repository.UserRP.UserRepository.Class;
 using DAL.Tools.ListingHelper;
 using Microsoft.EntityFrameworkCore;
 
@@ -47,6 +49,43 @@ namespace DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository
         {
             _appDbContext.TLegalTermsCategories.Remove(legalTermsCategory);
             await _appDbContext.SaveChangesAsync();
+        }
+
+        public async Task<IQueryable<LegalTermCategoryL>> GetLegalTermsCategoriesListing(LegalTermsCategoriesListing_REQ oReq)
+        {
+            var query = _appDbContext.TLegalTermsCategoriesLanguages
+                        .Where(x => x.LanguageId.Equals((int)Utils.Enums.Enum_LanguageId.English))
+                        .Include(x => x.Category)
+                        .AsQueryable();
+
+            // Apply filters
+            if (!string.IsNullOrEmpty(oReq.SearchTerm))
+            {
+                query = query.Where(u => u.CategoryName.Contains(oReq.SearchTerm));
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(oReq.CategoryName))
+                {
+                    query = query.Where(u => u.CategoryName.Contains(oReq.CategoryName));
+                }
+
+                if (!string.IsNullOrEmpty(oReq.IsActive))
+                {
+                    query = query.Where(u => oReq.IsActive.Contains(u.Category.IsActive.ToString()));
+                }
+            }
+
+            var result = query
+                .Select(u => new LegalTermCategoryL
+                {
+                    Id = u.Id,
+                    CategoryName = u.CategoryName,
+                    IsActive = u.Category.IsActive.GetValueOrDefault()
+                });
+
+            return result;
+
         }
     }
 }

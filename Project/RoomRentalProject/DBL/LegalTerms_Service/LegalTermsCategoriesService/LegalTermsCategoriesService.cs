@@ -1,11 +1,15 @@
 ﻿using DAL.Models;
 using DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository;
+using DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository.Class;
 using DAL.Shared.Class;
 using DAL.Tools.ListingHelper;
 using DBL.AuditTrail_Service;
 using DBL.LegalTerms_Service.LegalTermsCategoriesService.LegalTermsCategoriesActionClass;
 using DBL.SystemConfig_Service;
 using DBL.Tools;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Org.BouncyCastle.Ocsp;
 using Utils.Constant;
 using Utils.Enums;
 
@@ -78,9 +82,37 @@ namespace DBL.LegalTerms_Service.LegalTermsCategoriesService
             return rtnValue;
         }
 
-        public async Task<PagedResult<TLegalTermsCategory>> GetPagedListAsync(FilterParameters filterParameters)
+        public async Task<LegalTermsCategoriesListing_RESP> GetPagedListAsync(LegalTermsCategoriesListing_REQ oReq)
         {
-            var rtnValue = await _legalTermsCategoriesRepository.GetPagedListAsync(filterParameters, true);
+            var rtnValue = new LegalTermsCategoriesListing_RESP();
+
+            var listingQuery = await _legalTermsCategoriesRepository.GetLegalTermsCategoriesListing(oReq);
+
+            // Apply sorting
+            if (!string.IsNullOrEmpty(oReq.SortBy))
+            {
+                listingQuery = oReq.SortDescending == true
+                    ? listingQuery.OrderByDescending(e => EF.Property<object>(e, oReq.SortBy))
+                    : listingQuery.OrderBy(e => EF.Property<object>(e, oReq.SortBy));
+            }
+            else
+            {
+                listingQuery = listingQuery.OrderBy(u => u.CategoryName); // Default sorting
+            }
+
+            rtnValue.CategoryListing.TotalCount = listingQuery.Count();
+
+            // Apply pagination
+            var pagedListing = await listingQuery
+                .Skip((oReq.PageNumber - 1) * oReq.PageSize)
+                .Take(oReq.PageSize)
+                .ToListAsync();
+
+            LogHelper.RaiseLogEvent(Enum_LogLevel.Information, $"Response Legal Terms Category List: {JsonConvert.SerializeObject(pagedListing)}");
+
+            rtnValue.CategoryListing.Items = pagedListing;
+            rtnValue.Code = RespCode.RespCode_Success;
+            rtnValue.Message = "Get Legal Terms Category List succesful";
 
             return rtnValue;
         }

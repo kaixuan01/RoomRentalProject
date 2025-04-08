@@ -1,13 +1,13 @@
 ﻿using DAL.Models;
+using DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository.Class;
 using DAL.Shared.Class;
-using DAL.Tools.ListingHelper;
 using DBL.LegalTerms_Service.LegalTermsCategoriesService.LegalTermsCategoriesActionClass;
 
 namespace DBL.LegalTerms_Service.LegalTermsCategoriesService
 {
     public interface ILegalTermsCategoriesService
     {
-        Task<PagedResult<TLegalTermsCategory>> GetPagedListAsync(FilterParameters filterParameters);
+        Task<LegalTermsCategoriesListing_RESP> GetPagedListAsync(LegalTermsCategoriesListing_REQ oReq);
         Task<CreateLegalTermCategories_RESP> CreateAsync(CreateLegalTermCategories_REQ oReq);
         Task<ShareResp> DeleteAsync(int id);
         Task<TLegalTermsCategory> GetRecByIdAsync(int id);

@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository.Class;
 using DAL.Tools.ListingHelper;
 using DBL.LegalTerms_Service.LegalTermsCategoriesService;
 using DBL.LegalTerms_Service.LegalTermsCategoriesService.LegalTermsCategoriesActionClass;
@@ -28,22 +29,22 @@ namespace RoomRentalProject.Controllers.LegalTerms_Controller
 
         [HttpGet]
         [Route("GetLegalTermCategoriesList")]
-        public async Task<IActionResult> GetLegalTermCategoriesList([FromQuery] FilterParameters filterParameters)
+        public async Task<IActionResult> GetLegalTermCategoriesList([FromQuery] LegalTermsCategoriesListing_REQ oReq)
         {
-            ApiResponse<PagedResult<TLegalTermsCategory>>? apiResponse = null;
+            ApiResponse<PagedResult<LegalTermCategoryL>>? apiResponse = null;
             LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Request Get Legal Term List");
 
             try
             {
-                var oResp = await _legalTermCategoriesService.GetPagedListAsync(filterParameters);
+                var oResp = await _legalTermCategoriesService.GetPagedListAsync(oReq);
 
-                apiResponse = ApiResponse<PagedResult<TLegalTermsCategory>>.CreateSuccessResponse(oResp, "Get List Successful");
+                apiResponse = ApiResponse<PagedResult<LegalTermCategoryL>>.CreateSuccessResponse(oResp.CategoryListing, "Get List Successful");
             }
             catch (Exception ex)
             {
                 LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Exception when Get Legal Term List, Message: {ex.Message}", ex);
 
-                apiResponse = ApiResponse<PagedResult<TLegalTermsCategory>>.CreateErrorResponse($"Get User List Failed. Exception: {ex.Message}");
+                apiResponse = ApiResponse<PagedResult<LegalTermCategoryL>>.CreateErrorResponse($"Get User List Failed. Exception: {ex.Message}");
             }
 
             return Ok(apiResponse);
