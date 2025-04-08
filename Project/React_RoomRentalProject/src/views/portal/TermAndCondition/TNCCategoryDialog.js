@@ -34,7 +34,6 @@ const languages = [
 ];
 
 const validationSchema = Yup.object({
-  name: Yup.string().required('Category name is required'),
   'tLegalTermsCategoriesLanguages[0].description': Yup.string().required('English description is required'),
 });
 
@@ -76,7 +75,6 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
   const formik = useFormik({
     initialValues: {
       id: category?.id || 0,
-      name: category?.name || '',
       isActive: category?.isActive ?? true,
       tLegalTermsCategoriesLanguages: getInitialDescriptions(),
     },
@@ -105,7 +103,6 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
       formik.resetForm({
         values: {
           id: category?.id || 0,
-          name: category?.name || '',
           isActive: category?.isActive ?? true,
           tLegalTermsCategoriesLanguages: getInitialDescriptions(),
         }
@@ -122,28 +119,16 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
             <Grid item xs={12}>
-              <TextField
-                fullWidth
-                name="name"
-                label="Category Name"
-                value={formik.values.name}
-                onChange={formik.handleChange}
-                error={formik.touched.name && Boolean(formik.errors.name)}
-                helperText={formik.touched.name && formik.errors.name}
-              />
-            </Grid>
-            
-            <Grid item xs={12} sx={{ mt: 2 }}>
-              <Typography variant="subtitle1" gutterBottom>
-                Description in Different Languages
+              <Typography variant="h6" gutterBottom>
+                Term and Condition Descriptions
               </Typography>
-              <Divider sx={{ mb: 2 }} />
+              <Divider sx={{ mb: 3 }} />
               
               <Tabs 
                 value={activeTab} 
                 onChange={handleTabChange} 
                 variant="fullWidth"
-                sx={{ mb: 2, borderBottom: 1, borderColor: 'divider' }}
+                sx={{ mb: 3, borderBottom: 1, borderColor: 'divider' }}
               >
                 {languages.map((lang, index) => (
                   <Tab key={lang.id} label={lang.name} id={`lang-tab-${index}`} />
@@ -161,7 +146,7 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
                     <TextField
                       fullWidth
                       multiline
-                      rows={6}
+                      rows={8}
                       name={`tLegalTermsCategoriesLanguages[${index}].description`}
                       label={`${lang.name} Description`}
                       value={formik.values.tLegalTermsCategoriesLanguages[index].description}

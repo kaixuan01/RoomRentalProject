@@ -144,7 +144,27 @@ const TNCCategory = () => {
 
   // Define columns for the DataTable
   const columns = [
-    { id: 'name', label: 'Category Name', sortable: true },
+    {
+      id: 'description',
+      label: 'English Description',
+      sortable: true,
+      render: (category) => {
+        const englishDesc = category.tLegalTermsCategoriesLanguages?.find(l => l.languageId === 1)?.description;
+        return (
+          <Tooltip title={englishDesc || 'No description'}>
+            <span style={{ 
+              display: 'block',
+              maxWidth: '250px',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}>
+              {englishDesc || 'No description'}
+            </span>
+          </Tooltip>
+        );
+      }
+    },
     {
       id: 'languagesCount',
       label: 'Languages',
@@ -163,7 +183,7 @@ const TNCCategory = () => {
     },
     {
       id: 'isActive',
-      label: 'Is Active',
+      label: 'Status',
       sortable: true,
       render: (category) => (
         <Chip
