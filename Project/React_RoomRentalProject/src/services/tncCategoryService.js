@@ -65,7 +65,7 @@ export const useTNCCategoryService = () => {
     return HTTPReq({
       url: `/LegalTermCategories/DeleteLegalTermCategory`,
       method: 'POST',
-      data: { id },
+      data: id,
       onSuccess: (data, msg) => {
         if (callbacks.onSuccess) callbacks.onSuccess(data, msg);
       },

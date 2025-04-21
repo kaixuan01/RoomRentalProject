@@ -37,13 +37,13 @@ const languages = [
 const validationSchema = Yup.object().shape({
   tLegalTermsCategoriesLanguages: Yup.array().of(
     Yup.object().shape({
-      description: Yup.string()
-        .required('Description is required')
-        .min(3, 'Description must be at least 3 characters')
-        .max(500, 'Description must not exceed 500 characters'),
+      categoryName: Yup.string()
+        .required('Category name is required')
+        .min(3, 'Category name must be at least 3 characters')
+        .max(150, 'Category name must not exceed 150 characters'),
       languageId: Yup.number().required('Language ID is required')
     })
-  ).min(1, 'At least one language description is required'),
+  ).min(1, 'At least one language category name is required'),
   isActive: Yup.boolean().default(true)
 });
 
@@ -55,14 +55,14 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
   };
 
   // Initialize language descriptions from category or defaults
-  const getInitialDescriptions = () => {
+  const getInitialCategoryNames = () => {
     if (category && category.tLegalTermsCategoriesLanguages && category.tLegalTermsCategoriesLanguages.length > 0) {
       // Map existing language descriptions
-      const descriptionsMap = {};
+      const categoryNamesMap = {};
       
       category.tLegalTermsCategoriesLanguages.forEach(lang => {
-        descriptionsMap[lang.languageId] = {
-          description: lang.description || '',
+        categoryNamesMap[lang.languageId] = {
+          categoryName: lang.categoryName || '',
           id: lang.id,
           legalTermCategoryId: category.id
         };
@@ -70,17 +70,17 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
       
       var mappedLang = languages.map(lang => ({
         languageId: lang.id,
-        description: descriptionsMap[lang.id]?.description || '',
+        categoryName: categoryNamesMap[lang.id]?.categoryName || '',
         // Include id if it exists in the original data
-        id: descriptionsMap[lang.id]?.id,
+        id: categoryNamesMap[lang.id]?.id,
         legalTermCategoryId: category.id
       }));
       return mappedLang;
     } else {
-      // Create default empty descriptions for all languages
+      // Create default empty categoryNames for all languages
       const defaultLangs = languages.map(lang => ({
         languageId: lang.id,
-        description: '',
+        categoryName: '',
       }));
       return defaultLangs;
     }
@@ -90,7 +90,7 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
     initialValues: {
       id: category?.id || 0,
       isActive: category?.isActive ?? true,
-      tLegalTermsCategoriesLanguages: getInitialDescriptions(),
+      tLegalTermsCategoriesLanguages: getInitialCategoryNames(),
     },
     validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
@@ -99,7 +99,7 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
         const errors = formik.errors.tLegalTermsCategoriesLanguages;
         if (errors) {
           // Find the first tab with validation error
-          const errorIndex = errors.findIndex(error => error?.description);
+          const errorIndex = errors.findIndex(error => error?.categoryName);
           if (errorIndex !== -1) {
             setActiveTab(errorIndex);
             return;
@@ -115,8 +115,7 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
               id: lang.id || 0,
               languageId: lang.languageId,
               legalTermCategoryId: lang.legalTermCategoryId || values.id,
-              categoryName: values.categoryName || '',
-              description: lang.description
+              categoryName: lang.categoryName
             }))
           },
         };
@@ -143,7 +142,7 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
         values: {
           id: category?.id || 0,
           isActive: category?.isActive ?? true,
-          tLegalTermsCategoriesLanguages: getInitialDescriptions(),
+          tLegalTermsCategoriesLanguages: getInitialCategoryNames(),
         }
       });
     }
@@ -160,12 +159,12 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
               // Check for language description errors
               const langErrors = errors.tLegalTermsCategoriesLanguages;
               if (langErrors) {
-                const errorIndex = langErrors.findIndex(error => error?.description);
+                const errorIndex = langErrors.findIndex(error => error?.categoryName);
                 if (errorIndex !== -1) {
                   // Set touched state for the field with error
                   formik.setTouched({
                     tLegalTermsCategoriesLanguages: langErrors.map((_, index) => ({
-                      description: index === errorIndex
+                      categoryName: index === errorIndex
                     }))
                   });
                   setActiveTab(errorIndex);
@@ -183,7 +182,7 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
             <Grid container spacing={2} sx={{ mt: 1 }}>
               <Grid item xs={12}>
                 <Typography variant="h6" gutterBottom>
-                  Term and Condition Descriptions
+                  Term and Condition category names
                 </Typography>
                 <Divider sx={{ mb: 3 }} />
                 
@@ -210,17 +209,17 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
                         fullWidth
                         multiline
                         rows={8}
-                        name={`tLegalTermsCategoriesLanguages[${index}].description`}
-                        label={`${lang.name} Description`}
-                        value={formik.values.tLegalTermsCategoriesLanguages[index].description}
+                        name={`tLegalTermsCategoriesLanguages[${index}].categoryName`}
+                        label={`${lang.name} Category Name`}
+                        value={formik.values.tLegalTermsCategoriesLanguages[index].categoryName}
                         onChange={formik.handleChange}
                         error={
-                          formik.touched.tLegalTermsCategoriesLanguages?.[index]?.description && 
-                          Boolean(formik.errors.tLegalTermsCategoriesLanguages?.[index]?.description)
+                          formik.touched.tLegalTermsCategoriesLanguages?.[index]?.categoryName && 
+                          Boolean(formik.errors.tLegalTermsCategoriesLanguages?.[index]?.categoryName)
                         }
                         helperText={
-                          formik.touched.tLegalTermsCategoriesLanguages?.[index]?.description && 
-                          formik.errors.tLegalTermsCategoriesLanguages?.[index]?.description
+                          formik.touched.tLegalTermsCategoriesLanguages?.[index]?.categoryName && 
+                          formik.errors.tLegalTermsCategoriesLanguages?.[index]?.categoryName
                         }
                       />
                     )}
