@@ -2,14 +2,12 @@
 using DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository;
 using DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository.Class;
 using DAL.Shared.Class;
-using DAL.Tools.ListingHelper;
 using DBL.AuditTrail_Service;
 using DBL.LegalTerms_Service.LegalTermsCategoriesService.LegalTermsCategoriesActionClass;
 using DBL.SystemConfig_Service;
 using DBL.Tools;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using Org.BouncyCastle.Ocsp;
 using Utils.Constant;
 using Utils.Enums;
 
@@ -56,7 +54,6 @@ namespace DBL.LegalTerms_Service.LegalTermsCategoriesService
                     {
                         LanguageId = (int)item.LanguageId,
                         CategoryName = item.CategoryName,
-                        Description = item.Description,
                     });
                 }
 
@@ -156,6 +153,28 @@ namespace DBL.LegalTerms_Service.LegalTermsCategoriesService
                 oLegalTermCategory.IsActive = oReq.LegalTermCategories.IsActive;
                 oLegalTermCategory.UpdatedBy = oReq.UpdatedBy;
                 oLegalTermCategory.UpdatedAt = DateTime.UtcNow;
+
+                foreach (var item in oReq.LegalTermCategories.LegalTermCategoriesLanguages)
+                {
+                    var oLegalCategoryLanguages = oLegalTermCategory.TLegalTermsCategoriesLanguages.Where(x => x.LanguageId == (int)item.LanguageId).FirstOrDefault();
+                    //var oLegalTermLanguages = await _legalTermsLanguageRepository.GetLegalTermsLanguageByLegalTermIdNLanguageIdAsync(oLegalTerm.Id, (int)item.LanguageId);
+
+                    if (oLegalCategoryLanguages != null)
+                    {
+                        // Update existing entry
+                        oLegalCategoryLanguages.CategoryName = item.CategoryName;
+                    }
+                    else
+                    {
+                        // Add a new entry if it doesn't exist
+                        oLegalTermCategory.TLegalTermsCategoriesLanguages.Add(new TLegalTermsCategoriesLanguage
+                        {
+                            LanguageId = (int)item.LanguageId,
+                            CategoryName = item.CategoryName,
+                            CategoryId = oLegalTermCategory.Id
+                        });
+                    }
+                }
 
                 // ## Update Legal Term Category
                 await _legalTermsCategoriesRepository.UpdateAsync(oLegalTermCategory);

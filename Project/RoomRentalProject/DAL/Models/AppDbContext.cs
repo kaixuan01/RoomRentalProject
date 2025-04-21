@@ -233,7 +233,6 @@ public partial class AppDbContext : DbContext
             entity.HasIndex(e => e.CategoryId, "CategoryId");
 
             entity.Property(e => e.CategoryName).HasMaxLength(255);
-            entity.Property(e => e.Description).HasMaxLength(255);
 
             entity.HasOne(d => d.Category).WithMany(p => p.TLegalTermsCategoriesLanguages)
                 .HasForeignKey(d => d.CategoryId)
