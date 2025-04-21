@@ -80,7 +80,7 @@ namespace DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository
             var result = query
                 .Select(u => new LegalTermCategoryL
                 {
-                    Id = u.Id,
+                    Id = u.CategoryId,
                     CategoryName = u.CategoryName,
                     IsActive = u.Category.IsActive.GetValueOrDefault()
                 });
