@@ -24,11 +24,12 @@ export const showSuccessAlert = (title = 'Success', text = '') => {
       confirmButtonText: 'Great!',
     }).then((result) => {
       if (result.isConfirmed) {
-        resolve(); // Resolve the promise when the alert is confirmed
+        resolve();
       }
     });
   });
 };
+
 
 // Error alert
 export const showErrorAlert = (title = 'Error', text = '') => {

@@ -31,14 +31,17 @@ export const useTNCCategoryService = () => {
   };
 
   const createCategory = (categoryData, callbacks = {}) => {
+    console.log('Making API call to create category with data:', categoryData);
     return HTTPReq({
-      url: '/LegalTermCategories/AddLegalTermCategory',
+      url: '/LegalTermCategories/CreateLegalTermCategory',
       method: 'POST',
       data: categoryData,
       onSuccess: (data, msg) => {
+        console.log('API call successful:', data, msg);
         if (callbacks.onSuccess) callbacks.onSuccess(data, msg);
       },
       onError: (error) => {
+        console.error('API call failed:', error);
         if (callbacks.onError) callbacks.onError(error);
       },
     });
@@ -46,8 +49,8 @@ export const useTNCCategoryService = () => {
 
   const updateCategory = (id, categoryData, callbacks = {}) => {
     return HTTPReq({
-      url: `/LegalTermCategories/EditLegalTermCategory`,
-      method: 'PUT',
+      url: `/LegalTermCategories/UpdateLegalTermCategory`,
+      method: 'POST',
       data: { ...categoryData, id },
       onSuccess: (data, msg) => {
         if (callbacks.onSuccess) callbacks.onSuccess(data, msg);
@@ -61,7 +64,7 @@ export const useTNCCategoryService = () => {
   const deleteCategory = (id, callbacks = {}) => {
     return HTTPReq({
       url: `/LegalTermCategories/DeleteLegalTermCategory`,
-      method: 'DELETE',
+      method: 'POST',
       data: { id },
       onSuccess: (data, msg) => {
         if (callbacks.onSuccess) callbacks.onSuccess(data, msg);

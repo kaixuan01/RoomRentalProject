@@ -1,0 +1,4 @@
+/* Override SweetAlert z-index to ensure it appears above all other elements */
+.swal2-container {
+  z-index: 10000 !important;
+} 

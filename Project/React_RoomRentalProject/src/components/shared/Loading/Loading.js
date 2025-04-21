@@ -10,7 +10,7 @@ const Loading = () => {
     <Backdrop
       sx={{
         color: "#fff",
-        zIndex: (theme) => theme.zIndex.drawer + 1,
+        zIndex: 10000, // Use a very high z-index to appear above everything
       }}
       open={loading}
     >

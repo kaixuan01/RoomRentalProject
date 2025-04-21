@@ -18,6 +18,7 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import zIndex from '@mui/material/styles/zIndex';
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialog-paper': {
@@ -29,12 +30,21 @@ const StyledDialog = styled(Dialog)(({ theme }) => ({
 // Define the supported languages
 const languages = [
   { id: 1, code: 'en', name: 'English' },
-  { id: 2, code: 'ms', name: 'Malay' },
-  { id: 3, code: 'zh', name: 'Chinese' },
+  { id: 2, code: 'zh', name: 'Mandarin' },
+  { id: 3, code: 'ms', name: 'Malay' },
 ];
 
-const validationSchema = Yup.object({
-  'tLegalTermsCategoriesLanguages[0].description': Yup.string().required('English description is required'),
+const validationSchema = Yup.object().shape({
+  tLegalTermsCategoriesLanguages: Yup.array().of(
+    Yup.object().shape({
+      description: Yup.string()
+        .required('Description is required')
+        .min(3, 'Description must be at least 3 characters')
+        .max(500, 'Description must not exceed 500 characters'),
+      languageId: Yup.number().required('Language ID is required')
+    })
+  ).min(1, 'At least one language description is required'),
+  isActive: Yup.boolean().default(true)
 });
 
 const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
@@ -51,14 +61,18 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
       const descriptionsMap = {};
       
       category.tLegalTermsCategoriesLanguages.forEach(lang => {
-        descriptionsMap[lang.languageId] = lang.description || '';
+        descriptionsMap[lang.languageId] = {
+          description: lang.description || '',
+          id: lang.id,
+          legalTermCategoryId: category.id
+        };
       });
       
       var mappedLang = languages.map(lang => ({
         languageId: lang.id,
-        description: descriptionsMap[lang.id] || '',
+        description: descriptionsMap[lang.id]?.description || '',
         // Include id if it exists in the original data
-        id: category.tLegalTermsCategoriesLanguages.find(l => l.languageId === lang.id)?.id,
+        id: descriptionsMap[lang.id]?.id,
         legalTermCategoryId: category.id
       }));
       return mappedLang;
@@ -79,18 +93,43 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
       tLegalTermsCategoriesLanguages: getInitialDescriptions(),
     },
     validationSchema,
-    onSubmit: (values) => {
-      // Make sure to include languageId in each language entry
-      const processedValues = {
-        ...values,
-        tLegalTermsCategoriesLanguages: values.tLegalTermsCategoriesLanguages.map((lang, index) => ({
-          ...lang,
-          languageId: languages[index].id,
-        }))
-      };
-      onSave(processedValues);
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        // Check for validation errors in any language tab
+        const errors = formik.errors.tLegalTermsCategoriesLanguages;
+        if (errors) {
+          // Find the first tab with validation error
+          const errorIndex = errors.findIndex(error => error?.description);
+          if (errorIndex !== -1) {
+            setActiveTab(errorIndex);
+            return;
+          }
+        }
+
+        console.log('Form submitted with values:', values);
+        const submitData = {
+          legalTermCategories: {
+            id: values.id,
+            isActive: values.isActive,
+            legalTermCategoriesLanguages: values.tLegalTermsCategoriesLanguages.map(lang => ({
+              id: lang.id || 0,
+              languageId: lang.languageId,
+              legalTermCategoryId: lang.legalTermCategoryId || values.id,
+              categoryName: values.categoryName || '',
+              description: lang.description
+            }))
+          },
+        };
+
+        console.log('Processed submit data:', submitData);
+        await onSave(submitData);
+      } catch (error) {
+        console.error('Error in form submission:', error);
+      } finally {
+        setSubmitting(false);
+      }
     },
-    enableReinitialize: true, // This ensures the form resets when initialValues change
+    enableReinitialize: true,
   });
 
   // Reset form when category changes
@@ -111,92 +150,117 @@ const TNCCategoryDialog = ({ open, onClose, onSave, category }) => {
   }, [category, open]);
 
   return (
-    <StyledDialog open={open} onClose={onClose}>
-      <form onSubmit={formik.handleSubmit}>
-        <DialogTitle>
-          {category ? 'Edit Category' : 'Add New Category'}
-        </DialogTitle>
-        <DialogContent>
-          <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12}>
-              <Typography variant="h6" gutterBottom>
-                Term and Condition Descriptions
-              </Typography>
-              <Divider sx={{ mb: 3 }} />
-              
-              <Tabs 
-                value={activeTab} 
-                onChange={handleTabChange} 
-                variant="fullWidth"
-                sx={{ mb: 3, borderBottom: 1, borderColor: 'divider' }}
-              >
-                {languages.map((lang, index) => (
-                  <Tab key={lang.id} label={lang.name} id={`lang-tab-${index}`} />
-                ))}
-              </Tabs>
-              
-              {languages.map((lang, index) => {
-                return <Box
-                  key={lang.id}
-                  role="tabpanel"
-                  hidden={activeTab !== index}
-                  id={`lang-tabpanel-${index}`}
-                >
-                  {activeTab === index && (
-                    <TextField
-                      fullWidth
-                      multiline
-                      rows={8}
-                      name={`tLegalTermsCategoriesLanguages[${index}].description`}
-                      label={`${lang.name} Description`}
-                      value={formik.values.tLegalTermsCategoriesLanguages[index].description}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.tLegalTermsCategoriesLanguages?.[index]?.description && 
-                        Boolean(formik.errors.tLegalTermsCategoriesLanguages?.[index]?.description)
-                      }
-                      helperText={
-                        formik.touched.tLegalTermsCategoriesLanguages?.[index]?.description && 
-                        formik.errors.tLegalTermsCategoriesLanguages?.[index]?.description
-                      }
-                    />
-                  )}
-                </Box>
-            })}
-            </Grid>
-            
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <Switch
-                    name="isActive"
-                    checked={formik.values.isActive}
-                    onChange={(e) => formik.setFieldValue('isActive', e.target.checked)}
-                  />
+    <>
+      <StyledDialog open={open} onClose={onClose}>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          // Validate all fields before submission
+          formik.validateForm().then(errors => {
+            if (Object.keys(errors).length > 0) {
+              // Check for language description errors
+              const langErrors = errors.tLegalTermsCategoriesLanguages;
+              if (langErrors) {
+                const errorIndex = langErrors.findIndex(error => error?.description);
+                if (errorIndex !== -1) {
+                  // Set touched state for the field with error
+                  formik.setTouched({
+                    tLegalTermsCategoriesLanguages: langErrors.map((_, index) => ({
+                      description: index === errorIndex
+                    }))
+                  });
+                  setActiveTab(errorIndex);
                 }
-                label="Active"
-              />
+              }
+              return;
+            }
+            formik.handleSubmit(e);
+          });
+        }}>
+          <DialogTitle>
+            {category ? 'Edit Category' : 'Add New Category'}
+          </DialogTitle>
+          <DialogContent>
+            <Grid container spacing={2} sx={{ mt: 1 }}>
+              <Grid item xs={12}>
+                <Typography variant="h6" gutterBottom>
+                  Term and Condition Descriptions
+                </Typography>
+                <Divider sx={{ mb: 3 }} />
+                
+                <Tabs 
+                  value={activeTab} 
+                  onChange={handleTabChange} 
+                  variant="fullWidth"
+                  sx={{ mb: 3, borderBottom: 1, borderColor: 'divider' }}
+                >
+                  {languages.map((lang, index) => (
+                    <Tab key={lang.id} label={lang.name} id={`lang-tab-${index}`} />
+                  ))}
+                </Tabs>
+                
+                {languages.map((lang, index) => {
+                  return <Box
+                    key={lang.id}
+                    role="tabpanel"
+                    hidden={activeTab !== index}
+                    id={`lang-tabpanel-${index}`}
+                  >
+                    {activeTab === index && (
+                      <TextField
+                        fullWidth
+                        multiline
+                        rows={8}
+                        name={`tLegalTermsCategoriesLanguages[${index}].description`}
+                        label={`${lang.name} Description`}
+                        value={formik.values.tLegalTermsCategoriesLanguages[index].description}
+                        onChange={formik.handleChange}
+                        error={
+                          formik.touched.tLegalTermsCategoriesLanguages?.[index]?.description && 
+                          Boolean(formik.errors.tLegalTermsCategoriesLanguages?.[index]?.description)
+                        }
+                        helperText={
+                          formik.touched.tLegalTermsCategoriesLanguages?.[index]?.description && 
+                          formik.errors.tLegalTermsCategoriesLanguages?.[index]?.description
+                        }
+                      />
+                    )}
+                  </Box>
+                })}
+              </Grid>
+              
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={
+                    <Switch
+                      name="isActive"
+                      checked={formik.values.isActive}
+                      onChange={(e) => formik.setFieldValue('isActive', e.target.checked)}
+                    />
+                  }
+                  label="Active"
+                />
+              </Grid>
             </Grid>
-          </Grid>
-        </DialogContent>
-        <DialogActions>
-          <Button 
-            onClick={onClose}
-            disabled={formik.isSubmitting}
-          >
-            Cancel
-          </Button>
-          <Button 
-            type="submit" 
-            variant="contained" 
-            color="primary"
-            disabled={formik.isSubmitting}
-          >
-            {formik.isSubmitting ? 'Saving...' : category ? 'Update' : 'Create'}
-          </Button>
-        </DialogActions>
-      </form>
-    </StyledDialog>
+          </DialogContent>
+          <DialogActions>
+            <Button 
+              onClick={onClose}
+              disabled={formik.isSubmitting}
+            >
+              Cancel
+            </Button>
+            <Button 
+              type="submit" 
+              variant="contained" 
+              color="primary"
+              disabled={formik.isSubmitting}
+            >
+              {formik.isSubmitting ? 'Saving...' : category ? 'Update' : 'Create'}
+            </Button>
+          </DialogActions>
+        </form>
+      </StyledDialog>
+    </>
   );
 };
 

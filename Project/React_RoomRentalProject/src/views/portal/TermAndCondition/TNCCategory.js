@@ -58,6 +58,13 @@ const TNCCategory = () => {
     setLoading(true);
     tncCategoryService.getCategoryById(categoryId, {
       onSuccess: (data) => {
+        // Make sure all required language entries exist
+        if (data && data.tLegalTermsCategoriesLanguages) {
+          // Sort languages by languageId to ensure consistent order
+          data.tLegalTermsCategoriesLanguages = data.tLegalTermsCategoriesLanguages.sort(
+            (a, b) => a.languageId - b.languageId
+          );
+        }
         setSelectedCategory(data);
         setOpenDialog(true);
         setLoading(false);
@@ -85,46 +92,48 @@ const TNCCategory = () => {
   };
 
   const handleSave = (categoryData) => {
-    // Filter out any empty descriptions
-    const filteredLanguages = categoryData.tLegalTermsCategoriesLanguages.filter(
-      lang => lang.description.trim() !== ''
-    );
+    console.log('handleSave called with data:', categoryData);
+    setLoading(true);
     
-    const formattedData = {
-      ...categoryData,
-      tLegalTermsCategoriesLanguages: filteredLanguages
-    };
+    // Ensure language data is sorted correctly before sending to API
+    if (categoryData.legalTermCategories && categoryData.legalTermCategories.legalTermCategoriesLanguages) {
+      categoryData.legalTermCategories.legalTermCategoriesLanguages = 
+        categoryData.legalTermCategories.legalTermCategoriesLanguages.sort((a, b) => a.languageId - b.languageId);
+    }
     
     if (selectedCategory) {
-      // Ensure we're using the correct ID
-      const updateData = {
-        ...formattedData,
-        id: selectedCategory.id
-      };
-      
-      tncCategoryService.updateCategory(selectedCategory.id, updateData, {
+      // Update existing category
+      tncCategoryService.updateCategory(selectedCategory.id, categoryData, {
         onSuccess: (data, msg) => {
-          showSuccessAlert(msg);
+          console.log('Update successful:', data, msg);
+          showSuccessAlert(msg || 'Category updated successfully');
           loadCategories();
           handleDialogClose();
         },
         onError: (error) => {
-          showErrorAlert(error);
+          console.error('Update error:', error);
+          showErrorAlert(error || 'Failed to update category');
         },
+        onFinally: () => {
+          setLoading(false);
+        }
       });
     } else {
-      // Remove any ID for new categories
-      const { id, ...newCategoryData } = formattedData;
-      
-      tncCategoryService.createCategory(newCategoryData, {
+      // Create new category
+      tncCategoryService.createCategory(categoryData, {
         onSuccess: (data, msg) => {
-          showSuccessAlert(msg);
+          console.log('Create successful:', data, msg);
+          showSuccessAlert(msg || 'Category created successfully');
           loadCategories();
           handleDialogClose();
         },
         onError: (error) => {
-          showErrorAlert(error);
+          console.error('Create error:', error);
+          showErrorAlert(error || 'Failed to create category');
         },
+        onFinally: () => {
+          setLoading(false);
+        }
       });
     }
   };
@@ -144,43 +153,23 @@ const TNCCategory = () => {
 
   // Define columns for the DataTable
   const columns = [
-    {
-      id: 'description',
-      label: 'English Description',
-      sortable: true,
-      render: (category) => {
-        const englishDesc = category.tLegalTermsCategoriesLanguages?.find(l => l.languageId === 1)?.description;
-        return (
-          <Tooltip title={englishDesc || 'No description'}>
-            <span style={{ 
-              display: 'block',
-              maxWidth: '250px',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap'
-            }}>
-              {englishDesc || 'No description'}
-            </span>
-          </Tooltip>
-        );
-      }
-    },
-    {
-      id: 'languagesCount',
-      label: 'Languages',
-      sortable: false,
-      render: (category) => {
-        const count = category.tLegalTermsCategoriesLanguages?.length || 0;
-        return (
-          <Chip
-            label={`${count} ${count === 1 ? 'language' : 'languages'}`}
-            color="primary"
-            size="small"
-            variant="outlined"
-          />
-        );
-      }
-    },
+    { id: 'categoryName', label: 'category Name', sortable: true },
+    // {
+    //   id: 'languagesCount',
+    //   label: 'Languages',
+    //   sortable: false,
+    //   render: (category) => {
+    //     const count = category.tLegalTermsCategoriesLanguages?.length || 0;
+    //     return (
+    //       <Chip
+    //         label={`${count} ${count === 1 ? 'language' : 'languages'}`}
+    //         color="primary"
+    //         size="small"
+    //         variant="outlined"
+    //       />
+    //     );
+    //   }
+    // },
     {
       id: 'isActive',
       label: 'Status',
