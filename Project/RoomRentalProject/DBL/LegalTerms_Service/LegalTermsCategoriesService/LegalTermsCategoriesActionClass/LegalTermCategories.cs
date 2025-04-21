@@ -17,6 +17,5 @@ namespace DBL.LegalTerms_Service.LegalTermsCategoriesService.LegalTermsCategorie
     {
         public Enum_LanguageId LanguageId { get; set; }
         public string CategoryName { get; set; }
-        public string Description { get; set; }
     }
 }
