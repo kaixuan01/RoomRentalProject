@@ -9,7 +9,7 @@ namespace DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository.Class
         public string? IsActive { get; set; }
     }
 
-    public class LegalTermsCategoriesListing_RESP : ShareResp
+    public class LegalTermsCategoryListing_RESP : ShareResp
     {
         public PagedResult<LegalTermCategoryL> CategoryListing = new PagedResult<LegalTermCategoryL>();
     }

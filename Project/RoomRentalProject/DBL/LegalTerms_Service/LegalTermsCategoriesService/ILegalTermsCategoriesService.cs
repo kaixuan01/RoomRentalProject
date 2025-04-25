@@ -7,7 +7,7 @@ namespace DBL.LegalTerms_Service.LegalTermsCategoriesService
 {
     public interface ILegalTermsCategoriesService
     {
-        Task<LegalTermsCategoriesListing_RESP> GetPagedListAsync(LegalTermsCategoriesListing_REQ oReq);
+        Task<LegalTermsCategoryListing_RESP> GetPagedListAsync(LegalTermsCategoriesListing_REQ oReq);
         Task<CreateLegalTermCategories_RESP> CreateAsync(CreateLegalTermCategories_REQ oReq);
         Task<ShareResp> DeleteAsync(int id);
         Task<TLegalTermsCategory> GetRecByIdAsync(int id);

@@ -1,4 +1,6 @@
 ﻿using DAL.Models;
+using DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository.Class;
+using DAL.Repository.LegalTermsRP.LegalTermsRepository.Class;
 using DAL.Tools.ListingHelper;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,6 +32,29 @@ namespace DAL.Repository.LegalTermsRP.LegalTermsRepository
         public async Task<List<TLegalTerm>> GetLegalTermsListByCategoryIdAsync(int CategoryId)
         {
             return await _appDbContext.TLegalTerms.Where(x => x.CategoryId == CategoryId).ToListAsync();
+        }
+
+        public async Task<IQueryable<LegalTermL>> GetLegalTermsListing(LegalTermsListing_REQ oReq)
+        {
+            var englishLangId = (int)Utils.Enums.Enum_LanguageId.English;
+
+            var query = _appDbContext.TLegalTermsLanguages
+                .Where(x => x.LanguageId == englishLangId)
+                .Where(x =>
+                    string.IsNullOrEmpty(oReq.SearchTerm) || x.Title.Contains(oReq.SearchTerm) ||
+                    (!string.IsNullOrEmpty(oReq.Title) && oReq.Title.Contains(x.Title))
+                )
+                .Select(x => new LegalTermL
+                {
+                    Id = x.LegalTerm.Id,
+                    Title = x.Title,
+                    CategoryName = x.LegalTerm.Category.TLegalTermsCategoriesLanguages
+                                    .Where(c => c.LanguageId == englishLangId)
+                                    .Select(c => c.CategoryName)
+                                    .FirstOrDefault()
+                });
+
+            return query;
         }
 
         public async Task UpdateAsync(TLegalTerm LegalTerm)

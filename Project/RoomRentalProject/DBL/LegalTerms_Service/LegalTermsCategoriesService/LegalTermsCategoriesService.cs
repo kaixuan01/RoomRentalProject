@@ -79,9 +79,9 @@ namespace DBL.LegalTerms_Service.LegalTermsCategoriesService
             return rtnValue;
         }
 
-        public async Task<LegalTermsCategoriesListing_RESP> GetPagedListAsync(LegalTermsCategoriesListing_REQ oReq)
+        public async Task<LegalTermsCategoryListing_RESP> GetPagedListAsync(LegalTermsCategoriesListing_REQ oReq)
         {
-            var rtnValue = new LegalTermsCategoriesListing_RESP();
+            var rtnValue = new LegalTermsCategoryListing_RESP();
 
             var listingQuery = await _legalTermsCategoriesRepository.GetLegalTermsCategoriesListing(oReq);
 
