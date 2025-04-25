@@ -49,11 +49,18 @@ const getMenuItems = (userRoleId) => [
     },
     {
       id: uniqueId(),
+      title: 'T&C Category',
+      icon: IconScript,
+      href: '/portal/tncCategory',
+      children: [
+      ]
+    },
+    {
+      id: uniqueId(),
       title: 'Term and Conditions',
       icon: IconScript,
       href: '/portal/tnc',
       children: [
-
       ]
     },
     {
