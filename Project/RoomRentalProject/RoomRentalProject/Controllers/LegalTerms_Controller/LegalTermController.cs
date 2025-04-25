@@ -51,6 +51,29 @@ namespace RoomRentalProject.Controllers.LegalTerms_Controller
             return Ok(apiResponse);
         }
 
+        [HttpGet]
+        [Route("GetLegalTermById")]
+        public async Task<IActionResult> GetLegalTermById([FromQuery] int LegalTermId)
+        {
+            ApiResponse<TLegalTerm>? apiResponse = null;
+            LogHelper.FormatMainLogMessage(Enum_LogLevel.Information, $"Receive Request Get Legal Term Details, Id: {LegalTermId}");
+
+            try
+            {
+                var oResp = await _legalTermService.GetRecByIdAsync(LegalTermId);
+
+                apiResponse = ApiResponse<TLegalTerm>.CreateSuccessResponse(oResp, "Get Legal Term Successful");
+            }
+            catch (Exception ex)
+            {
+                LogHelper.FormatMainLogMessage(Enum_LogLevel.Error, $"Exception when Get Legal Term Details, Message: {ex.Message}", ex);
+
+                apiResponse = ApiResponse<TLegalTerm>.CreateErrorResponse($"Failed to get Legal Term Details. Exception: {ex.Message}");
+            }
+
+            return Ok(apiResponse);
+        }
+
         [HttpPost]
         [Route("CreateLegalTerm")]
         public async Task<IActionResult> CreateLegalTerm([FromBody] CreateLegalTerm_REQ oReq)

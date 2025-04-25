@@ -1,4 +1,5 @@
-﻿using DAL.Repository.LegalTermsRP.LegalTermsRepository.Class;
+﻿using DAL.Models;
+using DAL.Repository.LegalTermsRP.LegalTermsRepository.Class;
 using DAL.Shared.Class;
 using DBL.LegalTerms_Service.LegalTermsService.LegalTermsActionClass;
 
@@ -9,6 +10,7 @@ namespace DBL.LegalTerms_Service.LegalTermsService
         Task<LegalTermsListing_RESP> GetPagedListAsync(LegalTermsListing_REQ oReq);
         Task<CreateLegalTerm_RESP> CreateAsync(CreateLegalTerm_REQ oReq);
         Task<EditLegalTerm_RESP> UpdateAsync(EditLegalTerm_REQ oReq);
+        Task<TLegalTerm> GetRecByIdAsync(int id);
         Task<ShareResp> DeleteAsync(int id);
     }
 }

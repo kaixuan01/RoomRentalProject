@@ -214,6 +214,13 @@ namespace DBL.LegalTerms_Service.LegalTermsService
             return rtnValue;
         }
 
+        public async Task<TLegalTerm> GetRecByIdAsync(int id)
+        {
+            var rtnValue = await _legalTermsRepository.GetLegalTermsById(id);
+
+            return rtnValue;
+        }
+
         #region [ Delete ]
 
         public async Task<ShareResp> DeleteAsync(int id)
