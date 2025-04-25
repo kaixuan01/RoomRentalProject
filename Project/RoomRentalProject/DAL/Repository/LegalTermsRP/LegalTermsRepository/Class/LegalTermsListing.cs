@@ -12,6 +12,7 @@ namespace DAL.Repository.LegalTermsRP.LegalTermsRepository.Class
     {
         public string? CategoryName { get; set; }
         public string? Title { get; set; }
+        public string? IsActive { get; set; }
     }
 
     public class LegalTermsListing_RESP : ShareResp
@@ -24,5 +25,6 @@ namespace DAL.Repository.LegalTermsRP.LegalTermsRepository.Class
         public int Id { get; set; }
         public string CategoryName { get; set; }
         public string Title { get; set; }
+        public bool IsActive { get; set; }
     }
 }

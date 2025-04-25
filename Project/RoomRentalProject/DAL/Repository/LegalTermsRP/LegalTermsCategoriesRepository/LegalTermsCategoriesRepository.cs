@@ -73,7 +73,17 @@ namespace DAL.Repository.LegalTermsRP.LegalTermsCategoriesRepository
 
                 if (!string.IsNullOrEmpty(oReq.IsActive))
                 {
-                    query = query.Where(u => oReq.IsActive.Contains(u.Category.IsActive.ToString()));
+                    var activeList = oReq.IsActive
+                        .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                        .Select(val => bool.TryParse(val, out var parsed) ? parsed : (bool?)null)
+                        .Where(val => val.HasValue)
+                        .Select(val => val.Value)
+                        .ToList();
+
+                    if (activeList.Any())
+                    {
+                        query = query.Where(u => activeList.Contains(u.Category.IsActive ?? false));
+                    }
                 }
             }
 

@@ -39,22 +39,48 @@ namespace DAL.Repository.LegalTermsRP.LegalTermsRepository
             var englishLangId = (int)Utils.Enums.Enum_LanguageId.English;
 
             var query = _appDbContext.TLegalTermsLanguages
-                .Where(x => x.LanguageId == englishLangId)
-                .Where(x =>
-                    string.IsNullOrEmpty(oReq.SearchTerm) || x.Title.Contains(oReq.SearchTerm) ||
-                    (!string.IsNullOrEmpty(oReq.Title) && oReq.Title.Contains(x.Title))
-                )
-                .Select(x => new LegalTermL
-                {
-                    Id = x.LegalTerm.Id,
-                    Title = x.Title,
-                    CategoryName = x.LegalTerm.Category.TLegalTermsCategoriesLanguages
-                                    .Where(c => c.LanguageId == englishLangId)
-                                    .Select(c => c.CategoryName)
-                                    .FirstOrDefault()
-                });
+                .Where(x => x.LanguageId == englishLangId);
 
-            return query;
+            // Apply either SearchTerm or Title filter, but not both
+            if (!string.IsNullOrEmpty(oReq.SearchTerm))
+            {
+                query = query.Where(x => x.Title.Contains(oReq.SearchTerm));
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(oReq.Title))
+                {
+                    query = query.Where(x => oReq.Title.Contains(x.Title));
+                }
+
+                if (!string.IsNullOrEmpty(oReq.IsActive))
+                {
+                    var activeList = oReq.IsActive
+                        .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                        .Select(val => bool.TryParse(val, out var parsed) ? parsed : (bool?)null)
+                        .Where(val => val.HasValue)
+                        .Select(val => val.Value)
+                        .ToList();
+
+                    if (activeList.Any())
+                    {
+                        query = query.Where(u => activeList.Contains(u.LegalTerm.IsActive ?? false));
+                    }
+                }
+            }
+
+            var result = query.Select(x => new LegalTermL
+            {
+                Id = x.LegalTerm.Id,
+                Title = x.Title,
+                CategoryName = x.LegalTerm.Category.TLegalTermsCategoriesLanguages
+                                .Where(c => c.LanguageId == englishLangId)
+                                .Select(c => c.CategoryName)
+                                .FirstOrDefault(),
+                IsActive = x.LegalTerm.IsActive.GetValueOrDefault()
+            });
+
+            return result;
         }
 
         public async Task UpdateAsync(TLegalTerm LegalTerm)
