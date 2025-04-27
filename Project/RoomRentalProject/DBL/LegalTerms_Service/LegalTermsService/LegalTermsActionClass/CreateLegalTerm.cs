@@ -2,8 +2,6 @@
 {
     public class CreateLegalTerm_REQ
     {
-        public int LegalTermCategoryId { get; set; }
-
         public LegalTerm LegalTerm { get; set; }
 
         public int? CreatedBy { get; set; }

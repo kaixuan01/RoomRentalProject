@@ -2,8 +2,6 @@
 {
     public class EditLegalTerm_REQ
     {
-        public int LegalTermCategoryId { get; set; }
-
         public LegalTerm LegalTerm { get; set; }
 
         public int? UpdatedBy { get; set; }

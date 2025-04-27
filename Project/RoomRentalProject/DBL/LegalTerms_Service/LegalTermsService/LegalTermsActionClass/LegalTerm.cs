@@ -5,7 +5,7 @@ namespace DBL.LegalTerms_Service.LegalTermsService.LegalTermsActionClass
     public class LegalTerm
     {
         public int Id { get; set; }
-
+        public int CategoryId { get; set; }
         public bool IsActive { get; set; } = true;
 
         public List<LegalTermLanguages> LegalTermLanguages { get; set; }

@@ -51,7 +51,7 @@ namespace DBL.LegalTerms_Service.LegalTermsService
             {
                 var newLegalTerm = new TLegalTerm
                 {
-                    CategoryId = oReq.LegalTermCategoryId,
+                    CategoryId = oReq.LegalTerm.CategoryId,
                     IsActive = oReq.LegalTerm.IsActive,
                     CreatedAt = DateTime.UtcNow,
                     CreatedBy = oReq.CreatedBy,
@@ -103,14 +103,14 @@ namespace DBL.LegalTerms_Service.LegalTermsService
 
             try
             {
-                var oLegalTermCategory = await _legalTermsCategoriesRepository.GetLegalTermsCategoriesById(oReq.LegalTermCategoryId);
+                var oLegalTermCategory = await _legalTermsCategoriesRepository.GetLegalTermsCategoriesById(oReq.LegalTerm.CategoryId);
 
                 if(oLegalTermCategory == null)
                 {
                     rtnValue.Code = RespCode.RespCode_Failed;
                     rtnValue.Message = ErrorMessage.DataNotFound;
 
-                    LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"The requsted legal term category cannot be found. Id: {oReq.LegalTermCategoryId}");
+                    LogHelper.RaiseLogEvent(Enum_LogLevel.Error, $"The requsted legal term category cannot be found. Id: {oReq.LegalTerm.CategoryId}");
                     return rtnValue;
                 }
 
